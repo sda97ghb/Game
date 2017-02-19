@@ -2,3 +2,5 @@
 *.git.vcxproj
 *.git.vcxproj.filters
 *.git.vcxproj.user
+*.pro
+*.pro.user
