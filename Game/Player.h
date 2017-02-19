@@ -8,7 +8,9 @@ class Player : public Entity
 {
 public:
 	static Player& instance();
-	void update();
+
+  void update();
+
 private:
 	Player();
 	Player(const Player&) = delete;

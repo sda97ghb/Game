@@ -3,7 +3,6 @@
 
 Player& Player::instance()
 {
-	static Player instance;
-	return instance;
+	  static Player instance;
+    return instance;
 }
-

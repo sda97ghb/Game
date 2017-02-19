@@ -11,6 +11,7 @@ public:
     static World& instance();
 
     void addLadder(Ladder&& ladder);
+    const std::list<Ladder>& ladders() const;
 
 private:
     World();
