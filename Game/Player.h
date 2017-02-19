@@ -8,7 +8,8 @@ class Player : public Entity
 {
 public:
 	static Player& instance();
-    void update();
+
+  void update();
 
 private:
 	Player();
