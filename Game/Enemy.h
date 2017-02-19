@@ -9,8 +9,10 @@ class Enemy : public Entity
 public:
 	
 protected:
-	void inaction();
-	void aggression();
+	void update();
+	void going();
+	bool inaction();
+	bool aggression();
 	bool canSeePlayer();
 };
 

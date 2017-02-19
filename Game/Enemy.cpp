@@ -3,16 +3,30 @@
 #include "Game/Player.h"
 #include "Box2D/Box2D.h"
 
-void Enemy::inaction()
+void Enemy::update()
+{
+	if(canSeePlayer) aggression();
+	else inaction();
+}
+
+bool Enemy::inaction()
 {
 
 }
 
-void Enemy::aggression()
+void Enemy::going()
+{
+
+}
+
+bool Enemy::aggression()
 {
 	Player& player = Player::instance();
-	if(canSeePlayer) 
+	
 		body().SetTransform(player.body().GetPosition(),body().GetAngle());
+		return true;
+	
+
 }
 
 bool Enemy::canSeePlayer()
