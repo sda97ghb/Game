@@ -6,8 +6,6 @@
 
 class Enemy : public Entity
 {
-public:
-	
 protected:
 	void update();
 	void going();

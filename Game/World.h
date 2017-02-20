@@ -3,7 +3,17 @@
 
 #include <list>
 
+#include "Game/Archer.h"
+#include "Game/Cable.h"
+#include "Game/FallingGround.h"
 #include "Game/Ladder.h"
+#include "Game/Lava.h"
+#include "Game/Mage.h"
+#include "Game/Platform.h"
+#include "Game/Rope.h"
+#include "Game/Spikes.h"
+#include "Game/Swordman.h"
+#include "Game/Water.h"
 
 class World
 {

@@ -1,5 +1,19 @@
 #include "Game/Entity.h"
 
+void Entity::setPosition(float x, float y)
+{
+    _body->SetTransform(b2Vec2(x, y), _body->GetAngle());
+}
+
+float Entity::x()
+{
+    return _body->GetPosition().x;
+}
+
+float Entity::y()
+{
+    return _body->GetPosition().y;
+}
 
 void Entity::damage(float value)
 {

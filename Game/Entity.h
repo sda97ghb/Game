@@ -7,6 +7,11 @@
 class Entity
 {
 public:
+    void setPosition(float x, float y);
+
+    float x();
+    float y();
+
 	virtual void update() = 0;
 	void damage(float value);
 	bool isAlive();
