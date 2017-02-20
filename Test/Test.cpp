@@ -1,34 +1,31 @@
 #include "Test/Test.h"
 
-#include "Game/World.h"
 #include "Game/Painter.h"
+
+#include "Test/TestWorldLoader.h"
 
 void test::main()
 {
     Painter painter;
     painter.initialize();
+    sf::RenderWindow& window = painter.window();
 
-    Ladder ladder;
-    ladder.setCoordinates(0.0, -10.0, 7.0);
-    ladder.setWidth(0.45);
-    ladder.setTexture("C:/Projects/Game/Textures/ladder2.png");
+    TestWorldLoader loader;
+    loader.load();
 
-    World& world = World::instance();
-    world.addLadder(std::move(ladder));
-
-    while (painter.window().isOpen())
+    while (window.isOpen())
     {
         sf::Event event;
-        while (painter.window().pollEvent(event))
+        while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
-                painter.window().close();
+                window.close();
         }
 
-        painter.window().clear();
+        window.clear();
 
         painter.drawWorld();
 
-        painter.window().display();
+        window.display();
     }
 }
