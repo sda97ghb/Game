@@ -14,7 +14,7 @@ public:
 
     void drawWorld();
 
-    void drawLadder(Ladder& ladder);
+    sf::Sprite& contructSpriteLadder(Ladder& ladder);
 private:
     sf::RenderWindow* _window;
     sf::View* _view;

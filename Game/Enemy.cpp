@@ -5,13 +5,15 @@
 
 void Enemy::update()
 {
-	if(canSeePlayer) aggression();
-	else inaction();
+    if (canSeePlayer())
+        aggression();
+    else
+        inaction();
 }
 
 bool Enemy::inaction()
 {
-
+    return false;
 }
 
 void Enemy::going()

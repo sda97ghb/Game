@@ -25,10 +25,13 @@ void Painter::drawWorld()
 {
     World& world = World::instance();
     for (const Ladder& ladder : world.ladders())
-        drawLadder(const_cast<Ladder&>(ladder));
+    {
+        sf::Sprite& sprite = contructSpriteLadder(const_cast<Ladder&>(ladder));
+        _window->draw(sprite);
+    }
 }
 
-void Painter::drawLadder(Ladder& ladder)
+sf::Sprite& Painter::contructSpriteLadder(Ladder& ladder)
 {
     sf::Sprite& sprite = ladder.sprite();
     sf::Texture& texture = ladder.texture();
@@ -41,5 +44,6 @@ void Painter::drawLadder(Ladder& ladder)
                        physicalToScreen(-ladder.y2()));
 
     sprite.setScale(3.0, 3.0);
-    _window->draw(sprite);
+
+    return sprite;
 }

@@ -2,17 +2,16 @@
 #define PLAYER_H
 
 #include "Game/Entity.h"
-#include <Box2D/Dynamics/b2Body.h>
 
 class Player : public Entity
 {
 public:
 	static Player& instance();
 
-  void update();
+    void update();
 
 private:
-	Player();
+    Player();
 	Player(const Player&) = delete;
 	void operator= (const Player&) = delete;
 };

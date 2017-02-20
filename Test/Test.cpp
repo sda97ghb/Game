@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 #include "Test/Test.h"
 
 #include "Game/World.h"
@@ -33,30 +32,3 @@ void test::main()
         painter.window().display();
     }
 }
-=======
-#include "Test.h"
-using namespace test;
-
-#include <SFML/Graphics.hpp>
-#include "Game/Player.h"
-
-void main()
-{
-	sf::RenderWindow window(sf::VideoMode(200, 200), "Game");
-
-	
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
- 
-		window.clear();
-		window.draw();
-		window.display();
-	}
-}
->>>>>>> Stashed changes
