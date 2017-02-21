@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Test/Test.h"
 
 #include "Game/Painter.h"
