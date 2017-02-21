@@ -14,9 +14,8 @@ public:
 
     void drawWorld();
 
-    sf::Sprite& contructSpriteLadder(Ladder& ladder);
-
-    void transformSpriteCoordinates(sf::Sprite& sprite);
+    sf::RectangleShape& constructLadder(Ladder& ladder);
+    sf::ConvexShape& constructPlatform(Platform& platform);
 
 private:
     sf::RenderWindow* _window;

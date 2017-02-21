@@ -8,8 +8,10 @@ Painter::~Painter()
 #include <iostream>
 void Painter::initialize()
 {
-    sf::VideoMode videoMode = sf::VideoMode::getDesktopMode();
-    _window = new sf::RenderWindow(videoMode, "Game", sf::Style::Fullscreen);
+//    sf::VideoMode videoMode = sf::VideoMode::getDesktopMode();
+//    _window = new sf::RenderWindow(videoMode, "Game", sf::Style::Fullscreen);
+    sf::VideoMode videoMode = sf::VideoMode(1200, 720);
+    _window = new sf::RenderWindow(videoMode, "Game");
     _view = new sf::View(sf::FloatRect(-(videoMode.width * 0.5), -(videoMode.height * 0.9),
                                         videoMode.width, videoMode.height));
     _window->setView(*_view);
@@ -24,11 +26,17 @@ void Painter::drawWorld()
 {
     World& world = World::instance();
 
-    for (const Ladder& ladder : world.ladders())
+    for (const Platform& cPlatform : world.platforms())
     {
-        sf::Sprite& sprite = contructSpriteLadder(const_cast<Ladder&>(ladder));
-        transformSpriteCoordinates(sprite);
-        _window->draw(sprite);
+        Platform& platform = const_cast<Platform&>(cPlatform);
+        sf::ConvexShape& shape = constructPlatform(platform);(void)shape;
+        _window->draw(shape);
+    }
+    for (const Ladder& ladderC : world.ladders())
+    {
+        Ladder& ladder = const_cast<Ladder&>(ladderC);
+        sf::RectangleShape& shape = constructLadder(ladder);
+        _window->draw(shape);
     }
 
     sf::CircleShape zeroSprite;
@@ -36,46 +44,57 @@ void Painter::drawWorld()
     zeroSprite.setRadius(1.0f);
     zeroSprite.setFillColor(sf::Color(255, 0, 0));
     _window->draw(zeroSprite);
-
 }
 
-sf::Sprite& Painter::contructSpriteLadder(Ladder& ladder)
+#include "Box2D.h"
+
+b2Vec2 computeSize(b2Shape& shape)
 {
-    sf::Sprite& sprite = ladder.sprite();
+    b2AABB aabb;
+    b2Transform transform;
+    transform.SetIdentity();
+    int32 index = 0;
+    shape.ComputeAABB(&aabb, transform, index);
+    b2Vec2 size = aabb.upperBound;
+    size -= aabb.lowerBound;
+    return size;
+}
+
+sf::ConvexShape& Painter::constructPlatform(Platform& platform)
+{
+    b2PolygonShape& shapeB2 = platform.shapeB2();
+
+    sf::ConvexShape& shapeSF = platform.shapeSF();
+    sf::Texture& texture = platform.texture();
+
+    shapeSF.setTexture(&texture);
+    b2Vec2 size = computeSize(shapeB2);
+    shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
+                                       translate::SizePf2Si(size)));
+
+    int32 vertexCount = shapeB2.GetVertexCount();
+    shapeSF.setPointCount(vertexCount);
+    for (int32 i = 0; i < vertexCount; ++ i)
+        shapeSF.setPoint(i, translate::PosPf2Sf(shapeB2.GetVertex(i)));
+
+    return shapeSF;
+}
+
+sf::RectangleShape& Painter::constructLadder(Ladder& ladder)
+{
+    b2PolygonShape& shapeB2 = ladder.shapeB2();
+
+    sf::RectangleShape& shapeSF = ladder.shapeSF();
     sf::Texture& texture = ladder.texture();
 
-    sprite.setTexture(texture);
-//    float PIXEL_ART_SCALE = 4.0;
-//    sprite.setScale(PIXEL_ART_SCALE, PIXEL_ART_SCALE);
-    sprite.setTextureRect(sf::IntRect(0, 0, physicalToScreen(ladder.width()),
-                                            physicalToScreen(ladder.height())));
-    sprite.setPosition(physicalToScreen(ladder.x()) - physicalToScreen(ladder.width()) / 2,// * PIXEL_ART_SCALE,
-                       physicalToScreen(ladder.y1()));
-//    sprite.setPosition(physicalToScreen(ladder.x() - ladder.width() / 2),
-//                       physicalToScreen(-ladder.y2()));
+    shapeSF.setTexture(&texture);
+    b2Vec2 size = computeSize(shapeB2);
+    shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
+                                       translate::SizePf2Si(size)));
 
-    return sprite;
-}
+    b2Vec2 pos(ladder.x() - ladder.width() / 2.0f, ladder.y2());
+    shapeSF.setPosition(translate::PosPf2Sf(pos));
+    shapeSF.setSize(translate::SizePf2Sf(ladder.size()));
 
-void Painter::transformSpriteCoordinates(sf::Sprite& sprite)
-{
-    float x = sprite.getPosition().x;
-    float y = sprite.getPosition().y;
-
-    float height = sprite.getTextureRect().height;
-    float width = sprite.getTextureRect().width;
-
-    y = -y - height;
-
-//    x = physicalToScreen(x);
-//    y = physicalToScreen(y);
-//    width = physicalToScreen(width);
-//    height = physicalToScreen(height);
-
-    sprite.setPosition(x, y);
-//    sprite.setTextureRect(sf::IntRect(0, 0, static_cast<int>(floor(width)),
-//                                            static_cast<int>(floor(height))));
-
-//    float screenWidth = physicalToScreen(ladder.width());
-//    float screenHeight = physicalToScreen(ladder.height());
+    return shapeSF;
 }
