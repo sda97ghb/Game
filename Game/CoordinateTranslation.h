@@ -4,12 +4,26 @@
 #include "Box2D/Common/b2Math.h"
 #include "SFML/System/Vector2.hpp"
 
-static constexpr float SCREEN_PER_PHYSICAL = 30.0;
+namespace translate {
+    static constexpr float SCREEN_PER_PHYSICAL = 30.0;
 
-sf::Vector2f physicalToScreen(const b2Vec2& pos);
-b2Vec2 screenToPhysical(const sf::Vector2f& pos);
+    // Point - Pos
+    // Size - Size
+    // Physical - P
+    // Screen - S
+    // int - i
+    // float - f
+    // to - 2
+    // Physical float point to screen int point - PosPf2Si
 
-float physicalToScreen(float size);
-float screenToPhysical(float size);
+    sf::Vector2f PosPf2Sf(const b2Vec2& pos);
+    sf::Vector2i PosPf2Si(const b2Vec2& pos);
+
+    sf::Vector2f SizePf2Sf(const b2Vec2& pos);
+    sf::Vector2i SizePf2Si(const b2Vec2& pos);
+
+    float SizePf2Sf(float size);
+    int   SizePf2Si(float size);
+}
 
 #endif // COORDINATETRANSLATION_H

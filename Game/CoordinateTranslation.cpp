@@ -1,23 +1,35 @@
 #include "CoordinateTranslation.h"
 
-sf::Vector2f physicalToScreen(const b2Vec2& pos)
+sf::Vector2f translate::PosPf2Sf(const b2Vec2& pos)
+{
+    return sf::Vector2f(  pos.x * SCREEN_PER_PHYSICAL,
+                        - pos.y * SCREEN_PER_PHYSICAL);
+}
+
+sf::Vector2i translate::PosPf2Si(const b2Vec2& pos)
+{
+    return sf::Vector2i(  static_cast<int>(floor(pos.x * SCREEN_PER_PHYSICAL)),
+                        - static_cast<int>(floor(pos.y * SCREEN_PER_PHYSICAL)));
+}
+
+sf::Vector2f translate::SizePf2Sf(const b2Vec2& pos)
 {
     return sf::Vector2f(pos.x * SCREEN_PER_PHYSICAL,
                         pos.y * SCREEN_PER_PHYSICAL);
 }
 
-b2Vec2 screenToPhysical(const sf::Vector2f& pos)
+sf::Vector2i translate::SizePf2Si(const b2Vec2& pos)
 {
-    return b2Vec2(pos.x / SCREEN_PER_PHYSICAL,
-                  pos.y / SCREEN_PER_PHYSICAL);
+    return sf::Vector2i(static_cast<int>(floor(pos.x * SCREEN_PER_PHYSICAL)),
+                        static_cast<int>(floor(pos.y * SCREEN_PER_PHYSICAL)));
 }
 
-float physicalToScreen(float size)
+float translate::SizePf2Sf(float size)
 {
     return size * SCREEN_PER_PHYSICAL;
 }
 
-float screenToPhysical(float size)
+int translate::SizePf2Si(float size)
 {
-    return size / SCREEN_PER_PHYSICAL;
+    return static_cast<int>(round(size * SCREEN_PER_PHYSICAL));
 }
