@@ -3,9 +3,13 @@
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
+#include "Game/ImageScaler.h"
+
 void Platform::setTexture(const std::string& filename)
 {
-    _texture.loadFromFile(filename);
+    sf::Image original;
+    original.loadFromFile(filename);
+    _texture.loadFromImage(ImageScaler::scale(original));
     _texture.setRepeated(true);
 }
 

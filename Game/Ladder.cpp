@@ -1,7 +1,9 @@
 #include "Game/Ladder.h"
 
-#include "Game/Player.h"
 #include "SFML/Window/Keyboard.hpp"
+
+#include "Game/ImageScaler.h"
+#include "Game/Player.h"
 
 Ladder::Ladder() :
     _x(0.0f),
@@ -27,7 +29,9 @@ void Ladder::setWidth(float width)
 
 void Ladder::setTexture(const std::string& filename)
 {
-    _texture.loadFromFile(filename);
+    sf::Image original;
+    original.loadFromFile(filename);
+    _texture.loadFromImage(ImageScaler::scale(original));
     _texture.setRepeated(true);
 }
 
