@@ -16,6 +16,8 @@ public:
 
     sf::RectangleShape& constructLadder(Ladder& ladder);
     sf::ConvexShape& constructPlatform(Platform& platform);
+    sf::Sprite& constructPlayer();
+    sf::Sprite& constructArcher(TestArcher& archer);
 
 private:
     sf::RenderWindow* _window;
