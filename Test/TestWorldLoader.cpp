@@ -124,6 +124,28 @@ void TestWorldLoader::load()
     {
         Platform& platform = world.createPlatform();
         b2PolygonShape shape;
+        b2Vec2 vertexes[4] = {b2Vec2(9.0, 9.0),
+                              b2Vec2(10.0, 9.0),
+                              b2Vec2(10.0, 9.5),
+                              b2Vec2(9.0, 9.5)};
+        shape.Set(vertexes, 4);
+        platform.setShape(shape);
+        platform.setTexture("C:/Projects/Game/Textures/stonebricks.png");
+    }
+    {
+        Platform& platform = world.createPlatform();
+        b2PolygonShape shape;
+        b2Vec2 vertexes[4] = {b2Vec2(15.0, 9.0),
+                              b2Vec2(20.0, 9.0),
+                              b2Vec2(20.0, 9.5),
+                              b2Vec2(15.0, 9.5)};
+        shape.Set(vertexes, 4);
+        platform.setShape(shape);
+        platform.setTexture("C:/Projects/Game/Textures/stonebricks.png");
+    }
+    {
+        Platform& platform = world.createPlatform();
+        b2PolygonShape shape;
         b2Vec2 vertexes[4] = {b2Vec2(-19.0, 0.0),
                               b2Vec2(-18.0, 0.0),
                               b2Vec2(-18.0, 4.0),
