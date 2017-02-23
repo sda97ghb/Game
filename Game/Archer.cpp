@@ -1,11 +1,19 @@
-#ifndef ARCHER_H
-#define ARCHER_H
+#include "Game/Archer.h"
 
-#include "Game/Entity.h"
-
-class Archer : public Entity
+Archer::Archer()
 {
-    ;
-};
+}
 
-#endif // ARCHER_H
+float Archer::width() const
+{
+    return 0.75f;
+}
+
+float Archer::height() const
+{
+    return 1.75f;
+}
+
+void Archer::update()
+{
+}

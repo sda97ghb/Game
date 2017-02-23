@@ -39,7 +39,7 @@ void Ladder::setTexture(const std::string& filename)
 void Ladder::testPlayerOnIt()
 {
     try {
-        TestPlayer& player = World::instance().player();
+        Player& player = World::instance().player();
         b2Body& body = player.body();
         b2Transform transform;
         transform.SetIdentity();

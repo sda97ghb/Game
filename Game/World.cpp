@@ -51,15 +51,15 @@ World& World::instance()
     return instance;
 }
 
-TestPlayer& World::player()
+Player& World::player()
 {
-    return TestPlayer::instance();
+    return Player::instance();
 }
 
-TestArcher& World::createArcher()
+Archer& World::createArcher()
 {
     _archers.emplace_back();
-    TestArcher& archer = _archers.back();
+    Archer& archer = _archers.back();
 
     b2BodyDef archerBodyDef;
     archerBodyDef.type = b2_dynamicBody;
@@ -89,7 +89,7 @@ TestArcher& World::createArcher()
     return archer;
 }
 
-const std::list<TestArcher>& World::archers() const
+const std::list<Archer>& World::archers() const
 {
     return _archers;
 }

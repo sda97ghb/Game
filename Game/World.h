@@ -5,7 +5,7 @@
 
 #include "Box2D/Dynamics/b2World.h"
 
-//#include "Game/Archer.h"
+#include "Game/Archer.h"
 #include "Game/Cable.h"
 #include "Game/FallingGround.h"
 #include "Game/Ladder.h"
@@ -17,8 +17,10 @@
 #include "Game/Swordman.h"
 #include "Game/Water.h"
 
-#include "Game/TestPlayer.h"
-#include "Game/TestArcher.h"
+#include "Game/Player.h"
+
+//#include "Game/TestPlayer.h"
+//#include "Game/TestArcher.h"
 
 #include "Game/SensorContactListener.h"
 
@@ -27,10 +29,10 @@ class World
 public:
     static World& instance();
 
-    TestPlayer& player();
+    Player& player();
 
-    TestArcher& createArcher();
-    const std::list<TestArcher>& archers() const;
+    Archer& createArcher();
+    const std::list<Archer>& archers() const;
 
     Platform& createPlatform();
     const std::list<Platform>& platforms() const;
@@ -52,7 +54,7 @@ private:
     std::list<Ladder> _ladders;
     std::list<Platform> _platforms;
 
-    std::list<TestArcher> _archers;
+    std::list<Archer> _archers;
 
     b2World* _world;
 

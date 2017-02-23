@@ -8,6 +8,9 @@ class Player : public Entity
 public:
 	static Player& instance();
 
+    float width() const;
+    float height() const;
+
     void update();
 
 private:
@@ -15,8 +18,5 @@ private:
 	Player(const Player&) = delete;
 	void operator= (const Player&) = delete;
 };
-
-
-
 
 #endif //PLAYER_H

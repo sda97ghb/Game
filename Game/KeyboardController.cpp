@@ -11,24 +11,24 @@ KeyboardController::KeyboardController()
 void KeyboardController::processKeyboard()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        TestPlayer::instance().stepLeft();
+        Player::instance().stepLeft();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        TestPlayer::instance().stepRight();
+        Player::instance().stepRight();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-        TestPlayer::instance().jump();
+        Player::instance().jump();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
     {
-        for (const TestArcher& archerC : World::instance().archers())
-            const_cast<TestArcher&>(archerC).stepLeft();
+        for (const Archer& archerC : World::instance().archers())
+            const_cast<Archer&>(archerC).stepLeft();
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
     {
-        for (const TestArcher& archerC : World::instance().archers())
-            const_cast<TestArcher&>(archerC).stepRight();
+        for (const Archer& archerC : World::instance().archers())
+            const_cast<Archer&>(archerC).stepRight();
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::T))
     {
-        for (const TestArcher& archerC : World::instance().archers())
-            const_cast<TestArcher&>(archerC).jump();
+        for (const Archer& archerC : World::instance().archers())
+            const_cast<Archer&>(archerC).jump();
     }
 }

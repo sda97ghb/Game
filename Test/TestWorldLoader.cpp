@@ -163,13 +163,13 @@ void TestWorldLoader::load()
     }
 
     {
-        TestPlayer& player = world.player();
+        Player& player = world.player();
         player.setPosition(0.0f, 1.75f / 2.0f);
         player.setTexture("C:/Projects/Game/Textures/player.png");
     }
 
     {
-        TestArcher& archer = world.createArcher();
+        Archer& archer = world.createArcher();
         archer.setPosition(3.0f, 10.0f);
         archer.setTexture("C:/Projects/Game/Textures/archer.png");
     }

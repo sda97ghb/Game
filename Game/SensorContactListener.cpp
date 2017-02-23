@@ -36,9 +36,9 @@ void SensorContactListener::setOnGround(b2Body* body, bool value)
         world.player().setOnGround(value);
         return;
     }
-    for (const TestArcher& archerC : world.archers())
+    for (const Archer& archerC : world.archers())
     {
-        TestArcher& archer = const_cast<TestArcher&>(archerC);
+        Archer& archer = const_cast<Archer&>(archerC);
         if (&archer.body() == body)
         {
             archer.setOnGround(value);

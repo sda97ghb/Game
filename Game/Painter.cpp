@@ -54,9 +54,9 @@ void Painter::drawWorld()
         _window->draw(shape);
     }
 
-    for (const TestArcher& archerC : world.archers())
+    for (const Archer& archerC : world.archers())
     {
-        TestArcher& archer = const_cast<TestArcher&>(archerC);
+        Archer& archer = const_cast<Archer&>(archerC);
         sf::Sprite& sprite = constructArcher(archer);
         _window->draw(sprite);
     }
@@ -107,7 +107,7 @@ sf::ConvexShape& Painter::constructPlatform(Platform& platform)
 
 sf::Sprite& Painter::constructPlayer()
 {
-    TestPlayer& player = TestPlayer::instance();
+    Player& player = Player::instance();
     b2Body& body = player.body();
     sf::Texture& texture = player.texture();
     sf::Sprite& sprite = player.sprite();
@@ -122,7 +122,7 @@ sf::Sprite& Painter::constructPlayer()
     return sprite;
 }
 
-sf::Sprite&Painter::constructArcher(TestArcher& archer)
+sf::Sprite&Painter::constructArcher(Archer& archer)
 {
     b2Body& body = archer.body();
     sf::Texture& texture = archer.texture();
