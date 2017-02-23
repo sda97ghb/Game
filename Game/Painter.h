@@ -22,6 +22,9 @@ public:
 private:
     sf::RenderWindow* _window;
     sf::View* _view;
+
+    sf::Texture _backgroundTexture;
+    sf::Sprite _background;
 };
 
 #endif // PAINTER_H

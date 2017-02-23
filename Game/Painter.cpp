@@ -15,6 +15,9 @@ void Painter::initialize()
     _view = new sf::View(sf::FloatRect(-(videoMode.width * 0.5), -(videoMode.height * 0.9),
                                         videoMode.width, videoMode.height));
     _window->setView(*_view);
+
+    _backgroundTexture.loadFromFile("C:/Projects/Game/Textures/background.png");
+    _background.setTexture(_backgroundTexture);
 }
 
 sf::RenderWindow& Painter::window()
@@ -32,6 +35,9 @@ void Painter::drawWorld()
 //    _view->setRotation(posSF.y);
     _view->setCenter(posSF.x + 0.0f, posSF.y - 300.0f);
     _window->setView(*_view);
+
+    _background.setPosition(posSF.x - 600.0f, posSF.y - 660.0f);
+    _window->draw(_background);
 
     World& world = World::instance();
 
