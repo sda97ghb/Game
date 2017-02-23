@@ -3,7 +3,7 @@
 
 namespace test
 {
-    void main();
+    void main(int argc, char** argv);
 }
 
 #endif //TEST_H

@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Test/Test.h"
 
+#include "Game/KeyboardController.h"
 #include "Game/Painter.h"
 
 #include "Test/TestWorldLoader.h"
 
-void test::main()
+void test::main(int argc, char** argv)
 {
     Painter painter;
     painter.initialize();
@@ -28,5 +29,19 @@ void test::main()
         painter.drawWorld();
 
         window.display();
+
+        static sf::Clock physicTimer;
+        if (physicTimer.getElapsedTime().asMilliseconds() >= 16)
+        {
+            World::instance().update();
+            physicTimer.restart();
+        }
+
+        static sf::Clock keyboardProcessingTimer;
+        if (keyboardProcessingTimer.getElapsedTime().asMilliseconds() >= 10)
+        {
+            KeyboardController::processKeyboard();
+            keyboardProcessingTimer.restart();
+        }
     }
 }
