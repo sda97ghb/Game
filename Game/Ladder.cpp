@@ -34,20 +34,43 @@ void Ladder::setTexture(const std::string& filename)
     _texture.loadFromImage(ImageScaler::scale(original));
     _texture.setRepeated(true);
 }
-
+#include <iostream>
+#include "Game/World.h"
 void Ladder::testPlayerOnIt()
 {
-    Player& player = Player::instance();
-    float playerX = player.body().GetPosition().x;
-    float playerY = player.body().GetPosition().y;
-    bool isPlayerOnIt = playerX > _x - _width / 2 && playerY > _y1 &&
-                        playerX < _x + _width / 2 && playerY < _y2;
-    if (!isPlayerOnIt)
-        return;
-//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-//        player.body().ApplyLinearImpulseImpulse(b2Vec(0.0f, 1.0f),
-//                                                player.body().GetWorldCenter(),
-//                                                true);
+    try {
+        TestPlayer& player = World::instance().player();
+        b2Body& body = player.body();
+        b2Transform transform;
+        transform.SetIdentity();
+        if (_shapeB2.TestPoint(transform, player.footPosition()))
+        {
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+            {
+                b2Vec2 velocity = body.GetLinearVelocity();
+                velocity.y = 3.0f;
+                body.SetLinearVelocity(velocity);
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+            {
+                b2Vec2 velocity = body.GetLinearVelocity();
+                velocity.y = -3.0f;
+                body.SetLinearVelocity(velocity);
+            }
+            else
+            {
+                b2Vec2 velocity = body.GetLinearVelocity();
+                velocity.y = 0.0f;
+                body.SetLinearVelocity(velocity);
+            }
+            body.ApplyForce(b2Vec2(0.0, 12.0),
+                        body.GetWorldCenter(), true);
+        }
+    }
+    catch (Player::NoBodyException&)
+    {
+        std::cout << "something went wrong(" << std::endl;
+    }
 }
 
 float Ladder::x() const
