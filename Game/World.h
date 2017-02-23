@@ -5,7 +5,7 @@
 
 #include "Box2D/Dynamics/b2World.h"
 
-#include "Game/Archer.h"
+//#include "Game/Archer.h"
 #include "Game/Cable.h"
 #include "Game/FallingGround.h"
 #include "Game/Ladder.h"
@@ -17,16 +17,28 @@
 #include "Game/Swordman.h"
 #include "Game/Water.h"
 
+#include "Game/TestPlayer.h"
+#include "Game/TestArcher.h"
+
+#include "Game/SensorContactListener.h"
+
 class World
 {
 public:
     static World& instance();
+
+    TestPlayer& player();
+
+    TestArcher& createArcher();
+    const std::list<TestArcher>& archers() const;
 
     Platform& createPlatform();
     const std::list<Platform>& platforms() const;
 
     Ladder& createLadder();
     const std::list<Ladder>& ladders() const;
+
+    void update();
 
 private:
     World();
@@ -35,10 +47,16 @@ private:
     World(const World&) = delete;
     void operator= (const World&) = delete;
 
+    void createPlayer();
+
     std::list<Ladder> _ladders;
     std::list<Platform> _platforms;
 
+    std::list<TestArcher> _archers;
+
     b2World* _world;
+
+    SensorContactListener _contactListener;
 };
 
 #endif // WORLD_H
