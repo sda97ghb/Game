@@ -8,6 +8,8 @@
 
 void test::main(int argc, char** argv)
 {
+    (void)argc;
+    (void)argv;
     Painter painter;
     painter.initialize();
     sf::RenderWindow& window = painter.window();
