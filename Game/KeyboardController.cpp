@@ -2,7 +2,7 @@
 
 #include <SFML/Window/Keyboard.hpp>
 
-#include "Game/TestPlayer.h"
+#include "Game/Player.h"
 #include "Game/World.h"
 KeyboardController::KeyboardController()
 {
