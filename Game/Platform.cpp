@@ -15,9 +15,11 @@ void Platform::setTexture(const std::string& filename)
 
 b2PolygonShape& Platform::shapeB2()
 {
+    if (_body == nullptr)
+        throw NoBodyException();
     b2Fixture* fixture = _body->GetFixtureList();
     if (fixture == nullptr)
-        throw NoShapeException();
+        throw NoFixtureException();
     b2Shape* shape = fixture->GetShape();
     if (shape == nullptr)
         throw NoShapeException();
@@ -26,9 +28,11 @@ b2PolygonShape& Platform::shapeB2()
 
 const b2PolygonShape& Platform::shapeB2() const
 {
+    if (_body == nullptr)
+        throw NoBodyException();
     b2Fixture* fixture = _body->GetFixtureList();
     if (fixture == nullptr)
-        throw NoShapeException();
+        throw NoFixtureException();
     b2Shape* shape = fixture->GetShape();
     if (shape == nullptr)
         throw NoShapeException();

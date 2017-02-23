@@ -14,12 +14,16 @@
 class Platform
 {
 public:
-    struct NoShapeException : public std::logic_error {
-        NoShapeException() : std::logic_error("there is no shape for the platform") {}
-    };
-
     struct NoBodyException : public std::logic_error {
         NoBodyException() : std::logic_error("there is no body for the shape") {}
+    };
+
+    struct NoFixtureException : public std::logic_error {
+        NoFixtureException() : std::logic_error("there is no fixture for the platform") {}
+    };
+
+    struct NoShapeException : public std::logic_error {
+        NoShapeException() : std::logic_error("there is no shape for the platform") {}
     };
 
     void setBody(b2Body* body);
