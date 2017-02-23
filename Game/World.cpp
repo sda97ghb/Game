@@ -102,10 +102,13 @@ const std::list<Ladder>& World::ladders() const
 void World::update()
 {
     float32 timeStep = 1.0f / 60.0f;
-    int32 velocityIterations = 6;
-    int32 positionIterations = 2;
+    int32 velocityIterations = 8;
+    int32 positionIterations = 3;
 
     _world->Step(timeStep, velocityIterations, positionIterations);
+
+    for (Ladder& ladder : _ladders)
+        ladder.testPlayerOnIt();
 }
 
 const std::list<Platform>& World::platforms() const
