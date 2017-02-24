@@ -64,6 +64,8 @@ void Ladder::testPlayerOnIt()
             body.SetLinearVelocity(velocity);
 
             body.ApplyForce(b2Vec2(0.0f, 12.0f), body.GetWorldCenter(), true);
+
+            player.spriteAnimator().setCurrentGroup("climbing");
         }
     }
     catch (Player::NoBodyException&)

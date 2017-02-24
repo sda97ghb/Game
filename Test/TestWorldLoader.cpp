@@ -169,6 +169,7 @@ void TestWorldLoader::load()
         animator.setTexture("C:/Projects/Game/Textures/playerFrames.png");
         animator.setAnimationGroup("going_left", 0, 0, 12, 28, 4, false);
         animator.setAnimationGroup("going_right", 12, 0, 12, 28, 4, false);
+        animator.setAnimationGroup("climbing", 24, 0, 12, 28, 2, false);
         animator.setCurrentGroup("going_left");
     }
 
