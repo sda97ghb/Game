@@ -1,18 +1,24 @@
 #include "Game/Painter.h"
+
+#include "Box2D/Collision/b2Collision.h"
+#include "Box2D/Collision/Shapes/b2Shape.h"
+#include "Box2D/Common/b2Math.h"
+
 #include "CoordinateTranslation.h"
 
 Painter::~Painter()
 {
-    ;
+    delete _view;
+    delete _window;
 }
-#include <iostream>
+
 void Painter::initialize()
 {
 //    sf::VideoMode videoMode = sf::VideoMode::getDesktopMode();
 //    _window = new sf::RenderWindow(videoMode, "Game", sf::Style::Fullscreen);
     sf::VideoMode videoMode = sf::VideoMode(1200, 720);
     _window = new sf::RenderWindow(videoMode, "Game");
-    _view = new sf::View(sf::FloatRect(-(videoMode.width * 0.5), -(videoMode.height * 0.9),
+    _view = new sf::View(sf::FloatRect(-(videoMode.width * 0.5f), -(videoMode.height * 0.9f),
                                         videoMode.width, videoMode.height));
     _window->setView(*_view);
 
@@ -32,7 +38,6 @@ void Painter::drawWorld()
     if (pos.y < 0.0f)
         pos.y = 0.0f;
     sf::Vector2f posSF = translate::PosPf2Sf(pos);
-//    _view->setRotation(posSF.y);
     _view->setCenter(posSF.x + 0.0f, posSF.y - 300.0f);
     _window->setView(*_view);
 
@@ -71,8 +76,6 @@ void Painter::drawWorld()
     _window->draw(zeroSprite);
 }
 
-#include "Box2D.h"
-
 b2Vec2 computeSize(b2Shape& shape)
 {
     b2AABB aabb;
@@ -105,39 +108,6 @@ sf::ConvexShape& Painter::constructPlatform(Platform& platform)
     return shapeSF;
 }
 
-sf::Sprite& Painter::constructPlayer()
-{
-    Player& player = Player::instance();
-    b2Body& body = player.body();
-    sf::Texture& texture = player.texture();
-    sf::Sprite& sprite = player.sprite();
-
-    sprite.setTexture(texture);
-
-    b2Vec2 pos = body.GetPosition();
-    pos.x -= player.width() / 2;
-    pos.y += player.height() / 2;
-    sprite.setPosition(translate::PosPf2Sf(pos));
-
-    return sprite;
-}
-
-sf::Sprite&Painter::constructArcher(Archer& archer)
-{
-    b2Body& body = archer.body();
-    sf::Texture& texture = archer.texture();
-    sf::Sprite& sprite = archer.sprite();
-
-    sprite.setTexture(texture);
-
-    b2Vec2 pos = body.GetPosition();
-    pos.x -= archer.width() / 2;
-    pos.y += archer.height() / 2;
-    sprite.setPosition(translate::PosPf2Sf(pos));
-
-    return sprite;
-}
-
 sf::RectangleShape& Painter::constructLadder(Ladder& ladder)
 {
     b2PolygonShape& shapeB2 = ladder.shapeB2();
@@ -147,18 +117,6 @@ sf::RectangleShape& Painter::constructLadder(Ladder& ladder)
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);
-//    static int N = 0;
-//    static int counter = 0;
-//    ++ counter;
-//    if (counter >= 400)
-//    {
-//        ++N;
-//        if (N >= 4)
-//            N = 0;
-//        counter = 0;
-//    }
-//    shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(2 * 12, 2 * 28 * N),
-//                                       translate::SizePf2Si(size)));
     shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
                                        translate::SizePf2Si(size)));
 
@@ -167,4 +125,29 @@ sf::RectangleShape& Painter::constructLadder(Ladder& ladder)
     shapeSF.setSize(translate::SizePf2Sf(ladder.size()));
 
     return shapeSF;
+}
+
+sf::Sprite& Painter::constructEntity(Entity& entity)
+{
+    SpriteAnimator& animator = entity.spriteAnimator();
+    animator.update();
+
+    sf::Sprite& sprite = animator.sprite();
+
+    b2Vec2 pos = entity.body().GetPosition();
+    pos.x -= entity.width() / 2.0f;
+    pos.y += entity.height() / 2.0f;
+    sprite.setPosition(translate::PosPf2Sf(pos));
+
+    return sprite;
+}
+
+sf::Sprite& Painter::constructPlayer()
+{
+    return constructEntity(Player::instance());
+}
+
+sf::Sprite& Painter::constructArcher(Archer& archer)
+{
+    return constructEntity(archer);
 }

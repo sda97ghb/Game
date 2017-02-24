@@ -4,7 +4,7 @@
 
 World::World()
 {
-    b2Vec2 gravity(0.0, -9.8);
+    b2Vec2 gravity(0.0f, -9.8f);
     _world = new b2World(gravity);
 
     createPlayer();
@@ -22,7 +22,7 @@ void World::createPlayer()
     b2BodyDef entityBodyDef;
     entityBodyDef.type = b2_dynamicBody;
     entityBodyDef.fixedRotation = true;
-    entityBodyDef.position.Set(0.0, 0.0);
+    entityBodyDef.position.Set(0.0f, 0.0f);
     player().setBody(_world->CreateBody(&entityBodyDef));
     {
         b2PolygonShape playerShape;
@@ -64,7 +64,7 @@ Archer& World::createArcher()
     b2BodyDef archerBodyDef;
     archerBodyDef.type = b2_dynamicBody;
     archerBodyDef.fixedRotation = true;
-    archerBodyDef.position.Set(0.0, 0.0);
+    archerBodyDef.position.Set(0.0f, 0.0f);
     archer.setBody(_world->CreateBody(&archerBodyDef));
     {
         b2PolygonShape archerShape;

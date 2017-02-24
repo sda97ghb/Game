@@ -1,10 +1,9 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Texture.hpp>
-
 #include "Box2D/Dynamics/b2Body.h"
+
+#include "Game/SpriteAnimator.h"
 
 class Entity
 {
@@ -23,8 +22,6 @@ public:
 
     Entity();
 
-    void setTexture(const std::string& filename);
-
     void setPosition(float x, float y);
 
     void setOnGround(bool value);
@@ -35,17 +32,11 @@ public:
     virtual float width() const = 0;
     virtual float height() const = 0;
 
-    b2Body& body();
-    const b2Body& body() const;
-
-    sf::Texture& texture();
-    const sf::Texture& texture() const;
-
-    sf::Sprite& sprite();
-    const sf::Sprite& sprite() const;
-
     b2PolygonShape& shape();
     const b2PolygonShape& shape() const;
+
+    b2Body& body();
+    const b2Body& body() const;
 
     void stepLeft();
     void stepRight();
@@ -67,10 +58,11 @@ public:
     float health() const;
     float mana() const;
 
+    SpriteAnimator& spriteAnimator();
+
 protected:
     b2Body* _body;
-    sf::Texture _texture;
-    sf::Sprite _sprite;
+    SpriteAnimator _spriteAnimator;
 
     bool _isOnGround;
 

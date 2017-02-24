@@ -5,7 +5,7 @@
 #include "SFML/System/Vector2.hpp"
 
 namespace translate {
-    static constexpr float SCREEN_PER_PHYSICAL = 32.0;
+    static constexpr float SCREEN_PER_PHYSICAL = 32.0f;
     // texture 16px == screen 32px == physical 1m
 
     // Point - Pos

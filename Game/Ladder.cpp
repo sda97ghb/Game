@@ -1,6 +1,10 @@
 #include "Game/Ladder.h"
 
-#include "SFML/Window/Keyboard.hpp"
+#include <iostream>
+
+#include <SFML/Window/Keyboard.hpp>
+
+#include "Box2D/Dynamics/b2Fixture.h"
 
 #include "Game/ImageScaler.h"
 #include "Game/Player.h"
@@ -34,37 +38,32 @@ void Ladder::setTexture(const std::string& filename)
     _texture.loadFromImage(ImageScaler::scale(original));
     _texture.setRepeated(true);
 }
-#include <iostream>
-#include "Game/World.h"
+
 void Ladder::testPlayerOnIt()
 {
     try {
-        Player& player = World::instance().player();
+        Player& player = Player::instance();
         b2Body& body = player.body();
         b2Transform transform;
         transform.SetIdentity();
         if (_shapeB2.TestPoint(transform, player.footPosition()))
         {
+            b2Vec2 velocity = body.GetLinearVelocity();
+
+            if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) &&
+                !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+                velocity.x *= body.GetFixtureList()->GetFriction();
+
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-            {
-                b2Vec2 velocity = body.GetLinearVelocity();
                 velocity.y = 3.0f;
-                body.SetLinearVelocity(velocity);
-            }
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-            {
-                b2Vec2 velocity = body.GetLinearVelocity();
                 velocity.y = -3.0f;
-                body.SetLinearVelocity(velocity);
-            }
             else
-            {
-                b2Vec2 velocity = body.GetLinearVelocity();
                 velocity.y = 0.0f;
-                body.SetLinearVelocity(velocity);
-            }
-            body.ApplyForce(b2Vec2(0.0, 12.0),
-                        body.GetWorldCenter(), true);
+
+            body.SetLinearVelocity(velocity);
+
+            body.ApplyForce(b2Vec2(0.0f, 12.0f), body.GetWorldCenter(), true);
         }
     }
     catch (Player::NoBodyException&)
@@ -103,32 +102,32 @@ b2Vec2 Ladder::size() const
     return b2Vec2(width(), height());
 }
 
-b2PolygonShape&Ladder::shapeB2()
+b2PolygonShape& Ladder::shapeB2()
 {
     return _shapeB2;
 }
 
-const b2PolygonShape&Ladder::shapeB2() const
+const b2PolygonShape& Ladder::shapeB2() const
 {
     return _shapeB2;
 }
 
-sf::RectangleShape&Ladder::shapeSF()
+sf::RectangleShape& Ladder::shapeSF()
 {
     return _shapeSF;
 }
 
-const sf::RectangleShape&Ladder::shapeSF() const
+const sf::RectangleShape& Ladder::shapeSF() const
 {
     return _shapeSF;
 }
 
-sf::Texture&Ladder::texture()
+sf::Texture& Ladder::texture()
 {
     return _texture;
 }
 
-const sf::Texture&Ladder::texture() const
+const sf::Texture& Ladder::texture() const
 {
     return _texture;
 }

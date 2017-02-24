@@ -2,7 +2,6 @@
 #define ENEMY_H
 
 #include "Game/Entity.h"
-#include <SFML/Graphics.hpp>
 
 class Enemy : public Entity
 {
@@ -13,8 +12,5 @@ protected:
 	bool aggression();
 	bool canSeePlayer();
 };
-
-
-
 
 #endif //ENEMY_H

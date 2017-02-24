@@ -3,22 +3,12 @@
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Game/ImageScaler.h"
-
 Entity::Entity() :
     _body(nullptr),
     _isOnGround(false),
-    _health(1.0),
-    _mana(0.0)
+    _health(1.0f),
+    _mana(0.0f)
 {
-}
-
-void Entity::setTexture(const std::string& filename)
-{
-    sf::Image original;
-    original.loadFromFile(filename);
-    _texture.loadFromImage(ImageScaler::scale(original));
-    _texture.setRepeated(true);
 }
 
 void Entity::setPosition(float x, float y)
@@ -41,7 +31,7 @@ b2Vec2 Entity::footPosition() const
     if (!_body)
         throw NoBodyException();
     b2Vec2 pos = _body->GetPosition();
-    pos.y -= height() / 2.0;
+    pos.y -= height() / 2.0f;
     return pos;
 }
 
@@ -58,26 +48,6 @@ b2Body& Entity::body()
 const b2Body& Entity::body() const
 {
     return *_body;
-}
-
-sf::Texture& Entity::texture()
-{
-    return _texture;
-}
-
-const sf::Texture& Entity::texture() const
-{
-    return _texture;
-}
-
-sf::Sprite& Entity::sprite()
-{
-    return _sprite;
-}
-
-const sf::Sprite& Entity::sprite() const
-{
-    return _sprite;
 }
 
 b2PolygonShape& Entity::shape()
@@ -108,16 +78,18 @@ const b2PolygonShape& Entity::shape() const
 
 void Entity::stepLeft()
 {
-    if (_body->GetLinearVelocity().x >= -6.0)
+    if (_body->GetLinearVelocity().x >= -6.0f)
         _body->ApplyLinearImpulse(b2Vec2(-0.4f, 0.0f),
                                   _body->GetWorldCenter(), true);
+    _spriteAnimator.setCurrentGroup("going_left");
 }
 
 void Entity::stepRight()
 {
-    if (_body->GetLinearVelocity().x <= 6.0)
+    if (_body->GetLinearVelocity().x <= 6.0f)
         _body->ApplyLinearImpulse(b2Vec2(0.4f, 0.0f),
                                   _body->GetWorldCenter(), true);
+    _spriteAnimator.setCurrentGroup("going_right");
 }
 
 void Entity::jump()
@@ -185,4 +157,9 @@ float Entity::health() const
 float Entity::mana() const
 {
     return _mana;
+}
+
+SpriteAnimator& Entity::spriteAnimator()
+{
+    return _spriteAnimator;
 }

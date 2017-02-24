@@ -157,7 +157,7 @@ void TestWorldLoader::load()
 
     {
         Ladder& ladder = world.createLadder();
-        ladder.setCoordinates(-5.5f, 0.0f, 7.5f);
+        ladder.setCoordinates(-5.5f, 0.0f, 9.5f);
         ladder.setWidth(1.0f);
         ladder.setTexture("C:/Projects/Game/Textures/ladder.png");
     }
@@ -165,12 +165,20 @@ void TestWorldLoader::load()
     {
         Player& player = world.player();
         player.setPosition(0.0f, 1.75f / 2.0f);
-        player.setTexture("C:/Projects/Game/Textures/player.png");
+        SpriteAnimator& animator = player.spriteAnimator();
+        animator.setTexture("C:/Projects/Game/Textures/playerFrames.png");
+        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 4, false);
+        animator.setAnimationGroup("going_right", 12, 0, 12, 28, 4, false);
+        animator.setCurrentGroup("going_left");
     }
 
     {
         Archer& archer = world.createArcher();
         archer.setPosition(3.0f, 10.0f);
-        archer.setTexture("C:/Projects/Game/Textures/archer.png");
+        SpriteAnimator& animator = archer.spriteAnimator();
+        animator.setTexture("C:/Projects/Game/Textures/archerFrames.png");
+        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, true);
+        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, true);
+        animator.setCurrentGroup("going_left");
     }
 }

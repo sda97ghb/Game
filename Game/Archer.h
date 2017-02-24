@@ -1,9 +1,9 @@
 #ifndef ARCHER_H
 #define ARCHER_H
 
-#include "Game/Entity.h"
+#include "Game/Enemy.h"
 
-class Archer : public Entity
+class Archer : public Enemy
 {
 public:
     Archer();

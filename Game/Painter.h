@@ -14,8 +14,11 @@ public:
 
     void drawWorld();
 
-    sf::RectangleShape& constructLadder(Ladder& ladder);
     sf::ConvexShape& constructPlatform(Platform& platform);
+
+    sf::RectangleShape& constructLadder(Ladder& ladder);
+
+    sf::Sprite& constructEntity(Entity& entity);
     sf::Sprite& constructPlayer();
     sf::Sprite& constructArcher(Archer& archer);
 
