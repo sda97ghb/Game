@@ -48,8 +48,8 @@ void TestWorldLoader::load()
         b2PolygonShape shape;
         b2Vec2 vertexes[4] = {b2Vec2(22.0, -6.0),
                               b2Vec2(22.5, -6.0),
-                              b2Vec2(22.5, 20.0),
-                              b2Vec2(22.0, 20.0)};
+                              b2Vec2(22.5, 20.5),
+                              b2Vec2(22.0, 20.5)};
         shape.Set(vertexes, 4);
         platform.setShape(shape);
         platform.setTexture("C:/Projects/Game/Textures/stonebricks.png");
@@ -154,6 +154,17 @@ void TestWorldLoader::load()
         platform.setShape(shape);
         platform.setTexture("C:/Projects/Game/Textures/stonebricks.png");
     }
+    {
+        Platform& platform = world.createPlatform();
+        b2PolygonShape shape;
+        b2Vec2 vertexes[4] = {b2Vec2(2.0, 17.0),
+                              b2Vec2(5.0, 17.0),
+                              b2Vec2(5.0, 17.5),
+                              b2Vec2(2.0, 17.5)};
+        shape.Set(vertexes, 4);
+        platform.setShape(shape);
+        platform.setTexture("C:/Projects/Game/Textures/stonebricks.png");
+    }
 
     {
         Ladder& ladder = world.createLadder();
@@ -161,16 +172,24 @@ void TestWorldLoader::load()
         ladder.setWidth(1.0f);
         ladder.setTexture("C:/Projects/Game/Textures/ladder.png");
     }
+    {
+        Ladder& ladder = world.createLadder();
+        ladder.setCoordinates(5.5f, 0.0f, 20.0f);
+        ladder.setWidth(1.0f);
+        ladder.setTexture("C:/Projects/Game/Textures/ladder.png");
+    }
 
     {
         Player& player = world.player();
-        player.setPosition(0.0f, 1.75f / 2.0f);
+        player.setPosition(0.0f, player.height() / 2.0f);
         SpriteAnimator& animator = player.spriteAnimator();
         animator.setTexture("C:/Projects/Game/Textures/playerFrames.png");
         animator.setAnimationGroup("going_left", 0, 0, 12, 28, 4, false);
         animator.setAnimationGroup("going_right", 12, 0, 12, 28, 4, false);
         animator.setAnimationGroup("climbing", 24, 0, 12, 28, 2, false);
-        animator.setCurrentGroup("going_left");
+        animator.setAnimationGroup("punching_right", 36, 0, 15, 28, 3, true);
+        animator.setAnimationGroup("punching_left", 36, 28, 15, 28, 3, true);
+        animator.setCurrentGroup("going_right");
     }
 
     {

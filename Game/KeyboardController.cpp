@@ -12,6 +12,8 @@ void KeyboardController::processKeyboard()
         Player::instance().stepRight();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
         Player::instance().jump();
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+        Player::instance().punch();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
     {
         for (const Archer& archerC : World::instance().archers())

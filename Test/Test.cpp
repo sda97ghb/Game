@@ -4,6 +4,7 @@
 #include "SFML/Window/Event.hpp"
 
 #include "Game/KeyboardController.h"
+#include "Game/MouseController.h"
 #include "Game/Painter.h"
 #include "Game/World.h"
 
@@ -32,6 +33,7 @@ void test::main(int argc, char** argv)
         window.clear();
 
         painter.drawWorld();
+        painter.drawGui();
 
         window.display();
 
@@ -47,6 +49,13 @@ void test::main(int argc, char** argv)
         {
             KeyboardController::processKeyboard();
             keyboardProcessingTimer.restart();
+        }
+
+        static sf::Clock mouseProcessingTimer;
+        if (mouseProcessingTimer.getElapsedTime().asMilliseconds() >= 10)
+        {
+            MouseController::processMouse();
+            mouseProcessingTimer.restart();
         }
     }
 }

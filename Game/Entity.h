@@ -4,6 +4,7 @@
 #include "Box2D/Dynamics/b2Body.h"
 
 #include "Game/ContactSensor.h"
+#include "Game/HitSensor.h"
 #include "Game/SpriteAnimator.h"
 
 class Entity
@@ -42,6 +43,8 @@ public:
     void stepRight();
     void jump();
 
+    void hit(int sensorType, float speed);
+
     virtual void update() = 0;
 
     void setMaxHealth(float value);
@@ -54,6 +57,9 @@ public:
     void setMana(float value);
 
     bool isAlive() const;
+
+    float maxHealth() const;
+    float maxMana() const;
 
     float health() const;
     float mana() const;
@@ -73,6 +79,8 @@ protected:
     ContactSensor _groundSensor;
     ContactSensor _leftSensor;
     ContactSensor _rightSensor;
+
+    HitSensor _groundHitSensor;
 
 private:
     friend class World;

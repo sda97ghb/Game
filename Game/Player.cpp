@@ -16,6 +16,16 @@ float Player::height() const
     return 1.75f;
 }
 
+void Player::punch()
+{
+    if (_spriteAnimator.currentGroup() == "going_left")
+        _spriteAnimator.playGroup("punching_left");
+    else if (_spriteAnimator.currentGroup() == "going_right")
+        _spriteAnimator.playGroup("punching_right");
+    else
+        ;
+}
+
 void Player::update()
 {
     ;

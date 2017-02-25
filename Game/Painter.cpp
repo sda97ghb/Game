@@ -13,8 +13,8 @@ Painter::~Painter()
 void Painter::initialize()
 {
 //    sf::VideoMode videoMode = sf::VideoMode::getDesktopMode();
-//    _window = new sf::RenderWindow(videoMode, "Game", sf::Style::Fullscreen);
     sf::VideoMode videoMode = sf::VideoMode(1200, 720);
+//    _window = new sf::RenderWindow(videoMode, "Game", sf::Style::Fullscreen);
     _window = new sf::RenderWindow(videoMode, "Game");
     _view = new sf::View(sf::FloatRect(-(videoMode.width * 0.5f), -(videoMode.height * 0.9f),
                                         videoMode.width, videoMode.height));
@@ -72,6 +72,39 @@ void Painter::drawWorld()
     zeroSprite.setRadius(1.0f);
     zeroSprite.setFillColor(sf::Color(255, 0, 0));
     _window->draw(zeroSprite);
+}
+
+void Painter::drawGui()
+{
+    _view->setCenter(0.0f, 0.0f);
+    _window->setView(*_view);
+
+    float health = Player::instance().health() / Player::instance().maxHealth();
+    drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, sf::Color(255, 0, 0));
+
+    if (Player::instance().maxMana() != 0.0f)
+    {
+        float mana = Player::instance().mana() / Player::instance().maxMana();
+        drawBar(-530.0f, -285.0f, 200.0f, 20.0f, 2.0f, mana, sf::Color(0, 0, 255));
+    }
+}
+
+void Painter::drawBar(float x, float y, float width, float height, float border, float value, sf::Color color)
+{
+    sf::RectangleShape barBackground;
+    sf::RectangleShape barLine;
+
+    barBackground.setPosition(x, y);
+    barBackground.setSize(sf::Vector2f(width, height));
+    barBackground.setFillColor(sf::Color(0, 0, 0));
+
+    barLine.setPosition(x + border, y + border);
+    barLine.setSize(sf::Vector2f((width - border * 2.0f) * value,
+                                 height - border * 2.0f));
+    barLine.setFillColor(color);
+
+    _window->draw(barBackground);
+    _window->draw(barLine);
 }
 
 b2Vec2 computeSize(b2Shape& shape)

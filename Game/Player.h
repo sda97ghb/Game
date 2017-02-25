@@ -11,6 +11,8 @@ public:
     float width() const;
     float height() const;
 
+    void punch();
+
     void update();
 
 private:

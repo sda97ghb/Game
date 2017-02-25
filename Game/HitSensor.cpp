@@ -1,38 +1,44 @@
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Game/ContactSensor.h"
+#include "Game/Entity.h"
+#include "Game/HitSensor.h"
 #include "Game/SensorsListener.h"
 
-ContactSensor::ContactSensor() :
+HitSensor::HitSensor() :
     _x(0.0f),
     _y(0.0f),
     _width(0.0f),
     _height(0.0f),
-    _state(false),
     _type(0),
+    _activationThreshold(0.0f),
     _body(nullptr)
 {
 }
 
-void ContactSensor::setPosition(float x, float y)
+void HitSensor::setPosition(float x, float y)
 {
     _x = x;
     _y = y;
 }
 
-void ContactSensor::setSize(float width, float height)
+void HitSensor::setSize(float width, float height)
 {
     _width = width;
     _height = height;
 }
 
-void ContactSensor::setType(int type)
+void HitSensor::setType(int type)
 {
     _type = type;
 }
 
-void ContactSensor::hangOnBody(b2Body* body)
+void HitSensor::setActivationThreshold(float value)
+{
+    _activationThreshold = value;
+}
+
+void HitSensor::hangOnBody(b2Body* body)
 {
     _body = body;
 
@@ -49,22 +55,24 @@ void ContactSensor::hangOnBody(b2Body* body)
     SensorsListener::instance().registrySensor(*this);
 }
 
-void ContactSensor::set(bool state)
+void HitSensor::hit(float speed)
 {
-    _state = state;
+    if (speed < _activationThreshold)
+        return;
+    _entity->hit(_type, speed);
 }
 
-bool ContactSensor::isActive() const
-{
-    return _state;
-}
-
-int ContactSensor::type() const
+int HitSensor::type() const
 {
     return _type;
 }
 
-const b2Body* ContactSensor::body() const
+const b2Body* HitSensor::body() const
 {
     return _body;
+}
+
+void HitSensor::setEntity(Entity* entity)
+{
+    _entity = entity;
 }

@@ -1,23 +1,27 @@
-#ifndef CONTACT_SENSOR_H
-#define CONTACT_SENSOR_H
+#ifndef HITSENSOR_H
+#define HITSENSOR_H
 
 #include "Box2D/Dynamics/b2Body.h"
 
-class ContactSensor
+class Entity;
+
+class HitSensor
 {
 public:
-    ContactSensor();
+    HitSensor();
 
     void setPosition(float x, float y);
     void setSize(float width, float height);
 
     void setType(int type);
 
+    void setActivationThreshold(float value);
+
+    void setEntity(Entity* entity);
+
     void hangOnBody(b2Body* body);
 
-    void set(bool state);
-
-    bool isActive() const;
+    void hit(float speed);
 
     int type() const;
 
@@ -29,10 +33,13 @@ private:
     float _width;
     float _height;
 
-    bool _state;
     int _type;
 
+    float _activationThreshold;
+
     b2Body* _body;
+
+    Entity* _entity;
 };
 
-#endif // CONTACT_SENSOR_H
+#endif // HITSENSOR_H

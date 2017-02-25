@@ -14,7 +14,7 @@ public:
     {
         NoAnimationGroup(const std::string& groupname) :
             std::logic_error(
-                std::string("this animator have no group with name") + groupname)
+                std::string("this animator have no group with name \"") + groupname + "\"")
         {}
     };
 
@@ -42,9 +42,14 @@ public:
                            int numberOfFrames, bool isHorizontal = true);
     void setCurrentGroup(const std::string& groupname);
 
+    void playGroup(const std::string& groupname);
+    void restoreGroup();
+
     void nextFrame();
 
     void update();
+
+    const std::string& currentGroup() const;
 
 private:
     sf::Texture _texture;
@@ -54,6 +59,9 @@ private:
 
     std::string _currentGroup;
     int _currentFrame;
+
+    std::string _previousGroup;
+    bool _playOnce;
 
     int _animationDelay;
 

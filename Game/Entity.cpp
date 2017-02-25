@@ -1,12 +1,16 @@
+#include <iostream>
+
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Game/ContactSensorListener.h"
+#include "Game/SensorsListener.h"
 #include "Game/Entity.h"
 
 Entity::Entity() :
     _body(nullptr),
-    _health(1.0f),
+    _maxHealth(100.0f),
+    _health(100.0f),
+    _maxMana(0.0f),
     _mana(0.0f)
 {
 }
@@ -26,20 +30,27 @@ void Entity::constructBody()
         body().CreateFixture(&entityFixtureDef);
     }
 
-    _groundSensor.setType(ContactSensorListener::GROUND_SENSOR_TYPE);
+    _groundSensor.setType(SensorsListener::GROUND_CONTACT_SENSOR_TYPE);
     _groundSensor.setPosition(0.0f, -height() / 2.0f);
     _groundSensor.setSize(width() / 2.0f * 0.9f, 0.1);
     _groundSensor.hangOnBody(_body);
 
-    _leftSensor.setType(ContactSensorListener::LEFT_SENSOR_TYPE);
+    _leftSensor.setType(SensorsListener::LEFT_CONTACT_SENSOR_TYPE);
     _leftSensor.setPosition(-width() / 2.0, 0.0f);
     _leftSensor.setSize(0.1, height() / 2.0f * 0.9f);
     _leftSensor.hangOnBody(_body);
 
-    _rightSensor.setType(ContactSensorListener::RIGHT_SENSOR_TYPE);
+    _rightSensor.setType(SensorsListener::RIGHT_CONTACT_SENSOR_TYPE);
     _rightSensor.setPosition(width() / 2.0, 0.0f);
     _rightSensor.setSize(0.1, height() / 2.0f * 0.9f);
     _rightSensor.hangOnBody(_body);
+
+    _groundHitSensor.setType(SensorsListener::GROUND_HIT_SENSOR_TYPE);
+    _groundHitSensor.setPosition(0.0f, -height() / 2.0f);
+    _groundHitSensor.setSize(width() / 2.0f * 0.9f, 0.3);
+    _groundHitSensor.setActivationThreshold(10.0f);
+    _groundHitSensor.setEntity(this);
+    _groundHitSensor.hangOnBody(_body);
 }
 
 void Entity::setPosition(float x, float y)
@@ -121,8 +132,22 @@ void Entity::jump()
 {
     if (!_groundSensor.isActive())
         return;
-    _body->ApplyLinearImpulse(b2Vec2(0.0f, 1.0f),
+    _body->ApplyLinearImpulse(b2Vec2(0.0f, 2.0f),
                               _body->GetWorldCenter(), true);
+}
+
+void Entity::hit(int sensorType, float speed)
+{
+    if (sensorType != SensorsListener::GROUND_HIT_SENSOR_TYPE)
+        return;
+
+    float damage = speed - 10.0f;
+    if (damage > 0.0f)
+        damage /= 0.09;
+    else
+        damage = 0.0f;
+
+    makeDamage(damage);
 }
 
 void Entity::setMaxHealth(float value)
@@ -142,6 +167,7 @@ void Entity::setHealth(float value)
 
 void Entity::makeDamage(float value)
 {
+    std::cout << "Damage: " << value << std::endl;
     _health -= value;
 }
 
@@ -173,6 +199,16 @@ void Entity::setMana(float value)
 bool Entity::isAlive() const
 {
     return _health > 0.0f;
+}
+
+float Entity::maxHealth() const
+{
+    return _maxHealth;
+}
+
+float Entity::maxMana() const
+{
+    return _maxMana;
 }
 
 float Entity::health() const

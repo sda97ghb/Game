@@ -1,4 +1,4 @@
-#include "Game/ContactSensorListener.h"
+#include "Game/SensorsListener.h"
 #include "Game/World.h"
 
 World::World()
@@ -8,7 +8,7 @@ World::World()
 
     createPlayer();
 
-    _world->SetContactListener(&ContactSensorListener::instance());
+    _world->SetContactListener(&SensorsListener::instance());
 }
 
 World::~World()

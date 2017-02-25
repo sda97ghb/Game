@@ -22,6 +22,10 @@ public:
     sf::RenderWindow& window();
 
     void drawWorld();
+    void drawGui();
+
+    void drawBar(float x, float y, float width, float height,
+                 float border, float value, sf::Color color);
 
     sf::ConvexShape& constructPlatform(Platform& platform);
 

@@ -4,6 +4,8 @@
 SpriteAnimator::SpriteAnimator() :
     _currentGroup(""),
     _currentFrame(0),
+    _previousGroup(""),
+    _playOnce(false),
     _animationDelay(250)
 {
 }
@@ -42,9 +44,30 @@ void SpriteAnimator::setCurrentGroup(const std::string& groupname)
 {
     if (_currentGroup == groupname)
         return;
+    if (_playOnce)
+        return;
+    _currentGroup = groupname;
+    _previousGroup = "";
+    _currentFrame = 0;
+    _playOnce = false;
+}
+
+void SpriteAnimator::playGroup(const std::string& groupname)
+{
+    if (_currentGroup == groupname)
+        return;
+    _previousGroup = _currentGroup;
     _currentGroup = groupname;
     _currentFrame = 0;
-    nextFrame();
+    _playOnce = true;
+}
+
+void SpriteAnimator::restoreGroup()
+{
+    _currentGroup = _previousGroup;
+    _previousGroup = "";
+    _currentFrame = 0;
+    _playOnce = false;
 }
 
 void SpriteAnimator::nextFrame()
@@ -63,7 +86,12 @@ void SpriteAnimator::nextFrame()
                                        group.frameHeight * 2));
     ++ _currentFrame;
     if (_currentFrame >= group.numberOfFrames)
-        _currentFrame = 0;
+    {
+        if (_playOnce)
+            restoreGroup();
+        else
+            _currentFrame = 0;
+    }
 }
 
 void SpriteAnimator::update()
@@ -72,4 +100,9 @@ void SpriteAnimator::update()
         return;
     nextFrame();
     _clock.restart();
+}
+
+const std::string& SpriteAnimator::currentGroup() const
+{
+    return _currentGroup;
 }
