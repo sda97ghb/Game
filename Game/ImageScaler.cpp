@@ -1,4 +1,4 @@
-#include "ImageScaler.h"
+#include "Game/ImageScaler.h"
 
 sf::Image ImageScaler::scale(const sf::Image& original)
 {

@@ -4,8 +4,6 @@
 class KeyboardController
 {
 public:
-    KeyboardController();
-
     static void processKeyboard();
 };
 

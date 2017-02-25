@@ -1,4 +1,4 @@
-#include "CoordinateTranslation.h"
+#include "Game/CoordinateTranslation.h"
 
 sf::Vector2f translate::PosPf2Sf(const b2Vec2& pos)
 {

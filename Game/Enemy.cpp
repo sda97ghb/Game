@@ -1,7 +1,7 @@
-#include "Game/Enemy.h"
-
-#include "Game/Player.h"
 #include "Box2D/Box2D.h"
+
+#include "Game/Enemy.h"
+#include "Game/Player.h"
 
 void Enemy::update()
 {

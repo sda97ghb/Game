@@ -1,8 +1,9 @@
 #ifndef COORDINATETRANSLATION_H
 #define COORDINATETRANSLATION_H
 
-#include "Box2D/Common/b2Math.h"
 #include "SFML/System/Vector2.hpp"
+
+#include "Box2D/Common/b2Math.h"
 
 namespace translate {
     static constexpr float SCREEN_PER_PHYSICAL = 32.0f;

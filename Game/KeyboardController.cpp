@@ -1,12 +1,8 @@
-#include "KeyboardController.h"
+#include "SFML/Window/Keyboard.hpp"
 
-#include <SFML/Window/Keyboard.hpp>
-
+#include "Game/KeyboardController.h"
 #include "Game/Player.h"
 #include "Game/World.h"
-KeyboardController::KeyboardController()
-{
-}
 
 void KeyboardController::processKeyboard()
 {

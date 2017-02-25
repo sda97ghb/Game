@@ -1,12 +1,9 @@
-#include "Game/Ladder.h"
-
-#include <iostream>
-
-#include <SFML/Window/Keyboard.hpp>
+#include "SFML/Window/Keyboard.hpp"
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
 #include "Game/ImageScaler.h"
+#include "Game/Ladder.h"
 #include "Game/Player.h"
 
 Ladder::Ladder() :
@@ -70,7 +67,6 @@ void Ladder::testPlayerOnIt()
     }
     catch (Player::NoBodyException&)
     {
-        std::cout << "something went wrong(" << std::endl;
     }
 }
 

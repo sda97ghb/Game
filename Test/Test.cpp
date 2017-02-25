@@ -1,8 +1,11 @@
 #include <iostream>
 #include "Test/Test.h"
 
+#include "SFML/Window/Event.hpp"
+
 #include "Game/KeyboardController.h"
 #include "Game/Painter.h"
+#include "Game/World.h"
 
 #include "Test/TestWorldLoader.h"
 

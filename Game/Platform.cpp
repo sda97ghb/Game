@@ -1,9 +1,7 @@
-#include "Game/Platform.h"
-
-#include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
 #include "Game/ImageScaler.h"
+#include "Game/Platform.h"
 
 void Platform::setTexture(const std::string& filename)
 {

@@ -1,7 +1,8 @@
 #ifndef FURNITURE_H
 #define FURNITURE_H
 
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics/Sprite.hpp"
+#include "SFML/Graphics/Texture.hpp"
 
 class Furniture
 {

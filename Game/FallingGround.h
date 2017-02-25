@@ -4,6 +4,7 @@
 #include <list>
 
 #include "Box2D/Common/b2Math.h"
+
 #include "Game/Furniture.h"
 
 class FallingGround : public Furniture

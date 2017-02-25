@@ -1,11 +1,12 @@
 #ifndef LADDER_H
 #define LADDER_H
 
-#include "Game/Furniture.h"
-
-#include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "SFML/Graphics/RectangleShape.hpp"
 #include "SFML/Graphics/Texture.hpp"
+
+#include "Box2D/Collision/Shapes/b2PolygonShape.h"
+
+#include "Game/Furniture.h"
 
 class Ladder : public Furniture
 {

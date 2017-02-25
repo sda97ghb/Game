@@ -1,7 +1,7 @@
 #ifndef IMAGESCALER_H
 #define IMAGESCALER_H
 
-#include <SFML/Graphics/Texture.hpp>
+#include "SFML/Graphics/Image.hpp"
 
 class ImageScaler
 {

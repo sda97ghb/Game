@@ -12,14 +12,11 @@
 #include "Game/Lava.h"
 #include "Game/Mage.h"
 #include "Game/Platform.h"
+#include "Game/Player.h"
 #include "Game/Rope.h"
 #include "Game/Spikes.h"
 #include "Game/Swordman.h"
 #include "Game/Water.h"
-
-#include "Game/Player.h"
-
-#include "Game/SensorContactListener.h"
 
 class World
 {
@@ -30,8 +27,6 @@ public:
     Platform& createPlatform();
 
     Ladder& createLadder();
-
-    void constructEntity(Entity& entity) const;
 
     Archer& createArcher();
 
@@ -51,6 +46,8 @@ private:
     World(const World&) = delete;
     void operator= (const World&) = delete;
 
+    b2Body* createBodyForEntity();
+
     void createPlayer();
 
     std::list<Ladder> _ladders;
@@ -59,8 +56,6 @@ private:
     std::list<Archer> _archers;
 
     b2World* _world;
-
-    SensorContactListener _contactListener;
 };
 
 #endif // WORLD_H

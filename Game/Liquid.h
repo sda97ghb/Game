@@ -2,6 +2,7 @@
 #define LIQUID_H
 
 #include <list>
+
 #include "Box2D/Common/b2Math.h"
 
 #include "Game/Furniture.h"

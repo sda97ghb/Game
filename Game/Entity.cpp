@@ -1,49 +1,50 @@
-#include "Game/Entity.h"
-
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
+#include "Game/ContactSensorListener.h"
+#include "Game/Entity.h"
+
 Entity::Entity() :
     _body(nullptr),
-    _isOnGround(false),
     _health(1.0f),
     _mana(0.0f)
 {
 }
 
+void Entity::constructBody()
+{
+    if (_body == nullptr)
+        throw NoBodyException();
+    {
+        b2PolygonShape entityShape;
+        entityShape.SetAsBox(width() / 2.0f, height() / 2.0f);
+        b2FixtureDef entityFixtureDef;
+        entityFixtureDef.shape = &entityShape;
+        entityFixtureDef.density = 1.0f;
+        entityFixtureDef.friction = 20.0f;
+        entityFixtureDef.restitution = 0.0f;
+        body().CreateFixture(&entityFixtureDef);
+    }
+
+    _groundSensor.setType(ContactSensorListener::GROUND_SENSOR_TYPE);
+    _groundSensor.setPosition(0.0f, -height() / 2.0f);
+    _groundSensor.setSize(width() / 2.0f * 0.9f, 0.1);
+    _groundSensor.hangOnBody(_body);
+
+    _leftSensor.setType(ContactSensorListener::LEFT_SENSOR_TYPE);
+    _leftSensor.setPosition(-width() / 2.0, 0.0f);
+    _leftSensor.setSize(0.1, height() / 2.0f * 0.9f);
+    _leftSensor.hangOnBody(_body);
+
+    _rightSensor.setType(ContactSensorListener::RIGHT_SENSOR_TYPE);
+    _rightSensor.setPosition(width() / 2.0, 0.0f);
+    _rightSensor.setSize(0.1, height() / 2.0f * 0.9f);
+    _rightSensor.hangOnBody(_body);
+}
+
 void Entity::setPosition(float x, float y)
 {
     _body->SetTransform(b2Vec2(x, y), _body->GetAngle());
-}
-
-void Entity::setOnGround(bool value)
-{
-    _isOnGround = value;
-}
-
-bool Entity::isOnGround() const
-{
-    return _isOnGround;
-}
-
-void Entity::setLeftContact(bool value)
-{
-    _isLeftContact = value;
-}
-
-bool Entity::isLeftContact() const
-{
-    return _isLeftContact;
-}
-
-void Entity::setRightContact(bool value)
-{
-    _isRightContact = value;
-}
-
-bool Entity::isRightContact() const
-{
-    return _isRightContact;
 }
 
 b2Vec2 Entity::footPosition() const
@@ -98,7 +99,7 @@ const b2PolygonShape& Entity::shape() const
 
 void Entity::stepLeft()
 {
-    if (isLeftContact())
+    if (_leftSensor.isActive())
         return;
     if (_body->GetLinearVelocity().x >= -6.0f)
         _body->ApplyLinearImpulse(b2Vec2(-0.4f, 0.0f),
@@ -108,7 +109,7 @@ void Entity::stepLeft()
 
 void Entity::stepRight()
 {
-    if (isRightContact())
+    if (_rightSensor.isActive())
         return;
     if (_body->GetLinearVelocity().x <= 6.0f)
         _body->ApplyLinearImpulse(b2Vec2(0.4f, 0.0f),
@@ -118,9 +119,10 @@ void Entity::stepRight()
 
 void Entity::jump()
 {
-    if (isOnGround())
-        _body->ApplyLinearImpulse(b2Vec2(0.0f, 1.0f),
-                                  _body->GetWorldCenter(), true);
+    if (!_groundSensor.isActive())
+        return;
+    _body->ApplyLinearImpulse(b2Vec2(0.0f, 1.0f),
+                              _body->GetWorldCenter(), true);
 }
 
 void Entity::setMaxHealth(float value)

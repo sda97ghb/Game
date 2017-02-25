@@ -1,10 +1,8 @@
+#include "SFML/Graphics/CircleShape.hpp"
+
+#include "Game/CoordinateTranslation.h"
 #include "Game/Painter.h"
-
-#include "Box2D/Collision/b2Collision.h"
-#include "Box2D/Collision/Shapes/b2Shape.h"
-#include "Box2D/Common/b2Math.h"
-
-#include "CoordinateTranslation.h"
+#include "Game/World.h"
 
 Painter::~Painter()
 {

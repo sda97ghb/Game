@@ -1,6 +1,5 @@
-#include "SpriteAnimator.h"
-
 #include "Game/ImageScaler.h"
+#include "Game/SpriteAnimator.h"
 
 SpriteAnimator::SpriteAnimator() :
     _currentGroup(""),
@@ -19,7 +18,6 @@ void SpriteAnimator::setTexture(const std::string& filename)
     sf::Image original;
     original.loadFromFile(filename);
     _texture.loadFromImage(ImageScaler::scale(original));
-//    _texture.setRepeated(true);
 
     _sprite.setTexture(_texture);
 }

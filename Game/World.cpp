@@ -1,6 +1,5 @@
+#include "Game/ContactSensorListener.h"
 #include "Game/World.h"
-
-#include "Box2D/Dynamics/b2Fixture.h"
 
 World::World()
 {
@@ -9,7 +8,7 @@ World::World()
 
     createPlayer();
 
-    _world->SetContactListener(&_contactListener);
+    _world->SetContactListener(&ContactSensorListener::instance());
 }
 
 World::~World()
@@ -43,61 +42,20 @@ Ladder& World::createLadder()
     return ladder;
 }
 
-void World::constructEntity(Entity& entity) const
-{
-    const float width = entity.width();
-    const float height = entity.height();
-    {
-        b2PolygonShape entityShape;
-        entityShape.SetAsBox(width / 2.0f, height / 2.0f);
-        b2FixtureDef entityFixtureDef;
-        entityFixtureDef.shape = &entityShape;
-        entityFixtureDef.density = 1.0f;
-        entityFixtureDef.friction = 20.0f;
-        entityFixtureDef.restitution = 0.0f;
-        entity.body().CreateFixture(&entityFixtureDef);
-    }
-    {
-        b2PolygonShape sensorShape;
-        sensorShape.SetAsBox(width / 2.0f * 0.9, 0.1,
-                             b2Vec2(0.0f, -height / 2.0f), 0.0f);
-        b2FixtureDef sensorFixtureDef;
-        sensorFixtureDef.shape = &sensorShape;
-        sensorFixtureDef.isSensor = true;
-        b2Fixture* fixture = entity.body().CreateFixture(&sensorFixtureDef);
-        fixture->SetUserData((void*)SensorContactListener::GROUND_SENSOR_TYPE);
-    }
-    {
-        b2PolygonShape sensorShape;
-        sensorShape.SetAsBox(0.1f, height / 2.0 * 0.9,
-                             b2Vec2(-width / 2.0f, 0.0), 0.0f);
-        b2FixtureDef sensorFixtureDef;
-        sensorFixtureDef.shape = &sensorShape;
-        sensorFixtureDef.isSensor = true;
-        b2Fixture* fixture = entity.body().CreateFixture(&sensorFixtureDef);
-        fixture->SetUserData((void*)SensorContactListener::LEFT_SENSOR_TYPE);
-    }
-    {
-        b2PolygonShape sensorShape;
-        sensorShape.SetAsBox(0.1f, height / 2.0 * 0.9,
-                             b2Vec2(width / 2.0f, 0.0), 0.0f);
-        b2FixtureDef sensorFixtureDef;
-        sensorFixtureDef.shape = &sensorShape;
-        sensorFixtureDef.isSensor = true;
-        b2Fixture* fixture = entity.body().CreateFixture(&sensorFixtureDef);
-        fixture->SetUserData((void*)SensorContactListener::RIGHT_SENSOR_TYPE);
-    }
-}
-
-void World::createPlayer()
+b2Body* World::createBodyForEntity()
 {
     b2BodyDef entityBodyDef;
     entityBodyDef.type = b2_dynamicBody;
     entityBodyDef.fixedRotation = true;
     entityBodyDef.position.Set(0.0f, 0.0f);
-    player().setBody(_world->CreateBody(&entityBodyDef));
 
-    constructEntity(player());
+    return _world->CreateBody(&entityBodyDef);
+}
+
+void World::createPlayer()
+{
+    player().setBody(createBodyForEntity());
+    player().constructBody();
 }
 
 Archer& World::createArcher()
@@ -105,12 +63,8 @@ Archer& World::createArcher()
     _archers.emplace_back();
     Archer& archer = _archers.back();
 
-    b2BodyDef archerBodyDef;
-    archerBodyDef.type = b2_dynamicBody;
-    archerBodyDef.fixedRotation = true;
-    archerBodyDef.position.Set(0.0f, 0.0f);
-    archer.setBody(_world->CreateBody(&archerBodyDef));
-    constructEntity(archer);
+    archer.setBody(createBodyForEntity());
+    archer.constructBody();
 
     return archer;
 }
@@ -137,9 +91,9 @@ const std::list<Archer>& World::archers() const
 
 void World::update()
 {
-    float32 timeStep = 1.0f / 60.0f;
-    int32 velocityIterations = 8;
-    int32 positionIterations = 3;
+    const float32 timeStep = 1.0f / 60.0f;
+    const int32 velocityIterations = 8;
+    const int32 positionIterations = 3;
 
     _world->Step(timeStep, velocityIterations, positionIterations);
 

@@ -3,6 +3,7 @@
 
 #include "Box2D/Dynamics/b2Body.h"
 
+#include "Game/ContactSensor.h"
 #include "Game/SpriteAnimator.h"
 
 class Entity
@@ -22,16 +23,9 @@ public:
 
     Entity();
 
+    void constructBody();
+
     void setPosition(float x, float y);
-
-    void setOnGround(bool value);
-    bool isOnGround() const;
-
-    void setLeftContact(bool value);
-    bool isLeftContact() const;
-
-    void setRightContact(bool value);
-    bool isRightContact() const;
 
     b2Vec2 footPosition() const;
 
@@ -70,15 +64,15 @@ protected:
     b2Body* _body;
     SpriteAnimator _spriteAnimator;
 
-    bool _isOnGround;
-    bool _isLeftContact;
-    bool _isRightContact;
-
     float _maxHealth;
     float _health;
 
     float _maxMana;
     float _mana;
+
+    ContactSensor _groundSensor;
+    ContactSensor _leftSensor;
+    ContactSensor _rightSensor;
 
 private:
     friend class World;
