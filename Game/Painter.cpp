@@ -79,13 +79,36 @@ void Painter::drawGui()
     _view->setCenter(0.0f, 0.0f);
     _window->setView(*_view);
 
+    const sf::Color red(255, 0, 0);
+    const sf::Color blue(0, 0, 255);
+
     float health = Player::instance().health() / Player::instance().maxHealth();
-    drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, sf::Color(255, 0, 0));
+    drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, red);
 
     if (Player::instance().maxMana() != 0.0f)
     {
         float mana = Player::instance().mana() / Player::instance().maxMana();
-        drawBar(-530.0f, -285.0f, 200.0f, 20.0f, 2.0f, mana, sf::Color(0, 0, 255));
+        drawBar(-530.0f, -285.0f, 200.0f, 20.0f, 2.0f, mana, blue);
+    }
+
+    b2Vec2 pos = World::instance().player().body().GetPosition();
+    pos.y -= 7.0f;
+    if (pos.y < 0.0f)
+        pos.y = 0.0f;
+    sf::Vector2f posSF = translate::PosPf2Sf(pos);
+    _view->setCenter(posSF.x + 0.0f, posSF.y - 300.0f);
+    _window->setView(*_view);
+
+    World& world = World::instance();
+    for (const Archer& archerC : world.archers())
+    {
+        Archer& archer = const_cast<Archer&>(archerC);
+        sf::Sprite& sprite = constructArcher(archer);
+        sf::Vector2f pos = translate::PosPf2Sf(archer.body().GetPosition());
+        pos.x -= 50.0f;
+        pos.y -= 50.0f;
+        float health = archer.health() / archer.maxHealth();
+        drawBar(pos.x, pos.y, 100.0f, 6.0f, 1.0f, health, red);
     }
 }
 
