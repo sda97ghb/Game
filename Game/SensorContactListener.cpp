@@ -14,6 +14,18 @@ void SensorContactListener::BeginContact(b2Contact* contact)
 
     if (bSensorType == GROUND_SENSOR_TYPE)
         setOnGround(contact->GetFixtureB()->GetBody(), true);
+
+    if (aSensorType == LEFT_SENSOR_TYPE)
+        setLeftContact(contact->GetFixtureA()->GetBody(), true);
+
+    if (bSensorType == LEFT_SENSOR_TYPE)
+        setLeftContact(contact->GetFixtureB()->GetBody(), true);
+
+    if (aSensorType == RIGHT_SENSOR_TYPE)
+        setRightContact(contact->GetFixtureA()->GetBody(), true);
+
+    if (bSensorType == RIGHT_SENSOR_TYPE)
+        setRightContact(contact->GetFixtureB()->GetBody(), true);
 }
 
 void SensorContactListener::EndContact(b2Contact* contact)
@@ -26,6 +38,18 @@ void SensorContactListener::EndContact(b2Contact* contact)
 
     if (bSensorType == GROUND_SENSOR_TYPE)
         setOnGround(contact->GetFixtureB()->GetBody(), false);
+
+    if (aSensorType == LEFT_SENSOR_TYPE)
+        setLeftContact(contact->GetFixtureA()->GetBody(), false);
+
+    if (bSensorType == LEFT_SENSOR_TYPE)
+        setLeftContact(contact->GetFixtureB()->GetBody(), false);
+
+    if (aSensorType == RIGHT_SENSOR_TYPE)
+        setRightContact(contact->GetFixtureA()->GetBody(), false);
+
+    if (bSensorType == RIGHT_SENSOR_TYPE)
+        setRightContact(contact->GetFixtureB()->GetBody(), false);
 }
 
 void SensorContactListener::setOnGround(b2Body* body, bool value)
@@ -42,6 +66,44 @@ void SensorContactListener::setOnGround(b2Body* body, bool value)
         if (&archer.body() == body)
         {
             archer.setOnGround(value);
+            return;
+        }
+    }
+}
+
+void SensorContactListener::setLeftContact(b2Body* body, bool value)
+{
+    World& world = World::instance();
+    if (&world.player().body() == body)
+    {
+        world.player().setLeftContact(value);
+        return;
+    }
+    for (const Archer& archerC : world.archers())
+    {
+        Archer& archer = const_cast<Archer&>(archerC);
+        if (&archer.body() == body)
+        {
+            archer.setLeftContact(value);
+            return;
+        }
+    }
+}
+
+void SensorContactListener::setRightContact(b2Body* body, bool value)
+{
+    World& world = World::instance();
+    if (&world.player().body() == body)
+    {
+        world.player().setRightContact(value);
+        return;
+    }
+    for (const Archer& archerC : world.archers())
+    {
+        Archer& archer = const_cast<Archer&>(archerC);
+        if (&archer.body() == body)
+        {
+            archer.setRightContact(value);
             return;
         }
     }

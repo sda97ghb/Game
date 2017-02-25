@@ -27,6 +27,12 @@ public:
     void setOnGround(bool value);
     bool isOnGround() const;
 
+    void setLeftContact(bool value);
+    bool isLeftContact() const;
+
+    void setRightContact(bool value);
+    bool isRightContact() const;
+
     b2Vec2 footPosition() const;
 
     virtual float width() const = 0;
@@ -65,6 +71,8 @@ protected:
     SpriteAnimator _spriteAnimator;
 
     bool _isOnGround;
+    bool _isLeftContact;
+    bool _isRightContact;
 
     float _maxHealth;
     float _health;

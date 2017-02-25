@@ -26,6 +26,26 @@ bool Entity::isOnGround() const
     return _isOnGround;
 }
 
+void Entity::setLeftContact(bool value)
+{
+    _isLeftContact = value;
+}
+
+bool Entity::isLeftContact() const
+{
+    return _isLeftContact;
+}
+
+void Entity::setRightContact(bool value)
+{
+    _isRightContact = value;
+}
+
+bool Entity::isRightContact() const
+{
+    return _isRightContact;
+}
+
 b2Vec2 Entity::footPosition() const
 {
     if (!_body)
@@ -78,6 +98,8 @@ const b2PolygonShape& Entity::shape() const
 
 void Entity::stepLeft()
 {
+    if (isLeftContact())
+        return;
     if (_body->GetLinearVelocity().x >= -6.0f)
         _body->ApplyLinearImpulse(b2Vec2(-0.4f, 0.0f),
                                   _body->GetWorldCenter(), true);
@@ -86,6 +108,8 @@ void Entity::stepLeft()
 
 void Entity::stepRight()
 {
+    if (isRightContact())
+        return;
     if (_body->GetLinearVelocity().x <= 6.0f)
         _body->ApplyLinearImpulse(b2Vec2(0.4f, 0.0f),
                                   _body->GetWorldCenter(), true);
