@@ -19,32 +19,34 @@
 
 #include "Game/Player.h"
 
-//#include "Game/TestPlayer.h"
-//#include "Game/TestArcher.h"
-
 #include "Game/SensorContactListener.h"
 
 class World
 {
 public:
+    ~World();
     static World& instance();
+
+    Platform& createPlatform();
+
+    Ladder& createLadder();
+
+    void constructEntity(Entity& entity) const;
+
+    Archer& createArcher();
 
     Player& player();
 
-    Archer& createArcher();
-    const std::list<Archer>& archers() const;
-
-    Platform& createPlatform();
     const std::list<Platform>& platforms() const;
 
-    Ladder& createLadder();
     const std::list<Ladder>& ladders() const;
+
+    const std::list<Archer>& archers() const;
 
     void update();
 
 private:
     World();
-    ~World();
 
     World(const World&) = delete;
     void operator= (const World&) = delete;
