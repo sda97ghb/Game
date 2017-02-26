@@ -6,7 +6,7 @@
 #include "Box2D/Common/b2Math.h"
 
 namespace translate {
-    static constexpr float SCREEN_PER_PHYSICAL = 32.0f;
+    const float SCREEN_PER_PHYSICAL = 32.0f;
     // texture 16px == screen 32px == physical 1m
 
     // Point - Pos
@@ -15,7 +15,7 @@ namespace translate {
     // Screen - S
     // int - i
     // float - f
-    // to - 2
+    // to - 2 
     // Physical float point to screen int point - PosPf2Si
 
     sf::Vector2f PosPf2Sf(const b2Vec2& pos);
