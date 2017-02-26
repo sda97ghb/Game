@@ -1,3 +1,5 @@
+#include <cstdint>
+
 #include "Game/ImageScaler.h"
 
 sf::Image ImageScaler::scale(const sf::Image& original)
