@@ -1,10 +1,9 @@
-#include <iostream>
-
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Game/SensorsListener.h"
 #include "Game/Entity.h"
+#include "Game/Log.h"
+#include "Game/SensorsListener.h"
 
 Entity::Entity() :
     _body(nullptr),
@@ -110,6 +109,8 @@ const b2PolygonShape& Entity::shape() const
 
 void Entity::stepLeft()
 {
+    if (!isAlive())
+        return;
     if (_leftSensor.isActive())
         return;
     if (_body->GetLinearVelocity().x >= -6.0f)
@@ -120,6 +121,8 @@ void Entity::stepLeft()
 
 void Entity::stepRight()
 {
+    if (!isAlive())
+        return;
     if (_rightSensor.isActive())
         return;
     if (_body->GetLinearVelocity().x <= 6.0f)
@@ -130,6 +133,8 @@ void Entity::stepRight()
 
 void Entity::jump()
 {
+    if (!isAlive())
+        return;
     if (!_groundSensor.isActive())
         return;
     _body->ApplyLinearImpulse(b2Vec2(0.0f, 2.0f),
@@ -167,7 +172,7 @@ void Entity::setHealth(float value)
 
 void Entity::makeDamage(float value)
 {
-    std::cout << "Damage: " << value << std::endl;
+    Log::instance().push("Damage: " + std::to_string(value));
     _health -= value;
 }
 

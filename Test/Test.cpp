@@ -34,6 +34,7 @@ void test::main(int argc, char** argv)
 
         painter.drawWorld();
         painter.drawGui();
+        painter.drawLog();
 
         window.display();
 

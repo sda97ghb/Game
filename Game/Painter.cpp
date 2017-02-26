@@ -1,8 +1,10 @@
 #include "SFML/Graphics/CircleShape.hpp"
+#include "SFML/Graphics/Text.hpp"
 
 #include "Game/CoordinateTranslation.h"
 #include "Game/Painter.h"
 #include "Game/World.h"
+#include "Game/Log.h"
 
 Painter::~Painter()
 {
@@ -16,7 +18,8 @@ void Painter::initialize()
     sf::VideoMode videoMode = sf::VideoMode(1200, 720);
 //    _window = new sf::RenderWindow(videoMode, "Game", sf::Style::Fullscreen);
     _window = new sf::RenderWindow(videoMode, "Game");
-    _view = new sf::View(sf::FloatRect(-(videoMode.width * 0.5f), -(videoMode.height * 0.9f),
+    _view = new sf::View(sf::FloatRect(-(videoMode.width * 0.5f),
+                                       -(videoMode.height * 0.9f),
                                         videoMode.width, videoMode.height));
     _window->setView(*_view);
 
@@ -79,17 +82,16 @@ void Painter::drawGui()
     _view->setCenter(0.0f, 0.0f);
     _window->setView(*_view);
 
-    const sf::Color red(255, 0, 0);
-    const sf::Color blue(0, 0, 255);
-
     float health = Player::instance().health() / Player::instance().maxHealth();
-    drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, red);
+    drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
 
     if (Player::instance().maxMana() != 0.0f)
     {
         float mana = Player::instance().mana() / Player::instance().maxMana();
-        drawBar(-530.0f, -285.0f, 200.0f, 20.0f, 2.0f, mana, blue);
+        drawBar(-530.0f, -285.0f, 200.0f, 20.0f, 2.0f, mana, sf::Color::Blue);
     }
+
+    //----------------//
 
     b2Vec2 pos = World::instance().player().body().GetPosition();
     pos.y -= 7.0f;
@@ -103,23 +105,54 @@ void Painter::drawGui()
     for (const Archer& archerC : world.archers())
     {
         Archer& archer = const_cast<Archer&>(archerC);
-        sf::Sprite& sprite = constructArcher(archer);
         sf::Vector2f pos = translate::PosPf2Sf(archer.body().GetPosition());
         pos.x -= 50.0f;
         pos.y -= 50.0f;
         float health = archer.health() / archer.maxHealth();
-        drawBar(pos.x, pos.y, 100.0f, 6.0f, 1.0f, health, red);
+        drawBar(pos.x, pos.y, 100.0f, 6.0f, 1.0f, health, sf::Color::Red);
     }
 }
 
-void Painter::drawBar(float x, float y, float width, float height, float border, float value, sf::Color color)
+void Painter::drawLog()
 {
+    _view->setCenter(0.0f, 0.0f);
+    _window->setView(*_view);
+
+    const std::string FONTS_DIRECTORY = "C:/Projects/Game/Fonts";
+    sf::Font font;
+    font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
+    sf::Text text;
+    text.setFont(font);
+    text.setCharacterSize(16);
+    text.setFillColor(sf::Color::Black);
+    text.setOutlineColor(sf::Color::White);
+    text.setOutlineThickness(0.5f);
+    text.setStyle(sf::Text::Bold);
+
+    int i = 0;
+    for (const std::string line : Log::instance().lines())
+    {
+        text.setString(line);
+        text.setPosition(-530.0f, 100.0f + 20.0f * i);
+        _window->draw(text);
+        ++i;
+    }
+}
+
+void Painter::drawBar(float x, float y, float width, float height,
+                      float border, float value, sf::Color color)
+{
+    if (value < 0.0f)
+        value = 0.0f;
+    if (value > 1.0f)
+        value = 1.0f;
+
     sf::RectangleShape barBackground;
     sf::RectangleShape barLine;
 
     barBackground.setPosition(x, y);
     barBackground.setSize(sf::Vector2f(width, height));
-    barBackground.setFillColor(sf::Color(0, 0, 0));
+    barBackground.setFillColor(sf::Color::Black);
 
     barLine.setPosition(x + border, y + border);
     barLine.setSize(sf::Vector2f((width - border * 2.0f) * value,
@@ -186,6 +219,8 @@ sf::Sprite& Painter::constructEntity(Entity& entity)
     SpriteAnimator& animator = entity.spriteAnimator();
     animator.update();
 
+    if (!entity.isAlive())
+        entity.spriteAnimator().setCurrentGroup("dead");
     sf::Sprite& sprite = animator.sprite();
 
     b2Vec2 pos = entity.body().GetPosition();

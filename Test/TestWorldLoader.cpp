@@ -189,6 +189,7 @@ void TestWorldLoader::load()
         animator.setAnimationGroup("climbing", 24, 0, 12, 28, 2, false);
         animator.setAnimationGroup("punching_right", 36, 0, 15, 28, 3, true);
         animator.setAnimationGroup("punching_left", 36, 28, 15, 28, 3, true);
+        animator.setAnimationGroup("dead", 52, 56, 28, 28, 1, true);
         animator.setCurrentGroup("going_right");
     }
 

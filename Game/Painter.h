@@ -23,6 +23,7 @@ public:
 
     void drawWorld();
     void drawGui();
+    void drawLog();
 
     void drawBar(float x, float y, float width, float height,
                  float border, float value, sf::Color color);
