@@ -23,7 +23,7 @@ void Painter::initialize()
                                         videoMode.width, videoMode.height));
     _window->setView(*_view);
 
-    _backgroundTexture.loadFromFile("C:/Projects/Game/Textures/background.png");
+    _backgroundTexture.loadFromFile("Textures/background.png");
     _background.setTexture(_backgroundTexture);
 }
 
@@ -118,7 +118,7 @@ void Painter::drawLog()
     _view->setCenter(0.0f, 0.0f);
     _window->setView(*_view);
 
-    const std::string FONTS_DIRECTORY = "C:/Projects/Game/Fonts";
+    const std::string FONTS_DIRECTORY = "Fonts";
     sf::Font font;
     font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
     sf::Text text;
