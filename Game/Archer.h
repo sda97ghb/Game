@@ -3,14 +3,18 @@
 
 #include "Game/Enemy.h"
 
+/// Класс лучника
 class Archer : public Enemy
 {
 public:
     Archer();
 
+    /// \brief Возвращает физическую ширину.
     float width() const;
+    /// \brief Возвращает физическую высоту.
     float height() const;
 
+    /// \brief Вызывает функцию текущего состояния.
     void update();
 
 private:
