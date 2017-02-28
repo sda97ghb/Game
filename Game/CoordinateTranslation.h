@@ -1,3 +1,7 @@
+/// \file
+/// \brief Содержит функции перевода физических координат и размеров
+/// в экранные и обратно.
+
 #ifndef COORDINATETRANSLATION_H
 #define COORDINATETRANSLATION_H
 
