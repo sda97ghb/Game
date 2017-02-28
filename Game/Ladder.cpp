@@ -2,7 +2,6 @@
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Game/ImageScaler.h"
 #include "Game/Ladder.h"
 #include "Game/Player.h"
 

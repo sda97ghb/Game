@@ -6,7 +6,7 @@
 
 #include <list>
 #include <string>
-
+#include <cstdint>
 /// \brief Класс лога (чата).
 /// \note Вы можете обратиться к логу из любого места вызвав Log::instance()
 class Log

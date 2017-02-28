@@ -1,4 +1,5 @@
 #include "Game/Furniture.h"
+#include "Game/ImageScaler.h"
 
 Furniture::Furniture()
 {
@@ -6,7 +7,9 @@ Furniture::Furniture()
 
 void Furniture::setTexture(const std::string& filename)
 {
-    _texture.loadFromFile(filename);
+	sf::Image texture;
+	texture.loadFromFile(filename);
+	_texture.loadFromImage(ImageScaler::scale(texture));
     _texture.setRepeated(true);
 }
 
