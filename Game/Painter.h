@@ -32,6 +32,9 @@ public:
     /// \brief Возвращает ссылку на графическое окно.
     sf::RenderWindow& window();
 
+    /// \brief Рисует фоновое изображение.
+    void drawBackground();
+
     /// \brief Рисует мир (background, платформы, объекты взаимодействия, существ)
     void drawWorld();
 
@@ -68,6 +71,13 @@ public:
     sf::Sprite& constructArcher(Archer& archer);
 
 private:
+    /// \brief Настраивает _view для рисования мира (платформ, фурнитуры, существ).
+    /// \return Коодинаты нового центра _view.
+    sf::Vector2f setViewForWorld();
+
+    /// \brief Настраивает _view для рисования gui.
+    void setViewForGui();
+
     sf::RenderWindow* _window; ///< Графическое окно
     sf::View* _view; ///< Текущая область мира, которую нужно нарисовать.
 

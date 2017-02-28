@@ -32,6 +32,7 @@ void test::main(int argc, char** argv)
 
         window.clear();
 
+        painter.drawBackground();
         painter.drawWorld();
         painter.drawGui();
         painter.drawLog();

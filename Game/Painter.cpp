@@ -32,25 +32,24 @@ sf::RenderWindow& Painter::window()
     return *_window;
 }
 
+void Painter::drawBackground()
+{
+    sf::Vector2f posSF = setViewForWorld();
+
+    _background.setPosition(posSF.x - 600.0f, posSF.y - 360.0f);
+    _window->draw(_background);
+}
+
 void Painter::drawWorld()
 {
-    b2Vec2 pos = World::instance().player().body().GetPosition();
-    pos.y -= 7.0f;
-    if (pos.y < 0.0f)
-        pos.y = 0.0f;
-    sf::Vector2f posSF = translate::PosPf2Sf(pos);
-    _view->setCenter(posSF.x + 0.0f, posSF.y - 300.0f);
-    _window->setView(*_view);
-
-    _background.setPosition(posSF.x - 600.0f, posSF.y - 660.0f);
-    _window->draw(_background);
+    setViewForWorld();
 
     World& world = World::instance();
 
     for (const Platform& cPlatform : world.platforms())
     {
         Platform& platform = const_cast<Platform&>(cPlatform);
-        sf::ConvexShape& shape = constructPlatform(platform);(void)shape;
+        sf::ConvexShape& shape = constructPlatform(platform);
         _window->draw(shape);
     }
     for (const Ladder& ladderC : world.ladders())
@@ -79,8 +78,7 @@ void Painter::drawWorld()
 
 void Painter::drawGui()
 {
-    _view->setCenter(0.0f, 0.0f);
-    _window->setView(*_view);
+    setViewForGui();
 
     float health = Player::instance().health() / Player::instance().maxHealth();
     drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
@@ -93,13 +91,7 @@ void Painter::drawGui()
 
     //----------------//
 
-    b2Vec2 pos = World::instance().player().body().GetPosition();
-    pos.y -= 7.0f;
-    if (pos.y < 0.0f)
-        pos.y = 0.0f;
-    sf::Vector2f posSF = translate::PosPf2Sf(pos);
-    _view->setCenter(posSF.x + 0.0f, posSF.y - 300.0f);
-    _window->setView(*_view);
+    setViewForWorld();
 
     World& world = World::instance();
     for (const Archer& archerC : world.archers())
@@ -223,10 +215,10 @@ sf::Sprite& Painter::constructEntity(Entity& entity)
         entity.spriteAnimator().setCurrentGroup("dead");
     sf::Sprite& sprite = animator.sprite();
 
-    b2Vec2 pos = entity.body().GetPosition();
-    pos.x -= entity.width() / 2.0f;
-    pos.y += entity.height() / 2.0f;
-    sprite.setPosition(translate::PosPf2Sf(pos));
+    sf::Vector2f pos = translate::PosPf2Sf(entity.body().GetPosition());
+    pos.x -= sprite.getTextureRect().width / 2.0f;
+    pos.y -= sprite.getTextureRect().height / 2.0f;
+    sprite.setPosition(pos);
 
     return sprite;
 }
@@ -239,4 +231,24 @@ sf::Sprite& Painter::constructPlayer()
 sf::Sprite& Painter::constructArcher(Archer& archer)
 {
     return constructEntity(archer);
+}
+
+sf::Vector2f Painter::setViewForWorld()
+{
+    b2Vec2 pos = World::instance().player().body().GetPosition();
+    pos.y -= 7.0f;
+    if (pos.y < 0.0f)
+        pos.y = 0.0f;
+    sf::Vector2f posSF = translate::PosPf2Sf(pos);
+    posSF.y -= 300.0f;
+    _view->setCenter(posSF.x, posSF.y);
+    _window->setView(*_view);
+
+    return posSF;
+}
+
+void Painter::setViewForGui()
+{
+    _view->setCenter(0.0f, 0.0f);
+    _window->setView(*_view);
 }
