@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит класс мага.
+
 #ifndef MAGE_H
 #define MAGE_H
 

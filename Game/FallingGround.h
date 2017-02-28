@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит класс земли, обваливающейся при падении.
+
 #ifndef FALLINGGROUND_H
 #define FALLINGGROUND_H
 

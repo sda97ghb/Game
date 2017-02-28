@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит класс шипов.
+
 #ifndef SPIKES_H
 #define SPIKES_H
 

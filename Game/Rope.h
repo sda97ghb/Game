@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит класс болтающейся веревки.
+
 #ifndef ROPE_H
 #define ROPE_H
 

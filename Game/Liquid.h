@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит базовый класс жидкости.
+
 #ifndef LIQUID_H
 #define LIQUID_H
 

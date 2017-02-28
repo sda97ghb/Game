@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит класс лавы.
+
 #ifndef LAVA_H
 #define LAVA_H
 

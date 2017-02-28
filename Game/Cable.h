@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит класс троса.
+
 #ifndef CABLE_H
 #define CABLE_H
 

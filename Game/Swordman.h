@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит класс мечника.
+
 #ifndef SWORDMAN_H
 #define SWORDMAN_H
 

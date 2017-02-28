@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит класс воды.
+
 #ifndef WATER_H
 #define WATER_H
 
