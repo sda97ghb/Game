@@ -20,15 +20,12 @@ public:
     /// \brief Устанавливает текстуру. Текстура предполагается зацикленной.
     void setTexture(const std::string& filename);
 
-    sf::Sprite& sprite();
-
     /// \brief Возвращает ссылку на текстуру.
     sf::Texture& texture();
 
     virtual void testPlayerOnIt() = 0;
 
 private:
-    sf::Sprite _sprite;
     sf::Texture _texture; ///< Текстура.
 };
 
