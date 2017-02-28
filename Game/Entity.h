@@ -1,3 +1,6 @@
+/// \file
+/// \brief Содержит базовый для всех существ класс.
+
 #ifndef ENTITY_H
 #define ENTITY_H
 
@@ -7,7 +10,7 @@
 #include "Game/HitSensor.h"
 #include "Game/SpriteAnimator.h"
 
-/// Базовый класс для всех существ.
+/// \brief Базовый класс для всех существ.
 /// \attention Не наследуйтесь напрямую от этого класса, если вы разрабатывает
 /// существо, враждебное к игроку, используйте класс Enemy.
 class Entity
