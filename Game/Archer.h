@@ -1,16 +1,23 @@
+/// \file
+/// \brief Содержит класс врага лучника.
+
 #ifndef ARCHER_H
 #define ARCHER_H
 
 #include "Game/Enemy.h"
 
+/// \brief Класс лучника
 class Archer : public Enemy
 {
 public:
     Archer();
 
+    /// \brief Возвращает физическую ширину.
     float width() const;
+    /// \brief Возвращает физическую высоту.
     float height() const;
 
+    /// \brief Вызывает функцию текущего состояния.
     void update();
 
 private:

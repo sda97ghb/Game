@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Game: Класс Painter</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Game
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="class_painter-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Painter</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс, отвечающий за графическую составляющую игры.  
+ <a href="class_painter.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_painter_8h_source.html">Painter.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a12f9623c2acf87eced6e141e7638804e"><td class="memItemLeft" align="right" valign="top"><a id="a12f9623c2acf87eced6e141e7638804e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a12f9623c2acf87eced6e141e7638804e">initialize</a> ()</td></tr>
+<tr class="memdesc:a12f9623c2acf87eced6e141e7638804e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создает графическое окно, инициализирует графику. <br /></td></tr>
+<tr class="separator:a12f9623c2acf87eced6e141e7638804e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb6533dbb46c482a89c521b15c58355f"><td class="memItemLeft" align="right" valign="top"><a id="afb6533dbb46c482a89c521b15c58355f"></a>
+sf::RenderWindow &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#afb6533dbb46c482a89c521b15c58355f">window</a> ()</td></tr>
+<tr class="memdesc:afb6533dbb46c482a89c521b15c58355f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ссылку на графическое окно. <br /></td></tr>
+<tr class="separator:afb6533dbb46c482a89c521b15c58355f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace91592a0ff68e8bf35e267cc28c3791"><td class="memItemLeft" align="right" valign="top"><a id="ace91592a0ff68e8bf35e267cc28c3791"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#ace91592a0ff68e8bf35e267cc28c3791">drawWorld</a> ()</td></tr>
+<tr class="memdesc:ace91592a0ff68e8bf35e267cc28c3791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует мир (background, платформы, объекты взаимодействия, существ) <br /></td></tr>
+<tr class="separator:ace91592a0ff68e8bf35e267cc28c3791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49cfdf0072af2628fcb03b44d4571677"><td class="memItemLeft" align="right" valign="top"><a id="a49cfdf0072af2628fcb03b44d4571677"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a49cfdf0072af2628fcb03b44d4571677">drawGui</a> ()</td></tr>
+<tr class="memdesc:a49cfdf0072af2628fcb03b44d4571677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует GUI (lifebar'ы, manabar'ы) <br /></td></tr>
+<tr class="separator:a49cfdf0072af2628fcb03b44d4571677"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69682728a234f74a352e122c4d504bfb"><td class="memItemLeft" align="right" valign="top"><a id="a69682728a234f74a352e122c4d504bfb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a69682728a234f74a352e122c4d504bfb">drawLog</a> ()</td></tr>
+<tr class="memdesc:a69682728a234f74a352e122c4d504bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует чат. <br /></td></tr>
+<tr class="separator:a69682728a234f74a352e122c4d504bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3bcf81456c62424ec83b47b8ca0cb4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#ad3bcf81456c62424ec83b47b8ca0cb4d">drawBar</a> (float x, float y, float width, float height, float border, float value, sf::Color color)</td></tr>
+<tr class="memdesc:ad3bcf81456c62424ec83b47b8ca0cb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует полоску под лайфбар или манабар.  <a href="#ad3bcf81456c62424ec83b47b8ca0cb4d">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad3bcf81456c62424ec83b47b8ca0cb4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a151169837929c53b7db5a6c41b0e6945"><td class="memItemLeft" align="right" valign="top"><a id="a151169837929c53b7db5a6c41b0e6945"></a>
+sf::ConvexShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a151169837929c53b7db5a6c41b0e6945">constructPlatform</a> (<a class="el" href="class_platform.html">Platform</a> &amp;platform)</td></tr>
+<tr class="memdesc:a151169837929c53b7db5a6c41b0e6945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготавливает к отрисовке многоугольник для платформы <br /></td></tr>
+<tr class="separator:a151169837929c53b7db5a6c41b0e6945"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cafe823c1635483e7eaa89eb580c4ca"><td class="memItemLeft" align="right" valign="top"><a id="a0cafe823c1635483e7eaa89eb580c4ca"></a>
+sf::RectangleShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a0cafe823c1635483e7eaa89eb580c4ca">constructLadder</a> (<a class="el" href="class_ladder.html">Ladder</a> &amp;ladder)</td></tr>
+<tr class="memdesc:a0cafe823c1635483e7eaa89eb580c4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготавливает для отрисовки прямоугольник для лестницы. <br /></td></tr>
+<tr class="separator:a0cafe823c1635483e7eaa89eb580c4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8503867fb735154f2b34eb96e59ab82e"><td class="memItemLeft" align="right" valign="top"><a id="a8503867fb735154f2b34eb96e59ab82e"></a>
+sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a8503867fb735154f2b34eb96e59ab82e">constructEntity</a> (<a class="el" href="class_entity.html">Entity</a> &amp;entity)</td></tr>
+<tr class="memdesc:a8503867fb735154f2b34eb96e59ab82e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготавливает для отрисовки спрайт для существа. <br /></td></tr>
+<tr class="separator:a8503867fb735154f2b34eb96e59ab82e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16d459e1aaa4ed33f692d528566e416e"><td class="memItemLeft" align="right" valign="top"><a id="a16d459e1aaa4ed33f692d528566e416e"></a>
+sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a16d459e1aaa4ed33f692d528566e416e">constructPlayer</a> ()</td></tr>
+<tr class="memdesc:a16d459e1aaa4ed33f692d528566e416e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготавливает для отрисовки спрайт для игрока. <br /></td></tr>
+<tr class="separator:a16d459e1aaa4ed33f692d528566e416e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca4a21d1dc4e4f28d18ff8900bdc7d6b"><td class="memItemLeft" align="right" valign="top"><a id="aca4a21d1dc4e4f28d18ff8900bdc7d6b"></a>
+sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#aca4a21d1dc4e4f28d18ff8900bdc7d6b">constructArcher</a> (<a class="el" href="class_archer.html">Archer</a> &amp;archer)</td></tr>
+<tr class="memdesc:aca4a21d1dc4e4f28d18ff8900bdc7d6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготавливает для отрисовки спрайт для лучника. <br /></td></tr>
+<tr class="separator:aca4a21d1dc4e4f28d18ff8900bdc7d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a688047cc8f27717f84e87b970ca868ee"><td class="memItemLeft" align="right" valign="top"><a id="a688047cc8f27717f84e87b970ca868ee"></a>
+sf::RenderWindow *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a688047cc8f27717f84e87b970ca868ee">_window</a></td></tr>
+<tr class="memdesc:a688047cc8f27717f84e87b970ca868ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Графическое окно <br /></td></tr>
+<tr class="separator:a688047cc8f27717f84e87b970ca868ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8450588b5c06cf364d4458f34dfcb522"><td class="memItemLeft" align="right" valign="top"><a id="a8450588b5c06cf364d4458f34dfcb522"></a>
+sf::View *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a8450588b5c06cf364d4458f34dfcb522">_view</a></td></tr>
+<tr class="memdesc:a8450588b5c06cf364d4458f34dfcb522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текущая область мира, которую нужно нарисовать. <br /></td></tr>
+<tr class="separator:a8450588b5c06cf364d4458f34dfcb522"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a5418f4cbe8da597169d9a381236c8"><td class="memItemLeft" align="right" valign="top"><a id="ad7a5418f4cbe8da597169d9a381236c8"></a>
+sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#ad7a5418f4cbe8da597169d9a381236c8">_backgroundTexture</a></td></tr>
+<tr class="memdesc:ad7a5418f4cbe8da597169d9a381236c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текстура фона <br /></td></tr>
+<tr class="separator:ad7a5418f4cbe8da597169d9a381236c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a486b70c1018d1045e577b2be2c6f17b0"><td class="memItemLeft" align="right" valign="top"><a id="a486b70c1018d1045e577b2be2c6f17b0"></a>
+sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painter.html#a486b70c1018d1045e577b2be2c6f17b0">_background</a></td></tr>
+<tr class="memdesc:a486b70c1018d1045e577b2be2c6f17b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Фон <br /></td></tr>
+<tr class="separator:a486b70c1018d1045e577b2be2c6f17b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс, отвечающий за графическую составляющую игры. </p>
+<p>Создает графическое окно, занимается отрисовкой текущего кадра и пользовательского интерфейса. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="ad3bcf81456c62424ec83b47b8ca0cb4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3bcf81456c62424ec83b47b8ca0cb4d">&#9670;&nbsp;</a></span>drawBar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Painter::drawBar </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>border</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sf::Color&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Рисует полоску под лайфбар или манабар. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x,y</td><td>положение полоски в графических координатах </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>ширина полоски </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>высота полоски </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">border</td><td>ширина черной обводки </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>дробное значение на отрезке от 0 до 1, где 0 - полностью пустая полоска, 1 - полностью заполненная </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>цвет, например sf::Color::red или sf::Color(10, 20, 30) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Game/<a class="el" href="_painter_8h_source.html">Painter.h</a></li>
+<li>Game/Painter.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

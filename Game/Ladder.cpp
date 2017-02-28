@@ -28,14 +28,6 @@ void Ladder::setWidth(float width)
     setShape();
 }
 
-void Ladder::setTexture(const std::string& filename)
-{
-    sf::Image original;
-    original.loadFromFile(filename);
-    _texture.loadFromImage(ImageScaler::scale(original));
-    _texture.setRepeated(true);
-}
-
 void Ladder::testPlayerOnIt()
 {
     try {
@@ -118,16 +110,6 @@ sf::RectangleShape& Ladder::shapeSF()
 const sf::RectangleShape& Ladder::shapeSF() const
 {
     return _shapeSF;
-}
-
-sf::Texture& Ladder::texture()
-{
-    return _texture;
-}
-
-const sf::Texture& Ladder::texture() const
-{
-    return _texture;
 }
 
 void Ladder::setShape()

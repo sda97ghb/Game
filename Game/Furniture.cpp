@@ -10,11 +10,6 @@ void Furniture::setTexture(const std::string& filename)
     _texture.setRepeated(true);
 }
 
-sf::Sprite& Furniture::sprite()
-{
-    return _sprite;
-}
-
 sf::Texture& Furniture::texture()
 {
     return _texture;
