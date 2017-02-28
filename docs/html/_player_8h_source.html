@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Game: Исходный файл Game/Player.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Game
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Player.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_player_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef PLAYER_H</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define PLAYER_H</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8h.html">Game/Entity.h</a>&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_player.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_player.html">Player</a> : <span class="keyword">public</span> <a class="code" href="class_entity.html">Entity</a></div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_player.html">Player</a>&amp; <a class="code" href="class_player.html#a2bf5cfb2a54c9fde1432fed9eb46fe49">instance</a>();</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_player.html#a9203770e17d5ba04b122533aa3515c29">width</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_player.html#ae1a7366a61570122eaaec7cdfc63c1e5">height</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player.html#a3c155db013778de34c0235521e387f22">punch</a>();</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4">update</a>();</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_player.html">Player</a>();</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_player.html">Player</a>(<span class="keyword">const</span> <a class="code" href="class_player.html">Player</a>&amp;) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> operator= (<span class="keyword">const</span> <a class="code" href="class_player.html">Player</a>&amp;) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif //PLAYER_H</span></div><div class="ttc" id="class_player_html_a9203770e17d5ba04b122533aa3515c29"><div class="ttname"><a href="class_player.html#a9203770e17d5ba04b122533aa3515c29">Player::width</a></div><div class="ttdeci">float width() const</div><div class="ttdoc">Физическая ширина игрока </div><div class="ttdef"><b>Definition:</b> Player.cpp:9</div></div>
+<div class="ttc" id="_entity_8h_html"><div class="ttname"><a href="_entity_8h.html">Entity.h</a></div><div class="ttdoc">Содержит базовый для всех существ класс. </div></div>
+<div class="ttc" id="class_player_html_a82c3476f3e65a4e2ac6bcd040771bdd4"><div class="ttname"><a href="class_player.html#a82c3476f3e65a4e2ac6bcd040771bdd4">Player::update</a></div><div class="ttdeci">void update()</div><div class="ttdoc">Вызывает функцию текущего состояния. </div><div class="ttdef"><b>Definition:</b> Player.cpp:29</div></div>
+<div class="ttc" id="class_player_html_ae1a7366a61570122eaaec7cdfc63c1e5"><div class="ttname"><a href="class_player.html#ae1a7366a61570122eaaec7cdfc63c1e5">Player::height</a></div><div class="ttdeci">float height() const</div><div class="ttdoc">Физическая высота игрока </div><div class="ttdef"><b>Definition:</b> Player.cpp:14</div></div>
+<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Базовый класс для всех существ. </div><div class="ttdef"><b>Definition:</b> Entity.h:16</div></div>
+<div class="ttc" id="class_player_html_a2bf5cfb2a54c9fde1432fed9eb46fe49"><div class="ttname"><a href="class_player.html#a2bf5cfb2a54c9fde1432fed9eb46fe49">Player::instance</a></div><div class="ttdeci">static Player &amp; instance()</div><div class="ttdoc">Возвращает ссылку на объект игрока. </div><div class="ttdef"><b>Definition:</b> Player.cpp:3</div></div>
+<div class="ttc" id="class_player_html_a3c155db013778de34c0235521e387f22"><div class="ttname"><a href="class_player.html#a3c155db013778de34c0235521e387f22">Player::punch</a></div><div class="ttdeci">void punch()</div><div class="ttdoc">Заставляет игрока нанести удар. </div><div class="ttdef"><b>Definition:</b> Player.cpp:19</div></div>
+<div class="ttc" id="class_player_html"><div class="ttname"><a href="class_player.html">Player</a></div><div class="ttdoc">Класс игрока. </div><div class="ttdef"><b>Definition:</b> Player.h:11</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

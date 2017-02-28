@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Game: Исходный файл Game/Platform.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Game
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Platform.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_platform_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#ifndef PLATFORM_H</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#define PLATFORM_H</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;SFML/Graphics/ConvexShape.hpp&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;SFML/Graphics/Texture.hpp&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;Box2D/Common/b2Math.h&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;Box2D/Dynamics/b2Body.h&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;Box2D/Collision/Shapes/b2PolygonShape.h&quot;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_platform.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_platform.html">Platform</a></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="struct_platform_1_1_no_body_exception.html">   21</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_platform_1_1_no_body_exception.html">NoBodyException</a> : <span class="keyword">public</span> std::logic_error {</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="struct_platform_1_1_no_body_exception.html">NoBodyException</a>() : std::logic_error(<span class="stringliteral">&quot;there is no body for the shape&quot;</span>) {}</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    };</div><div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="struct_platform_1_1_no_fixture_exception.html">   25</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_platform_1_1_no_fixture_exception.html">NoFixtureException</a> : <span class="keyword">public</span> std::logic_error {</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <a class="code" href="struct_platform_1_1_no_fixture_exception.html">NoFixtureException</a>() : std::logic_error(<span class="stringliteral">&quot;there is no fixture for the platform&quot;</span>) {}</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    };</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="struct_platform_1_1_no_shape_exception.html">   29</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="struct_platform_1_1_no_shape_exception.html">NoShapeException</a> : <span class="keyword">public</span> std::logic_error {</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <a class="code" href="struct_platform_1_1_no_shape_exception.html">NoShapeException</a>() : std::logic_error(<span class="stringliteral">&quot;there is no shape for the platform&quot;</span>) {}</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_platform.html#ac8995c5bf106bb826ff3c34a40271e18">setBody</a>(b2Body* <a class="code" href="class_platform.html#a1c899136a008461fdc09494fcfcb8766">body</a>);</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_platform.html#a4ddc13bf6cdd979cae3179a7bd11a30d">setShape</a>(<span class="keyword">const</span> b2PolygonShape&amp; shape);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_platform.html#ae9f37e3eda5f1175b9c4aa72a80fb677">setTexture</a>(<span class="keyword">const</span> std::string&amp; filename);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    b2PolygonShape&amp; <a class="code" href="class_platform.html#a47d65c6a338fe99bd1a7ededb5f46ae2">shapeB2</a>();</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">const</span> b2PolygonShape&amp; <a class="code" href="class_platform.html#a47d65c6a338fe99bd1a7ededb5f46ae2">shapeB2</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    b2Body&amp; <a class="code" href="class_platform.html#a1c899136a008461fdc09494fcfcb8766">body</a>();</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">const</span> b2Body&amp; <a class="code" href="class_platform.html#a1c899136a008461fdc09494fcfcb8766">body</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    sf::ConvexShape&amp; <a class="code" href="class_platform.html#ae9b215059f632709d0a79defed170d77">shapeSF</a>();</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">const</span> sf::ConvexShape&amp; <a class="code" href="class_platform.html#ae9b215059f632709d0a79defed170d77">shapeSF</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    sf::Texture&amp; <a class="code" href="class_platform.html#afe1a434252bc1bd0da2f213eef3538ac">texture</a>();</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">const</span> sf::Texture&amp; <a class="code" href="class_platform.html#afe1a434252bc1bd0da2f213eef3538ac">texture</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="class_platform.html#a2c2353e88bfef547fe38cf519fc496a7">   66</a></span>&#160;    b2Body* <a class="code" href="class_platform.html#a2c2353e88bfef547fe38cf519fc496a7">_body</a>; </div><div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="class_platform.html#a456d86757a9129822b9ea867d23827d5">   67</a></span>&#160;    sf::ConvexShape <a class="code" href="class_platform.html#a456d86757a9129822b9ea867d23827d5">_shape</a>; </div><div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="class_platform.html#abde038124fcccb623c809cf970b260e7">   68</a></span>&#160;    sf::Texture <a class="code" href="class_platform.html#abde038124fcccb623c809cf970b260e7">_texture</a>; </div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // PLATFORM_H</span></div><div class="ttc" id="class_platform_html_a456d86757a9129822b9ea867d23827d5"><div class="ttname"><a href="class_platform.html#a456d86757a9129822b9ea867d23827d5">Platform::_shape</a></div><div class="ttdeci">sf::ConvexShape _shape</div><div class="ttdoc">Графический многоугольник платформы </div><div class="ttdef"><b>Definition:</b> Platform.h:67</div></div>
+<div class="ttc" id="class_platform_html_afe1a434252bc1bd0da2f213eef3538ac"><div class="ttname"><a href="class_platform.html#afe1a434252bc1bd0da2f213eef3538ac">Platform::texture</a></div><div class="ttdeci">sf::Texture &amp; texture()</div><div class="ttdoc">Текстура платформы. </div><div class="ttdef"><b>Definition:</b> Platform.cpp:72</div></div>
+<div class="ttc" id="class_platform_html_a2c2353e88bfef547fe38cf519fc496a7"><div class="ttname"><a href="class_platform.html#a2c2353e88bfef547fe38cf519fc496a7">Platform::_body</a></div><div class="ttdeci">b2Body * _body</div><div class="ttdoc">Физическое тело платформы </div><div class="ttdef"><b>Definition:</b> Platform.h:66</div></div>
+<div class="ttc" id="class_platform_html_a4ddc13bf6cdd979cae3179a7bd11a30d"><div class="ttname"><a href="class_platform.html#a4ddc13bf6cdd979cae3179a7bd11a30d">Platform::setShape</a></div><div class="ttdeci">void setShape(const b2PolygonShape &amp;shape)</div><div class="ttdoc">Устанавливает форму для платформы. </div><div class="ttdef"><b>Definition:</b> Platform.cpp:45</div></div>
+<div class="ttc" id="class_platform_html_ac8995c5bf106bb826ff3c34a40271e18"><div class="ttname"><a href="class_platform.html#ac8995c5bf106bb826ff3c34a40271e18">Platform::setBody</a></div><div class="ttdeci">void setBody(b2Body *body)</div><div class="ttdoc">Устанавливает физическое тело для платформы. </div><div class="ttdef"><b>Definition:</b> Platform.cpp:40</div></div>
+<div class="ttc" id="class_platform_html_abde038124fcccb623c809cf970b260e7"><div class="ttname"><a href="class_platform.html#abde038124fcccb623c809cf970b260e7">Platform::_texture</a></div><div class="ttdeci">sf::Texture _texture</div><div class="ttdoc">Текстура платформы </div><div class="ttdef"><b>Definition:</b> Platform.h:68</div></div>
+<div class="ttc" id="struct_platform_1_1_no_shape_exception_html"><div class="ttname"><a href="struct_platform_1_1_no_shape_exception.html">Platform::NoShapeException</a></div><div class="ttdef"><b>Definition:</b> Platform.h:29</div></div>
+<div class="ttc" id="class_platform_html_ae9b215059f632709d0a79defed170d77"><div class="ttname"><a href="class_platform.html#ae9b215059f632709d0a79defed170d77">Platform::shapeSF</a></div><div class="ttdeci">sf::ConvexShape &amp; shapeSF()</div><div class="ttdoc">Графический многоугольник платформы. </div><div class="ttdef"><b>Definition:</b> Platform.cpp:62</div></div>
+<div class="ttc" id="struct_platform_1_1_no_fixture_exception_html"><div class="ttname"><a href="struct_platform_1_1_no_fixture_exception.html">Platform::NoFixtureException</a></div><div class="ttdef"><b>Definition:</b> Platform.h:25</div></div>
+<div class="ttc" id="struct_platform_1_1_no_body_exception_html"><div class="ttname"><a href="struct_platform_1_1_no_body_exception.html">Platform::NoBodyException</a></div><div class="ttdef"><b>Definition:</b> Platform.h:21</div></div>
+<div class="ttc" id="class_platform_html"><div class="ttname"><a href="class_platform.html">Platform</a></div><div class="ttdoc">Класс платформы. </div><div class="ttdef"><b>Definition:</b> Platform.h:18</div></div>
+<div class="ttc" id="class_platform_html_a47d65c6a338fe99bd1a7ededb5f46ae2"><div class="ttname"><a href="class_platform.html#a47d65c6a338fe99bd1a7ededb5f46ae2">Platform::shapeB2</a></div><div class="ttdeci">b2PolygonShape &amp; shapeB2()</div><div class="ttdoc">Физический многоугольник платформы. </div><div class="ttdef"><b>Definition:</b> Platform.cpp:14</div></div>
+<div class="ttc" id="class_platform_html_ae9f37e3eda5f1175b9c4aa72a80fb677"><div class="ttname"><a href="class_platform.html#ae9f37e3eda5f1175b9c4aa72a80fb677">Platform::setTexture</a></div><div class="ttdeci">void setTexture(const std::string &amp;filename)</div><div class="ttdoc">Устанавливает текстуру для платформы. </div><div class="ttdef"><b>Definition:</b> Platform.cpp:6</div></div>
+<div class="ttc" id="class_platform_html_a1c899136a008461fdc09494fcfcb8766"><div class="ttname"><a href="class_platform.html#a1c899136a008461fdc09494fcfcb8766">Platform::body</a></div><div class="ttdeci">b2Body &amp; body()</div><div class="ttdoc">Физическое тело платформы. </div><div class="ttdef"><b>Definition:</b> Platform.cpp:52</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

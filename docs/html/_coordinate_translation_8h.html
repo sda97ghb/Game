@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Game: Файл Game/CoordinateTranslation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Game
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c33286056d2acf479cd8641ef845fec1.html">Game</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle">
+<div class="title">Файл CoordinateTranslation.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Содержит функции перевода физических координат и размеров в экранные и обратно.  
+<a href="#details">Подробнее...</a></p>
+<div class="textblock"><code>#include &quot;SFML/System/Vector2.hpp&quot;</code><br />
+<code>#include &quot;Box2D/Common/b2Math.h&quot;</code><br />
+</div>
+<p><a href="_coordinate_translation_8h_source.html">См. исходные тексты.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:a744ff63c3af507c46bf9b3739f33bf07"><td class="memItemLeft" align="right" valign="top"><a id="a744ff63c3af507c46bf9b3739f33bf07"></a>
+sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>translate::PosPf2Sf</b> (const b2Vec2 &amp;pos)</td></tr>
+<tr class="separator:a744ff63c3af507c46bf9b3739f33bf07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90541f5d10a984ea7b0f441745bd8e00"><td class="memItemLeft" align="right" valign="top"><a id="a90541f5d10a984ea7b0f441745bd8e00"></a>
+sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>translate::PosPf2Si</b> (const b2Vec2 &amp;pos)</td></tr>
+<tr class="separator:a90541f5d10a984ea7b0f441745bd8e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff783978e389665f80cc592ab1885aa3"><td class="memItemLeft" align="right" valign="top"><a id="aff783978e389665f80cc592ab1885aa3"></a>
+sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><b>translate::SizePf2Sf</b> (const b2Vec2 &amp;pos)</td></tr>
+<tr class="separator:aff783978e389665f80cc592ab1885aa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6899122c4d2a062cf17d66ce1ae65144"><td class="memItemLeft" align="right" valign="top"><a id="a6899122c4d2a062cf17d66ce1ae65144"></a>
+sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><b>translate::SizePf2Si</b> (const b2Vec2 &amp;pos)</td></tr>
+<tr class="separator:a6899122c4d2a062cf17d66ce1ae65144"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8da4ec8b235474d5ef294b84e7d5ffe5"><td class="memItemLeft" align="right" valign="top"><a id="a8da4ec8b235474d5ef294b84e7d5ffe5"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>translate::SizePf2Sf</b> (float size)</td></tr>
+<tr class="separator:a8da4ec8b235474d5ef294b84e7d5ffe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b02ef6a6cfee701a7dafd1b4dc6744b"><td class="memItemLeft" align="right" valign="top"><a id="a4b02ef6a6cfee701a7dafd1b4dc6744b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>translate::SizePf2Si</b> (float size)</td></tr>
+<tr class="separator:a4b02ef6a6cfee701a7dafd1b4dc6744b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:a39483aff86359b02fb914ae5c43aada6"><td class="memItemLeft" align="right" valign="top"><a id="a39483aff86359b02fb914ae5c43aada6"></a>
+const float&#160;</td><td class="memItemRight" valign="bottom"><b>translate::SCREEN_PER_PHYSICAL</b> = 32.0f</td></tr>
+<tr class="separator:a39483aff86359b02fb914ae5c43aada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Содержит функции перевода физических координат и размеров в экранные и обратно. </p>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

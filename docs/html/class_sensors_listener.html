@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Game: Класс SensorsListener</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Game
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="class_sensors_listener-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс SensorsListener</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс, ответственный за срабатывание датчиков при столкновении.  
+ <a href="class_sensors_listener.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_sensors_listener_8h_source.html">SensorsListener.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:SensorsListener:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_sensors_listener.png" usemap="#SensorsListener_map" alt=""/>
+  <map id="SensorsListener_map" name="SensorsListener_map">
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:ab85862198f1c60e931dfd9ccd88a5427"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="class_sensors_listener.html#ab85862198f1c60e931dfd9ccd88a5427ad9d3a4f4e2712b91b6d86e1584ac7dae">GROUND_CONTACT_SENSOR_TYPE</a> = 1, 
+<a class="el" href="class_sensors_listener.html#ab85862198f1c60e931dfd9ccd88a5427a25dce48e89b960f94761dafaff57f3de">LEFT_CONTACT_SENSOR_TYPE</a> = 2, 
+<a class="el" href="class_sensors_listener.html#ab85862198f1c60e931dfd9ccd88a5427a70a1990cc49e59b9a2492a3be298cac8">RIGHT_CONTACT_SENSOR_TYPE</a> = 3, 
+<a class="el" href="class_sensors_listener.html#ab85862198f1c60e931dfd9ccd88a5427a25eace9c9440c6d6be7f2600b8e65494">GROUND_HIT_SENSOR_TYPE</a> = 4
+ }</td></tr>
+<tr class="separator:ab85862198f1c60e931dfd9ccd88a5427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a396b6efcf7702881961bd17953e99b38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#a396b6efcf7702881961bd17953e99b38">registrySensor</a> (<a class="el" href="class_contact_sensor.html">ContactSensor</a> &amp;sensor)</td></tr>
+<tr class="memdesc:a396b6efcf7702881961bd17953e99b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый датчик контакта.  <a href="#a396b6efcf7702881961bd17953e99b38">Подробнее...</a><br /></td></tr>
+<tr class="separator:a396b6efcf7702881961bd17953e99b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c9911dfcdf63f9feaacf7fcfd36ecbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#a3c9911dfcdf63f9feaacf7fcfd36ecbf">registrySensor</a> (<a class="el" href="class_hit_sensor.html">HitSensor</a> &amp;sensor)</td></tr>
+<tr class="memdesc:a3c9911dfcdf63f9feaacf7fcfd36ecbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый датчик столкновения.  <a href="#a3c9911dfcdf63f9feaacf7fcfd36ecbf">Подробнее...</a><br /></td></tr>
+<tr class="separator:a3c9911dfcdf63f9feaacf7fcfd36ecbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a9ba5e0a2664f417d4299d6f4b693d891"><td class="memItemLeft" align="right" valign="top"><a id="a9ba5e0a2664f417d4299d6f4b693d891"></a>
+static <a class="el" href="class_sensors_listener.html">SensorsListener</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#a9ba5e0a2664f417d4299d6f4b693d891">instance</a> ()</td></tr>
+<tr class="memdesc:a9ba5e0a2664f417d4299d6f4b693d891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ссылку на объект класса. <br /></td></tr>
+<tr class="separator:a9ba5e0a2664f417d4299d6f4b693d891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:ab1fc04dc96690a504549ff316df0d9a8"><td class="memItemLeft" align="right" valign="top"><a id="ab1fc04dc96690a504549ff316df0d9a8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SensorsListener</b> (const <a class="el" href="class_sensors_listener.html">SensorsListener</a> &amp;)=delete</td></tr>
+<tr class="separator:ab1fc04dc96690a504549ff316df0d9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8a8fe962d4db1ca1ecbaf206399d59"><td class="memItemLeft" align="right" valign="top"><a id="ada8a8fe962d4db1ca1ecbaf206399d59"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_sensors_listener.html">SensorsListener</a> &amp;)=delete</td></tr>
+<tr class="separator:ada8a8fe962d4db1ca1ecbaf206399d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb735aee7fc802d730b6d6696707e802"><td class="memItemLeft" align="right" valign="top"><a id="afb735aee7fc802d730b6d6696707e802"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#afb735aee7fc802d730b6d6696707e802">BeginContact</a> (b2Contact *contact)</td></tr>
+<tr class="memdesc:afb735aee7fc802d730b6d6696707e802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Срабатывает при столкновении любых двух объектов. <br /></td></tr>
+<tr class="separator:afb735aee7fc802d730b6d6696707e802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a91c8e2bcfb8e7f4cbc01120d4b234f"><td class="memItemLeft" align="right" valign="top"><a id="a6a91c8e2bcfb8e7f4cbc01120d4b234f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#a6a91c8e2bcfb8e7f4cbc01120d4b234f">EndContact</a> (b2Contact *contact)</td></tr>
+<tr class="memdesc:a6a91c8e2bcfb8e7f4cbc01120d4b234f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Срабатывает при разлетании двух любых объектов. <br /></td></tr>
+<tr class="separator:a6a91c8e2bcfb8e7f4cbc01120d4b234f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a626e15d73dc416d2126f32fe3d2f7661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#a626e15d73dc416d2126f32fe3d2f7661">setSensor</a> (b2Body *body, int type, bool value)</td></tr>
+<tr class="memdesc:a626e15d73dc416d2126f32fe3d2f7661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переводит сенсор с указаннымим параметрами в указанное состояние.  <a href="#a626e15d73dc416d2126f32fe3d2f7661">Подробнее...</a><br /></td></tr>
+<tr class="separator:a626e15d73dc416d2126f32fe3d2f7661"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0213a2b18feb51689eb54820dd005f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#aa0213a2b18feb51689eb54820dd005f7">hitSensor</a> (b2Body *body, int type, float speed)</td></tr>
+<tr class="memdesc:aa0213a2b18feb51689eb54820dd005f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывает метод удара для указанного сенсора.  <a href="#aa0213a2b18feb51689eb54820dd005f7">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa0213a2b18feb51689eb54820dd005f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a762f7f6727af2aab0102c892bf5494aa"><td class="memItemLeft" align="right" valign="top"><a id="a762f7f6727af2aab0102c892bf5494aa"></a>
+std::list&lt; <a class="el" href="class_contact_sensor.html">ContactSensor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#a762f7f6727af2aab0102c892bf5494aa">_contactSensors</a></td></tr>
+<tr class="memdesc:a762f7f6727af2aab0102c892bf5494aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">список всех сенсоров контакта <br /></td></tr>
+<tr class="separator:a762f7f6727af2aab0102c892bf5494aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a887a3f58981fa789b467e1fc6af632f5"><td class="memItemLeft" align="right" valign="top"><a id="a887a3f58981fa789b467e1fc6af632f5"></a>
+std::list&lt; <a class="el" href="class_hit_sensor.html">HitSensor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensors_listener.html#a887a3f58981fa789b467e1fc6af632f5">_hitSensors</a></td></tr>
+<tr class="memdesc:a887a3f58981fa789b467e1fc6af632f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">список всех сенсоров столкновения <br /></td></tr>
+<tr class="separator:a887a3f58981fa789b467e1fc6af632f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс, ответственный за срабатывание датчиков при столкновении. </p>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Этот класс нужен для внутренней механики игры. Скорее всего вам не нужно ничего изменять в этом классе. </dd></dl>
+</div><h2 class="groupheader">Перечисления</h2>
+<a id="ab85862198f1c60e931dfd9ccd88a5427"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab85862198f1c60e931dfd9ccd88a5427">&#9670;&nbsp;</a></span>anonymous enum</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">anonymous enum</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Элементы перечислений</th></tr><tr><td class="fieldname"><a id="ab85862198f1c60e931dfd9ccd88a5427ad9d3a4f4e2712b91b6d86e1584ac7dae"></a>GROUND_CONTACT_SENSOR_TYPE&#160;</td><td class="fielddoc"><p>датчик нахождения на земле </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab85862198f1c60e931dfd9ccd88a5427a25dce48e89b960f94761dafaff57f3de"></a>LEFT_CONTACT_SENSOR_TYPE&#160;</td><td class="fielddoc"><p>датчик контакта с левым объектом </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab85862198f1c60e931dfd9ccd88a5427a70a1990cc49e59b9a2492a3be298cac8"></a>RIGHT_CONTACT_SENSOR_TYPE&#160;</td><td class="fielddoc"><p>датчик контакта с правым объектом </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ab85862198f1c60e931dfd9ccd88a5427a25eace9c9440c6d6be7f2600b8e65494"></a>GROUND_HIT_SENSOR_TYPE&#160;</td><td class="fielddoc"><p>датчик удара о землю </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="aa0213a2b18feb51689eb54820dd005f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0213a2b18feb51689eb54820dd005f7">&#9670;&nbsp;</a></span>hitSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SensorsListener::hitSensor </td>
+          <td>(</td>
+          <td class="paramtype">b2Body *&#160;</td>
+          <td class="paramname"><em>body</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>speed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вызывает метод удара для указанного сенсора. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">body</td><td>тело, на которое повешан датчик </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>тип датчика на теле </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">speed</td><td>скорость датчика в момент удара </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a396b6efcf7702881961bd17953e99b38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a396b6efcf7702881961bd17953e99b38">&#9670;&nbsp;</a></span>registrySensor() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SensorsListener::registrySensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_contact_sensor.html">ContactSensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>sensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Регистрирует новый датчик контакта. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Не создает копию сенсора. </dd></dl>
+
+</div>
+</div>
+<a id="a3c9911dfcdf63f9feaacf7fcfd36ecbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c9911dfcdf63f9feaacf7fcfd36ecbf">&#9670;&nbsp;</a></span>registrySensor() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SensorsListener::registrySensor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_hit_sensor.html">HitSensor</a> &amp;&#160;</td>
+          <td class="paramname"><em>sensor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Регистрирует новый датчик столкновения. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Не создает копию сенсора. </dd></dl>
+
+</div>
+</div>
+<a id="a626e15d73dc416d2126f32fe3d2f7661"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a626e15d73dc416d2126f32fe3d2f7661">&#9670;&nbsp;</a></span>setSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SensorsListener::setSensor </td>
+          <td>(</td>
+          <td class="paramtype">b2Body *&#160;</td>
+          <td class="paramname"><em>body</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Переводит сенсор с указаннымим параметрами в указанное состояние. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">body</td><td>тело, на которое повешан датчик </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>тип датчика на теле </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>для активации true, для деактивации false </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Game/<a class="el" href="_sensors_listener_8h_source.html">SensorsListener.h</a></li>
+<li>Game/SensorsListener.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
