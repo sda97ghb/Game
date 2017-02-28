@@ -1,36 +1,41 @@
+/// \file
+/// \brief Содержит класс датчика контакта.
+
 #ifndef CONTACT_SENSOR_H
 #define CONTACT_SENSOR_H
 
 #include "Box2D/Dynamics/b2Body.h"
 
 /// \brief Класс сенсора, реагирующего на контакт с другим телом.
+/// (Не путать с HitSensor)
 /// \details Создает для указанного тела новую фигуру (прямоугольник)
 /// чувствительную к взаимодействию с другим телом и регистрируется в классе
-/// SensorListener. Для проверки наличия взаимодействия вызовите метод isActive().
+/// SensorsListener. Для проверки наличия взаимодействия вызовите метод isActive().
 class ContactSensor
 {
 public:
     ContactSensor();
 
     /// \brief Устанавливает координаты центра сенсора.
-    /// \warning Должно быть вызвано раньше, чем hangOnBody(b2Body* body).
+    /// \warning Должен быть вызвано раньше, чем hangOnBody(b2Body* body).
     void setPosition(float x, float y);
 
     /// \brief Устанавливает размер сенсора.
-    /// \warning Должно быть вызвано раньше, чем hangOnBody(b2Body* body).
+    /// \warning Должен быть вызвано раньше, чем hangOnBody(b2Body* body).
     void setSize(float width, float height);
 
     /// \brief Устанавливает тип сенсора.
     /// \details Нужно, чтобы различать сенсоры, повешенные на одно тело.
     /// \param [in] type тип сенсора, например SensorsListener::GROUND_CONTACT_SENSOR_TYPE
     /// или произвольное целое.
-    /// \warning У одного тела не должно быть несколько сенсоров одного типа.
-    /// \warning Должно быть вызвано раньше, чем hangOnBody(b2Body* body).
+    /// \warning У одного тела не должно быть несколько сенсоров одинакового типа.
+    /// \warning Должен быть вызвано раньше, чем hangOnBody(b2Body* body).
     void setType(int type);
 
     /// \brief Вешает сенсор на указанное тело.
-    /// \details Запоминает указанное тело в _body.
-    /// \warning Должно быть вызвано один раз для одного тела.
+    /// \details Запоминает указанное тело в _body, создает для него
+    /// фигуру-сенсор, регистрирует сенсор в SensorsListener.
+    /// \warning Должен быть вызвано один раз для одного тела.
     /// \warning При повторном вызове для разных тел датчик не будет снят
     /// с предыдущего тела, но будет работать, как повешанный на последнее тело.
     void hangOnBody(b2Body* body);
