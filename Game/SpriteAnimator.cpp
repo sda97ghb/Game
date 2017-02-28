@@ -73,7 +73,7 @@ void SpriteAnimator::restoreGroup()
 void SpriteAnimator::nextFrame()
 {
     if (_animationGroups.find(_currentGroup) == _animationGroups.end())
-        throw NoAnimationGroup(_currentGroup);
+        throw NoAnimationGroupException(_currentGroup);
     AnimationGroup& group = _animationGroups[_currentGroup];
     int x = group.x;
     int y = group.y;
