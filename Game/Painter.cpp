@@ -226,7 +226,7 @@ sf::ConvexShape& Painter::constructWater(Water& water, bool isFront)
     b2PolygonShape& shapeB2 = water.shapeB2();
 
     sf::ConvexShape& shapeSF = water.shapeSF();
-    sf::Texture& texture = isFront ? water.textureFront() : water.textureBack();
+    sf::Texture& texture = isFront ? water.texture() : water.textureBack();
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);

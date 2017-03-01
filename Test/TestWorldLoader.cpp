@@ -195,7 +195,7 @@ void TestWorldLoader::load()
         shape.Set(vertexes, 4);
         water.setShape(shape);
         water.setTextureBack("Textures/waterBackground.png");
-        water.setTextureFront("Textures/water.png");
+        water.setTexture("Textures/water.png");
     }
 
     {

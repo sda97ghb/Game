@@ -2,30 +2,8 @@
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Game/ImageScaler.h"
 #include "Game/Player.h"
 #include "Game/Water.h"
-
-void Water::setShape(const b2PolygonShape& shape)
-{
-    _shapeB2 = shape;
-}
-
-void Water::setTextureBack(const std::string& filename)
-{
-    sf::Image original;
-    original.loadFromFile(filename);
-    _textureBack.loadFromImage(ImageScaler::scale(original));
-    _textureBack.setRepeated(true);
-}
-
-void Water::setTextureFront(const std::string& filename)
-{
-    sf::Image original;
-    original.loadFromFile(filename);
-    _textureFront.loadFromImage(ImageScaler::scale(original));
-    _textureFront.setRepeated(true);
-}
 
 void Water::testPlayerOnIt()
 {
@@ -57,44 +35,4 @@ void Water::testPlayerOnIt()
     catch (Player::NoBodyException&)
     {
     }
-}
-
-b2PolygonShape& Water::shapeB2()
-{
-    return _shapeB2;
-}
-
-const b2PolygonShape& Water::shapeB2() const
-{
-    return _shapeB2;
-}
-
-sf::ConvexShape& Water::shapeSF()
-{
-    return _shapeSF;
-}
-
-const sf::ConvexShape& Water::shapeSF() const
-{
-    return _shapeSF;
-}
-
-sf::Texture& Water::textureBack()
-{
-    return _textureBack;
-}
-
-const sf::Texture& Water::textureBack() const
-{
-    return _textureBack;
-}
-
-sf::Texture& Water::textureFront()
-{
-    return _textureFront;
-}
-
-const sf::Texture& Water::textureFront() const
-{
-    return _textureFront;
 }
