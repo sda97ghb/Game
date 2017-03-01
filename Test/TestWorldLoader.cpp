@@ -178,6 +178,25 @@ void TestWorldLoader::load()
         ladder.setWidth(1.0f);
         ladder.setTexture("Textures/ladder.png");
     }
+    {
+        Ladder& ladder = world.createLadder();
+        ladder.setCoordinates(-7.5f, 0.0f, 5.0f);
+        ladder.setWidth(1.0f);
+        ladder.setTexture("Textures/ladder.png");
+    }
+
+    {
+        Water& water = world.createWater();
+        b2Vec2 vertexes[4] = {b2Vec2(-12.0, 0.0),
+                              b2Vec2( -7.0, 0.0),
+                              b2Vec2( -7.0, 3.8),
+                              b2Vec2(-12.0, 3.8)};
+        b2PolygonShape shape;
+        shape.Set(vertexes, 4);
+        water.setShape(shape);
+        water.setTextureBack("Textures/waterBackground.png");
+        water.setTextureFront("Textures/water.png");
+    }
 
     {
         Player& player = world.player();

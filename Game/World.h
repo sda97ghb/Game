@@ -39,6 +39,9 @@ public:
     /// \brief Метод добавления лестницы.
     Ladder& createLadder();
 
+    /// \brief Метод добавления водоема.
+    Water& createWater();
+
     /// \brief Метод добавления лучника.
     Archer& createArcher();
 
@@ -52,6 +55,9 @@ public:
 
     /// \brief Возвращает константный список всех лестниц.
     const std::list<Ladder>& ladders() const;
+
+    /// \brief Возвращает константный список всех водоемов.
+    const std::list<Water>& waters() const;
 
     /// \brief Возвращает константный список всех лучников.
     const std::list<Archer>& archers() const;
@@ -74,6 +80,8 @@ private:
     std::list<Platform> _platforms; ///< список всех платформ
 
     std::list<Ladder> _ladders; ///< список всех лестниц
+
+    std::list<Water> _waters; ///< список всех водоемов
 
     std::list<Archer> _archers; ///< список всех лучников
 

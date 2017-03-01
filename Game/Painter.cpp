@@ -52,10 +52,18 @@ void Painter::drawWorld()
         sf::ConvexShape& shape = constructPlatform(platform);
         _window->draw(shape);
     }
+
     for (const Ladder& ladderC : world.ladders())
     {
         Ladder& ladder = const_cast<Ladder&>(ladderC);
         sf::RectangleShape& shape = constructLadder(ladder);
+        _window->draw(shape);
+    }
+
+    for (const Water& waterC : world.waters())
+    {
+        Water& water = const_cast<Water&>(waterC);
+        sf::ConvexShape& shape = constructWater(water, false);
         _window->draw(shape);
     }
 
@@ -68,6 +76,13 @@ void Painter::drawWorld()
 
     sf::Sprite& player = constructPlayer();
     _window->draw(player);
+
+    for (const Water& waterC : world.waters())
+    {
+        Water& water = const_cast<Water&>(waterC);
+        sf::ConvexShape& shape = constructWater(water, true);
+        _window->draw(shape);
+    }
 
     sf::CircleShape zeroSprite;
     zeroSprite.setPosition(0.0f, 0.0f);
@@ -202,6 +217,26 @@ sf::RectangleShape& Painter::constructLadder(Ladder& ladder)
     b2Vec2 pos(ladder.x() - ladder.width() / 2.0f, ladder.y2());
     shapeSF.setPosition(translate::PosPf2Sf(pos));
     shapeSF.setSize(translate::SizePf2Sf(ladder.size()));
+
+    return shapeSF;
+}
+
+sf::ConvexShape& Painter::constructWater(Water& water, bool isFront)
+{
+    b2PolygonShape& shapeB2 = water.shapeB2();
+
+    sf::ConvexShape& shapeSF = water.shapeSF();
+    sf::Texture& texture = isFront ? water.textureFront() : water.textureBack();
+
+    shapeSF.setTexture(&texture);
+    b2Vec2 size = computeSize(shapeB2);
+    shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
+                                       translate::SizePf2Si(size)));
+
+    int32 vertexCount = shapeB2.GetVertexCount();
+    shapeSF.setPointCount(vertexCount);
+    for (int32 i = 0; i < vertexCount; ++ i)
+        shapeSF.setPoint(i, translate::PosPf2Sf(shapeB2.GetVertex(i)));
 
     return shapeSF;
 }

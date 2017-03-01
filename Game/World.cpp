@@ -42,6 +42,13 @@ Ladder& World::createLadder()
     return ladder;
 }
 
+Water& World::createWater()
+{
+    _waters.emplace_back();
+    Water& water = _waters.back();
+    return water;
+}
+
 b2Body* World::createBodyForEntity()
 {
     b2BodyDef entityBodyDef;
@@ -84,6 +91,11 @@ const std::list<Ladder>& World::ladders() const
     return _ladders;
 }
 
+const std::list<Water>&World::waters() const
+{
+    return _waters;
+}
+
 const std::list<Archer>& World::archers() const
 {
     return _archers;
@@ -99,4 +111,7 @@ void World::update()
 
     for (Ladder& ladder : _ladders)
         ladder.testPlayerOnIt();
+
+    for (Water& water : _waters)
+        water.testPlayerOnIt();
 }

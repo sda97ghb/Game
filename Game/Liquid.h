@@ -13,7 +13,7 @@
 class Liquid : public Furniture
 {
 public:
-    void setShape(std::list<b2Vec2> vertexes);
+//    void setShape(std::list<b2Vec2> vertexes);
 private:
 };
 
