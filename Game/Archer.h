@@ -24,8 +24,6 @@ private:
     Archer(const Archer& archer) = delete;
     void operator= (const Archer& archer) = delete;
 
-    void lookForPlayer();
-
     bool isReadyForStrike();
     void strike();
 
@@ -37,8 +35,6 @@ private:
     };
 
     State _state;
-
-    b2Vec2 _lastSeenPosition;
 };
 
 #endif // ARCHER_H

@@ -83,18 +83,6 @@ void Archer::update()
     }
 }
 
-void Archer::lookForPlayer()
-{
-    if (canSeePlayer())
-    {
-        _lastSeenPosition = Player::instance().body().GetPosition();
-        if (isPlayerToLeft())
-            _goingDirection = GoingDirection::left;
-        else
-            _goingDirection = GoingDirection::right;
-    }
-}
-
 bool Archer::isReadyForStrike()
 {
     return _spriteAnimator.currentGroup() != "firing_left" &&

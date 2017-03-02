@@ -91,3 +91,15 @@ bool Enemy::isPlayerToLeft()
 {
     return Player::instance().body().GetPosition().x < body().GetPosition().x;
 }
+
+void Enemy::lookForPlayer()
+{
+    if (canSeePlayer())
+    {
+        _lastSeenPosition = Player::instance().body().GetPosition();
+        if (isPlayerToLeft())
+            _goingDirection = GoingDirection::left;
+        else
+            _goingDirection = GoingDirection::right;
+    }
+}
