@@ -6,7 +6,8 @@ SpriteAnimator::SpriteAnimator() :
     _currentFrame(0),
     _previousGroup(""),
     _playOnce(false),
-    _animationDelay(250)
+    _animationDelay(250),
+    _isStopped(false)
 {
 }
 
@@ -96,6 +97,8 @@ void SpriteAnimator::nextFrame()
 
 void SpriteAnimator::update()
 {
+    if (_isStopped)
+        return;
     if (_clock.getElapsedTime().asMilliseconds() < _animationDelay)
         return;
     nextFrame();
@@ -105,4 +108,9 @@ void SpriteAnimator::update()
 const std::string& SpriteAnimator::currentGroup() const
 {
     return _currentGroup;
+}
+
+void SpriteAnimator::stop()
+{
+    _isStopped= true;
 }

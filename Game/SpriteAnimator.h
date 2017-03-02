@@ -38,6 +38,7 @@ public:
 
     SpriteAnimator();
 
+    /// \brief Возвращает заготовку спрайта с наложенной текстурой текущего кадра.
     sf::Sprite& sprite();
 
     /// \brief Устанавливает текстуру, из которой потом будут выбираться группы
@@ -60,6 +61,9 @@ public:
     /// \brief Воспроизводит указанную группу один раз и возвращается к предыдущей
     void playGroup(const std::string& groupname);
 
+    /// \brief Переходит к следующему кадру.
+    void nextFrame();
+
     /// \brief Если с предыдущего обновления прошло достаточно времени
     /// переходит к следующему кадру.
     void update();
@@ -67,12 +71,12 @@ public:
     /// \brief Имя текущей группы.
     const std::string& currentGroup() const;
 
+    /// \brief Останавливает аниматор.
+    void stop();
+
 private:
     /// \brief Возвращается к предыдущей группе.
     void restoreGroup();
-
-    /// \brief Переходит к следующему кадру.
-    void nextFrame();
 
     sf::Texture _texture; ///< Текстура
     sf::Sprite _sprite; ///< Анимируемый спрайт
@@ -88,6 +92,8 @@ private:
     int _animationDelay; ///< Задержка перед показом следующего кадра в мс.
 
     sf::Clock _clock; ///< Таймер, для рассчета задержки.
+
+    bool _isStopped;
 };
 
 #endif // SPRITEANIMATOR_H

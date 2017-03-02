@@ -247,7 +247,11 @@ sf::Sprite& Painter::constructEntity(Entity& entity)
     animator.update();
 
     if (!entity.isAlive())
-        entity.spriteAnimator().setCurrentGroup("dead");
+    {
+        entity.spriteAnimator().playGroup("dead");
+        entity.spriteAnimator().nextFrame();
+        entity.spriteAnimator().stop();
+    }
     sf::Sprite& sprite = animator.sprite();
 
     sf::Vector2f pos = translate::PosPf2Sf(entity.body().GetPosition());
