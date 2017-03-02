@@ -219,6 +219,9 @@ void TestWorldLoader::load()
         animator.setTexture("Textures/archerFrames.png");
         animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, true);
         animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, true);
+        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, false);
+        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, true);
+        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, true);
         animator.setCurrentGroup("going_left");
     }
 }

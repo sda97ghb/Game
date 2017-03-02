@@ -103,15 +103,18 @@ const std::list<Archer>& World::archers() const
 
 void World::update()
 {
-    const float32 timeStep = 1.0f / 60.0f;
-    const int32 velocityIterations = 8;
-    const int32 positionIterations = 3;
-
-    _world->Step(timeStep, velocityIterations, positionIterations);
-
     for (Ladder& ladder : _ladders)
         ladder.testPlayerOnIt();
 
     for (Water& water : _waters)
         water.testPlayerOnIt();
+
+    for (Archer& archer : _archers)
+        archer.update();
+
+    const float32 timeStep = 1.0f / 60.0f;
+    const int32 velocityIterations = 8;
+    const int32 positionIterations = 3;
+
+    _world->Step(timeStep, velocityIterations, positionIterations);
 }

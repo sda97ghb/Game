@@ -28,6 +28,13 @@ public:
         NoShapeException() : std::logic_error("there is no shape for the platform") {}
     };
 
+    /// Направления, в которых может смотреть существо.
+    enum class GoingDirection
+    {
+        left, ///< влево
+        right ///< вправо
+    };
+
     Entity();
 
     /// \brief Установка координат центра масс существа.
@@ -122,6 +129,9 @@ public:
     /// \details Более подробно описан в классе SpriteAnimator.
     SpriteAnimator& spriteAnimator();
 
+    /// \brief Возвращает направление в котором смотрит существо.
+    GoingDirection goingDirection() const;
+
 protected:
     b2Body* _body; ///< физическое тело существа
     SpriteAnimator _spriteAnimator; ///< аниматор существа
@@ -137,6 +147,8 @@ protected:
     ContactSensor _rightSensor;  ///< правый сенсор контакта
 
     HitSensor _groundHitSensor; ///< сенсор удара нижней поверхности
+
+    GoingDirection _goingDirection; ///< направление, в котором смотрит существо
 
 private:
     // Разрешение для класса World использовать методы setBody и constructBody.

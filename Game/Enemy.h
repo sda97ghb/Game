@@ -10,11 +10,13 @@
 class Enemy : public Entity
 {
 protected:
-	void update();
 	void going();
 	bool inaction();
 	bool aggression();
+
 	bool canSeePlayer();
+    bool isAbyssAhead();
+    bool isPlayerToLeft();
 };
 
 #endif //ENEMY_H
