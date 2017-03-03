@@ -1,0 +1,60 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<world>
+    <ground>
+		<background picture="bg.png"/>
+		<platforms>
+			<platform>
+                <shape>
+                    <vertex x="-20.0" y="-30.0"/>
+                    <vertex x="20.0" y="-30.0"/>
+					<vertex x="20.0" y="0.0"/>
+                    <vertex x="-20.0" y="0.0"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+			<platform>
+                <shape>
+                    <vertex x="-7.0" y="0.0"/>
+                    <vertex x="-6.0" y="0.0"/>
+					<vertex x="-6.0" y="2.0"/>
+                    <vertex x="-7.0" y="2.0"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+			<platform>
+                <shape>
+                    <vertex x="-13.0" y="0.0"/>
+                    <vertex x="-12.0" y="0.0"/>
+					<vertex x="-12.0" y="2.0"/>
+                    <vertex x="-13.0" y="2.0"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+	   </platforms>
+    </ground>
+	
+    <furniture>
+        <ladder>
+            <coordinates x="5.5" y1="0.0" y2="9.5"/>
+            <width>1.0</width>
+            <texture picture="Textures/ladder.png"/>
+        </ladder>
+		<ladder>
+            <coordinates x="-5.5" y1="0.0" y2="20.0"/>
+            <width>1.0</width>
+            <texture picture="Textures/ladder.png"/>
+        </ladder>
+		<cable>
+            <coordinates x1="0.0" x2="1.0" y1="0.0" y2="1.0"/>
+            <texture picture="cable.png"/>
+        </cable>
+    </furniture>
+	
+    <actors>
+		<player>
+			<position x="5.5" y="0.875"/>
+			<texture picture="Textures/playerFrames.png"/>
+		</player>
+    </actors>
+</world>

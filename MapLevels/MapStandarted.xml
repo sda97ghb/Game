@@ -1,0 +1,68 @@
+<?xml version="1.0"  encoding="utf-8" ?>
+<world>
+    <ground>
+        <background picture="bg.png"/>
+        <middleground picture="mg.png" scrollingX="0.5" scrollingY="0.5"/>
+        <platforms>
+            <platform>
+                <position x="0.0" y="0.0"/>
+                <shape>
+                    <vertex x="0.0" y="0.0"/>
+                    <vertex x="0.0" y="0.0"/>
+                    <vertex x="0.0" y="0.0"/>
+                </shape>
+                <texture picture="pt1.png"/>
+            </platform>
+            <platform>
+                <position x="0.0" y="0.0"/>
+                <shape type="">
+                </shape>
+                <texture picture="pt1.png"/>
+            </platform>
+        </platforms>
+    </ground>
+    <furniture>
+        <ladder>
+            <coordinates x="0.0" y1="0.0" y2="1.0"/>
+            <width>1.0</width>
+            <texture picture="ladder.png"/>
+        </ladder>
+        <cable>
+            <coordinates x1="0.0" x2="1.0" y1="0.0" y2="1.0"/>
+            <texture picture="cable.png"/>
+        </cable>
+        <rope>
+            <position x="0.0" y="0.0"/>
+            <length>1.0</length>
+            <texture picture="cable.png"/>
+        </rope>
+        <spikes>
+            <coordinates x1="0.0" x2="1.0" y1="0.0" y2="1.0"/>
+            <texture picture="cable.png"/>
+        </spikes>
+        <fallingground>
+            <position x="0.0" y="0.0"/>
+            <shape>
+                <vertex x="0.0" y="0.0"/>
+                <vertex x="0.0" y="0.0"/>
+                <vertex x="0.0" y="0.0"/>
+            </shape>
+            <texture picture="pt1.png"/>
+        </fallingground>
+    </furniture>
+    <actors>
+        <enemy type="archer" x="0.0" y="0.0"/>
+        <enemy type="archer" x="0.0" y="0.0"/>
+        <enemy type="swordsman" x="0.0" y="0.0"/>
+    </actors>
+    <player>
+		<animator>
+			<group name="going_left">
+				<origin x="0" y="0"/>
+				<frame width="12" height="28"/>
+				<numberOfFrames>4</numberOfFrames>
+				<orientaiton>vertical</orientation>
+			</group>
+		</animator>
+	</player>
+</world>
