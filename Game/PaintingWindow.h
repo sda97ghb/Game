@@ -22,14 +22,14 @@
 /// \brief Класс, отвечающий за графическую составляющую игры.
 /// \details Создает графическое окно, занимается отрисовкой
 /// текущего кадра и пользовательского интерфейса.
-class Painter
+class PaintingWindow : public sf::RenderWindow
 {
 public:
     /// \brief Создает графическое окно, инициализирует графику.
-    void initialize();
+    PaintingWindow(uint32_t width, uint32_t height, const std::__cxx11::string& title);
 
-    /// \brief Возвращает ссылку на графическое окно.
-    sf::RenderWindow& window();
+    /// \brief Рисует содеримое окна (мир, интерфейс пользователя).
+    void paint();
 
     /// \brief Рисует фоновое изображение.
     void drawBackground();
@@ -71,6 +71,9 @@ public:
 
     /// \brief Подготавливает для отрисовки спрайт для  лучника.
     sf::Sprite& constructArcher(Archer& archer);
+
+    /// \brief Вызывает обработчики событий.
+    void processEvents();
 
 private:
     sf::RenderWindow* _window; ///< Графическое окно
