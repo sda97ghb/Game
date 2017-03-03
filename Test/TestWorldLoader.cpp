@@ -6,6 +6,8 @@ TestWorldLoader::TestWorldLoader()
 {
 }
 
+// TEST TEXTURE "C:/Projects/Game/Textures/solid.png"
+
 void TestWorldLoader::load()
 {
     World& world = World::instance();
@@ -194,7 +196,7 @@ void TestWorldLoader::load()
         b2PolygonShape shape;
         shape.Set(vertexes, 4);
         water.setShape(shape);
-        water.setTextureBack("Textures/waterBackground.png");
+        water.setTextureBack("Textures/stoneBricks.png");
         water.setTexture("Textures/water.png");
     }
 
@@ -210,6 +212,7 @@ void TestWorldLoader::load()
         animator.setAnimationGroup("punching_left", 36, 28, 18, 28, 3, true);
         animator.setAnimationGroup("dead", 52, 56, 28, 28, 1, true);
         animator.setCurrentGroup("going_right");
+        animator.nextFrame();
     }
 
     {
@@ -223,5 +226,6 @@ void TestWorldLoader::load()
         animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, true);
         animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, true);
         animator.setCurrentGroup("going_left");
+        animator.nextFrame();
     }
 }

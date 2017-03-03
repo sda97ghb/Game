@@ -1,4 +1,3 @@
-#include "Game/ImageScaler.h"
 #include "Game/Liquid.h"
 
 void Liquid::setShape(const b2PolygonShape& shape)
@@ -8,19 +7,9 @@ void Liquid::setShape(const b2PolygonShape& shape)
 
 void Liquid::setTextureBack(const std::string& filename)
 {
-    sf::Image original;
-    original.loadFromFile(filename);
-    _textureBack.loadFromImage(ImageScaler::scale(original));
+    _textureBack.loadFromFile(filename);
     _textureBack.setRepeated(true);
 }
-
-//void Liquid::setTextureFront(const std::string& filename)
-//{
-//    sf::Image original;
-//    original.loadFromFile(filename);
-//    _textureFront.loadFromImage(ImageScaler::scale(original));
-//    _textureFront.setRepeated(true);
-//}
 
 b2PolygonShape& Liquid::shapeB2()
 {
@@ -51,13 +40,3 @@ const sf::Texture& Liquid::textureBack() const
 {
     return _textureBack;
 }
-
-//sf::Texture& Liquid::textureFront()
-//{
-//    return _textureFront;
-//}
-
-//const sf::Texture& Liquid::textureFront() const
-//{
-//    return _textureFront;
-//}
