@@ -25,8 +25,6 @@
 class Painter
 {
 public:
-    ~Painter();
-
     /// \brief Создает графическое окно, инициализирует графику.
     void initialize();
 
@@ -75,15 +73,9 @@ public:
     sf::Sprite& constructArcher(Archer& archer);
 
 private:
-    /// \brief Настраивает _view для рисования мира (платформ, фурнитуры, существ).
-    /// \return Коодинаты нового центра _view.
-    sf::Vector2f setViewForWorld();
-
-    /// \brief Настраивает _view для рисования gui.
-    void setViewForGui();
-
     sf::RenderWindow* _window; ///< Графическое окно
-    sf::View* _view; ///< Текущая область мира, которую нужно нарисовать.
+    sf::View _worldView; ///< Текущая область мира, которую нужно нарисовать.
+    sf::View _guiView; ///< Вид для интерфейса
 
     sf::Texture _backgroundTexture; ///< Текстура фона
     sf::Sprite _background; ///< Фон

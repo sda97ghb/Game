@@ -6,6 +6,8 @@ TestWorldLoader::TestWorldLoader()
 {
 }
 
+// TEST TEXTURE "C:/Projects/Game/Textures/solid.png"
+
 void TestWorldLoader::load()
 {
     World& world = World::instance();

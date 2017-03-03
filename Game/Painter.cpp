@@ -1,16 +1,9 @@
 #include "SFML/Graphics/CircleShape.hpp"
 #include "SFML/Graphics/Text.hpp"
 
-#include "Game/CoordinateTranslation.h"
 #include "Game/Painter.h"
 #include "Game/World.h"
 #include "Game/Log.h"
-
-Painter::~Painter()
-{
-    delete _view;
-    delete _window;
-}
 
 void Painter::initialize()
 {
@@ -18,10 +11,17 @@ void Painter::initialize()
     sf::VideoMode videoMode = sf::VideoMode(1200, 720);
 //    _window = new sf::RenderWindow(videoMode, "Game", sf::Style::Fullscreen);
     _window = new sf::RenderWindow(videoMode, "Game");
-    _view = new sf::View(sf::FloatRect(-(videoMode.width * 0.5f),
-                                       -(videoMode.height * 0.9f),
-                                        videoMode.width, videoMode.height));
-    _window->setView(*_view);
+
+    _worldView.setCenter(0.0f, 0.0f);
+    // scale view to make 1 physical meter equal to 1 grapical unit
+    _worldView.setSize(36.0f, -21.0f); // (36x21) == (1200x700) / 100 * 3
+    _worldView.setViewport(sf::FloatRect(0.0f, 0.0f, 1.0f, 1.0f));
+
+    _guiView.setSize(1200.0f, 700.0f);
+    _guiView.setCenter(0.0f, 0.0f);
+    _guiView.setViewport(sf::FloatRect(0.0f, 0.0f, 1.0f, 1.0f));
+
+    _window->setView(_worldView);
 
     _backgroundTexture.loadFromFile("Textures/background.png");
     _background.setTexture(_backgroundTexture);
@@ -34,15 +34,16 @@ sf::RenderWindow& Painter::window()
 
 void Painter::drawBackground()
 {
-    sf::Vector2f posSF = setViewForWorld();
-
-    _background.setPosition(posSF.x - 600.0f, posSF.y - 360.0f);
+    _window->setView(_guiView);
+    _background.setPosition(-600.0f, -350.0f);
     _window->draw(_background);
 }
 
 void Painter::drawWorld()
 {
-    setViewForWorld();
+    b2Vec2 playerPos = Player::instance().body().GetPosition();
+    _worldView.setCenter(playerPos.x, playerPos.y);
+    _window->setView(_worldView);
 
     World& world = World::instance();
 
@@ -53,17 +54,17 @@ void Painter::drawWorld()
         _window->draw(shape);
     }
 
-    for (const Ladder& ladderC : world.ladders())
-    {
-        Ladder& ladder = const_cast<Ladder&>(ladderC);
-        sf::RectangleShape& shape = constructLadder(ladder);
-        _window->draw(shape);
-    }
-
     for (const Water& waterC : world.waters())
     {
         Water& water = const_cast<Water&>(waterC);
         sf::ConvexShape& shape = constructWater(water, false);
+        _window->draw(shape);
+    }
+
+    for (const Ladder& ladderC : world.ladders())
+    {
+        Ladder& ladder = const_cast<Ladder&>(ladderC);
+        sf::RectangleShape& shape = constructLadder(ladder);
         _window->draw(shape);
     }
 
@@ -86,14 +87,14 @@ void Painter::drawWorld()
 
     sf::CircleShape zeroSprite;
     zeroSprite.setPosition(0.0f, 0.0f);
-    zeroSprite.setRadius(1.0f);
+    zeroSprite.setRadius(0.1f);
     zeroSprite.setFillColor(sf::Color(255, 0, 0));
     _window->draw(zeroSprite);
 }
 
 void Painter::drawGui()
 {
-    setViewForGui();
+    _window->setView(_guiView);
 
     float health = Player::instance().health() / Player::instance().maxHealth();
     drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
@@ -106,24 +107,23 @@ void Painter::drawGui()
 
     //----------------//
 
-    setViewForWorld();
+    _window->setView(_worldView);
 
-    World& world = World::instance();
-    for (const Archer& archerC : world.archers())
-    {
-        Archer& archer = const_cast<Archer&>(archerC);
-        sf::Vector2f pos = translate::PosPf2Sf(archer.body().GetPosition());
-        pos.x -= 50.0f;
-        pos.y -= 50.0f;
-        float health = archer.health() / archer.maxHealth();
-        drawBar(pos.x, pos.y, 100.0f, 6.0f, 1.0f, health, sf::Color::Red);
-    }
+//    World& world = World::instance();
+//    for (const Archer& archerC : world.archers())
+//    {
+//        Archer& archer = const_cast<Archer&>(archerC);
+//        sf::Vector2f pos = translate::PosPf2Sf(archer.body().GetPosition());
+//        pos.x -= 50.0f;
+//        pos.y -= 50.0f;
+//        float health = archer.health() / archer.maxHealth();
+//        drawBar(pos.x, pos.y, 100.0f, 6.0f, 1.0f, health, sf::Color::Red);
+//    }
 }
 
 void Painter::drawLog()
 {
-    _view->setCenter(0.0f, 0.0f);
-    _window->setView(*_view);
+    _window->setView(_guiView);
 
     const std::string FONTS_DIRECTORY = "Fonts";
     sf::Font font;
@@ -191,13 +191,19 @@ sf::ConvexShape& Painter::constructPlatform(Platform& platform)
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);
+    size *= 32.0f;
     shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
-                                       translate::SizePf2Si(size)));
+                                       sf::Vector2i(size.x, size.y)));
 
     int32 vertexCount = shapeB2.GetVertexCount();
     shapeSF.setPointCount(vertexCount);
     for (int32 i = 0; i < vertexCount; ++ i)
-        shapeSF.setPoint(i, translate::PosPf2Sf(shapeB2.GetVertex(i)));
+    {
+        b2Vec2 vertex = shapeB2.GetVertex(i);
+        float x = vertex.x;
+        float y = vertex.y;
+        shapeSF.setPoint(i, sf::Vector2f(x, y));
+    }
 
     return shapeSF;
 }
@@ -211,12 +217,14 @@ sf::RectangleShape& Painter::constructLadder(Ladder& ladder)
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);
+    size *= 32;
+    shapeSF.setScale(1.0f / 32.0f, 1.0f / 32.0f);
     shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
-                                       translate::SizePf2Si(size)));
+                                       sf::Vector2i(size.x, size.y)));
 
-    b2Vec2 pos(ladder.x() - ladder.width() / 2.0f, ladder.y2());
-    shapeSF.setPosition(translate::PosPf2Sf(pos));
-    shapeSF.setSize(translate::SizePf2Sf(ladder.size()));
+    shapeSF.setPosition(sf::Vector2f(ladder.x() - ladder.width() / 2.0f,
+                                     ladder.y1()));
+    shapeSF.setSize(sf::Vector2f(size.x, size.y));
 
     return shapeSF;
 }
@@ -230,13 +238,17 @@ sf::ConvexShape& Painter::constructWater(Water& water, bool isFront)
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);
+    size *= 32.0f;
     shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
-                                       translate::SizePf2Si(size)));
+                                       sf::Vector2i(size.x, size.y)));
 
     int32 vertexCount = shapeB2.GetVertexCount();
     shapeSF.setPointCount(vertexCount);
     for (int32 i = 0; i < vertexCount; ++ i)
-        shapeSF.setPoint(i, translate::PosPf2Sf(shapeB2.GetVertex(i)));
+    {
+        b2Vec2 vertex = shapeB2.GetVertex(i);
+        shapeSF.setPoint(i, sf::Vector2f(vertex.x, vertex.y));
+    }
 
     return shapeSF;
 }
@@ -254,10 +266,13 @@ sf::Sprite& Painter::constructEntity(Entity& entity)
     }
     sf::Sprite& sprite = animator.sprite();
 
-    sf::Vector2f pos = translate::PosPf2Sf(entity.body().GetPosition());
-    pos.x -= sprite.getTextureRect().width / 2.0f;
-    pos.y -= sprite.getTextureRect().height / 2.0f;
-    sprite.setPosition(pos);
+    sprite.setScale(1.0f / 32.0f, -1.0f / 32.0f);
+
+    b2Vec2 pos = entity.body().GetPosition();
+    sf::Vector2f posSF = sf::Vector2f(pos.x, pos.y);
+    posSF.x -= sprite.getTextureRect().width / 64.0f;
+    posSF.y += sprite.getTextureRect().height / 64.0f;
+    sprite.setPosition(posSF);
 
     return sprite;
 }
@@ -272,22 +287,16 @@ sf::Sprite& Painter::constructArcher(Archer& archer)
     return constructEntity(archer);
 }
 
-sf::Vector2f Painter::setViewForWorld()
-{
-    b2Vec2 pos = World::instance().player().body().GetPosition();
-    pos.y -= 7.0f;
-    if (pos.y < 0.0f)
-        pos.y = 0.0f;
-    sf::Vector2f posSF = translate::PosPf2Sf(pos);
-    posSF.y -= 300.0f;
-    _view->setCenter(posSF.x, posSF.y);
-    _window->setView(*_view);
+//sf::Vector2f Painter::setViewForWorld()
+//{
+//    b2Vec2 pos = World::instance().player().body().GetPosition();
+//    pos.y -= 7.0f;
+//    if (pos.y < 0.0f)
+//        pos.y = 0.0f;
+//    sf::Vector2f posSF = translate::PosPf2Sf(pos);
+//    posSF.y -= 300.0f;
+//    _worldView.setCenter(posSF.x, posSF.y);
+//    _window->setView(_worldView);
 
-    return posSF;
-}
-
-void Painter::setViewForGui()
-{
-    _view->setCenter(0.0f, 0.0f);
-    _window->setView(*_view);
-}
+//    return posSF;
+//}
