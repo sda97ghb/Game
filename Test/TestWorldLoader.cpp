@@ -6,6 +6,8 @@ TestWorldLoader::TestWorldLoader()
 {
 }
 
+// TEST TEXTURE "C:/Projects/Game/Textures/solid.png"
+
 void TestWorldLoader::load()
 {
     World& world = World::instance();
@@ -178,6 +180,43 @@ void TestWorldLoader::load()
         ladder.setWidth(1.0f);
         ladder.setTexture("Textures/ladder.png");
     }
+    {
+        Ladder& ladder = world.createLadder();
+        ladder.setCoordinates(-7.5f, 0.0f, 5.0f);
+        ladder.setWidth(1.0f);
+        ladder.setTexture("Textures/ladder.png");
+    }
+    {
+        Ladder& ladder = world.createLadder();
+        ladder.setCoordinates(-11.5f, 0.0f, 5.0f);
+        ladder.setWidth(1.0f);
+        ladder.setTexture("Textures/ladder.png");
+    }
+
+    {
+        Water& water = world.createWater();
+        b2Vec2 vertexes[4] = {b2Vec2(-12.0, 0.0),
+                              b2Vec2( -7.0, 0.0),
+                              b2Vec2( -7.0, 3.8),
+                              b2Vec2(-12.0, 3.8)};
+        b2PolygonShape shape;
+        shape.Set(vertexes, 4);
+        water.setShape(shape);
+        water.setTextureBack("Textures/stoneBricks.png");
+        water.setTexture("Textures/water.png");
+    }
+    {
+        Lava& lava = world.createLava();
+        b2Vec2 vertexes[4] = {b2Vec2(-18.0, 0.0),
+                              b2Vec2(-13.0, 0.0),
+                              b2Vec2(-13.0, 3.8),
+                              b2Vec2(-18.0, 3.8)};
+        b2PolygonShape shape;
+        shape.Set(vertexes, 4);
+        lava.setShape(shape);
+        lava.setTextureBack("Textures/stoneBricks.png");
+        lava.setTexture("Textures/lava.png");
+    }
 
     {
         Player& player = world.player();
@@ -187,10 +226,11 @@ void TestWorldLoader::load()
         animator.setAnimationGroup("going_left", 0, 0, 12, 28, 4, false);
         animator.setAnimationGroup("going_right", 12, 0, 12, 28, 4, false);
         animator.setAnimationGroup("climbing", 24, 0, 12, 28, 2, false);
-        animator.setAnimationGroup("punching_right", 36, 0, 15, 28, 3, true);
-        animator.setAnimationGroup("punching_left", 36, 28, 15, 28, 3, true);
+        animator.setAnimationGroup("punching_right", 36, 0, 18, 28, 3, true);
+        animator.setAnimationGroup("punching_left", 36, 28, 18, 28, 3, true);
         animator.setAnimationGroup("dead", 52, 56, 28, 28, 1, true);
         animator.setCurrentGroup("going_right");
+        animator.nextFrame();
     }
 
     {
@@ -200,6 +240,10 @@ void TestWorldLoader::load()
         animator.setTexture("Textures/archerFrames.png");
         animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, true);
         animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, true);
+        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, false);
+        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, true);
+        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, true);
         animator.setCurrentGroup("going_left");
+        animator.nextFrame();
     }
 }

@@ -34,7 +34,7 @@ void Ladder::testPlayerOnIt()
         b2Body& body = player.body();
         b2Transform transform;
         transform.SetIdentity();
-        if (_shapeB2.TestPoint(transform, player.footPosition()))
+        if (_shapeB2.TestPoint(transform, body.GetPosition()))
         {
             b2Vec2 velocity = body.GetLinearVelocity();
 

@@ -16,21 +16,24 @@
 #include "Game/Archer.h"
 #include "Game/Entity.h"
 #include "Game/Ladder.h"
+#include "Game/Lava.h"
 #include "Game/Platform.h"
+#include "Game/Water.h"
 
 /// \brief Класс, отвечающий за графическую составляющую игры.
 /// \details Создает графическое окно, занимается отрисовкой
 /// текущего кадра и пользовательского интерфейса.
-class Painter
+class PaintingWindow : public sf::RenderWindow
 {
 public:
-    ~Painter();
-
     /// \brief Создает графическое окно, инициализирует графику.
-    void initialize();
+    PaintingWindow(uint32_t width, uint32_t height, const std::__cxx11::string& title);
 
-    /// \brief Возвращает ссылку на графическое окно.
-    sf::RenderWindow& window();
+    /// \brief Рисует содеримое окна (мир, интерфейс пользователя).
+    void paint();
+
+    /// \brief Рисует фоновое изображение.
+    void drawBackground();
 
     /// \brief Рисует мир (background, платформы, объекты взаимодействия, существ)
     void drawWorld();
@@ -58,6 +61,12 @@ public:
     /// \brief Подготавливает для отрисовки прямоугольник для лестницы.
     sf::RectangleShape& constructLadder(Ladder& ladder);
 
+    /// \brief Подготавливает для отрисовки многоугольник для воды.
+    sf::ConvexShape& constructWater(Water& water, bool isFront = true);
+
+    /// \brief Подготавливает для отрисовки многоугольник для лавы.
+    sf::ConvexShape& constructLava(Lava& lava, bool isFront = true);
+
     /// \brief Подготавливает для отрисовки спрайт для существа.
     sf::Sprite& constructEntity(Entity& entity);
 
@@ -67,9 +76,13 @@ public:
     /// \brief Подготавливает для отрисовки спрайт для  лучника.
     sf::Sprite& constructArcher(Archer& archer);
 
+    /// \brief Вызывает обработчики событий.
+    void processEvents();
+
 private:
     sf::RenderWindow* _window; ///< Графическое окно
-    sf::View* _view; ///< Текущая область мира, которую нужно нарисовать.
+    sf::View _worldView; ///< Текущая область мира, которую нужно нарисовать.
+    sf::View _guiView; ///< Вид для интерфейса
 
     sf::Texture _backgroundTexture; ///< Текстура фона
     sf::Sprite _background; ///< Фон

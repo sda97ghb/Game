@@ -10,7 +10,8 @@ Entity::Entity() :
     _maxHealth(100.0f),
     _health(100.0f),
     _maxMana(0.0f),
-    _mana(0.0f)
+    _mana(0.0f),
+    _goingDirection(GoingDirection::left)
 {
 }
 
@@ -114,9 +115,10 @@ void Entity::stepLeft()
     if (_leftSensor.isActive())
         return;
     if (_body->GetLinearVelocity().x >= -6.0f)
-        _body->ApplyLinearImpulse(b2Vec2(-0.4f, 0.0f),
+        _body->ApplyLinearImpulse(b2Vec2(-0.5f, 0.0f),
                                   _body->GetWorldCenter(), true);
     _spriteAnimator.setCurrentGroup("going_left");
+    _goingDirection = GoingDirection::left;
 }
 
 void Entity::stepRight()
@@ -126,9 +128,10 @@ void Entity::stepRight()
     if (_rightSensor.isActive())
         return;
     if (_body->GetLinearVelocity().x <= 6.0f)
-        _body->ApplyLinearImpulse(b2Vec2(0.4f, 0.0f),
+        _body->ApplyLinearImpulse(b2Vec2(0.5f, 0.0f),
                                   _body->GetWorldCenter(), true);
     _spriteAnimator.setCurrentGroup("going_right");
+    _goingDirection = GoingDirection::right;
 }
 
 void Entity::jump()
@@ -185,7 +188,8 @@ void Entity::heal(float value)
 
 void Entity::kill()
 {
-    _health = 0.0f;
+    if (isAlive())
+        makeDamage(_maxHealth);
 }
 
 void Entity::setMaxMana(float value)
@@ -229,4 +233,9 @@ float Entity::mana() const
 SpriteAnimator& Entity::spriteAnimator()
 {
     return _spriteAnimator;
+}
+
+Entity::GoingDirection Entity::goingDirection() const
+{
+    return _goingDirection;
 }

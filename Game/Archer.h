@@ -23,6 +23,18 @@ public:
 private:
     Archer(const Archer& archer) = delete;
     void operator= (const Archer& archer) = delete;
+
+    bool isReadyForStrike();
+    void strike();
+
+    enum class State
+    {
+        lookingAround,
+        prepareToStrike,
+        goingToLastSeenPosition
+    };
+
+    State _state;
 };
 
 #endif // ARCHER_H
