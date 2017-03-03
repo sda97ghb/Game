@@ -27,7 +27,7 @@ class PaintingWindow : public sf::RenderWindow
 {
 public:
     /// \brief Создает графическое окно, инициализирует графику.
-    PaintingWindow(uint32_t width, uint32_t height, const std::__cxx11::string& title);
+    PaintingWindow(uint32_t width, uint32_t height, const std::string& title);
 
     /// \brief Рисует содеримое окна (мир, интерфейс пользователя).
     void paint();
