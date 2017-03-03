@@ -186,6 +186,12 @@ void TestWorldLoader::load()
         ladder.setWidth(1.0f);
         ladder.setTexture("Textures/ladder.png");
     }
+    {
+        Ladder& ladder = world.createLadder();
+        ladder.setCoordinates(-11.5f, 0.0f, 5.0f);
+        ladder.setWidth(1.0f);
+        ladder.setTexture("Textures/ladder.png");
+    }
 
     {
         Water& water = world.createWater();
@@ -198,6 +204,18 @@ void TestWorldLoader::load()
         water.setShape(shape);
         water.setTextureBack("Textures/stoneBricks.png");
         water.setTexture("Textures/water.png");
+    }
+    {
+        Lava& lava = world.createLava();
+        b2Vec2 vertexes[4] = {b2Vec2(-18.0, 0.0),
+                              b2Vec2(-13.0, 0.0),
+                              b2Vec2(-13.0, 3.8),
+                              b2Vec2(-18.0, 3.8)};
+        b2PolygonShape shape;
+        shape.Set(vertexes, 4);
+        lava.setShape(shape);
+        lava.setTextureBack("Textures/stoneBricks.png");
+        lava.setTexture("Textures/lava.png");
     }
 
     {

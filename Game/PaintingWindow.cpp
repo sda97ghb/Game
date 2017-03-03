@@ -83,6 +83,13 @@ void PaintingWindow::drawWorld()
     sf::Sprite& player = constructPlayer();
     draw(player);
 
+    for (const Lava& lavaC : world.lavas())
+    {
+        Lava& lava = const_cast<Lava&>(lavaC);
+        sf::ConvexShape& shape = constructLava(lava, true);
+        draw(shape);
+    }
+
     for (const Water& waterC : world.waters())
     {
         Water& water = const_cast<Water&>(waterC);
@@ -109,8 +116,6 @@ void PaintingWindow::drawGui()
         float mana = Player::instance().mana() / Player::instance().maxMana();
         drawBar(-530.0f, -285.0f, 200.0f, 20.0f, 2.0f, mana, sf::Color::Blue);
     }
-
-    //----------------//
 
     setView(_worldView);
 
@@ -240,6 +245,30 @@ sf::ConvexShape& PaintingWindow::constructWater(Water& water, bool isFront)
 
     sf::ConvexShape& shapeSF = water.shapeSF();
     sf::Texture& texture = isFront ? water.texture() : water.textureBack();
+
+    shapeSF.setTexture(&texture);
+    b2Vec2 size = computeSize(shapeB2);
+    size *= 16.0f;
+    shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
+                                       sf::Vector2i(size.x, size.y)));
+
+    int32 vertexCount = shapeB2.GetVertexCount();
+    shapeSF.setPointCount(vertexCount);
+    for (int32 i = 0; i < vertexCount; ++ i)
+    {
+        b2Vec2 vertex = shapeB2.GetVertex(i);
+        shapeSF.setPoint(i, sf::Vector2f(vertex.x, vertex.y));
+    }
+
+    return shapeSF;
+}
+
+sf::ConvexShape&PaintingWindow::constructLava(Lava& lava, bool isFront)
+{
+    b2PolygonShape& shapeB2 = lava.shapeB2();
+
+    sf::ConvexShape& shapeSF = lava.shapeSF();
+    sf::Texture& texture = isFront ? lava.texture() : lava.textureBack();
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);

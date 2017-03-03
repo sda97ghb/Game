@@ -42,6 +42,9 @@ public:
     /// \brief Метод добавления водоема.
     Water& createWater();
 
+    /// \brief Метод добавления лавового озера.
+    Lava& createLava();
+
     /// \brief Метод добавления лучника.
     Archer& createArcher();
 
@@ -58,6 +61,9 @@ public:
 
     /// \brief Возвращает константный список всех водоемов.
     const std::list<Water>& waters() const;
+
+    /// \brief Возвращает константный список всех лавовых озер.
+    const std::list<Lava>& lavas() const;
 
     /// \brief Возвращает константный список всех лучников.
     const std::list<Archer>& archers() const;
@@ -82,6 +88,7 @@ private:
     std::list<Ladder> _ladders; ///< список всех лестниц
 
     std::list<Water> _waters; ///< список всех водоемов
+    std::list<Lava> _lavas; ///< список всех лавовых озер
 
     std::list<Archer> _archers; ///< список всех лучников
 

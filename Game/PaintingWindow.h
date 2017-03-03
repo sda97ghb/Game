@@ -16,6 +16,7 @@
 #include "Game/Archer.h"
 #include "Game/Entity.h"
 #include "Game/Ladder.h"
+#include "Game/Lava.h"
 #include "Game/Platform.h"
 #include "Game/Water.h"
 
@@ -62,6 +63,9 @@ public:
 
     /// \brief Подготавливает для отрисовки многоугольник для воды.
     sf::ConvexShape& constructWater(Water& water, bool isFront = true);
+
+    /// \brief Подготавливает для отрисовки многоугольник для лавы.
+    sf::ConvexShape& constructLava(Lava& lava, bool isFront = true);
 
     /// \brief Подготавливает для отрисовки спрайт для существа.
     sf::Sprite& constructEntity(Entity& entity);

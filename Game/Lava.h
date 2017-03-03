@@ -6,9 +6,11 @@
 
 #include "Game/Liquid.h"
 
+/// \brief Класс лавового озера.
 class Lava : public Liquid
 {
 public:
+    /// \brief Смерть игрока при контакте с лавой.
     void testPlayerOnIt();
 };
 

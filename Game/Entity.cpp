@@ -188,7 +188,8 @@ void Entity::heal(float value)
 
 void Entity::kill()
 {
-    _health = 0.0f;
+    if (isAlive())
+        makeDamage(_maxHealth);
 }
 
 void Entity::setMaxMana(float value)
