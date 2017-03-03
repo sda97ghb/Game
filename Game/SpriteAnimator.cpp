@@ -1,4 +1,3 @@
-#include "Game/ImageScaler.h"
 #include "Game/SpriteAnimator.h"
 
 SpriteAnimator::SpriteAnimator() :
@@ -18,9 +17,7 @@ sf::Sprite& SpriteAnimator::sprite()
 
 void SpriteAnimator::setTexture(const std::string& filename)
 {
-    sf::Image original;
-    original.loadFromFile(filename);
-    _texture.loadFromImage(ImageScaler::scale(original));
+    _texture.loadFromFile(filename);
 
     _sprite.setTexture(_texture);
 }
@@ -82,9 +79,9 @@ void SpriteAnimator::nextFrame()
         x += group.frameWidth * _currentFrame;
     else
         y += group.frameHeight * _currentFrame;
-    _sprite.setTextureRect(sf::IntRect(x * 2, y * 2,
-                                       group.frameWidth * 2,
-                                       group.frameHeight * 2));
+    _sprite.setTextureRect(sf::IntRect(x, y,
+                                       group.frameWidth,
+                                       group.frameHeight));
     ++ _currentFrame;
     if (_currentFrame >= group.numberOfFrames)
     {

@@ -196,7 +196,7 @@ void TestWorldLoader::load()
         b2PolygonShape shape;
         shape.Set(vertexes, 4);
         water.setShape(shape);
-        water.setTextureBack("Textures/waterBackground.png");
+        water.setTextureBack("Textures/stoneBricks.png");
         water.setTexture("Textures/water.png");
     }
 

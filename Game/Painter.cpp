@@ -42,7 +42,7 @@ void Painter::drawBackground()
 void Painter::drawWorld()
 {
     b2Vec2 playerPos = Player::instance().body().GetPosition();
-    _worldView.setCenter(playerPos.x, playerPos.y);
+    _worldView.setCenter(playerPos.x, playerPos.y + 5.0f);
     _window->setView(_worldView);
 
     World& world = World::instance();
@@ -191,7 +191,7 @@ sf::ConvexShape& Painter::constructPlatform(Platform& platform)
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);
-    size *= 32.0f;
+    size *= 16.0f;
     shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
                                        sf::Vector2i(size.x, size.y)));
 
@@ -217,8 +217,8 @@ sf::RectangleShape& Painter::constructLadder(Ladder& ladder)
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);
-    size *= 32;
-    shapeSF.setScale(1.0f / 32.0f, 1.0f / 32.0f);
+    size *= 16;
+    shapeSF.setScale(1.0f / 16.0f, 1.0f / 16.0f);
     shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
                                        sf::Vector2i(size.x, size.y)));
 
@@ -238,7 +238,7 @@ sf::ConvexShape& Painter::constructWater(Water& water, bool isFront)
 
     shapeSF.setTexture(&texture);
     b2Vec2 size = computeSize(shapeB2);
-    size *= 32.0f;
+    size *= 16.0f;
     shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
                                        sf::Vector2i(size.x, size.y)));
 
@@ -266,12 +266,12 @@ sf::Sprite& Painter::constructEntity(Entity& entity)
     }
     sf::Sprite& sprite = animator.sprite();
 
-    sprite.setScale(1.0f / 32.0f, -1.0f / 32.0f);
+    sprite.setScale(1.0f / 16.0f, -1.0f / 16.0f);
 
     b2Vec2 pos = entity.body().GetPosition();
     sf::Vector2f posSF = sf::Vector2f(pos.x, pos.y);
-    posSF.x -= sprite.getTextureRect().width / 64.0f;
-    posSF.y += sprite.getTextureRect().height / 64.0f;
+    posSF.x -= sprite.getTextureRect().width / 32.0f;
+    posSF.y += sprite.getTextureRect().height / 32.0f;
     sprite.setPosition(posSF);
 
     return sprite;

@@ -1,13 +1,10 @@
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Game/ImageScaler.h"
 #include "Game/Platform.h"
 
 void Platform::setTexture(const std::string& filename)
 {
-    sf::Image original;
-    original.loadFromFile(filename);
-    _texture.loadFromImage(ImageScaler::scale(original));
+    _texture.loadFromFile(filename);
     _texture.setRepeated(true);
 }
 
