@@ -24,7 +24,7 @@ void Entity::constructBody()
         entityShape.SetAsBox(width() / 2.0f, height() / 2.0f);
         b2FixtureDef entityFixtureDef;
         entityFixtureDef.shape = &entityShape;
-        entityFixtureDef.density = 1.0f;
+        entityFixtureDef.density = 57.14f;//75kg / (1.75m * 0.75m)
         entityFixtureDef.friction = 20.0f;
         entityFixtureDef.restitution = 0.0f;
         body().CreateFixture(&entityFixtureDef);
@@ -115,7 +115,7 @@ void Entity::stepLeft()
     if (_leftSensor.isActive())
         return;
     if (_body->GetLinearVelocity().x >= -6.0f)
-        _body->ApplyLinearImpulse(b2Vec2(-0.5f, 0.0f),
+        _body->ApplyLinearImpulse(b2Vec2(-50.5f, 0.0f),
                                   _body->GetWorldCenter(), true);
     _spriteAnimator.setCurrentGroup("going_left");
     _goingDirection = GoingDirection::left;
@@ -128,7 +128,7 @@ void Entity::stepRight()
     if (_rightSensor.isActive())
         return;
     if (_body->GetLinearVelocity().x <= 6.0f)
-        _body->ApplyLinearImpulse(b2Vec2(0.5f, 0.0f),
+        _body->ApplyLinearImpulse(b2Vec2(50.0f, 0.0f),
                                   _body->GetWorldCenter(), true);
     _spriteAnimator.setCurrentGroup("going_right");
     _goingDirection = GoingDirection::right;
@@ -140,7 +140,7 @@ void Entity::jump()
         return;
     if (!_groundSensor.isActive())
         return;
-    _body->ApplyLinearImpulse(b2Vec2(0.0f, 2.0f),
+    _body->ApplyLinearImpulse(b2Vec2(0.0f, 100.0f),
                               _body->GetWorldCenter(), true);
 }
 

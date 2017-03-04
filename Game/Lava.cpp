@@ -7,7 +7,7 @@ void Lava::testPlayerOnIt()
         b2Transform transform;
         transform.SetIdentity();
         if (_shapeB2.TestPoint(transform, Player::instance().body().GetPosition()))
-            Player::instance().kill();
+            Player::instance().makeDamage(Player::instance().maxHealth()*0.005);
     }
     catch (Player::NoBodyException&)
     {

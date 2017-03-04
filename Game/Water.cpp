@@ -16,12 +16,12 @@ void Water::testPlayerOnIt()
         {
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
                 if (body.GetLinearVelocity().y < 2.0f)
-                    body.ApplyLinearImpulse(b2Vec2(0.0f, 4.0f),
+                    body.ApplyLinearImpulse(b2Vec2(0.0f, 200.0f),
                                             body.GetWorldCenter(), true);
 
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
                 if (body.GetLinearVelocity().y > -2.0f)
-                    body.ApplyLinearImpulse(b2Vec2(0.0f, -4.0f),
+                    body.ApplyLinearImpulse(b2Vec2(0.0f, -200.0f),
                                             body.GetWorldCenter(), true);
 
             b2Vec2 velocity = body.GetLinearVelocity();
