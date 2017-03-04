@@ -6,6 +6,18 @@
 #include "Game/World.h"
 #include "Game/Log.h"
 
+PaintingWindow& PaintingWindow::instance()
+{
+	static PaintingWindow instance(1200, 720, "Game");
+	return instance;
+}
+
+void PaintingWindow::setBackground(const std::string& background)
+{
+	_backgroundTexture.loadFromFile(background);
+	_background.setTexture(_backgroundTexture);
+}
+
 PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
                                const std::string& title) :
     sf::RenderWindow(sf::VideoMode(width, height), title)
@@ -20,9 +32,6 @@ PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
     _guiView.setViewport(sf::FloatRect(0.0f, 0.0f, 1.0f, 1.0f));
 
     setView(_worldView);
-
-    _backgroundTexture.loadFromFile("Textures/background.png");
-    _background.setTexture(_backgroundTexture);
 }
 
 void PaintingWindow::paint()

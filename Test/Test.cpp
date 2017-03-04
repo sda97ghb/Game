@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include "Test/Test.h"
 
 #include "SFML/Window/Event.hpp"
@@ -9,6 +10,8 @@
 #include "Game/World.h"
 
 #include "Test/TestWorldLoader.h"
+
+#include "Game/MapLoader.h"
 
 void test::main(int argc, char** argv)
 {
@@ -28,10 +31,40 @@ void test::main(int argc, char** argv)
     //    320     240     1,3
 
 //    sf::VideoMode::getDesktopMode()
-    PaintingWindow window(1200, 720, "Game");
+    PaintingWindow& window = PaintingWindow::instance();
 
-    TestWorldLoader loader;
-    loader.load();
+    /*TestWorldLoader loader;
+    loader.load();*/
+
+	MapLoader loader;
+	try
+	{
+		loader.loadMap("C:/Users/Alexander/Desktop/Project/Game.git/Game.git/MapLevels/LEVEL_ONE.xml");
+	}
+	catch (MapLoader::XmlError& error)
+	{
+		std::cout << error.what() << std::endl;
+		std::cout << error._lineNum << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	catch (MapLoader::MissingArgument& error)
+	{
+		std::cout << error.what() << std::endl;
+		std::cout << error._lineNum << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	catch (MapLoader::WrongArgumentFormat& error)
+	{
+		std::cout << error.what() << std::endl;
+		std::cout << error._lineNum << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	catch (MapLoader::NotExistChildElement& error)
+	{
+		std::cout << error.what() << std::endl;
+		std::cout << error._lineNum << std::endl;
+		exit(EXIT_FAILURE);
+	}
 
     while (window.isOpen())
     {

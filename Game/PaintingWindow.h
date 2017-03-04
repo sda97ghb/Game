@@ -26,8 +26,8 @@
 class PaintingWindow : public sf::RenderWindow
 {
 public:
-    /// \brief Создает графическое окно, инициализирует графику.
-    PaintingWindow(uint32_t width, uint32_t height, const std::__cxx11::string& title);
+	static PaintingWindow& instance();
+	void setBackground(const std::string& background);
 
     /// \brief Рисует содеримое окна (мир, интерфейс пользователя).
     void paint();
@@ -80,6 +80,14 @@ public:
     void processEvents();
 
 private:
+	PaintingWindow() = delete;
+
+	/// \brief Создает графическое окно, инициализирует графику.
+	PaintingWindow(uint32_t width, uint32_t height, const std::string& title);
+
+	PaintingWindow(PaintingWindow const&) = delete;
+	PaintingWindow& operator= (PaintingWindow const&) = delete;
+
     sf::RenderWindow* _window; ///< Графическое окно
     sf::View _worldView; ///< Текущая область мира, которую нужно нарисовать.
     sf::View _guiView; ///< Вид для интерфейса
