@@ -34,6 +34,13 @@ Platform& World::createPlatform()
     return platform;
 }
 
+Cable& World::createCable()
+{
+    _cables.emplace_back();
+    Cable& cable = _cables.back();
+    return cable;
+}
+
 Ladder& World::createLadder()
 {
     _ladders.emplace_back();
@@ -93,12 +100,17 @@ const std::list<Platform>& World::platforms() const
     return _platforms;
 }
 
+const std::list<Cable>& World::cable() const
+{
+    return _cables;
+}
+
 const std::list<Ladder>& World::ladders() const
 {
     return _ladders;
 }
 
-const std::list<Water>&World::waters() const
+const std::list<Water>& World::waters() const
 {
     return _waters;
 }
