@@ -46,7 +46,7 @@ public:
 	void loadMap(std::string filename);
 	/// \brief Функция загрузки Земли
 	void loadGround(const tinyxml2::XMLElement& ground);
-	const char* loadBackground(const tinyxml2::XMLElement& background);
+	void loadBackground(const tinyxml2::XMLElement& background);
 	void loadPlatform(const tinyxml2::XMLElement& platform);
 
 	/// \brief Функция загрузки Фурнитуры
@@ -56,6 +56,8 @@ public:
 	void loadRope(const tinyxml2::XMLElement& rope);
 	void loadSpikes(const tinyxml2::XMLElement& spikes);
 	void loadFallingGround(const tinyxml2::XMLElement& fallingground);
+	void loadWater(const tinyxml2::XMLElement& water);
+	void loadLava(const tinyxml2::XMLElement& lava);
 
 	/// \brief Функция загрузки Сущности
 	void loadEntity(const tinyxml2::XMLElement& entity);
