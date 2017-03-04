@@ -2,7 +2,7 @@
 
 <world>
     <ground>
-		<background picture="bg.png"/>
+		<background picture="Textures/background.png"/>
 		<platforms>
 			<platform>
                 <shape>
@@ -36,12 +36,7 @@
 	
     <furniture>
         <ladder>
-            <coordinates x="5.5" y1="0.0" y2="9.5"/>
-            <width>1.0</width>
-            <texture picture="Textures/ladder.png"/>
-        </ladder>
-		<ladder>
-            <coordinates x="-5.5" y1="0.0" y2="20.0"/>
+            <coordinates x="5.5" y1="0.0" y2="100.0"/>
             <width>1.0</width>
             <texture picture="Textures/ladder.png"/>
         </ladder>
@@ -49,6 +44,26 @@
             <coordinates x1="0.0" x2="1.0" y1="0.0" y2="1.0"/>
             <texture picture="cable.png"/>
         </cable>
+		<water>
+			<shape>
+				<vertex x="-12.0" y="0.0"/>
+				<vertex x="-7.0" y="0.0"/>
+				<vertex x="-7.0" y="3.8"/>
+				<vertex x="-12.0" y="3.8"/>
+			</shape>
+			<texture picture="Textures/water.png"/>
+			<textureback picture="Textures/stonebricks.png"/>
+		</water>
+		<lava>
+			<shape>
+				<vertex x="-18.0" y="0.0"/>
+				<vertex x="-13.0" y="0.0"/>
+				<vertex x="-13.0" y="3.8"/>
+				<vertex x="-18.0" y="3.8"/>
+			</shape>
+			<texture picture="Textures/lava.png"/>
+			<textureback picture="Textures/lava.png"/>
+		</lava>
     </furniture>
 	
     <actors>

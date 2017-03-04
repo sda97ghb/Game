@@ -31,7 +31,7 @@ void test::main(int argc, char** argv)
     //    320     240     1,3
 
 //    sf::VideoMode::getDesktopMode()
-    PaintingWindow window(1200, 720, "Game");
+    PaintingWindow& window = PaintingWindow::instance();
 
     /*TestWorldLoader loader;
     loader.load();*/
@@ -45,21 +45,25 @@ void test::main(int argc, char** argv)
 	{
 		std::cout << error.what() << std::endl;
 		std::cout << error._lineNum << std::endl;
+		exit(EXIT_FAILURE);
 	}
 	catch (MapLoader::MissingArgument& error)
 	{
 		std::cout << error.what() << std::endl;
 		std::cout << error._lineNum << std::endl;
+		exit(EXIT_FAILURE);
 	}
 	catch (MapLoader::WrongArgumentFormat& error)
 	{
 		std::cout << error.what() << std::endl;
 		std::cout << error._lineNum << std::endl;
+		exit(EXIT_FAILURE);
 	}
 	catch (MapLoader::NotExistChildElement& error)
 	{
 		std::cout << error.what() << std::endl;
 		std::cout << error._lineNum << std::endl;
+		exit(EXIT_FAILURE);
 	}
 
     while (window.isOpen())
