@@ -39,7 +39,7 @@ void test::main(int argc, char** argv)
 	MapLoader loader;
 	try
 	{
-		loader.loadMap("C:/Users/Alexander/Desktop/Project/Game.git/Game.git/MapLevels/LEVEL_ONE.xml");
+        loader.loadMap("MapLevels/LEVEL_ONE.xml");
 	}
 	catch (MapLoader::XmlError& error)
 	{
