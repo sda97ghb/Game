@@ -72,6 +72,17 @@ void MapLoader::loadMap(std::string filename)
 	const XMLElement* entity = world->FirstChildElement(section::ENTITY);
 	if (entity != nullptr)
 		loadEntity(*entity);
+	{
+		Ladder& ladder = _world.createLadder();
+		ladder.setCoordinates(5.0f, 0.0f, 5.5f);
+		ladder.setWidth(1.0f);
+		ladder.setTexture("Textures/ladder.png");
+	}
+	{
+		Spikes& spikes = _world.createSpikes();
+		spikes.setCoordinates(0.0f, 0.0f, 5.0f, 5.0f);
+		spikes.setTexture("Textures/spikes_two.png");
+	}
 }
 
 void MapLoader::loadGround(const tinyxml2::XMLElement& ground)

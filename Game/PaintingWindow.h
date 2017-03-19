@@ -7,6 +7,7 @@
 #define PAINTER_H
 
 #include "SFML/Graphics/ConvexShape.hpp"
+#include "SFML/Graphics/Font.hpp"
 #include "SFML/Graphics/RectangleShape.hpp"
 #include "SFML/Graphics/RenderWindow.hpp"
 #include "SFML/Graphics/Sprite.hpp"
@@ -19,6 +20,7 @@
 #include "Game/Lava.h"
 #include "Game/Platform.h"
 #include "Game/Water.h"
+#include "Game/Spikes.h"
 
 /// \brief Класс, отвечающий за графическую составляющую игры.
 /// \details Создает графическое окно, занимается отрисовкой
@@ -61,6 +63,9 @@ public:
     /// \brief Подготавливает для отрисовки прямоугольник для лестницы.
     sf::RectangleShape& constructLadder(Ladder& ladder);
 
+	/// \brief Подготавливает для отрисовки прямоугольник для шипов.
+	sf::RectangleShape& constructSpikes(Spikes& spikes);
+
     /// \brief Подготавливает для отрисовки многоугольник для воды.
     sf::ConvexShape& constructWater(Water& water, bool isFront = true);
 
@@ -80,8 +85,6 @@ public:
     void processEvents();
 
 private:
-	PaintingWindow() = delete;
-
 	/// \brief Создает графическое окно, инициализирует графику.
 	PaintingWindow(uint32_t width, uint32_t height, const std::string& title);
 
@@ -94,6 +97,9 @@ private:
 
     sf::Texture _backgroundTexture; ///< Текстура фона
     sf::Sprite _background; ///< Фон
+
+	
+	sf::Font font; ///< Шрифт для лога
 };
 
 #endif // PAINTER_H

@@ -63,20 +63,12 @@ Lava& World::createLava()
     return lava;
 }
 
-b2Body* World::createBodyForEntity()
+Spikes& World::createSpikes()
 {
-    b2BodyDef entityBodyDef;
-    entityBodyDef.type = b2_dynamicBody;
-    entityBodyDef.fixedRotation = true;
-    entityBodyDef.position.Set(0.0f, 0.0f);
+	_spikes.emplace_back();
+	Spikes& _spikes_ = _spikes.back();
 
-    return _world->CreateBody(&entityBodyDef);
-}
-
-void World::createPlayer()
-{
-    player().setBody(createBodyForEntity());
-    player().constructBody();
+	return _spikes_;
 }
 
 Archer& World::createArcher()
@@ -120,6 +112,11 @@ const std::list<Lava>& World::lavas() const
     return _lavas;
 }
 
+const std::list<Spikes>& World::spikes() const
+{
+	return _spikes;
+}
+
 const std::list<Archer>& World::archers() const
 {
     return _archers;
@@ -129,6 +126,9 @@ void World::update()
 {
     for (Ladder& ladder : _ladders)
         ladder.testPlayerOnIt();
+
+	for (Spikes& spikes : _spikes)
+		spikes.testPlayerOnIt();
 
     for (Water& water : _waters)
         water.testPlayerOnIt();
@@ -144,4 +144,20 @@ void World::update()
     const int32 positionIterations = 3;
 
     _world->Step(timeStep, velocityIterations, positionIterations);
+}
+
+b2Body* World::createBodyForEntity()
+{
+	b2BodyDef entityBodyDef;
+	entityBodyDef.type = b2_dynamicBody;
+	entityBodyDef.fixedRotation = true;
+	entityBodyDef.position.Set(0.0f, 0.0f);
+
+	return _world->CreateBody(&entityBodyDef);
+}
+
+void World::createPlayer()
+{
+	player().setBody(createBodyForEntity());
+	player().constructBody();
 }

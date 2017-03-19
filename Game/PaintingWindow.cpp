@@ -32,6 +32,9 @@ PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
     _guiView.setViewport(sf::FloatRect(0.0f, 0.0f, 1.0f, 1.0f));
 
     setView(_worldView);
+
+	const std::string FONTS_DIRECTORY = "Fonts";
+	font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
 }
 
 void PaintingWindow::paint()
@@ -81,6 +84,13 @@ void PaintingWindow::drawWorld()
         sf::RectangleShape& shape = constructLadder(ladder);
         draw(shape);
     }
+
+	for (const Spikes& spikesC : world.spikes())
+	{
+		Spikes& spikes = const_cast<Spikes&>(spikesC);
+		sf::RectangleShape& shape = constructSpikes(spikes);
+		draw(shape);
+	}
 
     for (const Archer& archerC : world.archers())
     {
@@ -144,9 +154,6 @@ void PaintingWindow::drawLog()
 {
     setView(_guiView);
 
-    const std::string FONTS_DIRECTORY = "Fonts";
-    sf::Font font;
-    font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
     sf::Text text;
     text.setFont(font);
     text.setCharacterSize(16);
@@ -246,6 +253,25 @@ sf::RectangleShape& PaintingWindow::constructLadder(Ladder& ladder)
     shapeSF.setSize(sf::Vector2f(size.x, size.y));
 
     return shapeSF;
+}
+
+sf::RectangleShape& PaintingWindow::constructSpikes(Spikes& spikes)
+{
+	b2PolygonShape& shapeB2 = spikes.shapeB2();
+
+	sf::RectangleShape& shapeSF = spikes.shapeSF();
+	sf::Texture& texture = spikes.texture();
+
+	shapeSF.setTexture(&texture);
+	shapeSF.setScale(1.0f / 16.0f, 1.0f / 16.0f);
+	shapeSF.setTextureRect(sf::IntRect(sf::Vector2i(0, 0),
+						   sf::Vector2i(spikes.lenght()*16, 0.5 * 16)));
+
+	shapeSF.setPosition(sf::Vector2f(spikes.x1(), spikes.y1()));
+	shapeSF.setSize(sf::Vector2f(spikes.lenght()*16, 0.5 * 16));
+	shapeSF.setRotation(180 * spikes.angle()/3.14);
+
+	return shapeSF;
 }
 
 sf::ConvexShape& PaintingWindow::constructWater(Water& water, bool isFront)
