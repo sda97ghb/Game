@@ -9,6 +9,7 @@
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 
 #include "Game/Furniture.h"
+#include "Game/ContactSensor.h"
 
 class Spikes : public Furniture
 {
@@ -42,7 +43,7 @@ public:
 
 private:
     void setShape();
-
+ 
     float _x1;
     float _x2;
     float _y1;
@@ -51,6 +52,8 @@ private:
 
     b2PolygonShape _shapeB2;
     sf::RectangleShape _shapeSF;
+    ContactSensor _sensor;
+    b2Body* _body;
 };
 
 #endif // SPIKES_H
