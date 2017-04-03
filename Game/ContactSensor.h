@@ -38,7 +38,7 @@ public:
     /// \warning Должен быть вызвано один раз для одного тела.
     /// \warning При повторном вызове для разных тел датчик не будет снят
     /// с предыдущего тела, но будет работать, как повешанный на последнее тело.
-    void hangOnBody(b2Body* body);
+    void hangOnBody(b2Body* body, b2Shape* sensorShape = nullptr);
 
     /// \brief Устанавливает, активен ли сейчас датчик.
     /// \param [in] state true если активен, иначе false
