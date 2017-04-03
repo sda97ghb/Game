@@ -32,16 +32,23 @@ void ContactSensor::setType(int type)
     _type = type;
 }
 
-void ContactSensor::hangOnBody(b2Body* body)
+void ContactSensor::hangOnBody(b2Body* body, b2Shape* sensorShape)
 {
-    _body = body;
-
-    b2PolygonShape sensorShape;
-    sensorShape.SetAsBox(_width, _height, b2Vec2(_x, _y), 0.0f);
+    _body = body;    
 
     b2FixtureDef sensorFixtureDef;
-    sensorFixtureDef.shape = &sensorShape;
     sensorFixtureDef.isSensor = true;
+
+    b2PolygonShape sensorBoxShape;
+    if (sensorShape == nullptr)
+    {
+        sensorBoxShape.SetAsBox(_width, _height, b2Vec2(_x, _y), 0.0f);
+        sensorFixtureDef.shape = &sensorBoxShape;
+    }
+    else
+    {
+        sensorFixtureDef.shape = sensorShape;
+    }
 
     b2Fixture* fixture = _body->CreateFixture(&sensorFixtureDef);
     fixture->SetUserData((void*)_type);
