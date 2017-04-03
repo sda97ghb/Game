@@ -257,7 +257,7 @@ sf::RectangleShape& PaintingWindow::constructLadder(Ladder& ladder)
 
 sf::RectangleShape& PaintingWindow::constructSpikes(Spikes& spikes)
 {
-	b2PolygonShape& shapeB2 = spikes.shapeB2();
+//	b2PolygonShape& shapeB2 = spikes.shapeB2();
 
 	sf::RectangleShape& shapeSF = spikes.shapeSF();
 	sf::Texture& texture = spikes.texture();
@@ -271,7 +271,7 @@ sf::RectangleShape& PaintingWindow::constructSpikes(Spikes& spikes)
 	shapeSF.setSize(sf::Vector2f(spikes.lenght()*16, 0.5 * 16));
 	shapeSF.setRotation(180 * spikes.angle()/3.14);
 
-	return shapeSF;
+    return shapeSF;
 }
 
 sf::ConvexShape& PaintingWindow::constructWater(Water& water, bool isFront)

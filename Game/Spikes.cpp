@@ -38,7 +38,7 @@ void Spikes::testPlayerOnIt()
     try 
     {
 	    Player& player = Player::instance();
-	    b2Body& body = player.body();
+//	    b2Body& body = player.body();
 	    b2Transform transform;
 	    transform.SetIdentity();
         static bool damageWasDone = false;
@@ -99,8 +99,8 @@ float Spikes::angle() const
 {
 	float w = _x2 - _x1;
 	float h = _y2 - _y1;
-	return std::acosf(w / lenght()) *
-		   sign(std::asinf(h / lenght()));
+    return ::acosf(w / lenght()) *
+           sign(::asinf(h / lenght()));
 }
 
 b2PolygonShape& Spikes::shapeB2()
