@@ -293,5 +293,25 @@ void MapLoader::loadCoordinates(const tinyxml2::XMLElement& element, float& x, f
 
 void MapLoader::loadCoordinates(const tinyxml2::XMLElement& element, float& x1, float& x2, float& y1, float& y2)
 {
+    XMLError e = element.QueryFloatAttribute("x1", &x1);
+    XMLError e2 = element.QueryFloatAttribute("x2", &x2);
+    XMLError e_two = element.QueryFloatAttribute("y1", &y1);
+    XMLError e_three = element.QueryFloatAttribute("y2", &y2);
 
+    if (e == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(element.GetLineNum());
+    if (e2 == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(element.GetLineNum());
+    if (e_two == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(element.GetLineNum());
+    if (e_three == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(element.GetLineNum());
+    if (e == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(element.GetLineNum());
+    if (e2 == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(element.GetLineNum());
+    if (e_two == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(element.GetLineNum());
+    if (e_three == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(element.GetLineNum());
 }
