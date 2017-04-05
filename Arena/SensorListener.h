@@ -9,17 +9,17 @@
 
 #include "Box2D/Dynamics/b2WorldCallbacks.h"
 
-#include "Arena/ContactSensor.h"
-#include "Arena/HitSensor.h"
+#include "Arena/Sensors/ContactSensor.h"
+#include "Arena/Sensors/HitSensor.h"
 
 /// \brief Класс, ответственный за срабатывание датчиков при столкновении.
 /// \warning Этот класс нужен для внутренней механики игры.
 /// Скорее всего вам не нужно ничего изменять в этом классе.
-class SensorsListener : public b2ContactListener
+class SensorListener : public b2ContactListener
 {
 public:
     /// \brief Возвращает ссылку на объект класса.
-    static SensorsListener& instance();
+    static SensorListener& instance();
 
     enum
     {
@@ -38,9 +38,9 @@ public:
     void registrySensor(HitSensor& sensor);
 
 private:
-    SensorsListener() = default;
-    SensorsListener(const SensorsListener&) = delete;
-    void operator= (const SensorsListener&) = delete;
+    SensorListener() = default;
+    SensorListener(const SensorListener&) = delete;
+    void operator= (const SensorListener&) = delete;
 
     /// \brief Срабатывает при столкновении любых двух объектов.
     void BeginContact(b2Contact* contact);

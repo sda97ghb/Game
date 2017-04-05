@@ -4,7 +4,7 @@
 #ifndef ROPE_H
 #define ROPE_H
 
-#include "Arena/Furniture.h"
+#include "Arena/Furniture/Furniture.h"
 
 class Rope : public Furniture
 {

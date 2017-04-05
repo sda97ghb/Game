@@ -4,7 +4,7 @@
 #ifndef MAGE_H
 #define MAGE_H
 
-#include "Arena/Enemy.h"
+#include "Arena/Entity/Enemy.h"
 
 class Mage : public Enemy
 {

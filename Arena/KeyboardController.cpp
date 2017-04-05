@@ -1,7 +1,7 @@
 #include "SFML/Window/Keyboard.hpp"
 
 #include "Arena/KeyboardController.h"
-#include "Arena/Player.h"
+#include "Arena/Entity/Player.h"
 #include "Arena/World.h"
 
 void KeyboardController::processKeyboard()

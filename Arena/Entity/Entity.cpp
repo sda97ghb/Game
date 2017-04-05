@@ -1,9 +1,9 @@
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Arena/Entity.h"
+#include "Arena/Entity/Entity.h"
 #include "Arena/Log.h"
-#include "Arena/SensorsListener.h"
+#include "Arena/SensorListener.h"
 
 Entity::Entity() :
     _body(nullptr),
@@ -30,27 +30,29 @@ void Entity::constructBody()
         body().CreateFixture(&entityFixtureDef);
     }
 
-    _groundSensor.setType(SensorsListener::GROUND_CONTACT_SENSOR_TYPE);
+    _groundSensor.setType(SensorListener::GROUND_CONTACT_SENSOR_TYPE);
     _groundSensor.setPosition(0.0f, -height() / 2.0f);
     _groundSensor.setSize(width() / 2.0f * 0.9f, 0.1);
     _groundSensor.hangOnBody(_body);
 
-    _leftSensor.setType(SensorsListener::LEFT_CONTACT_SENSOR_TYPE);
+    _leftSensor.setType(SensorListener::LEFT_CONTACT_SENSOR_TYPE);
     _leftSensor.setPosition(-width() / 2.0, 0.0f);
     _leftSensor.setSize(0.1, height() / 2.0f * 0.9f);
     _leftSensor.hangOnBody(_body);
 
-    _rightSensor.setType(SensorsListener::RIGHT_CONTACT_SENSOR_TYPE);
+    _rightSensor.setType(SensorListener::RIGHT_CONTACT_SENSOR_TYPE);
     _rightSensor.setPosition(width() / 2.0, 0.0f);
     _rightSensor.setSize(0.1, height() / 2.0f * 0.9f);
     _rightSensor.hangOnBody(_body);
 
-    _groundHitSensor.setType(SensorsListener::GROUND_HIT_SENSOR_TYPE);
+    _groundHitSensor.setType(SensorListener::GROUND_HIT_SENSOR_TYPE);
     _groundHitSensor.setPosition(0.0f, -height() / 2.0f);
     _groundHitSensor.setSize(width() / 2.0f * 0.9f, 0.3);
     _groundHitSensor.setActivationThreshold(10.0f);
     _groundHitSensor.setEntity(this);
     _groundHitSensor.hangOnBody(_body);
+
+    constructSensors();
 }
 
 void Entity::setPosition(float x, float y)
@@ -146,7 +148,7 @@ void Entity::jump()
 
 void Entity::hit(int sensorType, float speed)
 {
-    if (sensorType != SensorsListener::GROUND_HIT_SENSOR_TYPE)
+    if (sensorType != SensorListener::GROUND_HIT_SENSOR_TYPE)
         return;
 
     float damage = speed - 10.0f;
@@ -238,4 +240,9 @@ SpriteAnimator& Entity::spriteAnimator()
 Entity::GoingDirection Entity::goingDirection() const
 {
     return _goingDirection;
+}
+
+void Entity::constructSensors()
+{
+    ;
 }

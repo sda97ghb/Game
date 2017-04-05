@@ -8,7 +8,7 @@
 
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 
-#include "Arena/Furniture.h"
+#include "Arena/Furniture/Furniture.h"
 
 /// \brief Класс лестницы.
 class Ladder : public Furniture

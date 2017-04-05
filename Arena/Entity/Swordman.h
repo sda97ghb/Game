@@ -4,7 +4,7 @@
 #ifndef SWORDMAN_H
 #define SWORDMAN_H
 
-#include "Arena/Enemy.h"
+#include "Arena/Entity/Enemy.h"
 
 class Swordman : public Enemy
 {

@@ -8,7 +8,7 @@
 
 #include "Box2D/Common/b2Math.h"
 
-#include "Arena/Furniture.h"
+#include "Arena/Furniture/Furniture.h"
 
 class FallingGround : public Furniture
 {

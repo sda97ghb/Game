@@ -1,24 +1,24 @@
 #include "Box2D/Dynamics/Contacts/b2Contact.h"
 
-#include "Arena/SensorsListener.h"
+#include "Arena/SensorListener.h"
 
-SensorsListener& SensorsListener::instance()
+SensorListener& SensorListener::instance()
 {
-    static SensorsListener instance;
+    static SensorListener instance;
     return instance;
 }
 
-void SensorsListener::registrySensor(ContactSensor& sensor)
+void SensorListener::registrySensor(ContactSensor& sensor)
 {
     _contactSensors.push_back(&sensor);
 }
 
-void SensorsListener::registrySensor(HitSensor& sensor)
+void SensorListener::registrySensor(HitSensor& sensor)
 {
     _hitSensors.push_back(&sensor);
 }
 
-void SensorsListener::BeginContact(b2Contact* contact)
+void SensorListener::BeginContact(b2Contact* contact)
 {
     int aSensorType = (int)(contact->GetFixtureA()->GetUserData());
     int bSensorType = (int)(contact->GetFixtureB()->GetUserData());
@@ -41,7 +41,7 @@ void SensorsListener::BeginContact(b2Contact* contact)
         hitSensor(contact->GetFixtureB()->GetBody(), bSensorType, speed);
 }
 
-void SensorsListener::EndContact(b2Contact* contact)
+void SensorListener::EndContact(b2Contact* contact)
 {
     int aSensorType = (int)(contact->GetFixtureA()->GetUserData());
     int bSensorType = (int)(contact->GetFixtureB()->GetUserData());
@@ -53,7 +53,7 @@ void SensorsListener::EndContact(b2Contact* contact)
         setSensor(contact->GetFixtureB()->GetBody(), bSensorType, false);
 }
 
-void SensorsListener::setSensor(b2Body* body, int type, bool value)
+void SensorListener::setSensor(b2Body* body, int type, bool value)
 {
     for (ContactSensor* sensor : _contactSensors)
         if (sensor->body() == body && sensor->type() == type)
@@ -63,7 +63,7 @@ void SensorsListener::setSensor(b2Body* body, int type, bool value)
         }
 }
 
-void SensorsListener::hitSensor(b2Body* body, int type, float speed)
+void SensorListener::hitSensor(b2Body* body, int type, float speed)
 {
     for (HitSensor* sensor : _hitSensors)
         if (sensor->body() == body && sensor->type() == type)

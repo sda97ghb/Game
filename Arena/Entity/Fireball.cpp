@@ -1,9 +1,10 @@
 #include "Box2D/Common/b2Math.h"
 
-#include "Arena/Fireball.h"
 #include "Arena/Log.h"
-#include "Arena/Player.h"
 #include "Arena/World.h"
+
+#include "Arena/Entity/Fireball.h"
+#include "Arena/Entity/Player.h"
 
 static int count = 0;
 

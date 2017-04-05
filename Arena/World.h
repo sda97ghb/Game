@@ -8,20 +8,22 @@
 
 #include "Box2D/Dynamics/b2World.h"
 
-#include "Arena/Archer.h"
-#include "Arena/Cable.h"
-#include "Arena/FallingGround.h"
-#include "Arena/Fireball.h"
-#include "Arena/Ladder.h"
-#include "Arena/Lava.h"
-#include "Arena/Mage.h"
-#include "Arena/Panther.h"
 #include "Arena/Platform.h"
-#include "Arena/Player.h"
-#include "Arena/Rope.h"
-#include "Arena/Spikes.h"
-#include "Arena/Swordman.h"
-#include "Arena/Water.h"
+
+#include "Arena/Entity/Archer.h"
+#include "Arena/Entity/Fireball.h"
+#include "Arena/Entity/Mage.h"
+#include "Arena/Entity/Panther.h"
+#include "Arena/Entity/Player.h"
+#include "Arena/Entity/Swordman.h"
+
+#include "Arena/Furniture/Cable.h"
+#include "Arena/Furniture/FallingGround.h"
+#include "Arena/Furniture/Ladder.h"
+#include "Arena/Furniture/Lava.h"
+#include "Arena/Furniture/Rope.h"
+#include "Arena/Furniture/Spikes.h"
+#include "Arena/Furniture/Water.h"
 
 /// \brief Класс мира.
 /// \details Хранит физический мир, платформы, объекты взаимодействия,

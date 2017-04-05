@@ -14,15 +14,17 @@
 #include "SFML/Graphics/Texture.hpp"
 #include "SFML/Graphics/View.hpp"
 
-#include "Arena/Archer.h"
-#include "Arena/Entity.h"
-#include "Arena/Fireball.h"
-#include "Arena/Ladder.h"
-#include "Arena/Lava.h"
-#include "Arena/Panther.h"
+#include "Arena/Entity/Archer.h"
+#include "Arena/Entity/Entity.h"
+#include "Arena/Entity/Fireball.h"
+#include "Arena/Entity/Panther.h"
+
+#include "Arena/Furniture/Ladder.h"
+#include "Arena/Furniture/Lava.h"
+#include "Arena/Furniture/Spikes.h"
+#include "Arena/Furniture/Water.h"
+
 #include "Arena/Platform.h"
-#include "Arena/Water.h"
-#include "Arena/Spikes.h"
 
 /// \brief Класс, отвечающий за графическую составляющую игры.
 /// \details Создает графическое окно, занимается отрисовкой

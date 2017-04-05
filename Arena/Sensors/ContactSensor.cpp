@@ -1,8 +1,8 @@
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Arena/ContactSensor.h"
-#include "Arena/SensorsListener.h"
+#include "Arena/Sensors/ContactSensor.h"
+#include "Arena/SensorListener.h"
 
 ContactSensor::ContactSensor() :
     _x(0.0f),
@@ -53,7 +53,7 @@ void ContactSensor::hangOnBody(b2Body* body, b2Shape* sensorShape)
     b2Fixture* fixture = _body->CreateFixture(&sensorFixtureDef);
     fixture->SetUserData((void*)_type);
 
-    SensorsListener::instance().registrySensor(*this);
+    SensorListener::instance().registrySensor(*this);
 }
 
 void ContactSensor::set(bool state)

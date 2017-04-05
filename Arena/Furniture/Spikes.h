@@ -8,8 +8,8 @@
 
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 
-#include "Arena/Furniture.h"
-#include "Arena/ContactSensor.h"
+#include "Arena/Furniture/Furniture.h"
+#include "Arena/Sensors/ContactSensor.h"
 
 class Spikes : public Furniture
 {

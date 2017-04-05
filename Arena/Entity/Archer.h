@@ -1,18 +1,16 @@
 /// \file
-/// \brief Содержит класс фаербола.
+/// \brief Содержит класс врага лучника.
 
-#ifndef FIREBALL_H
-#define FIREBALL_H
+#ifndef ARCHER_H
+#define ARCHER_H
 
-#include "Arena/Enemy.h"
+#include "Arena/Entity/Enemy.h"
 
 /// \brief Класс лучника
-class Fireball : public Enemy
+class Archer : public Enemy
 {
 public:
-    static void spawn(float x, float y);
-
-    Fireball();
+    Archer();
 
     /// \brief Возвращает физическую ширину.
     float width() const;
@@ -23,17 +21,20 @@ public:
     void update();
 
 private:
-    Fireball(const Fireball&) = delete;
-    void operator= (const Fireball&) = delete;
+    Archer(const Archer& archer) = delete;
+    void operator= (const Archer& archer) = delete;
 
+    bool isReadyForStrike();
     void strike();
 
     enum class State
     {
-        going_to_player
+        lookingAround,
+        prepareToStrike,
+        goingToLastSeenPosition
     };
 
     State _state;
 };
 
-#endif // FIREBALL_H
+#endif // ARCHER_H

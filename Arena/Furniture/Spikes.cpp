@@ -5,8 +5,8 @@
 #include "Box2D/Dynamics/b2Fixture.h"
 
 #include "Arena/Log.h"
-#include "Arena/Spikes.h"
-#include "Arena/Player.h"
+#include "Arena/Furniture/Spikes.h"
+#include "Arena/Entity/Player.h"
 #include "Arena/World.h"
 
 Spikes::Spikes() :

@@ -4,7 +4,7 @@
 #ifndef LAVA_H
 #define LAVA_H
 
-#include "Arena/Liquid.h"
+#include "Arena/Furniture/Liquid.h"
 
 /// \brief Класс лавового озера.
 class Lava : public Liquid

@@ -4,7 +4,7 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include "Arena/Entity.h"
+#include "Arena/Entity/Entity.h"
 
 /// \brief Базовый класс для враждебных к игроку существ.
 class Enemy : public Entity

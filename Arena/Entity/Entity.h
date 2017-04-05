@@ -6,8 +6,8 @@
 
 #include "Box2D/Dynamics/b2Body.h"
 
-#include "Arena/ContactSensor.h"
-#include "Arena/HitSensor.h"
+#include "Arena/Sensors/ContactSensor.h"
+#include "Arena/Sensors/HitSensor.h"
 #include "Arena/SpriteAnimator.h"
 
 /// \brief Базовый класс для всех существ.
@@ -149,6 +149,8 @@ protected:
     HitSensor _groundHitSensor; ///< сенсор удара нижней поверхности
 
     GoingDirection _goingDirection; ///< направление, в котором смотрит существо
+
+    virtual void constructSensors();
 
 private:
     // Разрешение для класса World использовать методы setBody и constructBody.

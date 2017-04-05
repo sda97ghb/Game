@@ -4,7 +4,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "Arena/Entity.h"
+#include "Arena/Entity/Entity.h"
 
 /// \brief Класс игрока.
 /// \note Вы можете обратиться к нему из любого места вызвав Player::instance()

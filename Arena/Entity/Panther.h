@@ -4,7 +4,9 @@
 #ifndef PANTHER_H
 #define PANTHER_H
 
-#include "Arena/Enemy.h"
+#include "Arena/Entity/Enemy.h"
+
+#include "Arena/Sensors/PlayerSensor.h"
 
 /// \brief Класс лучника
 class Panther : public Enemy
@@ -24,6 +26,8 @@ private:
     Panther(const Panther& panther) = delete;
     void operator= (const Panther& panther) = delete;
 
+    void constructSensors();
+
     bool isReadyForStrike();
     void strike();
 
@@ -35,6 +39,8 @@ private:
     };
 
     State _state;
+
+    PlayerSensor _playerSensor;
 };
 
 #endif // PANTHER_H

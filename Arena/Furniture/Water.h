@@ -4,7 +4,7 @@
 #ifndef WATER_H
 #define WATER_H
 
-#include "Arena/Liquid.h"
+#include "Arena/Furniture/Liquid.h"
 
 /// \brief Класс водоема.
 class Water : public Liquid

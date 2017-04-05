@@ -1,4 +1,4 @@
-#include "Arena/SensorsListener.h"
+#include "Arena/SensorListener.h"
 #include "Arena/World.h"
 
 World::World()
@@ -8,7 +8,7 @@ World::World()
 
     createPlayer();
 
-    _world->SetContactListener(&SensorsListener::instance());
+    _world->SetContactListener(&SensorListener::instance());
 }
 
 World::~World()

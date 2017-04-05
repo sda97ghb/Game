@@ -1,9 +1,9 @@
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Arena/Entity.h"
-#include "Arena/HitSensor.h"
-#include "Arena/SensorsListener.h"
+#include "Arena/Entity/Entity.h"
+#include "Arena/Sensors/HitSensor.h"
+#include "Arena/SensorListener.h"
 
 HitSensor::HitSensor() :
     _x(0.0f),
@@ -52,7 +52,7 @@ void HitSensor::hangOnBody(b2Body* body)
     b2Fixture* fixture = _body->CreateFixture(&sensorFixtureDef);
     fixture->SetUserData((void*)_type);
 
-    SensorsListener::instance().registrySensor(*this);
+    SensorListener::instance().registrySensor(*this);
 }
 
 void HitSensor::hit(float speed)
