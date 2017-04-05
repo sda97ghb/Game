@@ -1,6 +1,6 @@
 #include "TestWorldLoader.h"
 
-#include "Game/World.h"
+#include "Arena/World.h"
 
 TestWorldLoader::TestWorldLoader()
 {

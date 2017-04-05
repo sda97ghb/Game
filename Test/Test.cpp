@@ -4,14 +4,14 @@
 
 #include "SFML/Window/Event.hpp"
 
-#include "Game/KeyboardController.h"
-#include "Game/MouseController.h"
-#include "Game/PaintingWindow.h"
-#include "Game/World.h"
+#include "Arena/KeyboardController.h"
+#include "Arena/MouseController.h"
+#include "Arena/PaintingWindow.h"
+#include "Arena/World.h"
 
 #include "Test/TestWorldLoader.h"
 
-#include "Game/MapLoader.h"
+#include "Arena/MapLoader.h"
 
 void test::main(int argc, char** argv)
 {
