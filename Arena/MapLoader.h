@@ -1,29 +1,31 @@
-/// \file
-/// \brief Содержит класс, ответсвенный за загрузку мира.
+/// @file
+/// @brief Содержит класс, ответсвенный за загрузку мира.
+
 #ifndef MAPLOADER_H
 #define MAPLOADER_H
 
-#include "TinyXml2\tinyxml2.h"
-#include "Box2D\Box2D.h"
-#include <string>
 #include <stdexcept>
+#include <string>
+
+#include "TinyXml2\tinyxml2.h"
+
+#include "Box2D\Box2D.h"
+
 class SpriteAnimator;
 
 #define DEFINE_ERROR(error_name, error_message) \
     struct error_name : public std::logic_error {\
         error_name(int lineNum) : logic_error(error_message), _lineNum(lineNum) {}\
         int _lineNum;\
-	    };
+    };
 #define DEFINE_ERROR_USER_MSG(error_name, error_message) \
     struct error_name : public std::logic_error {\
         error_name(int lineNum) : logic_error(error_message), _lineNum(lineNum) {}\
-		error_name(char elementName): logic_error(error_message), _elementName(elementName) {}\
         int _lineNum;\
-		char _elementName;\
-	    };
+    };
 
-
-
+/// @brief Загрузчик карты.
+/// @details Загружает карту из файла.
 class MapLoader
 {
 public:
@@ -33,48 +35,95 @@ public:
 	DEFINE_ERROR(WrongArgumentFormat, "must be float")
 	DEFINE_ERROR(NotEnoughVertexes, "polygon must contain at least 3 vertexes")
 
-	struct NotExistChildElement : public std::logic_error {
-		NotExistChildElement(int lineNum, std::string parentElement, std::string childElement) :
-			logic_error(parentElement + " doesn't have child " + childElement), _lineNum(lineNum) {}
+    struct NoChildElementException : public std::logic_error
+    {
+        NoChildElementException(int lineNum,
+                                std::string parent,
+                                std::string child) :
+            logic_error(parent + " doesn't have child element " + child),
+            _lineNum(lineNum),
+            parentElementName(parent),
+            childElementName(child)
+        {}
 
 		int _lineNum;
-		char _elementName;
+        std::string parentElementName;
+        std::string childElementName;
 	};
 
-	MapLoader();
+    /// @brief Загружает карту из файла сохранения.
+    /// @details Смотрите "Формат уровней. XML стандарт" для получения информации
+    /// о формате карт.
+    void loadFromFile(std::string filename);
 
-	void loadMap(std::string filename);
-	/// \brief Функция загрузки Земли
-	void loadGround(const tinyxml2::XMLElement& ground);
-	void loadBackground(const tinyxml2::XMLElement& background);
-	void loadPlatform(const tinyxml2::XMLElement& platform);
+    /// @brief Загружает фон и платформы.
+    void loadGround(const tinyxml2::XMLElement& groundElem);
 
-	/// \brief Функция загрузки Фурнитуры
-	void loadFurniture(const tinyxml2::XMLElement& furniture);
-	void loadLadder(const tinyxml2::XMLElement& ladder);
-	void loadCable(const tinyxml2::XMLElement& cable);
-	void loadRope(const tinyxml2::XMLElement& rope);
-	void loadSpikes(const tinyxml2::XMLElement& spikes);
-	void loadFallingGround(const tinyxml2::XMLElement& fallingground);
-	void loadWater(const tinyxml2::XMLElement& water);
-	void loadLava(const tinyxml2::XMLElement& lava);
+    /// @brief Загружает фоновое изображение.
+    void loadBackground(const tinyxml2::XMLElement& backgroundElem);
 
-	/// \brief Функция загрузки Сущности
-	void loadEntity(const tinyxml2::XMLElement& entity);
-	void loadPlayer(const tinyxml2::XMLElement& player);
-	void loadAnimatorGroup(SpriteAnimator& animator);
+    /// @brief Загружает платформу.
+    void loadPlatform(const tinyxml2::XMLElement& platformElem);
 
-	const tinyxml2::XMLElement& childElement(const std::string elementName, const tinyxml2::XMLElement& element);
-	void loadCoordinates(const tinyxml2::XMLElement& element, b2Vec2& coordinates);
-	void loadCoordinates(const tinyxml2::XMLElement& element, float& x, float& y1, float& y2);
-	void loadCoordinates(const tinyxml2::XMLElement& element, float& x1, float& x2, float& y1, float& y2);
+    /// @brief Загружает Фурнитуру.
+    void loadFurniture(const tinyxml2::XMLElement& furnitureElem);
+
+    /// @brief Загружает лестницу.
+    void loadLadder(const tinyxml2::XMLElement& ladderElem);
+
+    /// @brief Загружает трос.
+    void loadCable(const tinyxml2::XMLElement& cableElem);
+
+    /// @brief Загружает канат.
+    void loadRope(const tinyxml2::XMLElement& ropeElem);
+
+    /// @brief Загружает шипы.
+    void loadSpikes(const tinyxml2::XMLElement& spikesElem);
+
+    /// @brief Загружает осыпающуюся землю.
+    void loadFallingGround(const tinyxml2::XMLElement& fallingGroundElem);
+
+    /// @brief Загружает водоем.
+    void loadWater(const tinyxml2::XMLElement& waterElem);
+
+    /// @brief Загружает лавоем.
+    void loadLava(const tinyxml2::XMLElement& lavaElem);
+
+    /// @brief Загружает существо.
+    void loadEntity(const tinyxml2::XMLElement& entityElem);
+
+    /// @brief Загружает игрока.
+    void loadPlayer(const tinyxml2::XMLElement& playerElem);
+
+    /// @brief Загружает группы анимации для существа.
+    void loadPlayerAnimator(SpriteAnimator& animator);
+
+    /// @brief Загружает полигон.
+    b2PolygonShape loadPolygonShape(const tinyxml2::XMLElement& shapeElem);
+
+    /// @brief Возвращает дочерний элемент, если он существует. Иначе кидает
+    /// исключение.
+    const tinyxml2::XMLElement& childElement(const std::string elementName,
+                                     const tinyxml2::XMLElement& parentElement);
+
+    /// @brief Загружает координаты.
+    void loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
+                         b2Vec2& coordinates);
+
+    /// @brief Загружает координаты.
+    void loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
+                         float& x, float& y1, float& y2);
+
+    /// @brief Загружает координаты.
+    void loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
+                         float& x1, float& x2, float& y1, float& y2);
 
 private:
-	
-	tinyxml2::XMLDocument _document;
-	
-	
-	
+    /// @brief Загружает тестовые предметы НЕ ИЗ ФАЙЛА.
+    /// @note Нужна исключительно для отладки.
+    void loadTestThings();
+
+    tinyxml2::XMLDocument _document; ///< Открытый файл сохранения.
 };
 
 #endif // MAPLOADER_H

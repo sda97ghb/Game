@@ -44,7 +44,7 @@ int main(int argc, char** argv)
     MapLoader loader;
     try
     {
-        loader.loadMap("MapLevels/LEVEL_ONE.xml");
+        loader.loadFromFile("MapLevels/LEVEL_ONE.xml");
     }
     catch (MapLoader::XmlError& error)
     {
@@ -64,7 +64,7 @@ int main(int argc, char** argv)
         std::cout << error._lineNum << std::endl;
         exit(EXIT_FAILURE);
     }
-    catch (MapLoader::NotExistChildElement& error)
+    catch (MapLoader::NoChildElementException& error)
     {
         std::cout << error.what() << std::endl;
         std::cout << error._lineNum << std::endl;

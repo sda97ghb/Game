@@ -1,12 +1,13 @@
+#include <iostream>
+#include <vector>
+
 #include "Arena/MapLoader.h"
 #include "Arena/World.h"
 #include "Arena/PaintingWindow.h"
-#include <iostream>
-#include <vector>
-#include <string>
+
 using namespace tinyxml2;
 
-World& _world = World::instance();
+World& __world = World::instance(); // Убрать это
 
 namespace section
 {
@@ -40,226 +41,153 @@ const char* WORLD = "world";
 	const char* COORDINATES = "coordinates";
 	const char* WIDTH = "width";
 }
-	
-MapLoader::MapLoader()
-{
 
-}
-
-void MapLoader::loadMap(std::string filename)
+void MapLoader::loadFromFile(std::string filename)
 {
 	_document.LoadFile(filename.c_str());
-	if (_document.Error())
+
+    if (_document.Error())
 	{
 		_document.PrintError();
 		throw XmlError(-1);
 	}
 
-	
-
-	const XMLElement* world = _document.RootElement();
-	if (std::string(world->Value()) != section::WORLD)
+    const XMLElement* worldElem = _document.RootElement();
+    if (std::string(worldElem->Value()) != section::WORLD)
 		throw IncorrectMapFormat(-1);
 
-	const XMLElement* ground = world->FirstChildElement(section::GROUND);
-	if (ground != nullptr)
-		loadGround(*ground);
+    const XMLElement* groundElem = worldElem->FirstChildElement(section::GROUND);
+    if (groundElem != nullptr)
+        loadGround(*groundElem);
 
-	const XMLElement* furniture = world->FirstChildElement(section::FURNITURE);
-	if (furniture != nullptr)
-		loadFurniture(*furniture);
+    const XMLElement* furnitureElem = worldElem->FirstChildElement(section::FURNITURE);
+    if (furnitureElem != nullptr)
+        loadFurniture(*furnitureElem);
 
-	const XMLElement* entity = world->FirstChildElement(section::ENTITY);
-	if (entity != nullptr)
-		loadEntity(*entity);
-//	{
-//		Ladder& ladder = _world.createLadder();
-//		ladder.setCoordinates(5.0f, 0.0f, 5.5f);
-//		ladder.setWidth(1.0f);
-//		ladder.setTexture("Textures/ladder.png");
-//	}
-//	{
-//		Spikes& spikes = _world.createSpikes();
-//		spikes.setCoordinates(0.0f, 0.0f, 5.0f, 5.0f);
-//		spikes.setTexture("Textures/spikes_two.png");
-//	}
-    {
-        Panther& panther = _world.createPanther();
-        panther.setPosition(3.0f, 10.0f);
+    const XMLElement* entityElem = worldElem->FirstChildElement(section::ENTITY);
+    if (entityElem != nullptr)
+        loadEntity(*entityElem);
 
-        SpriteAnimator& animator = panther.spriteAnimator();
-        animator.setTexture("Textures/panther.png");
-        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, false);
-        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("dead", 0, 24, 32, 12, 1, false);
-        animator.setCurrentGroup("going_right");
-        animator.nextFrame();
-    }
-
-//    Fireball::spawn(0.0f, 1.0f);
-//    {
-//        Fireball& fireball = _world.createFireball();
-//        fireball.setPosition(3.0f, 10.0f);
-
-//        SpriteAnimator& animator = fireball.spriteAnimator();
-//        animator.setTexture("Textures/fireball.png");
-//        animator.setAnimationGroup("main", 0, 0, 4, 4, 1, false);
-//        animator.setAnimationGroup("dead", 0, 0, 4, 4, 1, false);
-//        animator.setCurrentGroup("main");
-//        animator.nextFrame();
-//    }
+    loadTestThings();
 }
 
-void MapLoader::loadGround(const tinyxml2::XMLElement& ground)
+void MapLoader::loadGround(const tinyxml2::XMLElement& groundElem)
 {
-	const XMLElement* background = ground.FirstChildElement(section::BACKGROUND);
-	if (background)
-	{
-		loadBackground(*background);
-	}
-	const XMLElement* platforms = ground.FirstChildElement(section::PLATFORMS);
+    loadBackground(childElement(section::BACKGROUND, groundElem));
+
+    const XMLElement* platforms = groundElem.FirstChildElement(section::PLATFORMS);
 
 	for (const XMLElement* platform = platforms->FirstChildElement(section::PLATFORM);
-		platform != nullptr; platform = platform->NextSiblingElement(section::PLATFORM))
-		loadPlatform(*platform);
-	
+         platform != nullptr;
+         platform = platform->NextSiblingElement(section::PLATFORM))
+        loadPlatform(*platform);
 }
 
-void MapLoader::loadBackground(const tinyxml2::XMLElement& background) 
+void MapLoader::loadBackground(const tinyxml2::XMLElement& backgroundElem)
 {
-	const std::string picture = background.Attribute("picture");
+    const std::string picture = backgroundElem.Attribute("picture");
 	PaintingWindow::instance().setBackground(picture);
 }
 
-void MapLoader::loadPlatform(const tinyxml2::XMLElement& platform)
+void MapLoader::loadPlatform(const tinyxml2::XMLElement& platformElem)
 {
-	Platform& platform_ = _world.createPlatform();
+    Platform& platform = __world.createPlatform();
+
 	b2PolygonShape shape;
 
-	const XMLElement& shapeElement = childElement(section::SHAPE, platform);
-	std::vector<b2Vec2> _vertex;
+    const XMLElement& shapeElem = childElement(section::SHAPE, platformElem);
 
-	for (const XMLElement* vertexShape = shapeElement.FirstChildElement(section::VERTEX);
-		vertexShape != nullptr; vertexShape = vertexShape->NextSiblingElement(section::VERTEX))
-	{
-		b2Vec2 coordinates;
-		loadCoordinates(*vertexShape, coordinates);
-		_vertex.push_back(coordinates);
-	}
+    platform.setShape(loadPolygonShape(shapeElem));
 
-	
-
-	shape.Set(&_vertex.front(), _vertex.size());
-	platform_.setShape(shape);
-
-	const XMLElement& textureElement = childElement(section::TEXTURE, platform);
-	platform_.setTexture(textureElement.Attribute("picture"));
-	
-
+    const XMLElement& textureElem = childElement(section::TEXTURE, platformElem);
+    platform.setTexture(textureElem.Attribute("picture"));
 }
 
-void MapLoader::loadFurniture(const tinyxml2::XMLElement& furniture)
+void MapLoader::loadFurniture(const tinyxml2::XMLElement& furnitureElem)
 {
-	for (const XMLElement* ladder = furniture.FirstChildElement(section::LADDER);
-		ladder != nullptr; ladder = ladder->NextSiblingElement(section::LADDER))
-		loadLadder(*ladder);
-	for (const XMLElement* water = furniture.FirstChildElement(section::WATER);
-		water != nullptr; water = water->NextSiblingElement(section::WATER))
+    for (const XMLElement* ladderElem = furnitureElem.FirstChildElement(section::LADDER);
+         ladderElem != nullptr;
+         ladderElem = ladderElem->NextSiblingElement(section::LADDER))
+        loadLadder(*ladderElem);
+
+    for (const XMLElement* water = furnitureElem.FirstChildElement(section::WATER);
+         water != nullptr;
+         water = water->NextSiblingElement(section::WATER))
 		loadWater(*water);
-	for (const XMLElement* lava = furniture.FirstChildElement(section::LAVA);
-		lava != nullptr; lava = lava->NextSiblingElement(section::LAVA))
+
+    for (const XMLElement* lava = furnitureElem.FirstChildElement(section::LAVA);
+         lava != nullptr;
+         lava = lava->NextSiblingElement(section::LAVA))
 		loadLava(*lava);
-	
 }
 
-void MapLoader::loadLadder(const tinyxml2::XMLElement& ladder)
+void MapLoader::loadLadder(const tinyxml2::XMLElement& ladderElem)
 {
-	Ladder& ladder_ = _world.createLadder();
-	const XMLElement& coordinatesElement = childElement(section::COORDINATES, ladder);
-	const XMLElement& widthElement = childElement(section::WIDTH, ladder);
-	const XMLElement& textureElement = childElement(section::TEXTURE, ladder);
+    Ladder& ladder = __world.createLadder();
 
-	float x ,y1 ,y2;
-	const float width = std::atof(widthElement.GetText());
+    const XMLElement& coordinatesElement = childElement(section::COORDINATES, ladderElem);
+    const XMLElement& widthElement = childElement(section::WIDTH, ladderElem);
+    const XMLElement& textureElement = childElement(section::TEXTURE, ladderElem);
 
-	loadCoordinates(coordinatesElement, x, y1, y2);
-	ladder_.setCoordinates(x, y1, y2);
-	ladder_.setWidth(width);
-	ladder_.setTexture(textureElement.Attribute("picture"));
+    const float width = widthElement.FloatText(1.0f);
+    float x, y1, y2;
+    loadCoordinates(coordinatesElement, x, y1, y2);
+
+    ladder.setCoordinates(x, y1, y2);
+    ladder.setWidth(width);
+    ladder.setTexture(textureElement.Attribute("picture"));
 }
 
-void MapLoader::loadWater(const tinyxml2::XMLElement& water)
+void MapLoader::loadWater(const tinyxml2::XMLElement& waterElem)
 {
-	Water& water_ = _world.createWater();
-	b2PolygonShape shape;
-	const XMLElement& shapeElement = childElement(section::SHAPE, water);
-	const XMLElement& textureElement = childElement(section::TEXTURE, water);
-	const XMLElement& texturebackElement = childElement(section::TEXTUREBACK, water);
-	std::vector<b2Vec2> _vertex;
+    Water& water = __world.createWater();
 
-	for (const XMLElement* vertexShape = shapeElement.FirstChildElement(section::VERTEX);
-		vertexShape != nullptr; vertexShape = vertexShape->NextSiblingElement(section::VERTEX))
-	{
-		b2Vec2 coordinates;
-		loadCoordinates(*vertexShape, coordinates);
-		_vertex.push_back(coordinates);
-	}
+    water.setShape(loadPolygonShape(childElement(section::SHAPE, waterElem)));
 
-	shape.Set(&_vertex.front(), _vertex.size());
-	water_.setShape(shape);
-	water_.setTexture(textureElement.Attribute("picture"));
-	water_.setTextureBack(texturebackElement.Attribute("picture"));
+    const XMLElement& textureElement = childElement(section::TEXTURE, waterElem);
+    const XMLElement& texturebackElement = childElement(section::TEXTUREBACK, waterElem);
+
+    water.setTexture(textureElement.Attribute("picture"));
+    water.setTextureBack(texturebackElement.Attribute("picture"));
 }
 
-void MapLoader::loadLava(const tinyxml2::XMLElement& lava)
+void MapLoader::loadLava(const tinyxml2::XMLElement& lavaElem)
 {
-	Lava& lava_ = _world.createLava();
-	b2PolygonShape shape;
-	const XMLElement& shapeElement = childElement(section::SHAPE, lava);
-	const XMLElement& textureElement = childElement(section::TEXTURE, lava);
-	const XMLElement& texturebackElement = childElement(section::TEXTUREBACK, lava);
+    Lava& lava = __world.createLava();
 
-	std::vector<b2Vec2> _vertex;
+    lava.setShape(loadPolygonShape(childElement(section::SHAPE, lavaElem)));
 
-	for (const XMLElement* vertexShape = shapeElement.FirstChildElement(section::VERTEX);
-		vertexShape != nullptr; vertexShape = vertexShape->NextSiblingElement(section::VERTEX))
-	{
-		b2Vec2 coordinates;
-		loadCoordinates(*vertexShape, coordinates);
-		_vertex.push_back(coordinates);
-	}
+    const XMLElement& textureElement = childElement(section::TEXTURE, lavaElem);
+    const XMLElement& texturebackElement = childElement(section::TEXTUREBACK, lavaElem);
 
-	shape.Set(&_vertex.front(), _vertex.size());
-	lava_.setShape(shape);
-	lava_.setTexture(textureElement.Attribute("picture"));
-	lava_.setTextureBack(texturebackElement.Attribute("picture"));
+    lava.setTexture(textureElement.Attribute("picture"));
+    lava.setTextureBack(texturebackElement.Attribute("picture"));
 }
 
-void MapLoader::loadEntity(const tinyxml2::XMLElement& entity)
+void MapLoader::loadEntity(const tinyxml2::XMLElement& entityElem)
 {
-	const XMLElement* playerElement = entity.FirstChildElement(section::PLAYER);
-	if (playerElement) loadPlayer(*playerElement);
+    const XMLElement* playerElement = entityElem.FirstChildElement(section::PLAYER);
+    if (playerElement)
+        loadPlayer(*playerElement);
 }
 
-void MapLoader::loadPlayer(const tinyxml2::XMLElement& player)
+void MapLoader::loadPlayer(const tinyxml2::XMLElement& playerElem)
 {
-	Player& player_ = _world.player();
-	SpriteAnimator& animator = player_.spriteAnimator();
-	const XMLElement* positionElement = player.FirstChildElement(section::POSITION);
-	const XMLElement& textureElement = childElement(section::TEXTURE, player);
+    Player& player = __world.player();
 
 	b2Vec2 coordinates;
-	loadCoordinates(*positionElement, coordinates);
-	player_.setPosition(coordinates.x, coordinates.y);
+    loadCoordinates(childElement(section::POSITION, playerElem), coordinates);
+    player.setPosition(coordinates.x, coordinates.y);
 
-	animator.setTexture(textureElement.Attribute("picture"));
-	loadAnimatorGroup(animator);
+    SpriteAnimator& animator = player.spriteAnimator();
+
+    const XMLElement& textureElement = childElement(section::TEXTURE, playerElem);
+    animator.setTexture(textureElement.Attribute("picture"));
+
+    loadPlayerAnimator(animator);
 }
 
-void MapLoader::loadAnimatorGroup(SpriteAnimator& animator)
+void MapLoader::loadPlayerAnimator(SpriteAnimator& animator)
 {
 //	animator.setAnimationGroup("going_left", 0, 0, 12, 28, 4, false);
 //	animator.setAnimationGroup("going_right", 12, 0, 12, 28, 4, false);
@@ -286,76 +214,166 @@ void MapLoader::loadAnimatorGroup(SpriteAnimator& animator)
 //    animator.setCurrentGroup("going_right");
 }
 
-const XMLElement& MapLoader::childElement(const std::string elementName,
-	const XMLElement& element)
+b2PolygonShape MapLoader::loadPolygonShape(const XMLElement& shapeElem)
 {
-	const XMLElement* childElement = element.FirstChildElement(elementName.c_str());
+    b2PolygonShape shape;
+
+    std::vector<b2Vec2> vertexes;
+
+    for (const XMLElement* vertexElem = shapeElem.FirstChildElement(section::VERTEX);
+         vertexElem != nullptr;
+         vertexElem = vertexElem->NextSiblingElement(section::VERTEX))
+    {
+        b2Vec2 coordinates;
+        loadCoordinates(*vertexElem, coordinates);
+        vertexes.push_back(coordinates);
+    }
+
+    shape.Set(&vertexes.front(), vertexes.size());
+
+    return shape;
+}
+
+const XMLElement& MapLoader::childElement(const std::string elementName,
+                                          const XMLElement& parentElement)
+{
+    const XMLElement* childElement = parentElement.FirstChildElement(elementName.c_str());
 	if (childElement == nullptr)
-		throw NotExistChildElement(element.GetLineNum(), element.Name(), elementName.c_str());
+    {
+        throw NoChildElementException(parentElement.GetLineNum(),
+                                      parentElement.Name(),
+                                      elementName);
+    }
 
 	return *childElement;
 
 }
 
-void MapLoader::loadCoordinates(const tinyxml2::XMLElement& element, b2Vec2& coordinates)
+void MapLoader::loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
+                                b2Vec2& coordinates)
 {
-	float x = 0.0f, y = 0.0f;
-	XMLError e = element.QueryFloatAttribute("x", &x);
-	XMLError e_two = element.QueryFloatAttribute("y", &y);
+    float x = 0.0f;
+    float y = 0.0f;
 
-	if (e == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-		throw WrongArgumentFormat(element.GetLineNum());
-	if (e_two == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-		throw WrongArgumentFormat(element.GetLineNum());
-	if (e == XMLError::XML_NO_ATTRIBUTE)
-		throw MissingArgument(element.GetLineNum());
-	if (e_two == XMLError::XML_NO_ATTRIBUTE)
-		throw MissingArgument(element.GetLineNum());
+    XMLError xLoadError = coordinatesElem.QueryFloatAttribute("x", &x);
+    XMLError yLoadError = coordinatesElem.QueryFloatAttribute("y", &y);
+
+    if (xLoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+    if (yLoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+
+    if (xLoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
+    if (yLoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
 
 	coordinates.Set(x, y);
 }
 
-void MapLoader::loadCoordinates(const tinyxml2::XMLElement& element, float& x, float& y1, float& y2)
+void MapLoader::loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
+                                float& x, float& y1, float& y2)
 {
-	XMLError e = element.QueryFloatAttribute("x", &x);
-	XMLError e_two = element.QueryFloatAttribute("y1", &y1);
-	XMLError e_three = element.QueryFloatAttribute("y2", &y2);
+    XMLError xLoadError = coordinatesElem.QueryFloatAttribute("x", &x);
+    XMLError y1LoadError = coordinatesElem.QueryFloatAttribute("y1", &y1);
+    XMLError y2LoadError = coordinatesElem.QueryFloatAttribute("y2", &y2);
 
-	if (e == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-		throw WrongArgumentFormat(element.GetLineNum());
-	if (e_two == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-		throw WrongArgumentFormat(element.GetLineNum());
-	if (e_three == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-		throw WrongArgumentFormat(element.GetLineNum());
-	if (e == XMLError::XML_NO_ATTRIBUTE)
-		throw MissingArgument(element.GetLineNum());
-	if (e_two == XMLError::XML_NO_ATTRIBUTE)
-		throw MissingArgument(element.GetLineNum());
-	if (e_three == XMLError::XML_NO_ATTRIBUTE)
-		throw MissingArgument(element.GetLineNum());
+    if (xLoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+    if (y1LoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+    if (y2LoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+
+    if (xLoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
+    if (y1LoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
+    if (y2LoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
 }
 
-void MapLoader::loadCoordinates(const tinyxml2::XMLElement& element, float& x1, float& x2, float& y1, float& y2)
+void MapLoader::loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
+                                float& x1, float& x2, float& y1, float& y2)
 {
-    XMLError e = element.QueryFloatAttribute("x1", &x1);
-    XMLError e2 = element.QueryFloatAttribute("x2", &x2);
-    XMLError e_two = element.QueryFloatAttribute("y1", &y1);
-    XMLError e_three = element.QueryFloatAttribute("y2", &y2);
+    XMLError x1LoadError = coordinatesElem.QueryFloatAttribute("x1", &x1);
+    XMLError y1LoadError = coordinatesElem.QueryFloatAttribute("y1", &y1);
+    XMLError x2LoadError = coordinatesElem.QueryFloatAttribute("x2", &x2);
+    XMLError y2LoadError = coordinatesElem.QueryFloatAttribute("y2", &y2);
 
-    if (e == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-        throw WrongArgumentFormat(element.GetLineNum());
-    if (e2 == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-        throw WrongArgumentFormat(element.GetLineNum());
-    if (e_two == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-        throw WrongArgumentFormat(element.GetLineNum());
-    if (e_three == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
-        throw WrongArgumentFormat(element.GetLineNum());
-    if (e == XMLError::XML_NO_ATTRIBUTE)
-        throw MissingArgument(element.GetLineNum());
-    if (e2 == XMLError::XML_NO_ATTRIBUTE)
-        throw MissingArgument(element.GetLineNum());
-    if (e_two == XMLError::XML_NO_ATTRIBUTE)
-        throw MissingArgument(element.GetLineNum());
-    if (e_three == XMLError::XML_NO_ATTRIBUTE)
-        throw MissingArgument(element.GetLineNum());
+    if (x1LoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+    if (x2LoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+    if (y1LoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+    if (y2LoadError == XMLError::XML_NO_ATTRIBUTE)
+        throw MissingArgument(coordinatesElem.GetLineNum());
+
+    if (x1LoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
+    if (x2LoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
+    if (y1LoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
+    if (y2LoadError == XMLError::XML_WRONG_ATTRIBUTE_TYPE)
+        throw WrongArgumentFormat(coordinatesElem.GetLineNum());
+}
+
+void MapLoader::loadTestThings()
+{
+//	{
+//		Ladder& ladder = _world.createLadder();
+//		ladder.setCoordinates(5.0f, 0.0f, 5.5f);
+//		ladder.setWidth(1.0f);
+//		ladder.setTexture("Textures/ladder.png");
+//	}
+//	{
+//		Spikes& spikes = _world.createSpikes();
+//		spikes.setCoordinates(0.0f, 0.0f, 5.0f, 5.0f);
+//		spikes.setTexture("Textures/spikes_two.png");
+//	}
+
+//    {
+//        Archer& archer = _world.createArcher();
+//        archer.setPosition(-10.0f, 2.0f);
+//        SpriteAnimator& animator = archer.spriteAnimator();
+//        animator.setTexture("Textures/archerFrames.png");
+//        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, true);
+//        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, true);
+//        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, false);
+//        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, true);
+//        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, true);
+//        animator.setAnimationGroup("dead", 0, 0, 12, 28, 1, true);
+//        animator.setCurrentGroup("going_left");
+//        animator.nextFrame();
+//    }
+    {
+        Panther& panther = __world.createPanther();
+        panther.setPosition(3.0f, 10.0f);
+
+        SpriteAnimator& animator = panther.spriteAnimator();
+        animator.setTexture("Textures/panther.png");
+        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
+        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, false);
+        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, false);
+        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, false);
+        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, false);
+        animator.setAnimationGroup("dead", 0, 24, 32, 12, 1, false);
+        animator.setCurrentGroup("going_right");
+        animator.nextFrame();
+    }
+
+//    Fireball::spawn(0.0f, 1.0f);
+//    {
+//        Fireball& fireball = _world.createFireball();
+//        fireball.setPosition(3.0f, 10.0f);
+
+//        SpriteAnimator& animator = fireball.spriteAnimator();
+//        animator.setTexture("Textures/fireball.png");
+//        animator.setAnimationGroup("main", 0, 0, 4, 4, 1, false);
+//        animator.setAnimationGroup("dead", 0, 0, 4, 4, 1, false);
+//        animator.setCurrentGroup("main");
+//        animator.nextFrame();
+//    }
 }
