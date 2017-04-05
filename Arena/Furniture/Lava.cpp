@@ -1,5 +1,6 @@
-#include "Arena/Lava.h"
-#include "Arena/Player.h"
+#include "Arena/Entity/Player.h"
+
+#include "Arena/Furniture/Lava.h"
 
 void Lava::testPlayerOnIt()
 {

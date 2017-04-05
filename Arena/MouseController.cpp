@@ -1,7 +1,8 @@
 #include "SFML/Window/Mouse.hpp"
 
 #include "Arena/MouseController.h"
-#include "Arena/Player.h"
+
+#include "Arena/Entity/Player.h"
 
 void MouseController::processMouse()
 {

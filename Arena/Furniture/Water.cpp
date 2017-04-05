@@ -2,8 +2,9 @@
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Arena/Player.h"
-#include "Arena/Water.h"
+#include "Arena/Entity/Player.h"
+
+#include "Arena/Furniture/Water.h"
 
 void Water::testPlayerOnIt()
 {

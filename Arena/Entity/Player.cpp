@@ -1,4 +1,4 @@
-#include "Arena/Player.h"
+#include "Arena/Entity/Player.h"
 
 Player& Player::instance()
 {

@@ -1,8 +1,8 @@
 #include <iostream>
 
-#include "Arena/Archer.h"
+#include "Arena/Entity/Archer.h"
 #include "Arena/Log.h"
-#include "Arena/Player.h"
+#include "Arena/Entity/Player.h"
 
 Archer::Archer() :
     _state(State::lookingAround)

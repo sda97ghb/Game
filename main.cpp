@@ -1,6 +1,5 @@
 #include <iostream>
 #include <conio.h>
-#include "Test/Test.h"
 
 #include "SFML/Window/Event.hpp"
 
@@ -20,12 +19,18 @@ int main(int argc, char** argv)
 
     //    width   height  ratio
     //
+    //    16/9 ratio
+    //
     //    1920    1080    1,7
     //    1600    900     1,7
     //    1366    768     1,7
     //
+    //    16/10 ratio
+    //
     //    1200    720     1,6
     //    320     200     1,6
+    //
+    //    4/3 ratio
     //
     //    1024    768     1,3
     //    320     240     1,3

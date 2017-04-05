@@ -2,8 +2,8 @@
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Arena/Ladder.h"
-#include "Arena/Player.h"
+#include "Arena/Furniture/Ladder.h"
+#include "Arena/Entity/Player.h"
 
 Ladder::Ladder() :
     _x(0.0f),

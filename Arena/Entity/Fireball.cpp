@@ -61,7 +61,7 @@ void Fireball::update()
 
     if (r.Length() < 1.5f)
     {
-        strike();
+        boom();
         return;
     }
 
@@ -72,7 +72,7 @@ void Fireball::update()
     _spriteAnimator.playGroup("main");
 }
 
-void Fireball::strike()
+void Fireball::boom()
 {
     kill();
     -- count;

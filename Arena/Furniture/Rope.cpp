@@ -1,4 +1,4 @@
-#include "Arena/Rope.h"
+#include "Arena/Furniture/Rope.h"
 
 float Rope::x() const
 {

@@ -1,4 +1,4 @@
-#include "Arena/Liquid.h"
+#include "Arena/Furniture/Liquid.h"
 
 void Liquid::setShape(const b2PolygonShape& shape)
 {

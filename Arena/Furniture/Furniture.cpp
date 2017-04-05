@@ -1,4 +1,4 @@
-#include "Arena/Furniture.h"
+#include "Arena/Furniture/Furniture.h"
 
 Furniture::Furniture()
 {

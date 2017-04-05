@@ -1,33 +1,36 @@
-/// \file
-/// \brief Содержит класс игрока.
+/// @file
+/// @brief Содержит класс игрока.
 
 #ifndef PLAYER_H
 #define PLAYER_H
 
 #include "Arena/Entity/Entity.h"
 
-/// \brief Класс игрока.
-/// \note Вы можете обратиться к нему из любого места вызвав Player::instance()
+/// @brief Класс игрока.
+/// @note Вы можете обратиться к нему из любого места вызвав Player::instance()
 class Player : public Entity
 {
 public:
-    /// \brief Возвращает ссылку на объект игрока.
+    /// @brief Возвращает ссылку на объект игрока.
 	static Player& instance();
 
-    /// \brief Физическая ширина игрока
+    /// @brief Физическая ширина игрока
     float width() const;
 
-    /// \brief Физическая высота игрока
+    /// @brief Физическая высота игрока
     float height() const;
 
-    /// \brief Заставляет игрока нанести удар.
+    /// @brief Заставляет игрока нанести удар.
     void punch();
 
-    /// \brief Вызывает функцию текущего состояния.
+    /// @brief Вызывает функцию текущего состояния.
     void update();
 
 private:
     Player();
+
+    // Операторы удалены, потому что зачем вообще может понадобиться
+    // создавать копию игрока?
 	Player(const Player&) = delete;
 	void operator= (const Player&) = delete;
 };

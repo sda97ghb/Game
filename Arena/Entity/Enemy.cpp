@@ -1,7 +1,7 @@
 #include "Box2D/Box2D.h"
 
-#include "Arena/Enemy.h"
-#include "Arena/Player.h"
+#include "Arena/Entity/Enemy.h"
+#include "Arena/Entity/Player.h"
 
 bool Enemy::inaction()
 {

@@ -4,8 +4,8 @@
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Arena/Cable.h"
-#include "Arena/Player.h"
+#include "Arena/Furniture/Cable.h"
+#include "Arena/Entity/Player.h"
 
 Cable::Cable() :
     _x1(0.0f),
