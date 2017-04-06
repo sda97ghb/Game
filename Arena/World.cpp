@@ -92,6 +92,16 @@ Panther&World::createPanther()
     return panther;
 }
 
+DaemonCat& World::createDaemonCat()
+{
+    _daemonCats.emplace_back();
+    DaemonCat& daemonCat = _daemonCats.back();
+
+    daemonCat.setBody(createBodyForEntity());
+    daemonCat.constructBody();
+    return daemonCat;
+}
+
 Fireball& World::createFireball()
 {
     _fireballs.emplace_back();
@@ -147,6 +157,11 @@ const std::list<Panther>& World::panthers() const
     return _panthers;
 }
 
+const std::list<DaemonCat>&World::daemonCats() const
+{
+    return _daemonCats;
+}
+
 const std::list<Fireball>&World::fireballs() const
 {
     return _fireballs;
@@ -171,6 +186,9 @@ void World::update()
 
     for (Panther& panther : _panthers)
         panther.update();
+
+    for (DaemonCat& daemoncat : _daemonCats)
+        daemoncat.update();
 
     for (Fireball& fireball : _fireballs)
         fireball.update();

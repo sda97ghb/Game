@@ -6,9 +6,11 @@
 
 #include "Box2D/Dynamics/b2Body.h"
 
+#include "Arena/Direction.h"
+#include "Arena/SpriteAnimator.h"
+
 #include "Arena/Sensors/ContactSensor.h"
 #include "Arena/Sensors/HitSensor.h"
-#include "Arena/SpriteAnimator.h"
 
 /// @brief Базовый класс для всех существ.
 /// @attention Не наследуйтесь напрямую от этого класса, если вы разрабатывает
@@ -26,13 +28,6 @@ public:
 
     struct NoShapeException : public std::logic_error {
         NoShapeException() : std::logic_error("there is no shape for the platform") {}
-    };
-
-    /// @brief Направления, в которых может смотреть существо.
-    enum class GoingDirection
-    {
-        left, ///< влево
-        right ///< вправо
     };
 
     Entity();
@@ -130,7 +125,7 @@ public:
     SpriteAnimator& spriteAnimator();
 
     /// @brief Возвращает направление в котором смотрит существо.
-    GoingDirection goingDirection() const;
+    Direction goingDirection() const;
 
 protected:
     b2Body* _body; ///< физическое тело существа
@@ -148,7 +143,7 @@ protected:
 
     HitSensor _groundHitSensor; ///< сенсор удара нижней поверхности
 
-    GoingDirection _goingDirection; ///< направление, в котором смотрит существо
+    Direction _goingDirection; ///< направление, в котором смотрит существо
 
     virtual void constructSensors();
 

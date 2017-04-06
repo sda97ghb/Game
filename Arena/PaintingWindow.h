@@ -15,6 +15,7 @@
 #include "SFML/Graphics/View.hpp"
 
 #include "Arena/Entity/Archer.h"
+#include "Arena/Entity/DaemonCat.h"
 #include "Arena/Entity/Entity.h"
 #include "Arena/Entity/Fireball.h"
 #include "Arena/Entity/Panther.h"
@@ -90,6 +91,9 @@ public:
 
     /// \brief Подготавливает для отрисовки спрайт для фаербола.
     sf::Sprite& constructFireball(Fireball& fireball);
+
+    /// \brief Подготавливает для отрисовки спрайт для кота-демона.
+    sf::Sprite& constructDaemonCat(DaemonCat& daemoncat);
 
     /// \brief Вызывает обработчики событий.
     void processEvents();

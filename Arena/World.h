@@ -11,6 +11,7 @@
 #include "Arena/Platform.h"
 
 #include "Arena/Entity/Archer.h"
+#include "Arena/Entity/DaemonCat.h"
 #include "Arena/Entity/Fireball.h"
 #include "Arena/Entity/Mage.h"
 #include "Arena/Entity/Panther.h"
@@ -61,6 +62,9 @@ public:
     /// \brief Метод добавления пантеры.
     Panther& createPanther();
 
+    /// \brief Метод добавления кота-демона.
+    DaemonCat& createDaemonCat();
+
     /// \brief Метод добавления фаербола.
     Fireball& createFireball();
 
@@ -93,6 +97,9 @@ public:
     /// \brief Возвращает константный список всех пантер.
     const std::list<Panther>& panthers() const;
 
+    /// \brief Возвращает константный список всех котов-демонов.
+    const std::list<DaemonCat>& daemonCats() const;
+
     /// \brief Возвращает константный список всех фаерболов.
     const std::list<Fireball>& fireballs() const;
 
@@ -122,6 +129,7 @@ private:
 
     std::list<Archer> _archers; ///< список всех лучников
     std::list<Panther> _panthers; ///< список всех пантер
+    std::list<DaemonCat> _daemonCats; ///< список всех котов-демонов
 
     std::list<Fireball> _fireballs; ///< список всех фаерболов
 

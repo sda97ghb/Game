@@ -1,20 +1,20 @@
 /// @file
-/// @brief Содержит класс врага лучника.
+/// @brief Содержит класс врага кота-демона.
 
-#ifndef PANTHER_H
-#define PANTHER_H
+#ifndef DAEMONCAT_H
+#define DAEMONCAT_H
 
 #include "Arena/Entity/Enemy.h"
 
 #include "Arena/Sensors/PlayerSensor.h"
 
 /// @brief Класс лучника
-class Panther : public Enemy
+class DaemonCat : public Enemy
 {
 public:
     /// @brief Конструктор. По умолчанию стартует в состоянии
     /// "смотрит по сторонам".
-    Panther();
+    DaemonCat();
 
     /// @brief Возвращает физическую ширину.
     float width() const;
@@ -28,23 +28,23 @@ private:
     // Операторы удалены, потому что при простом копировании существ
     // у них остается одно физическое тело.
     // Возможно это нужно будет исправить в следующих версиях.
-    Panther(const Panther& panther) = delete;
-    void operator= (const Panther& panther) = delete;
+    DaemonCat(const DaemonCat&) = delete;
+    void operator= (const DaemonCat&) = delete;
 
     /// @brief Вешает сенсоры на тело.
     /// @details Для пантеры это сенсор игрока.
     void constructSensors();
 
-    /// @brief Готова ли
-    bool isReadyForAttack();
+    /// @brief Готова ли запустить фаербол.
+    bool isReadyForStrike();
 
-    /// @brief
-    void attack();
+    /// @brief Запускает фаербол.
+    void strike();
 
     enum class State
     {
         lookingAround,
-        prepareToAttack,
+        prepareToStrike,
         goingToLastSeenPosition
     };
 
@@ -53,4 +53,4 @@ private:
     PlayerSensor _playerSensor; ///< Сенсор игрока.
 };
 
-#endif // PANTHER_H
+#endif // DAEMONCAT_H

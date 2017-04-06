@@ -29,7 +29,7 @@ void Archer::update()
         {
             _state = State::prepareToStrike;
 
-            if (_goingDirection == GoingDirection::left)
+            if (_goingDirection == Direction::left)
                 _spriteAnimator.playGroup("firing_left");
             else
                 _spriteAnimator.playGroup("firing_right");
@@ -48,7 +48,7 @@ void Archer::update()
 
         strike();
 
-        if (_goingDirection == GoingDirection::left)
+        if (_goingDirection == Direction::left)
             _spriteAnimator.playGroup("firing_left");
         else
             _spriteAnimator.playGroup("firing_right");
@@ -59,7 +59,7 @@ void Archer::update()
         {
             _state = State::prepareToStrike;
 
-            if (_goingDirection == GoingDirection::left)
+            if (_goingDirection == Direction::left)
                 _spriteAnimator.playGroup("firing_left");
             else
                 _spriteAnimator.playGroup("firing_right");
@@ -73,7 +73,8 @@ void Archer::update()
             return;
         }
 
-        if (isAbyssAhead())
+        _abyssSensor.setDirection(_goingDirection);
+        if (_abyssSensor.isActive())
             jump();
 
         if (_lastSeenPosition.x < body().GetPosition().x)
@@ -81,6 +82,13 @@ void Archer::update()
         else
             stepRight();
     }
+}
+
+void Archer::constructSensors()
+{
+    _abyssSensor.setDx(1.2f);
+    _abyssSensor.setDy(-height() / 2.0f - 0.2f);
+    _abyssSensor.hangOnBody(&body());
 }
 
 bool Archer::isReadyForStrike()

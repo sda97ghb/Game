@@ -334,25 +334,40 @@ void MapLoader::loadTestThings()
 //		spikes.setTexture("Textures/spikes_two.png");
 //	}
 
-//    {
-//        Archer& archer = _world.createArcher();
-//        archer.setPosition(-10.0f, 2.0f);
-//        SpriteAnimator& animator = archer.spriteAnimator();
-//        animator.setTexture("Textures/archerFrames.png");
-//        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, true);
-//        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, true);
-//        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, false);
-//        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, true);
-//        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, true);
-//        animator.setAnimationGroup("dead", 0, 0, 12, 28, 1, true);
-//        animator.setCurrentGroup("going_left");
-//        animator.nextFrame();
-//    }
+    {
+        Archer& archer = __world.createArcher();
+        archer.setPosition(20.0f, 13.0f);
+        SpriteAnimator& animator = archer.spriteAnimator();
+        animator.setTexture("Textures/archerFrames.png");
+        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, true);
+        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, true);
+        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, false);
+        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, true);
+        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, true);
+        animator.setAnimationGroup("dead", 0, 0, 12, 28, 1, true);
+        animator.setCurrentGroup("going_left");
+        animator.nextFrame();
+    }
     {
         Panther& panther = __world.createPanther();
         panther.setPosition(3.0f, 10.0f);
 
         SpriteAnimator& animator = panther.spriteAnimator();
+        animator.setTexture("Textures/panther.png");
+        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
+        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, false);
+        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, false);
+        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, false);
+        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, false);
+        animator.setAnimationGroup("dead", 0, 24, 32, 12, 1, false);
+        animator.setCurrentGroup("going_right");
+        animator.nextFrame();
+    }
+    {
+        DaemonCat& daemonCat = __world.createDaemonCat();
+        daemonCat.setPosition(-3.0f, 10.0f);
+
+        SpriteAnimator& animator = daemonCat.spriteAnimator();
         animator.setTexture("Textures/panther.png");
         animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
         animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, false);

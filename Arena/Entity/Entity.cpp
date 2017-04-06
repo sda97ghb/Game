@@ -11,7 +11,7 @@ Entity::Entity() :
     _health(100.0f),
     _maxMana(0.0f),
     _mana(0.0f),
-    _goingDirection(GoingDirection::left)
+    _goingDirection(Direction::left)
 {
 }
 
@@ -120,7 +120,7 @@ void Entity::stepLeft()
         _body->ApplyLinearImpulse(b2Vec2(-50.5f, 0.0f),
                                   _body->GetWorldCenter(), true);
     _spriteAnimator.setCurrentGroup("going_left");
-    _goingDirection = GoingDirection::left;
+    _goingDirection = Direction::left;
 }
 
 void Entity::stepRight()
@@ -133,7 +133,7 @@ void Entity::stepRight()
         _body->ApplyLinearImpulse(b2Vec2(50.0f, 0.0f),
                                   _body->GetWorldCenter(), true);
     _spriteAnimator.setCurrentGroup("going_right");
-    _goingDirection = GoingDirection::right;
+    _goingDirection = Direction::right;
 }
 
 void Entity::jump()
@@ -237,7 +237,7 @@ SpriteAnimator& Entity::spriteAnimator()
     return _spriteAnimator;
 }
 
-Entity::GoingDirection Entity::goingDirection() const
+Direction Entity::goingDirection() const
 {
     return _goingDirection;
 }

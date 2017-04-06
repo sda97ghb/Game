@@ -1,115 +1,115 @@
 #include "Box2D/Common/b2Math.h"
 
 #include "Arena/Entity/Fireball.h"
-#include "Arena/Entity/Panther.h"
+#include "Arena/Entity/DaemonCat.h"
 #include "Arena/Entity/Player.h"
 #include "Arena/Log.h"
 
-Panther::Panther() :
+DaemonCat::DaemonCat() :
     _state(State::lookingAround)
 {
 }
 
-float Panther::width() const
+float DaemonCat::width() const
 {
     return 14.0f / 5.0f; //0.75f;
 }
 
-float Panther::height() const
+float DaemonCat::height() const
 {
     return 6.0f / 5.0f; //1.75f;
 }
 
-void Panther::update()
+void DaemonCat::update()
 {
-//    Log::instance().push(_playerSensor.canSee() ? "I see you" : "I can't see you");
-//    Log::instance().push(_playerSensor.isNearby() ? "You are near to me." : "Where are you going?");
+    Log::instance().push(_playerSensor.canSee() ? "I see you" : "I can't see you");
+    Log::instance().push(_playerSensor.isNearby() ? "You are near to me." : "Where are you going?");
 
-//    if (_playerSensor.isActive())
-//    {
-//        _lastSeenPosition = Player::instance().body().GetPosition();
-//        if (isPlayerToLeft())
-//            _goingDirection = Direction::left;
-//        else
-//            _goingDirection = Direction::right;
-//    }
+    if (_playerSensor.isActive())
+    {
+        _lastSeenPosition = Player::instance().body().GetPosition();
+        if (isPlayerToLeft())
+            _goingDirection = Direction::left;
+        else
+            _goingDirection = Direction::right;
+    }
 
-//    if (_state == State::lookingAround)
-//    {
-//        if (_playerSensor.isActive())
-//        {
-//            _state = State::prepareToStrike;
+    if (_state == State::lookingAround)
+    {
+        if (_playerSensor.isActive())
+        {
+            _state = State::prepareToStrike;
 
-//            if (_goingDirection == Direction::left)
-//                _spriteAnimator.playGroup("punching_left");
-//            else
-//                _spriteAnimator.playGroup("punching_right");
-//        }
-//    }
-//    else if (_state == State::prepareToStrike)
-//    {
-//        static int r = 0;
-//        r += 3;
-//        _spriteAnimator.sprite().setColor(sf::Color(r % 256, (r + 80) % 256, (r + 160) % 256));
+            if (_goingDirection == Direction::left)
+                _spriteAnimator.playGroup("punching_left");
+            else
+                _spriteAnimator.playGroup("punching_right");
+        }
+    }
+    else if (_state == State::prepareToStrike)
+    {
+        static int r = 0;
+        r += 3;
+        _spriteAnimator.sprite().setColor(sf::Color(r % 256, (r + 80) % 256, (r + 160) % 256));
 
-//        if (!_playerSensor.isActive())
-//        {
-//            _state = State::goingToLastSeenPosition;
-//            return;
-//        }
+        if (!_playerSensor.isActive())
+        {
+            _state = State::goingToLastSeenPosition;
+            return;
+        }
 
-//        if (!isReadyForStrike())
-//            return;
+        if (!isReadyForStrike())
+            return;
 
-//        strike();
+        strike();
 
-//        if (_goingDirection == Direction::left)
-//            _spriteAnimator.playGroup("punching_left");
-//        else
-//            _spriteAnimator.playGroup("punching_right");
-//    }
-//    else if (_state == State::goingToLastSeenPosition)
-//    {
-//        if (_playerSensor.isActive())
-//        {
-//            _state = State::prepareToStrike;
+        if (_goingDirection == Direction::left)
+            _spriteAnimator.playGroup("punching_left");
+        else
+            _spriteAnimator.playGroup("punching_right");
+    }
+    else if (_state == State::goingToLastSeenPosition)
+    {
+        if (_playerSensor.isActive())
+        {
+            _state = State::prepareToStrike;
 
-//            if (_goingDirection == Direction::left)
-//                _spriteAnimator.playGroup("punching_left");
-//            else
-//                _spriteAnimator.playGroup("punching_right");
+            if (_goingDirection == Direction::left)
+                _spriteAnimator.playGroup("punching_left");
+            else
+                _spriteAnimator.playGroup("punching_right");
 
-//            return;
-//        }
+            return;
+        }
 
-//        if (body().GetPosition() == _lastSeenPosition)
-//        {
-//            _state = State::lookingAround;
-//            return;
-//        }
+        if (body().GetPosition() == _lastSeenPosition)
+        {
+            _state = State::lookingAround;
+            return;
+        }
 
-//        if (isAbyssAhead())
-//            jump();
+        if (isAbyssAhead())
+            jump();
 
-//        if (_lastSeenPosition.x < body().GetPosition().x)
-//            stepLeft();
-//        else
-//            stepRight();
-//    }
+        if (_lastSeenPosition.x < body().GetPosition().x)
+            stepLeft();
+        else
+            stepRight();
+    }
 }
 
-void Panther::constructSensors()
+void DaemonCat::constructSensors()
 {
     _playerSensor.hangOnBody(&body());
 }
 
-bool Panther::isReadyForStrike()
+bool DaemonCat::isReadyForStrike()
 {
     return _spriteAnimator.currentGroup() != "punching_left" &&
            _spriteAnimator.currentGroup() != "punching_right";
 }
 
-void Panther::strike()
+void DaemonCat::strike()
 {
     Fireball::spawn(body().GetPosition().x, body().GetPosition().y);
 //    body().ApplyLinearImpulse(b2Vec2(0.0f, body().GetMass() * 3.0f), body().GetWorldCenter(), true);

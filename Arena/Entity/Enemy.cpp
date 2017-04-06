@@ -62,9 +62,9 @@ bool Enemy::isAbyssAhead()
     b2RayCastInput input;
     input.p1 = body().GetPosition();
     float dx = 0.0f;
-    if (goingDirection() == GoingDirection::left)
+    if (goingDirection() == Direction::left)
         dx = -1.0f;
-    else if (goingDirection() == GoingDirection::right)
+    else if (goingDirection() == Direction::right)
         dx = 1.0f;
     input.p2 = input.p1 + b2Vec2(dx, -height() / 2.0 - 0.2);
     input.maxFraction = 1.0f;
@@ -98,8 +98,8 @@ void Enemy::lookForPlayer()
     {
         _lastSeenPosition = Player::instance().body().GetPosition();
         if (isPlayerToLeft())
-            _goingDirection = GoingDirection::left;
+            _goingDirection = Direction::left;
         else
-            _goingDirection = GoingDirection::right;
+            _goingDirection = Direction::right;
     }
 }

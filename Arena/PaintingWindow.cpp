@@ -131,6 +131,13 @@ void PaintingWindow::drawWorld()
         draw(sprite);
     }
 
+    for (const DaemonCat& daemonCatC : world.daemonCats())
+    {
+        DaemonCat& daemoncat = const_cast<DaemonCat&>(daemonCatC);
+        sf::Sprite& sprite = constructDaemonCat(daemoncat);
+        draw(sprite);
+    }
+
     sf::Sprite& player = constructPlayer();
     draw(player);
 
@@ -395,9 +402,14 @@ sf::Sprite& PaintingWindow::constructPanther(Panther& panther)
     return constructEntity(panther);
 }
 
-sf::Sprite&PaintingWindow::constructFireball(Fireball& fireball)
+sf::Sprite& PaintingWindow::constructFireball(Fireball& fireball)
 {
     return constructEntity(fireball);
+}
+
+sf::Sprite& PaintingWindow::constructDaemonCat(DaemonCat& daemoncat)
+{
+    return constructEntity(daemoncat);
 }
 
 void PaintingWindow::processEvents()

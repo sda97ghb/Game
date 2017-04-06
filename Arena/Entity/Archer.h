@@ -6,6 +6,8 @@
 
 #include "Arena/Entity/Enemy.h"
 
+#include "Arena/Sensors/AbyssSensor.h"
+
 /// @brief Класс лучника
 class Archer : public Enemy
 {
@@ -29,6 +31,10 @@ private:
     Archer(const Archer& archer) = delete;
     void operator= (const Archer& archer) = delete;
 
+    /// @brief Вешает сенсоры на тело.
+    /// @details Для лучника это сенсор пропасти.
+    void constructSensors();
+
     /// @brief Проверка, натянута ли тетива.
     bool isReadyForStrike();
 
@@ -44,6 +50,8 @@ private:
     };
 
     State _state; ///< Текущее состояние лучника.
+
+    AbyssSensor _abyssSensor;
 };
 
 #endif // ARCHER_H
