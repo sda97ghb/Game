@@ -18,6 +18,8 @@
 #include "Arena/Entity/Player.h"
 #include "Arena/Entity/Swordman.h"
 
+#include "Arena/Entity/LivingEntity.h"
+
 #include "Arena/Furniture/Cable.h"
 #include "Arena/Furniture/FallingGround.h"
 #include "Arena/Furniture/Ladder.h"
@@ -34,9 +36,13 @@
 class World
 {
 public:
-    ~World();
+    /// @brief Ссылка на объект физической модели мира.
+    static b2World& physical();
+
     /// \brief Ссылка на объект мира. (не физического, а вообще)
     static World& instance();
+
+    void addEntity(LivingEntity* entity);
 
     /// \brief Метод добавления платформы.
     Platform& createPlatform();
@@ -133,7 +139,7 @@ private:
 
     std::list<Fireball> _fireballs; ///< список всех фаерболов
 
-    b2World* _world; ///< физический мир
+    std::list<LivingEntity*> _entities;
 };
 
 #endif // WORLD_H

@@ -17,10 +17,12 @@ void Fireball::spawn(float x, float y)
     Fireball& fireball = World::instance().createFireball();
     fireball.setPosition(x, y);
 
+    fireball.body().SetGravityScale(0.0f);
+
     SpriteAnimator& animator = fireball.spriteAnimator();
     animator.setTexture("Textures/fireball.png");
-    animator.setAnimationGroup("main", 0, 0, 4, 4, 1, false);
-    animator.setAnimationGroup("dead", 0, 0, 4, 4, 1, false);
+    animator.setAnimationGroup("main", 0, 0, 4, 4);
+    animator.setAnimationGroup("dead", 0, 0, 4, 4);
     animator.setCurrentGroup("main");
     animator.nextFrame();
 }
@@ -48,8 +50,6 @@ void Fireball::update()
         body().SetAwake(false);
         return;
     }
-
-    body().ApplyForce(b2Vec2(0.0f, body().GetMass() * 9.8), body().GetWorldCenter(), true);
 
     lookForPlayer();
 

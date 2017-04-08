@@ -2,18 +2,13 @@
 
 #include "SFML/Graphics/CircleShape.hpp"
 #include "SFML/Graphics/Text.hpp"
+
 #include "SFML/Window/Event.hpp"
 
+#include "Arena/GlobalConstants.h"
+#include "Arena/Log.h"
 #include "Arena/PaintingWindow.h"
 #include "Arena/World.h"
-#include "Arena/Log.h"
-
-static const uint32_t SCREEN_RESOLUTION_X = 1280;
-static const uint32_t SCREEN_RESOLUTION_Y = 720;
-
-static const float PIXELART_SCALE_FACTOR = 5.0f;
-
-static const float PIXELS_PER_METER = 5.0f;
 
 PaintingWindow& PaintingWindow::instance()
 {
@@ -81,6 +76,9 @@ void PaintingWindow::drawWorld()
     setView(_worldView);
 
     World& world = World::instance();
+
+    for (auto& view : _entityViews)
+        draw(view.getSprite());
 
     for (const Platform& cPlatform : world.platforms())
     {
@@ -420,4 +418,9 @@ void PaintingWindow::processEvents()
         if (event.type == sf::Event::Closed)
             close();
     }
+}
+
+void PaintingWindow::addEntityView(TestFinalEntityView&& entityView)
+{
+    _entityViews.push_back(std::move(entityView));
 }

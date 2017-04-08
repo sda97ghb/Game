@@ -5,6 +5,8 @@
 #include "Arena/World.h"
 #include "Arena/PaintingWindow.h"
 
+#include "Arena/Entity/TestFinalEntitySpawner.h"
+
 using namespace tinyxml2;
 
 World& __world = World::instance(); // Убрать это
@@ -197,12 +199,12 @@ void MapLoader::loadPlayerAnimator(SpriteAnimator& animator)
 //	animator.setAnimationGroup("dead", 52, 56, 28, 28, 1, true);
 //	animator.setCurrentGroup("going_right");
 
-    animator.setAnimationGroup("going_left", 0, 0, 5, 9, 2, true);
-    animator.setAnimationGroup("going_right", 0, 9, 5, 9, 2, true);
-    animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, false);
-    animator.setAnimationGroup("punching_right", 0, 0, 5, 9, 1, false);
-    animator.setAnimationGroup("punching_left", 0, 0, 5, 9, 1, false);
-    animator.setAnimationGroup("dead", 0, 0, 5, 9, 1, false);
+    animator.setAnimationGroup("going_left", 0, 0, 5, 9, 2, Orientation::horizontal);
+    animator.setAnimationGroup("going_right", 0, 9, 5, 9, 2, Orientation::horizontal);
+    animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
+    animator.setAnimationGroup("punching_right", 0, 0, 5, 9, 1, Orientation::vertical);
+    animator.setAnimationGroup("punching_left", 0, 0, 5, 9, 1, Orientation::vertical);
+    animator.setAnimationGroup("dead", 0, 0, 5, 9);
     animator.setCurrentGroup("going_right");
 
 //    animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
@@ -339,45 +341,45 @@ void MapLoader::loadTestThings()
         archer.setPosition(20.0f, 13.0f);
         SpriteAnimator& animator = archer.spriteAnimator();
         animator.setTexture("Textures/archerFrames.png");
-        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, true);
-        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, true);
-        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, false);
-        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, true);
-        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, true);
-        animator.setAnimationGroup("dead", 0, 0, 12, 28, 1, true);
+        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, Orientation::horizontal);
+        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, Orientation::horizontal);
+        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, Orientation::vertical);
+        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, Orientation::horizontal);
+        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, Orientation::horizontal);
+        animator.setAnimationGroup("dead", 0, 0, 12, 28);
         animator.setCurrentGroup("going_left");
         animator.nextFrame();
     }
-    {
-        Panther& panther = __world.createPanther();
-        panther.setPosition(3.0f, 10.0f);
+//    {
+//        Panther& panther = __world.createPanther();
+//        panther.setPosition(3.0f, 10.0f);
 
-        SpriteAnimator& animator = panther.spriteAnimator();
-        animator.setTexture("Textures/panther.png");
-        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, false);
-        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("dead", 0, 24, 32, 12, 1, false);
-        animator.setCurrentGroup("going_right");
-        animator.nextFrame();
-    }
-    {
-        DaemonCat& daemonCat = __world.createDaemonCat();
-        daemonCat.setPosition(-3.0f, 10.0f);
+//        SpriteAnimator& animator = panther.spriteAnimator();
+//        animator.setTexture("Textures/panther.png");
+//        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, Orientation::vertical);
+//        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, Orientation::vertical);
+//        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
+//        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, Orientation::vertical);
+//        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, Orientation::vertical);
+//        animator.setAnimationGroup("dead", 0, 24, 32, 12);
+//        animator.setCurrentGroup("going_right");
+//        animator.nextFrame();
+//    }
+//    {
+//        DaemonCat& daemonCat = __world.createDaemonCat();
+//        daemonCat.setPosition(-3.0f, 10.0f);
 
-        SpriteAnimator& animator = daemonCat.spriteAnimator();
-        animator.setTexture("Textures/panther.png");
-        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, false);
-        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, false);
-        animator.setAnimationGroup("dead", 0, 24, 32, 12, 1, false);
-        animator.setCurrentGroup("going_right");
-        animator.nextFrame();
-    }
+//        SpriteAnimator& animator = daemonCat.spriteAnimator();
+//        animator.setTexture("Textures/panther.png");
+//        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, Orientation::vertical);
+//        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, Orientation::vertical);
+//        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
+//        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, Orientation::vertical);
+//        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, Orientation::vertical);
+//        animator.setAnimationGroup("dead", 0, 24, 32, 12);
+//        animator.setCurrentGroup("going_right");
+//        animator.nextFrame();
+//    }
 
 //    Fireball::spawn(0.0f, 1.0f);
 //    {
@@ -391,4 +393,6 @@ void MapLoader::loadTestThings()
 //        animator.setCurrentGroup("main");
 //        animator.nextFrame();
 //    }
+
+    TestFinalEntityBuilderSpawner().setPosition(5.0f, 10.0f).spawn();
 }

@@ -223,12 +223,12 @@ void TestWorldLoader::load()
         player.setPosition(0.0f, player.height() / 2.0f);
         SpriteAnimator& animator = player.spriteAnimator();
         animator.setTexture("Textures/playerFrames.png");
-        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 4, false);
-        animator.setAnimationGroup("going_right", 12, 0, 12, 28, 4, false);
-        animator.setAnimationGroup("climbing", 24, 0, 12, 28, 2, false);
-        animator.setAnimationGroup("punching_right", 36, 0, 18, 28, 3, true);
-        animator.setAnimationGroup("punching_left", 36, 28, 18, 28, 3, true);
-        animator.setAnimationGroup("dead", 52, 56, 28, 28, 1, true);
+        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 4, Orientation::vertical);
+        animator.setAnimationGroup("going_right", 12, 0, 12, 28, 4, Orientation::vertical);
+        animator.setAnimationGroup("climbing", 24, 0, 12, 28, 2, Orientation::vertical);
+        animator.setAnimationGroup("punching_right", 36, 0, 18, 28, 3, Orientation::horizontal);
+        animator.setAnimationGroup("punching_left", 36, 28, 18, 28, 3, Orientation::horizontal);
+        animator.setAnimationGroup("dead", 52, 56, 28, 28);
         animator.setCurrentGroup("going_right");
         animator.nextFrame();
     }
@@ -238,11 +238,12 @@ void TestWorldLoader::load()
         archer.setPosition(3.0f, 10.0f);
         SpriteAnimator& animator = archer.spriteAnimator();
         animator.setTexture("Textures/archerFrames.png");
-        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, true);
-        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, true);
-        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, false);
-        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, true);
-        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, true);
+        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, Orientation::horizontal);
+        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, Orientation::horizontal);
+        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, Orientation::vertical);
+        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, Orientation::horizontal);
+        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, Orientation::horizontal);
+        animator.setAnimationGroup("dead", 0, 0, 12, 28);
         animator.setCurrentGroup("going_left");
         animator.nextFrame();
     }

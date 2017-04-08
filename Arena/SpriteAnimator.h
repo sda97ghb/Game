@@ -10,6 +10,8 @@
 #include "SFML/Graphics/Texture.hpp"
 #include "SFML/System/Clock.hpp"
 
+#include "Arena/Orientation.h"
+
 /// \brief Класс, ответственный за анимацию спрайтов.
 class SpriteAnimator
 {
@@ -30,10 +32,7 @@ public:
         int frameWidth; ///< ширина кадра
         int frameHeight; ///< высота кадра
         int numberOfFrames; ///< число кадров
-        enum {
-            vertical,  ///< кадры расположены вертикально
-            horizontal ///< кадры расположены горизонтально
-        } orientation; ///< ориентация развертки
+        Orientation orientation; ///< ориентация развертки
     };
 
     SpriteAnimator();
@@ -53,7 +52,8 @@ public:
     /// \param [in] isHorizontal true для горизонтальной развертки, false для вертикальной
     void setAnimationGroup(const std::string& name,
                            int x, int y, int frameWidth, int frameHeight,
-                           int numberOfFrames, bool isHorizontal = true);
+                           int numberOfFrames = 1,
+                           Orientation orientation = Orientation::horizontal);
 
     /// \brief Устанавлиает зацикленное воспроизведение указанной группы.
     void setCurrentGroup(const std::string& groupname);

@@ -35,30 +35,30 @@ void Spikes::setHeight(float height)
 
 void Spikes::testPlayerOnIt()
 {
-    try 
-    {
-	    Player& player = Player::instance();
-//	    b2Body& body = player.body();
-	    b2Transform transform;
-	    transform.SetIdentity();
-        static bool damageWasDone = false;
+//    try
+//    {
+//	    Player& player = Player::instance();
+////	    b2Body& body = player.body();
+//	    b2Transform transform;
+//	    transform.SetIdentity();
+//        static bool damageWasDone = false;
 
-        if (_sensor.isActive())
-	    {
-            player.jump();
-            player.stepLeft();
-            player.makeDamage(Player::instance().maxHealth()*0.05);
-            damageWasDone = true;
-        }
-        else
-        {
-            damageWasDone = false;
-        }
+//        if (_sensor.isActive())
+//	    {
+//            player.jump();
+//            player.stepLeft();
+//            player.makeDamage(Player::instance().maxHealth()*0.05);
+//            damageWasDone = true;
+//        }
+//        else
+//        {
+//            damageWasDone = false;
+//        }
             
-    }
-    catch (Player::NoBodyException&)
-    {
-    }
+//    }
+//    catch (Player::NoBodyException&)
+//    {
+//    }
 }
 
 float Spikes::x1() const

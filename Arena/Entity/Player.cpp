@@ -23,7 +23,9 @@ void Player::punch()
     else if (_spriteAnimator.currentGroup() == "going_right")
         _spriteAnimator.playGroup("punching_right");
     else
+    {
         ;
+    }
 }
 
 void Player::update()

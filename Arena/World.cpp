@@ -1,25 +1,32 @@
 #include "Arena/SensorListener.h"
 #include "Arena/World.h"
 
+static const b2Vec2 GRAVITY_VECTOR(0.0f, -9.8f);
+
 World::World()
 {
-    b2Vec2 gravity(0.0f, -9.8f);
-    _world = new b2World(gravity);
+    (void)World::physical();
 
     createPlayer();
 
-    _world->SetContactListener(&SensorListener::instance());
+    World::physical().SetContactListener(&SensorListener::instance());
 }
 
-World::~World()
+b2World& World::physical()
 {
-    delete _world;
+    static b2World worldInstance(GRAVITY_VECTOR);
+    return worldInstance;
 }
 
 World& World::instance()
 {
     static World instance;
     return instance;
+}
+
+void World::addEntity(LivingEntity* entity)
+{
+    _entities.push_back(entity);
 }
 
 Platform& World::createPlatform()
@@ -29,7 +36,7 @@ Platform& World::createPlatform()
 
     b2BodyDef bodyDef;
     bodyDef.position = b2Vec2(0.0, 0.0);
-    platform.setBody(_world->CreateBody(&bodyDef));
+    platform.setBody(World::physical().CreateBody(&bodyDef));
 
     return platform;
 }
@@ -169,6 +176,9 @@ const std::list<Fireball>&World::fireballs() const
 
 void World::update()
 {
+    for (auto& entity : _entities)
+        entity->update();
+
     for (Ladder& ladder : _ladders)
         ladder.testPlayerOnIt();
 
@@ -197,7 +207,7 @@ void World::update()
     const int32 velocityIterations = 8;
     const int32 positionIterations = 3;
 
-    _world->Step(timeStep, velocityIterations, positionIterations);
+    World::physical().Step(timeStep, velocityIterations, positionIterations);
 }
 
 b2Body* World::createBodyForEntity()
@@ -207,7 +217,7 @@ b2Body* World::createBodyForEntity()
 	entityBodyDef.fixedRotation = true;
 	entityBodyDef.position.Set(0.0f, 0.0f);
 
-	return _world->CreateBody(&entityBodyDef);
+    return World::physical().CreateBody(&entityBodyDef);
 }
 
 void World::createPlayer()

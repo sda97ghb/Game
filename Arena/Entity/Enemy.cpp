@@ -3,23 +3,6 @@
 #include "Arena/Entity/Enemy.h"
 #include "Arena/Entity/Player.h"
 
-bool Enemy::inaction()
-{
-    return false;
-}
-
-void Enemy::going()
-{
-}
-
-bool Enemy::aggression()
-{
-	Player& player = Player::instance();
-	
-    body().SetTransform(player.body().GetPosition(),body().GetAngle());
-    return true;
-}
-
 bool Enemy::canSeePlayer()
 {
     Player& player = Player::instance();

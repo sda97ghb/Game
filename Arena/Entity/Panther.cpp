@@ -103,13 +103,13 @@ void Panther::constructSensors()
     _playerSensor.hangOnBody(&body());
 }
 
-bool Panther::isReadyForStrike()
+bool Panther::isReadyForAttack()
 {
     return _spriteAnimator.currentGroup() != "punching_left" &&
            _spriteAnimator.currentGroup() != "punching_right";
 }
 
-void Panther::strike()
+void Panther::attack()
 {
     Fireball::spawn(body().GetPosition().x, body().GetPosition().y);
 //    body().ApplyLinearImpulse(b2Vec2(0.0f, body().GetMass() * 3.0f), body().GetWorldCenter(), true);

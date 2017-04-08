@@ -6,6 +6,8 @@
 #ifndef PAINTER_H
 #define PAINTER_H
 
+#include <list>
+
 #include "SFML/Graphics/ConvexShape.hpp"
 #include "SFML/Graphics/Font.hpp"
 #include "SFML/Graphics/RectangleShape.hpp"
@@ -19,6 +21,7 @@
 #include "Arena/Entity/Entity.h"
 #include "Arena/Entity/Fireball.h"
 #include "Arena/Entity/Panther.h"
+#include "Arena/Entity/TestFinalEntityView.h"
 
 #include "Arena/Furniture/Ladder.h"
 #include "Arena/Furniture/Lava.h"
@@ -98,6 +101,8 @@ public:
     /// \brief Вызывает обработчики событий.
     void processEvents();
 
+    void addEntityView(TestFinalEntityView&& entityView);
+
 private:
 	/// \brief Создает графическое окно, инициализирует графику.
 	PaintingWindow(uint32_t width, uint32_t height, const std::string& title);
@@ -114,6 +119,8 @@ private:
     sf::Sprite _background; ///< Фон
 	
 	sf::Font font; ///< Шрифт для лога
+
+    std::list<TestFinalEntityView> _entityViews;
 };
 
 #endif // PAINTER_H

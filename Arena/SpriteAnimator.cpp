@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Arena/SpriteAnimator.h"
 
 SpriteAnimator::SpriteAnimator() :
@@ -17,24 +19,26 @@ sf::Sprite& SpriteAnimator::sprite()
 
 void SpriteAnimator::setTexture(const std::string& filename)
 {
+    std::cout << "load texture " << filename << std::endl;
+
     _texture.loadFromFile(filename);
 
     _sprite.setTexture(_texture);
 }
 
-void SpriteAnimator::setAnimationGroup(
-        const std::string& name,
+void SpriteAnimator::setAnimationGroup(const std::string& name,
         int x, int y, int frameWidth, int frameHeight,
-        int numberOfFrames, bool isHorizontal)
+        int numberOfFrames, Orientation orientation)
 {
     AnimationGroup group;
+
     group.x = x;
     group.y = y;
     group.frameWidth = frameWidth;
     group.frameHeight = frameHeight;
     group.numberOfFrames = numberOfFrames;
-    group.orientation = isHorizontal ? AnimationGroup::horizontal :
-                                       AnimationGroup::vertical;
+    group.orientation = orientation;
+
     _animationGroups[name] = group;
 }
 
@@ -75,13 +79,12 @@ void SpriteAnimator::nextFrame()
     AnimationGroup& group = _animationGroups[_currentGroup];
     int x = group.x;
     int y = group.y;
-    if (group.orientation == AnimationGroup::horizontal)
+    if (group.orientation == Orientation::horizontal)
         x += group.frameWidth * _currentFrame;
     else
         y += group.frameHeight * _currentFrame;
     _sprite.setTextureRect(sf::IntRect(x, y,
-                                       group.frameWidth,
-                                       group.frameHeight));
+                                       group.frameWidth, group.frameHeight));
     ++ _currentFrame;
     if (_currentFrame >= group.numberOfFrames)
     {
@@ -109,5 +112,5 @@ const std::string& SpriteAnimator::currentGroup() const
 
 void SpriteAnimator::stop()
 {
-    _isStopped= true;
+    _isStopped = true;
 }
