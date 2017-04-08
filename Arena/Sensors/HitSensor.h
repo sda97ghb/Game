@@ -4,6 +4,8 @@
 #ifndef HITSENSOR_H
 #define HITSENSOR_H
 
+#include <functional>
+
 #include "Box2D/Dynamics/b2Body.h"
 
 class Entity;
@@ -19,6 +21,8 @@ class Entity;
 class HitSensor
 {
 public:
+    using OnHitCallback = std::function<void(float)>;
+
     HitSensor();
 
     /// \brief Устанавливает координаты центра сенсора.
@@ -42,13 +46,6 @@ public:
     /// \param [in] value необходимая скорость сенсора в момент удара
     void setActivationThreshold(float value);
 
-    /// \brief Запоминает существо для последующего обратного вызова метода удара.
-    /// \note Запоминает существо, но не владеет им.
-    /// \note Для нормальной работы сенсора в классе указанного существа нужно
-    /// определить метод void hit(int sensorType, float speed).
-    /// \note Вы можете повешать сенсор на тело, не принадлежащее указанному существу.
-    void setEntity(Entity* entity);
-
     /// \brief Вешает сенсор на указанное тело.
     /// \details Запоминает указанное телов в _body, создает для него
     /// фигуру-сенсор, регистрирует сенсор в SensorsListener.
@@ -71,6 +68,9 @@ public:
     /// \brief Возвращает указатель на тело, на которое повешан датчик.
     const b2Body* body() const;
 
+    OnHitCallback onHitCallback() const;
+    void setOnHitCallback(const OnHitCallback& onHitCallback);
+
 private:
     float _x; ///< Позиция центра датчика по x.
     float _y; ///< Позиция центра датчика по y.
@@ -83,7 +83,7 @@ private:
 
     b2Body* _body; ///< Тело, на которое повешан датчик.
 
-    Entity* _entity; ///< Существо, которому следует обработать удар
+    OnHitCallback _onHitCallback;
 };
 
 #endif // HITSENSOR_H

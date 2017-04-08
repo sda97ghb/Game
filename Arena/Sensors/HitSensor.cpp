@@ -59,7 +59,7 @@ void HitSensor::hit(float speed)
 {
     if (speed < _activationThreshold)
         return;
-    _entity->hit(_type, speed);
+    _onHitCallback(speed);
 }
 
 int HitSensor::type() const
@@ -72,7 +72,12 @@ const b2Body* HitSensor::body() const
     return _body;
 }
 
-void HitSensor::setEntity(Entity* entity)
+HitSensor::OnHitCallback HitSensor::onHitCallback() const
 {
-    _entity = entity;
+    return _onHitCallback;
+}
+
+void HitSensor::setOnHitCallback(const OnHitCallback& onHitCallback)
+{
+    _onHitCallback = onHitCallback;
 }
