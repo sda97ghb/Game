@@ -6,7 +6,7 @@
 
 #include "Arena/Log.h"
 #include "Arena/Furniture/Spikes.h"
-#include "Arena/Entity/Player.h"
+//#include "Arena/Entity/Player.h"
 #include "Arena/World.h"
 
 Spikes::Spikes() :
@@ -133,11 +133,11 @@ void Spikes::setShape()
 								   std::cos(angle()) * _height + _y1) };
 	_shapeB2.Set(vertexes, 4);
 
-    Player& player = Player::instance();
-    b2Body& body = player.body();
-    b2BodyDef spikesBodyDef;
-    spikesBodyDef.type = b2_staticBody;
-    spikesBodyDef.position.Set(0.0f, 0.0f);
-    _body = body.GetWorld()->CreateBody(&spikesBodyDef);
-    _sensor.hangOnBody(_body, &_shapeB2);
+//    Player& player = Player::instance();
+//    b2Body& body = player.body();
+//    b2BodyDef spikesBodyDef;
+//    spikesBodyDef.type = b2_staticBody;
+//    spikesBodyDef.position.Set(0.0f, 0.0f);
+//    _body = body.GetWorld()->CreateBody(&spikesBodyDef);
+//    _sensor.hangOnBody(_body, &_shapeB2);
 }

@@ -175,18 +175,18 @@ void MapLoader::loadEntity(const tinyxml2::XMLElement& entityElem)
 
 void MapLoader::loadPlayer(const tinyxml2::XMLElement& playerElem)
 {
-    Player& player = __world.player();
+//    Player& player = __world.player();
 
-	b2Vec2 coordinates;
-    loadCoordinates(childElement(section::POSITION, playerElem), coordinates);
-    player.setPosition(coordinates.x, coordinates.y);
+//	b2Vec2 coordinates;
+//    loadCoordinates(childElement(section::POSITION, playerElem), coordinates);
+//    player.setPosition(coordinates.x, coordinates.y);
 
-    SpriteAnimator& animator = player.spriteAnimator();
+//    SpriteAnimator& animator = player.spriteAnimator();
 
-    const XMLElement& textureElement = childElement(section::TEXTURE, playerElem);
-    animator.setTexture(textureElement.Attribute("picture"));
+//    const XMLElement& textureElement = childElement(section::TEXTURE, playerElem);
+//    animator.setTexture(textureElement.Attribute("picture"));
 
-    loadPlayerAnimator(animator);
+//    loadPlayerAnimator(animator);
 }
 
 void MapLoader::loadPlayerAnimator(SpriteAnimator& animator)
@@ -324,75 +324,5 @@ void MapLoader::loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
 
 void MapLoader::loadTestThings()
 {
-//	{
-//		Ladder& ladder = _world.createLadder();
-//		ladder.setCoordinates(5.0f, 0.0f, 5.5f);
-//		ladder.setWidth(1.0f);
-//		ladder.setTexture("Textures/ladder.png");
-//	}
-//	{
-//		Spikes& spikes = _world.createSpikes();
-//		spikes.setCoordinates(0.0f, 0.0f, 5.0f, 5.0f);
-//		spikes.setTexture("Textures/spikes_two.png");
-//	}
-
-    {
-        Archer& archer = __world.createArcher();
-        archer.setPosition(20.0f, 13.0f);
-        SpriteAnimator& animator = archer.spriteAnimator();
-        animator.setTexture("Textures/archerFrames.png");
-        animator.setAnimationGroup("going_left", 0, 0, 12, 28, 1, Orientation::horizontal);
-        animator.setAnimationGroup("going_right", 0, 28, 12, 28, 1, Orientation::horizontal);
-        animator.setAnimationGroup("climbing", 12, 0, 12, 28, 2, Orientation::vertical);
-        animator.setAnimationGroup("firing_left", 24, 0, 18, 28, 5, Orientation::horizontal);
-        animator.setAnimationGroup("firing_right", 24, 28, 18, 28, 5, Orientation::horizontal);
-        animator.setAnimationGroup("dead", 0, 0, 12, 28);
-        animator.setCurrentGroup("going_left");
-        animator.nextFrame();
-    }
-//    {
-//        Panther& panther = __world.createPanther();
-//        panther.setPosition(3.0f, 10.0f);
-
-//        SpriteAnimator& animator = panther.spriteAnimator();
-//        animator.setTexture("Textures/panther.png");
-//        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, Orientation::vertical);
-//        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, Orientation::vertical);
-//        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
-//        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, Orientation::vertical);
-//        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, Orientation::vertical);
-//        animator.setAnimationGroup("dead", 0, 24, 32, 12);
-//        animator.setCurrentGroup("going_right");
-//        animator.nextFrame();
-//    }
-//    {
-//        DaemonCat& daemonCat = __world.createDaemonCat();
-//        daemonCat.setPosition(-3.0f, 10.0f);
-
-//        SpriteAnimator& animator = daemonCat.spriteAnimator();
-//        animator.setTexture("Textures/panther.png");
-//        animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, Orientation::vertical);
-//        animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, Orientation::vertical);
-//        animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
-//        animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, Orientation::vertical);
-//        animator.setAnimationGroup("punching_left", 96, 0, 32, 12, 2, Orientation::vertical);
-//        animator.setAnimationGroup("dead", 0, 24, 32, 12);
-//        animator.setCurrentGroup("going_right");
-//        animator.nextFrame();
-//    }
-
-//    Fireball::spawn(0.0f, 1.0f);
-//    {
-//        Fireball& fireball = _world.createFireball();
-//        fireball.setPosition(3.0f, 10.0f);
-
-//        SpriteAnimator& animator = fireball.spriteAnimator();
-//        animator.setTexture("Textures/fireball.png");
-//        animator.setAnimationGroup("main", 0, 0, 4, 4, 1, false);
-//        animator.setAnimationGroup("dead", 0, 0, 4, 4, 1, false);
-//        animator.setCurrentGroup("main");
-//        animator.nextFrame();
-//    }
-
     TestFinalEntityBuilderSpawner().setPosition(5.0f, 10.0f).spawn();
 }

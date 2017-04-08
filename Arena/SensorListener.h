@@ -21,14 +21,6 @@ public:
     /// \brief Возвращает ссылку на объект класса.
     static SensorListener& instance();
 
-    enum
-    {
-        GROUND_CONTACT_SENSOR_TYPE = 1, ///< датчик нахождения на земле
-        LEFT_CONTACT_SENSOR_TYPE   = 2, ///< датчик контакта с левым объектом
-        RIGHT_CONTACT_SENSOR_TYPE  = 3, ///< датчик контакта с правым объектом
-        GROUND_HIT_SENSOR_TYPE     = 4  ///< датчик удара о землю
-    };
-
     /// \brief Регистрирует новый датчик контакта.
     /// \note Не создает копию сенсора.
     void registrySensor(ContactSensor& sensor);

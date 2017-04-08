@@ -16,11 +16,6 @@
 #include "SFML/Graphics/Texture.hpp"
 #include "SFML/Graphics/View.hpp"
 
-#include "Arena/Entity/Archer.h"
-#include "Arena/Entity/DaemonCat.h"
-#include "Arena/Entity/Entity.h"
-#include "Arena/Entity/Fireball.h"
-#include "Arena/Entity/Panther.h"
 #include "Arena/Entity/TestFinalEntityView.h"
 
 #include "Arena/Furniture/Ladder.h"
@@ -79,24 +74,6 @@ public:
 
     /// \brief Подготавливает для отрисовки многоугольник для лавы.
     sf::ConvexShape& constructLava(Lava& lava, bool isFront = true);
-
-    /// \brief Подготавливает для отрисовки спрайт для существа.
-    sf::Sprite& constructEntity(Entity& entity);
-
-    /// \brief Подготавливает для отрисовки спрайт для игрока.
-    sf::Sprite& constructPlayer();
-
-    /// \brief Подготавливает для отрисовки спрайт для лучника.
-    sf::Sprite& constructArcher(Archer& archer);
-
-    /// \brief Подготавливает для отрисовки спрайт для пантеры.
-    sf::Sprite& constructPanther(Panther& panther);
-
-    /// \brief Подготавливает для отрисовки спрайт для фаербола.
-    sf::Sprite& constructFireball(Fireball& fireball);
-
-    /// \brief Подготавливает для отрисовки спрайт для кота-демона.
-    sf::Sprite& constructDaemonCat(DaemonCat& daemoncat);
 
     /// \brief Вызывает обработчики событий.
     void processEvents();

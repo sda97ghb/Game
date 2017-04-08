@@ -1,9 +1,9 @@
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Arena/Entity/Entity.h"
-#include "Arena/Sensors/HitSensor.h"
 #include "Arena/SensorListener.h"
+
+#include "Arena/Sensors/HitSensor.h"
 
 HitSensor::HitSensor() :
     _x(0.0f),

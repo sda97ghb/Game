@@ -10,14 +10,7 @@
 
 #include "Arena/Platform.h"
 
-#include "Arena/Entity/Archer.h"
-#include "Arena/Entity/DaemonCat.h"
-#include "Arena/Entity/Fireball.h"
-#include "Arena/Entity/Mage.h"
-#include "Arena/Entity/Panther.h"
-#include "Arena/Entity/Player.h"
-#include "Arena/Entity/Swordman.h"
-
+//#include "Arena/Entity/Player.h"
 #include "Arena/Entity/LivingEntity.h"
 
 #include "Arena/Furniture/Cable.h"
@@ -62,23 +55,6 @@ public:
 	/// \brief Метод добавления шипов.
 	Spikes& createSpikes();
 
-    /// \brief Метод добавления лучника.
-    Archer& createArcher();
-
-    /// \brief Метод добавления пантеры.
-    Panther& createPanther();
-
-    /// \brief Метод добавления кота-демона.
-    DaemonCat& createDaemonCat();
-
-    /// \brief Метод добавления фаербола.
-    Fireball& createFireball();
-
-    /// \brief Возвращает ссылку на игрока.
-    /// \note Вы можете использовать Player::instance() вместо этого
-    /// метода.
-    Player& player();
-
     /// \brief Возвращает константный список всех платформ.
     const std::list<Platform>& platforms() const;
 
@@ -97,17 +73,10 @@ public:
 	/// \brief Возвращает константный список всех шипов.
 	const std::list<Spikes>& spikes() const;
 
-    /// \brief Возвращает константный список всех лучников.
-    const std::list<Archer>& archers() const;
-
-    /// \brief Возвращает константный список всех пантер.
-    const std::list<Panther>& panthers() const;
-
-    /// \brief Возвращает константный список всех котов-демонов.
-    const std::list<DaemonCat>& daemonCats() const;
-
-    /// \brief Возвращает константный список всех фаерболов.
-    const std::list<Fireball>& fireballs() const;
+//    /// \brief Возвращает ссылку на игрока.
+//    /// \note Вы можете использовать Player::instance() вместо этого
+//    /// метода.
+//    Player& player();
 
     /// \brief Обновляет мир.
     void update();
@@ -118,12 +87,6 @@ private:
     World(const World&) = delete;
     void operator= (const World&) = delete;
 
-    /// \brief Создает физическое тело для существ.
-    b2Body* createBodyForEntity();
-
-    /// \brief Создает физическое тело для игрока.
-    void createPlayer();
-
     std::list<Platform> _platforms; ///< список всех платформ
 
     std::list<Cable> _cables; ///< список всех тросов
@@ -132,12 +95,6 @@ private:
 	std::list<Water> _waters; ///< список всех водоемов
     std::list<Lava> _lavas; ///< список всех лавовых озер
 	std::list<Spikes> _spikes; ///< список всех шипов
-
-    std::list<Archer> _archers; ///< список всех лучников
-    std::list<Panther> _panthers; ///< список всех пантер
-    std::list<DaemonCat> _daemonCats; ///< список всех котов-демонов
-
-    std::list<Fireball> _fireballs; ///< список всех фаерболов
 
     std::list<LivingEntity*> _entities;
 };

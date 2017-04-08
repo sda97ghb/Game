@@ -6,10 +6,9 @@ static const b2Vec2 GRAVITY_VECTOR(0.0f, -9.8f);
 World::World()
 {
     (void)World::physical();
-
-    createPlayer();
-
     World::physical().SetContactListener(&SensorListener::instance());
+
+//    createPlayer();
 }
 
 b2World& World::physical()
@@ -78,52 +77,6 @@ Spikes& World::createSpikes()
 	return _spikes_;
 }
 
-Archer& World::createArcher()
-{
-    _archers.emplace_back();
-    Archer& archer = _archers.back();
-
-    archer.setBody(createBodyForEntity());
-    archer.constructBody();
-
-    return archer;
-}
-
-Panther&World::createPanther()
-{
-    _panthers.emplace_back();
-    Panther& panther = _panthers.back();
-
-    panther.setBody(createBodyForEntity());
-    panther.constructBody();
-    return panther;
-}
-
-DaemonCat& World::createDaemonCat()
-{
-    _daemonCats.emplace_back();
-    DaemonCat& daemonCat = _daemonCats.back();
-
-    daemonCat.setBody(createBodyForEntity());
-    daemonCat.constructBody();
-    return daemonCat;
-}
-
-Fireball& World::createFireball()
-{
-    _fireballs.emplace_back();
-    Fireball& fireball = _fireballs.back();
-
-    fireball.setBody(createBodyForEntity());
-    fireball.constructBody();
-    return fireball;
-}
-
-Player& World::player()
-{
-    return Player::instance();
-}
-
 const std::list<Platform>& World::platforms() const
 {
     return _platforms;
@@ -154,25 +107,10 @@ const std::list<Spikes>& World::spikes() const
 	return _spikes;
 }
 
-const std::list<Archer>& World::archers() const
-{
-    return _archers;
-}
-
-const std::list<Panther>& World::panthers() const
-{
-    return _panthers;
-}
-
-const std::list<DaemonCat>&World::daemonCats() const
-{
-    return _daemonCats;
-}
-
-const std::list<Fireball>&World::fireballs() const
-{
-    return _fireballs;
-}
+//Player& World::player()
+//{
+//    return Player::instance();
+//}
 
 void World::update()
 {
@@ -191,37 +129,9 @@ void World::update()
     for (Lava& lava : _lavas)
         lava.testPlayerOnIt();
 
-    for (Archer& archer : _archers)
-        archer.update();
-
-    for (Panther& panther : _panthers)
-        panther.update();
-
-    for (DaemonCat& daemoncat : _daemonCats)
-        daemoncat.update();
-
-    for (Fireball& fireball : _fireballs)
-        fireball.update();
-
     const float32 timeStep = 1.0f / 60.0f;
     const int32 velocityIterations = 8;
     const int32 positionIterations = 3;
 
     World::physical().Step(timeStep, velocityIterations, positionIterations);
-}
-
-b2Body* World::createBodyForEntity()
-{
-	b2BodyDef entityBodyDef;
-	entityBodyDef.type = b2_dynamicBody;
-	entityBodyDef.fixedRotation = true;
-	entityBodyDef.position.Set(0.0f, 0.0f);
-
-    return World::physical().CreateBody(&entityBodyDef);
-}
-
-void World::createPlayer()
-{
-	player().setBody(createBodyForEntity());
-	player().constructBody();
 }

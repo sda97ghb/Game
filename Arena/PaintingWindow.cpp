@@ -77,9 +77,6 @@ void PaintingWindow::drawWorld()
 
     World& world = World::instance();
 
-    for (auto& view : _entityViews)
-        draw(view.getSprite());
-
     for (const Platform& cPlatform : world.platforms())
     {
         Platform& platform = const_cast<Platform&>(cPlatform);
@@ -108,36 +105,8 @@ void PaintingWindow::drawWorld()
 		draw(shape);
 	}
 
-    for (const Archer& archerC : world.archers())
-    {
-        Archer& archer = const_cast<Archer&>(archerC);
-        sf::Sprite& sprite = constructArcher(archer);
-        draw(sprite);
-    }
-
-    for (const Panther& pantherC : world.panthers())
-    {
-        Panther& panther = const_cast<Panther&>(pantherC);
-        sf::Sprite& sprite = constructPanther(panther);
-        draw(sprite);
-    }
-
-    for (const Fireball& fireballC : world.fireballs())
-    {
-        Fireball& fireball = const_cast<Fireball&>(fireballC);
-        sf::Sprite& sprite = constructFireball(fireball);
-        draw(sprite);
-    }
-
-    for (const DaemonCat& daemonCatC : world.daemonCats())
-    {
-        DaemonCat& daemoncat = const_cast<DaemonCat&>(daemonCatC);
-        sf::Sprite& sprite = constructDaemonCat(daemoncat);
-        draw(sprite);
-    }
-
-    sf::Sprite& player = constructPlayer();
-    draw(player);
+    for (auto& view : _entityViews)
+        draw(view.getSprite());
 
     for (const Lava& lavaC : world.lavas())
     {
@@ -164,27 +133,27 @@ void PaintingWindow::drawGui()
 {
     setView(_guiView);
 
-    float health = Player::instance().health() / Player::instance().maxHealth();
-    drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
+//    float health = Player::instance().health() / Player::instance().maxHealth();
+//    drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
 
-    if (Player::instance().maxMana() != 0.0f)
-    {
-        float mana = Player::instance().mana() / Player::instance().maxMana();
-        drawBar(-530.0f, -285.0f, 200.0f, 20.0f, 2.0f, mana, sf::Color::Blue);
-    }
+//    if (Player::instance().maxMana() != 0.0f)
+//    {
+//        float mana = Player::instance().mana() / Player::instance().maxMana();
+//        drawBar(-530.0f, -285.0f, 200.0f, 20.0f, 2.0f, mana, sf::Color::Blue);
+//    }
 
     setView(_worldView);
 
-    World& world = World::instance();
-    for (const Archer& archerC : world.archers())
-    {
-        Archer& archer = const_cast<Archer&>(archerC);
-        b2Vec2 posB2 = archer.body().GetPosition();
-        sf::Vector2f pos(posB2.x - 0.8,
-                         posB2.y + archer.height() / 2.0f + 0.2f);
-        float health = archer.health() / archer.maxHealth();
-        drawBar(pos.x, pos.y, 1.6f, 0.2f, 0.04f, health, sf::Color::Red);
-    }
+//    World& world = World::instance();
+//    for (const Archer& archerC : world.archers())
+//    {
+//        Archer& archer = const_cast<Archer&>(archerC);
+//        b2Vec2 posB2 = archer.body().GetPosition();
+//        sf::Vector2f pos(posB2.x - 0.8,
+//                         posB2.y + archer.height() / 2.0f + 0.2f);
+//        float health = archer.health() / archer.maxHealth();
+//        drawBar(pos.x, pos.y, 1.6f, 0.2f, 0.04f, health, sf::Color::Red);
+//    }
 }
 
 void PaintingWindow::drawLog()
@@ -359,55 +328,6 @@ sf::ConvexShape&PaintingWindow::constructLava(Lava& lava, bool isFront)
     }
 
     return shapeSF;
-}
-
-sf::Sprite& PaintingWindow::constructEntity(Entity& entity)
-{
-    SpriteAnimator& animator = entity.spriteAnimator();
-    animator.update();
-
-    if (!entity.isAlive())
-    {
-        entity.spriteAnimator().playGroup("dead");
-        entity.spriteAnimator().nextFrame();
-        entity.spriteAnimator().stop();
-    }
-    sf::Sprite& sprite = animator.sprite();
-
-    sprite.setScale(1.0f / PIXELS_PER_METER, -1.0f / PIXELS_PER_METER);
-
-    b2Vec2 pos = entity.body().GetPosition();
-    sf::Vector2f posSF = sf::Vector2f(pos.x, pos.y);
-    posSF.x -= sprite.getTextureRect().width / PIXELS_PER_METER / 2.0f;
-    posSF.y += sprite.getTextureRect().height / PIXELS_PER_METER / 2.0f;
-    sprite.setPosition(posSF);
-
-    return sprite;
-}
-
-sf::Sprite& PaintingWindow::constructPlayer()
-{
-    return constructEntity(Player::instance());
-}
-
-sf::Sprite& PaintingWindow::constructArcher(Archer& archer)
-{
-    return constructEntity(archer);
-}
-
-sf::Sprite& PaintingWindow::constructPanther(Panther& panther)
-{
-    return constructEntity(panther);
-}
-
-sf::Sprite& PaintingWindow::constructFireball(Fireball& fireball)
-{
-    return constructEntity(fireball);
-}
-
-sf::Sprite& PaintingWindow::constructDaemonCat(DaemonCat& daemoncat)
-{
-    return constructEntity(daemoncat);
 }
 
 void PaintingWindow::processEvents()

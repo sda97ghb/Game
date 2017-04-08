@@ -1,12 +1,12 @@
-#ifndef TESTWORLDLOADER_H
-#define TESTWORLDLOADER_H
+//#ifndef TESTWORLDLOADER_H
+//#define TESTWORLDLOADER_H
 
-class TestWorldLoader
-{
-public:
-    TestWorldLoader();
+//class TestWorldLoader
+//{
+//public:
+//    TestWorldLoader();
 
-    static void load();
-};
+//    static void load();
+//};
 
-#endif // TESTWORLDLOADER_H
+//#endif // TESTWORLDLOADER_H

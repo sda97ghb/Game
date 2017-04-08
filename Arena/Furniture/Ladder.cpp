@@ -3,7 +3,7 @@
 #include "Box2D/Dynamics/b2Fixture.h"
 
 #include "Arena/Furniture/Ladder.h"
-#include "Arena/Entity/Player.h"
+//#include "Arena/Entity/Player.h"
 
 Ladder::Ladder() :
     _x(0.0f),
@@ -29,36 +29,36 @@ void Ladder::setWidth(float width)
 
 void Ladder::testPlayerOnIt()
 {
-    try {
-        Player& player = Player::instance();
-        b2Body& body = player.body();
-        b2Transform transform;
-        transform.SetIdentity();
-        if (_shapeB2.TestPoint(transform, body.GetPosition()))
-        {
-            b2Vec2 velocity = body.GetLinearVelocity();
+//    try {
+//        Player& player = Player::instance();
+//        b2Body& body = player.body();
+//        b2Transform transform;
+//        transform.SetIdentity();
+//        if (_shapeB2.TestPoint(transform, body.GetPosition()))
+//        {
+//            b2Vec2 velocity = body.GetLinearVelocity();
 
-            if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) &&
-                !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-                velocity.x *= body.GetFixtureList()->GetFriction();
+//            if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) &&
+//                !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
+//                velocity.x *= body.GetFixtureList()->GetFriction();
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-                velocity.y = 3.0f;
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-                velocity.y = -3.0f;
-            else
-                velocity.y = 0.0f;
+//            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+//                velocity.y = 3.0f;
+//            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
+//                velocity.y = -3.0f;
+//            else
+//                velocity.y = 0.0f;
 
-            body.SetLinearVelocity(velocity);
+//            body.SetLinearVelocity(velocity);
 
-            body.ApplyForce(b2Vec2(0.0f, 12.0f), body.GetWorldCenter(), true);
+//            body.ApplyForce(b2Vec2(0.0f, 12.0f), body.GetWorldCenter(), true);
 
-            player.spriteAnimator().setCurrentGroup("climbing");
-        }
-    }
-    catch (Player::NoBodyException&)
-    {
-    }
+//            player.spriteAnimator().setCurrentGroup("climbing");
+//        }
+//    }
+//    catch (Player::NoBodyException&)
+//    {
+//    }
 }
 
 float Ladder::x() const
