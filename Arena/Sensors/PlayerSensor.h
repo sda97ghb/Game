@@ -4,14 +4,20 @@
 #ifndef PLAYERSENSOR_H
 #define PLAYERSENSOR_H
 
+#include <functional>
+
 #include "Box2D/Dynamics/b2Body.h"
+
+#include "Arena/Updatable.h"
 
 /// @brief Класс сенсора, который может определить находится ли игрок
 /// поблизости от сенсора или можно ли увидеть игрока с позиции
 /// сенсора.
-class PlayerSensor
+class PlayerSensor : public Updatable
 {
 public:
+    using Callback = std::function<void()>;
+
     /// @brief Конструктор.
     PlayerSensor();
 
@@ -39,11 +45,20 @@ public:
     void setCanSeeRequired(bool canSeeRequired);
     void setIsNearbyRequired(bool isNearbyRequired);
 
+    void update();
+
+    void setOnGotSightOfPlayerCallback(const Callback& onGotSightOfPlayerCallback);
+    void setOnLostSightOfPlayerCallback(const Callback& onLostSightOfPlayerCallback);
+
 private:
     float _nearbyDistance;
 
     bool _isNearbyRequired;
     bool _canSeeRequired;
+
+    bool _previousState;
+    Callback _onGotSightOfPlayerCallback;
+    Callback _onLostSightOfPlayerCallback;
 
     b2Body* _body;
 };

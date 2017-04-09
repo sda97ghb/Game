@@ -5,7 +5,9 @@
 #include "Arena/World.h"
 #include "Arena/PaintingWindow.h"
 
-#include "Arena/Entity/TestFinalEntitySpawner.h"
+#include "Arena/Entity/ArcherBuilderSpawner.h"
+#include "Arena/Entity/PlayerBuilderSpawner.h"
+#include "Arena/Entity/TestFinalEntityBuilderSpawner.h"
 
 using namespace tinyxml2;
 
@@ -199,13 +201,13 @@ void MapLoader::loadPlayerAnimator(SpriteAnimator& animator)
 //	animator.setAnimationGroup("dead", 52, 56, 28, 28, 1, true);
 //	animator.setCurrentGroup("going_right");
 
-    animator.setAnimationGroup("going_left", 0, 0, 5, 9, 2, Orientation::horizontal);
-    animator.setAnimationGroup("going_right", 0, 9, 5, 9, 2, Orientation::horizontal);
-    animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
-    animator.setAnimationGroup("punching_right", 0, 0, 5, 9, 1, Orientation::vertical);
-    animator.setAnimationGroup("punching_left", 0, 0, 5, 9, 1, Orientation::vertical);
-    animator.setAnimationGroup("dead", 0, 0, 5, 9);
-    animator.setCurrentGroup("going_right");
+//    animator.setAnimationGroup("going_left", 0, 0, 5, 9, 2, Orientation::horizontal);
+//    animator.setAnimationGroup("going_right", 0, 9, 5, 9, 2, Orientation::horizontal);
+//    animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
+//    animator.setAnimationGroup("punching_right", 0, 0, 5, 9, 1, Orientation::vertical);
+//    animator.setAnimationGroup("punching_left", 0, 0, 5, 9, 1, Orientation::vertical);
+//    animator.setAnimationGroup("dead", 0, 0, 5, 9);
+//    animator.setCurrentGroup("going_right");
 
 //    animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
 //    animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, false);
@@ -324,5 +326,7 @@ void MapLoader::loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
 
 void MapLoader::loadTestThings()
 {
-    TestFinalEntityBuilderSpawner().setPosition(5.0f, 10.0f).spawn();
+//    TestFinalEntityBuilderSpawner().setPosition(5.0f, 10.0f).spawn();
+    ArcherBuilderSpawner().setPosition(20.0f, 13.0f).spawn();
+    PlayerBuilderSpawner().setPosition(-20.0f, 13.0f).spawn();
 }

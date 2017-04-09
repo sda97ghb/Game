@@ -7,7 +7,9 @@
 #include "Arena/SensorListener.h"
 #include "Arena/World.h"
 
-#include "Arena/Entity/TestFinalEntitySpawner.h"
+#include "Arena/Entity/TestFinalEntity.h"
+#include "Arena/Entity/TestFinalEntityBuilderSpawner.h"
+#include "Arena/Entity/TestFinalEntityView.h"
 
 TestFinalEntityBuilderSpawner::TestFinalEntityBuilderSpawner() :
     _position(0.0f, 0.0f)
@@ -36,7 +38,7 @@ void TestFinalEntityBuilderSpawner::spawn()
     constructSensors();
     World::instance().addEntity(_entity);
     _entity->callEventCallback(_entity->spawnEvent);
-    PaintingWindow::instance().addEntityView(TestFinalEntityView(*_entity));
+    PaintingWindow::instance().addEntityView(new TestFinalEntityView(*_entity));
 }
 
 float TestFinalEntityBuilderSpawner::width() const
@@ -82,8 +84,6 @@ void TestFinalEntityBuilderSpawner::constructBody()
     bodyFixtureDef.restitution = 0.0f;
 
     body()->CreateFixture(&bodyFixtureDef);
-
-    constructSensors();
 }
 
 void TestFinalEntityBuilderSpawner::constructSensors()

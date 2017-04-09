@@ -16,7 +16,7 @@
 #include "SFML/Graphics/Texture.hpp"
 #include "SFML/Graphics/View.hpp"
 
-#include "Arena/Entity/TestFinalEntityView.h"
+#include "Arena/Entity/EntityView.h"
 
 #include "Arena/Furniture/Ladder.h"
 #include "Arena/Furniture/Lava.h"
@@ -32,6 +32,9 @@ class PaintingWindow : public sf::RenderWindow
 {
 public:
 	static PaintingWindow& instance();
+
+    ~PaintingWindow();
+
 	void setBackground(const std::string& background);
 
     /// \brief Рисует содеримое окна (мир, интерфейс пользователя).
@@ -78,7 +81,7 @@ public:
     /// \brief Вызывает обработчики событий.
     void processEvents();
 
-    void addEntityView(TestFinalEntityView&& entityView);
+    void addEntityView(EntityView* entityView);
 
 private:
 	/// \brief Создает графическое окно, инициализирует графику.
@@ -97,7 +100,7 @@ private:
 	
 	sf::Font font; ///< Шрифт для лога
 
-    std::list<TestFinalEntityView> _entityViews;
+    std::list<EntityView*> _entityViews;
 };
 
 #endif // PAINTER_H

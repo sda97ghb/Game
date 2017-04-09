@@ -9,9 +9,10 @@
 #include "Box2D/Dynamics/b2World.h"
 
 #include "Arena/Platform.h"
+#include "Arena/Updatable.h"
 
-//#include "Arena/Entity/Player.h"
-#include "Arena/Entity/LivingEntity.h"
+#include "Arena/Entity/Player.h"
+#include "Arena/Entity/Entity.h"
 
 #include "Arena/Furniture/Cable.h"
 #include "Arena/Furniture/FallingGround.h"
@@ -35,7 +36,11 @@ public:
     /// \brief Ссылка на объект мира. (не физического, а вообще)
     static World& instance();
 
-    void addEntity(LivingEntity* entity);
+    ~World();
+
+    void addUpdatable(Updatable* updatable);
+
+    void addEntity(Entity* entity);
 
     /// \brief Метод добавления платформы.
     Platform& createPlatform();
@@ -81,6 +86,10 @@ public:
     /// \brief Обновляет мир.
     void update();
 
+    void setEntityAsPlayer(Entity* entity);
+
+    Player& player();
+
 private:
     World();
 
@@ -96,7 +105,11 @@ private:
     std::list<Lava> _lavas; ///< список всех лавовых озер
 	std::list<Spikes> _spikes; ///< список всех шипов
 
-    std::list<LivingEntity*> _entities;
+    std::list<Entity*> _entities;
+
+    std::list<Updatable*> _updatebles;
+
+    Entity* _player;
 };
 
 #endif // WORLD_H

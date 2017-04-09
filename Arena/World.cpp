@@ -1,9 +1,9 @@
+#include "Arena/GlobalConstants.h"
 #include "Arena/SensorListener.h"
 #include "Arena/World.h"
 
-static const b2Vec2 GRAVITY_VECTOR(0.0f, -9.8f);
-
-World::World()
+World::World() :
+    _player(nullptr)
 {
     (void)World::physical();
     World::physical().SetContactListener(&SensorListener::instance());
@@ -23,7 +23,19 @@ World& World::instance()
     return instance;
 }
 
-void World::addEntity(LivingEntity* entity)
+World::~World()
+{
+    for (Entity* entity : _entities)
+        if (entity != nullptr)
+            delete entity;
+}
+
+void World::addUpdatable(Updatable* updatable)
+{
+    _updatebles.push_back(updatable);
+}
+
+void World::addEntity(Entity* entity)
 {
     _entities.push_back(entity);
 }
@@ -114,6 +126,9 @@ const std::list<Spikes>& World::spikes() const
 
 void World::update()
 {
+    for (auto& updatable : _updatebles)
+        updatable->update();
+
     for (auto& entity : _entities)
         entity->update();
 
@@ -134,4 +149,14 @@ void World::update()
     const int32 positionIterations = 3;
 
     World::physical().Step(timeStep, velocityIterations, positionIterations);
+}
+
+void World::setEntityAsPlayer(Entity* entity)
+{
+    _player = entity;
+}
+
+Player& World::player()
+{
+    return *static_cast<Player*>(_player);
 }

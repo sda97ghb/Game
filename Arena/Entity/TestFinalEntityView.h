@@ -5,9 +5,10 @@
 
 #include "Arena/SpriteAnimator.h"
 
+#include "Arena/Entity/EntityView.h"
 #include "Arena/Entity/TestFinalEntity.h"
 
-class TestFinalEntityView
+class TestFinalEntityView : public EntityView
 {
 public:
     TestFinalEntityView(const TestFinalEntity& entity);

@@ -13,7 +13,16 @@
 PaintingWindow& PaintingWindow::instance()
 {
     static PaintingWindow instance(SCREEN_RESOLUTION_X, SCREEN_RESOLUTION_Y, "Game");
-	return instance;
+    return instance;
+}
+
+PaintingWindow::~PaintingWindow()
+{
+    for (EntityView* entityView : _entityViews)
+    {
+        if (entityView != nullptr)
+            delete entityView;
+    }
 }
 
 void PaintingWindow::setBackground(const std::string& background)
@@ -105,8 +114,8 @@ void PaintingWindow::drawWorld()
 		draw(shape);
 	}
 
-    for (auto& view : _entityViews)
-        draw(view.getSprite());
+    for (EntityView* view : _entityViews)
+        draw(view->getSprite());
 
     for (const Lava& lavaC : world.lavas())
     {
@@ -340,7 +349,7 @@ void PaintingWindow::processEvents()
     }
 }
 
-void PaintingWindow::addEntityView(TestFinalEntityView&& entityView)
+void PaintingWindow::addEntityView(EntityView* entityView)
 {
-    _entityViews.push_back(std::move(entityView));
+    _entityViews.push_back(entityView);
 }

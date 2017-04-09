@@ -11,7 +11,7 @@ static const EventCallback DO_NOTHING_CALLBACK([](){});
 #define EVENT(eventName) \
     Event eventName##Event = #eventName;
 
-#define CALLBACK_METHOD(methodName) [&](){methodName();}
+#define METHOD_CALLBACK(methodName) [&](){methodName();}
 
 class Evented
 {

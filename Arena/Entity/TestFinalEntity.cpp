@@ -6,12 +6,11 @@
 
 #include "Arena/World.h"
 
-TestFinalEntity::TestFinalEntity() :
-    _lookingDirection(Direction::left)
+TestFinalEntity::TestFinalEntity()
 {
-    setEventCallback(spawnEvent, CALLBACK_METHOD(onSpawn));
-    setEventCallback(deathEvent, CALLBACK_METHOD(onDeath));
-    setEventCallback(livingTickEvent, CALLBACK_METHOD(onLivingUpdate));
+    setEventCallback(spawnEvent, METHOD_CALLBACK(onSpawn));
+    setEventCallback(deathEvent, METHOD_CALLBACK(onDeath));
+    setEventCallback(updateEvent, METHOD_CALLBACK(onLivingUpdate));
 
     setMaxHealth(50.0f);
     setCurrentHealth(maxHealth());
@@ -29,7 +28,7 @@ void TestFinalEntity::onDeath()
 
 void TestFinalEntity::onLivingUpdate()
 {
-    std::cout << "I'm alive! I have " << currentHealth() << "hp." << std::endl;
+//    std::cout << "I'm alive! I have " << currentHealth() << "hp." << std::endl;
     makeDamage(0.1f);
 }
 
