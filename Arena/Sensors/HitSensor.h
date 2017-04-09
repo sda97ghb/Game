@@ -71,6 +71,8 @@ public:
     OnHitCallback onHitCallback() const;
     void setOnHitCallback(const OnHitCallback& onHitCallback);
 
+    void setRequireActivationThreshold(bool requireActivationThreshold);
+
 private:
     float _x; ///< Позиция центра датчика по x.
     float _y; ///< Позиция центра датчика по y.
@@ -80,6 +82,7 @@ private:
     int _type; ///< Тип датчика.
 
     float _activationThreshold; ///< Порог воздействия, необходимый для активации датчика
+    bool _requireActivationThreshold; ///< Требовать, чтобы для активации сила воздействия на сенсор была больше порогового значения.
 
     b2Body* _body; ///< Тело, на которое повешан датчик.
 

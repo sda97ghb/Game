@@ -12,6 +12,7 @@ HitSensor::HitSensor() :
     _height(0.0f),
     _type(0),
     _activationThreshold(0.0f),
+    _requireActivationThreshold(true),
     _body(nullptr)
 {
 }
@@ -57,7 +58,7 @@ void HitSensor::hangOnBody(b2Body* body)
 
 void HitSensor::hit(float speed)
 {
-    if (speed < _activationThreshold)
+    if (_requireActivationThreshold && speed < _activationThreshold)
         return;
     _onHitCallback(speed);
 }
@@ -80,4 +81,9 @@ HitSensor::OnHitCallback HitSensor::onHitCallback() const
 void HitSensor::setOnHitCallback(const OnHitCallback& onHitCallback)
 {
     _onHitCallback = onHitCallback;
+}
+
+void HitSensor::setRequireActivationThreshold(bool requireActivationThreshold)
+{
+    _requireActivationThreshold = requireActivationThreshold;
 }
