@@ -13,11 +13,16 @@
 
 #include "Game/MapLoader.h"
 
+#include "Game/QuestsLoader.h"
+
+#include "Game/MyUtf8.h"
+
 void test::main(int argc, char** argv)
 {
     (void)argc;
     (void)argv;
-
+    
+    my_utf8::setConsoleToUtf8();
     //    width   height  ratio
     //
     //    1920    1080    1,7
@@ -35,6 +40,9 @@ void test::main(int argc, char** argv)
 
     /*TestWorldLoader loader;
     loader.load();*/
+
+    QuestsLoader questload;
+    questload.load("MapLevels/Quests.xml");
 
 	MapLoader loader;
 	try

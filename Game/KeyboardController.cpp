@@ -3,6 +3,7 @@
 #include "Game/KeyboardController.h"
 #include "Game/Player.h"
 #include "Game/World.h"
+#include "Game/Quests.h"
 
 void KeyboardController::processKeyboard()
 {

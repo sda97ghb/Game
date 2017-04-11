@@ -1,0 +1,68 @@
+<quests>
+	<quest id="1" type="uniformauto">
+        <description>tdf</description>
+        <target>
+            <kill id="123"/> <!-- Если count не указан, то считать 1. -->
+            <kill id="432" count="123"/>
+            <collect id="456" count="43452"/>
+            <talk />
+        </target>
+        <reward>
+            <experience value="10.0"/>
+            <items id="32"/>
+            <items id="" count=""/>
+            <money value=""/>
+        </reward>
+    </quest>
+	<quest id="2" type="uniformauto">
+        <description>xcv Выводок бурых медведей стал досаждать жителям Малиновки. Старейшина деревни пообещал 50 золотых любому, кто одолеет опасных тварей.</description>
+        <target>
+            <kill id="42" count="3"/>
+        </target>
+        <reward>
+            <experience value="20.0"/>
+            <money value="50"/>
+        </reward>
+    </quest>
+	<quest id="3" type="uniformauto">
+		<description>asd Деревенская травница попросила собрать для нее 10 ягод вороний глаз. В награду она обещала 12 золотых.</description>
+		<target>
+			<collect id="178" count="10"/>
+		</target>
+		<reward>
+			<experience value="10.0"/>
+			<money value="12"/>
+		</reward>
+	</quest>
+	<quest id="4" type="usual">
+        <stage>
+			<description>1 состояние</description>
+			<target>
+				<kill id="1"/>
+				<collect id="3" count="4724"/>
+				<talk />
+			</target>
+			<reward>
+				<experience value="10.0"/>
+				<money value="5.0"/>
+				<item id="4572"/>
+				<item id="245" count="4727"/>
+			</reward>
+        </stage>
+		<stage>
+			<description>2 состояние</description>
+			<target>
+				<kill id="3"/> <!-- Если count не указан, то считать 1. -->
+				<kill id="4" count="4"/>
+				<collect id="5" count="5"/>
+				<talk />
+			</target>
+			<reward>
+				<experience value="10.0"/>
+				<money value=""/>
+				<item id=""/>
+				<item id="" count=""/>
+			</reward>
+        </stage>
+    </quest>
+</quests>

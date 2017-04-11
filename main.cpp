@@ -7,6 +7,6 @@ int main(int argc, char* argv[])
     (void)argc;
     (void)argv;
     test::main(argc, argv);
-    std::cout << "Done." << std::endl;
+    std::wcout << "Done." << std::endl;
     return 0;
 }
