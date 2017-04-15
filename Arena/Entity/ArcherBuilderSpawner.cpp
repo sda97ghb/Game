@@ -133,6 +133,30 @@ void ArcherBuilderSpawner::constructSensors()
         });
     landingSensor.hangOnBody(body());
 
+    HitSensor& leftBumpSensor = entityPtr->_leftBumpSensor;
+    leftBumpSensor.setType(IdDispenser::getNewId());
+    leftBumpSensor.setPosition(-width() / 2.0f, 0.0f);
+    leftBumpSensor.setSize(0.1f, width() / 2.0f * 0.95f);
+    leftBumpSensor.setRequireActivationThreshold(false);
+    leftBumpSensor.setOnHitCallback(
+        [entityPtr] (float)
+        {
+            entityPtr->callEventCallback(entityPtr->bumpEvent);
+        });
+    leftBumpSensor.hangOnBody(body());
+
+    HitSensor& rightBumpSensor = entityPtr->_rightBumpSensor;
+    rightBumpSensor.setType(IdDispenser::getNewId());
+    rightBumpSensor.setPosition(width() / 2.0f, 0.0f);
+    rightBumpSensor.setSize(0.1f, width() / 2.0f * 0.95f);
+    rightBumpSensor.setRequireActivationThreshold(false);
+    rightBumpSensor.setOnHitCallback(
+        [entityPtr] (float)
+        {
+            entityPtr->callEventCallback(entityPtr->bumpEvent);
+        });
+    rightBumpSensor.hangOnBody(body());
+
     PlayerSensor& playerSensor = _archer->_playerSensor;
     playerSensor.setNearbyDistance(25.0f);
     playerSensor.setOnGotSightOfPlayerCallback(
@@ -150,8 +174,8 @@ void ArcherBuilderSpawner::constructSensors()
     reloadSensor.setOnTimeoutCallback(
         [entityPtr] ()
         {
-            entityPtr->strike();
-            entityPtr->callEventCallback(entityPtr->strikeEvent);
+//            entityPtr->strike();
+//            entityPtr->callEventCallback(entityPtr->strikeEvent);
         });
     // Not need to hang the sensor on the body.
 }

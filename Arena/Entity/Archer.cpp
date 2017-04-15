@@ -1,3 +1,4 @@
+#include <cmath>
 #include <iostream>
 
 #include "Arena/GlobalConstants.h"
@@ -6,15 +7,51 @@
 
 #include "Arena/Entity/Archer.h"
 
-Archer::Archer() :
-    _state(State::lookingAround)
+Archer::Archer()
 {
-    setEventCallback(readyToStrikeEvent, METHOD_CALLBACK(strike));
-    setEventCallback(updateEvent, METHOD_CALLBACK(onUpdate));
-    setEventCallback(landingEvent, METHOD_CALLBACK(onLanding));
+    setEventCallback(bumpEvent, METHOD_CALLBACK(onBump));
+//    setEventCallback(deathEvent,)
     setEventCallback(gotSightOfPlayerEvent, METHOD_CALLBACK(onGotSightOfPlayer));
+//    setEventCallback(groundHitEvent,)
+    setEventCallback(landingEvent, METHOD_CALLBACK(onLanding));
     setEventCallback(lostSightOfPlayerEvent, METHOD_CALLBACK(onLostSightOfPlayer));
+    setEventCallback(readyToStrikeEvent, METHOD_CALLBACK(strike));
+//    setEventCallback(spawnEvent,)
+    setEventCallback(updateEvent, METHOD_CALLBACK(onUpdate));
     setEventCallback(wentButNotFoundEvent, METHOD_CALLBACK(onWentButNotFound));
+
+    stateBuilder(chasingState)
+        .setStateFunction(METHOD_FUNCTION(chasing))
+        .setStateIncompatibilities(
+            {
+                lookingAroundState,
+                preparingToStrikeState
+            });
+
+    stateBuilder(jumpingState)
+        .setStateIncompatibilities(
+            {
+                preparingToStrikeState
+            });
+
+    stateBuilder(lookingAroundState)
+        .setStateFunction(METHOD_FUNCTION(lookingAround))
+        .setStateIncompatibilities(
+            {
+                chasingState,
+                preparingToStrikeState
+            });
+
+    stateBuilder(preparingToStrikeState)
+        .setStateFunction(METHOD_FUNCTION(preparingToStrike))
+        .setStateIncompatibilities(
+            {
+                chasingState,
+                jumpingState,
+                lookingAroundState
+            });
+
+    activateState(lookingAroundState);
 }
 
 void Archer::tryToJump()
@@ -22,7 +59,7 @@ void Archer::tryToJump()
     if (!isAlive())
         return;
 
-    if (_state == State::jumping)
+    if (isStateActive(jumpingState))
         return;
 
     if (!_groundContactSensor.isActive())
@@ -32,7 +69,8 @@ void Archer::tryToJump()
     body()->ApplyLinearImpulse(b2Vec2(0.0f, yImpulse),
                                body()->GetWorldCenter(),
                                true);
-    _state = State::jumping;
+
+    activateState(jumpingState);
 }
 
 void Archer::tryToMoveLeft()
@@ -75,39 +113,24 @@ void Archer::tryToMoveRight()
     setLookingDirection(Direction::right);
 }
 
-void Archer::onUpdate()
+void Archer::onBump()
 {
-    switch (_state)
+    if (lookingDirection() == Direction::left)
     {
-        case State::goingToLastKnownPlayerLocation :
-        {
-            std::cout << "going to last known location" << std::endl;
-
-            if (_lastKnownPlayerLocation.x < body()->GetPosition().x)
-                tryToMoveLeft();
-            else
-                tryToMoveRight();
-
-            _abyssSensor.setDirection(lookingDirection());
-            if (_abyssSensor.isActive() ||
-                _leftContactSensor.isActive() ||
-                _rightContactSensor.isActive())
-                tryToJump();
-
-            float dx = (_lastKnownPlayerLocation.x - body()->GetPosition().x);
-            if (dx < 0.0f)
-                dx *= -1.0f;
-            if (dx < 0.1f)
-                callEventCallback(wentButNotFoundEvent);
-        } break;
+        const float xImpulse = body()->GetMass() * movementSpeed();
+        body()->ApplyLinearImpulse(b2Vec2(xImpulse, 0.0f),
+                                   body()->GetWorldCenter(),
+                                   true);
     }
-}
+    else
+    {
+        const float xImpulse = -body()->GetMass() * movementSpeed();
+        body()->ApplyLinearImpulse(b2Vec2(xImpulse, 0.0f),
+                                   body()->GetWorldCenter(),
+                                   true);
+    }
 
-void Archer::strike()
-{
-    Log::instance().push("Strike!");
-//    World::instance().player().makeDamage(10.0f);
-    _state = State::lookingAround;
+    tryToJump();
 }
 
 void Archer::onGroundHit(float speed)
@@ -117,35 +140,81 @@ void Archer::onGroundHit(float speed)
 
 void Archer::onLanding()
 {
-    _state = State::lookingAround;
+    deactivateState(jumpingState);
 }
 
 void Archer::onGotSightOfPlayer()
 {
-    std::cout << "got sight of player" << std::endl;
     prepareToStrike();
 }
 
 void Archer::onLostSightOfPlayer()
 {
-    std::cout << "lost sight of player" << std::endl;
-
-    if (_state == State::preparingToStrike)
+    if (isStateActive(preparingToStrikeState))
         _reloadSensor.stop();
 
     _lastKnownPlayerLocation = World::instance().player().body()->GetPosition();
-    _state = State::goingToLastKnownPlayerLocation;
+
+    activateState(chasingState);
+}
+
+void Archer::onUpdate()
+{
+    for (const State& state : complexState())
+        std::cout << state << " ";
+    std::cout << std::endl;
+
+    callComplexStateFunctions();
+}
+
+void Archer::onWentButNotFound()
+{
+    activateState(lookingAroundState);
 }
 
 void Archer::prepareToStrike()
 {
     _reloadSensor.start();
-    _state = State::preparingToStrike;
+    activateState(preparingToStrikeState);
 }
 
-void Archer::onWentButNotFound()
+void Archer::preparingToStrike()
 {
-    _state = State::lookingAround;
+    if (World::instance().player().body()->GetPosition().x <
+        body()->GetPosition().x)
+        setLookingDirection(Direction::left);
+    else
+        setLookingDirection(Direction::right);
+}
+
+void Archer::strike()
+{
+    Log::instance().push("Strike!");
+//    World::instance().player().makeDamage(10.0f);
+    activateState(lookingAroundState);
+
+    std::cout << "Strike!" << std::endl;
+}
+
+void Archer::chasing()
+{
+    if (_lastKnownPlayerLocation.x < body()->GetPosition().x)
+        tryToMoveLeft();
+    else
+        tryToMoveRight();
+
+    _abyssSensor.setDirection(lookingDirection());
+    if (_abyssSensor.isActive())
+        tryToJump();
+
+    if (_lastKnownPlayerLocation.x < body()->GetPosition().x)
+        tryToMoveLeft();
+    else
+        tryToMoveRight();
+
+    float dx = ::fabsf(_lastKnownPlayerLocation.x - body()->GetPosition().x);
+    if (dx < 0.1f)
+        callEventCallback(wentButNotFoundEvent);
 }
 
 float Archer::jumpHeight() const
@@ -156,4 +225,17 @@ float Archer::jumpHeight() const
 float Archer::movementSpeed() const
 {
     return 7.0f;
+}
+
+void Archer::lookingAround()
+{
+    static int counter = 0;
+    if (counter >= 100)
+    {
+        if (lookingDirection() == Direction::left)
+            setLookingDirection(Direction::right);
+        else
+            setLookingDirection(Direction::left);
+        counter = 0;
+    }
 }
