@@ -39,7 +39,6 @@ const sf::Sprite& ArcherView::getSprite()
         _animator.setCurrentGroup("going_left");
     else
         _animator.setCurrentGroup("going_right");
-    _animator.nextFrame();
 
     sf::Sprite& sprite = _animator.sprite();
 
