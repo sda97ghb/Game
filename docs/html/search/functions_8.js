@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jump',['jump',['../class_entity.html#a43595ae321edcc76739f2801ec53ebe1',1,'Entity']]]
+  ['nextframe',['nextFrame',['../class_sprite_animator.html#a362e9ad41f8fdd9dada66a72d64b99af',1,'SpriteAnimator']]]
 ];

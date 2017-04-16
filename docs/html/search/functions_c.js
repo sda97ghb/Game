@@ -1,4 +1,26 @@
 var searchData=
 [
-  ['nextframe',['nextFrame',['../class_sprite_animator.html#a362e9ad41f8fdd9dada66a72d64b99af',1,'SpriteAnimator']]]
+  ['set',['set',['../class_contact_sensor.html#ac2518b23cfabd9becee1baf0d8c25cf3',1,'ContactSensor']]],
+  ['setactivationthreshold',['setActivationThreshold',['../class_hit_sensor.html#a2b85d591911dbc64ee1d37e5a778fa86',1,'HitSensor']]],
+  ['setanimationgroup',['setAnimationGroup',['../class_sprite_animator.html#afae911d5360b14d4a4e9509c76b72333',1,'SpriteAnimator']]],
+  ['setbegin',['setBegin',['../class_cable.html#a0b56bdb65581089766cdbc798bb09fc5',1,'Cable']]],
+  ['setbody',['setBody',['../class_platform.html#ac8995c5bf106bb826ff3c34a40271e18',1,'Platform']]],
+  ['setcoordinates',['setCoordinates',['../class_ladder.html#aeda338fb10a30baf5d9a720372781fad',1,'Ladder']]],
+  ['setcurrentgroup',['setCurrentGroup',['../class_sprite_animator.html#ae0ef1f2d0bc661a88943b6e128e4938e',1,'SpriteAnimator']]],
+  ['setend',['setEnd',['../class_cable.html#a36ef331ea05406172eb45e99e6634b2d',1,'Cable']]],
+  ['setlogsize',['setLogSize',['../class_log.html#a6688b2a71f6848a46ddc08a1995f1940',1,'Log']]],
+  ['setposition',['setPosition',['../class_contact_sensor.html#a42eac59d9e62e2ed97db41487bf70bd6',1,'ContactSensor::setPosition()'],['../class_hit_sensor.html#aee2acb5acb1b3b84c874a9fef7044583',1,'HitSensor::setPosition()']]],
+  ['setsensor',['setSensor',['../class_sensor_listener.html#a1fe569e7067a0934d6b4d23cc916c8f5',1,'SensorListener']]],
+  ['setshape',['setShape',['../class_cable.html#a46f386922c76504fc07c3ac553d4908e',1,'Cable::setShape()'],['../class_ladder.html#aac55b96584d2c0f06d7245e6d2c1c7f1',1,'Ladder::setShape()'],['../class_liquid.html#a047cd5c6cfb9291f4e74c1ade4a44d6e',1,'Liquid::setShape()'],['../class_platform.html#a4ddc13bf6cdd979cae3179a7bd11a30d',1,'Platform::setShape()']]],
+  ['setsize',['setSize',['../class_contact_sensor.html#aa77d8e6714e82d61f99bfa5a02932f1c',1,'ContactSensor::setSize()'],['../class_hit_sensor.html#aa97902fd3d4e439536b9eb28b6c114d7',1,'HitSensor::setSize()']]],
+  ['settexture',['setTexture',['../class_furniture.html#aefcf3dc3d25b166cc16ca9a47b4d1f2c',1,'Furniture::setTexture()'],['../class_platform.html#ae9f37e3eda5f1175b9c4aa72a80fb677',1,'Platform::setTexture()'],['../class_sprite_animator.html#aa65b39f21c4556c01065a63bc22c3583',1,'SpriteAnimator::setTexture()']]],
+  ['settextureback',['setTextureBack',['../class_liquid.html#adf032b7b82c587590e49bbcd8596d6d2',1,'Liquid']]],
+  ['settype',['setType',['../class_contact_sensor.html#a5703c63a0d16fe0e37031424304b2f78',1,'ContactSensor::setType()'],['../class_hit_sensor.html#a4187a922eadf498d2c6f1c8996e9f9e9',1,'HitSensor::setType()']]],
+  ['setwidth',['setWidth',['../class_ladder.html#a8bba0a4f1a03b5658e8dfc5c15784364',1,'Ladder']]],
+  ['shapeb2',['shapeB2',['../class_ladder.html#a52c71e95dbac0baa2326edfd0c6ee979',1,'Ladder::shapeB2()'],['../class_liquid.html#ace728d858717dda038fd68941f0b497d',1,'Liquid::shapeB2()'],['../class_liquid.html#af1f88fbd7bb027d4149f3fde92ec36ff',1,'Liquid::shapeB2() const'],['../class_spikes.html#a0b40e249d8e3e147a05493ab23c3a384',1,'Spikes::shapeB2()'],['../class_platform.html#a47d65c6a338fe99bd1a7ededb5f46ae2',1,'Platform::shapeB2()'],['../class_platform.html#a36307688a5ed5060e5c675919a10a65a',1,'Platform::shapeB2() const']]],
+  ['shapesf',['shapeSF',['../class_ladder.html#a9e1daeb78223318192f6ff93fe04e912',1,'Ladder::shapeSF()'],['../class_liquid.html#a36267d666ad260697af7d5159dbbfb10',1,'Liquid::shapeSF()'],['../class_liquid.html#a6920a163722947092465cb1464154b54',1,'Liquid::shapeSF() const'],['../class_spikes.html#ac112b74ade24b70266e5fb92d781d8ce',1,'Spikes::shapeSF()'],['../class_platform.html#ae9b215059f632709d0a79defed170d77',1,'Platform::shapeSF()'],['../class_platform.html#a9d099d52d0742f0b4241bb17f5f7b879',1,'Platform::shapeSF() const']]],
+  ['size',['size',['../class_ladder.html#a3287cefcbd5c044c428a36851dadf532',1,'Ladder']]],
+  ['spikes',['spikes',['../class_world.html#a59cdb953cdfc88692702b8e98d919a77',1,'World']]],
+  ['sprite',['sprite',['../class_sprite_animator.html#a09abe7bb11b2c98e9734f31c79ee9c64',1,'SpriteAnimator']]],
+  ['stop',['stop',['../class_sprite_animator.html#a3f7972e4ca710adb63d9b0295af1a4a1',1,'SpriteAnimator']]]
 ];

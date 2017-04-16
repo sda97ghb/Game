@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['mage_2eh',['Mage.h',['../_mage_8h.html',1,'']]],
-  ['maploader_2eh',['MapLoader.h',['../_map_loader_8h.html',1,'']]],
-  ['mousecontroller_2eh',['MouseController.h',['../_mouse_controller_8h.html',1,'']]]
+  ['sensorlistener_2eh',['SensorListener.h',['../_sensor_listener_8h.html',1,'']]],
+  ['spikes_2eh',['Spikes.h',['../_spikes_8h.html',1,'']]],
+  ['spriteanimator_2eh',['SpriteAnimator.h',['../_sprite_animator_8h.html',1,'']]]
 ];

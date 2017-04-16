@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game: Класс SpriteAnimator</title>
+<title>Arena: Класс SpriteAnimator</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game
+   <div id="projectname">Arena
    </div>
   </td>
  </tr>
@@ -85,15 +85,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a09abe7bb11b2c98e9734f31c79ee9c64"><td class="memItemLeft" align="right" valign="top"><a id="a09abe7bb11b2c98e9734f31c79ee9c64"></a>
-sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>sprite</b> ()</td></tr>
+sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#a09abe7bb11b2c98e9734f31c79ee9c64">sprite</a> ()</td></tr>
+<tr class="memdesc:a09abe7bb11b2c98e9734f31c79ee9c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает заготовку спрайта с наложенной текстурой текущего кадра. <br /></td></tr>
 <tr class="separator:a09abe7bb11b2c98e9734f31c79ee9c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa65b39f21c4556c01065a63bc22c3583"><td class="memItemLeft" align="right" valign="top"><a id="aa65b39f21c4556c01065a63bc22c3583"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#aa65b39f21c4556c01065a63bc22c3583">setTexture</a> (const std::string &amp;filename)</td></tr>
 <tr class="memdesc:aa65b39f21c4556c01065a63bc22c3583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает текстуру, из которой потом будут выбираться группы <br /></td></tr>
 <tr class="separator:aa65b39f21c4556c01065a63bc22c3583"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8207139f5e5329e6d421ae2b184c4fa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#a8207139f5e5329e6d421ae2b184c4fa8">setAnimationGroup</a> (const std::string &amp;name, int x, int y, int frameWidth, int frameHeight, int numberOfFrames, bool isHorizontal=true)</td></tr>
-<tr class="memdesc:a8207139f5e5329e6d421ae2b184c4fa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет или изменяет группу анимации.  <a href="#a8207139f5e5329e6d421ae2b184c4fa8">Подробнее...</a><br /></td></tr>
-<tr class="separator:a8207139f5e5329e6d421ae2b184c4fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afae911d5360b14d4a4e9509c76b72333"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#afae911d5360b14d4a4e9509c76b72333">setAnimationGroup</a> (const std::string &amp;name, int x, int y, int frameWidth, int frameHeight, int numberOfFrames=1, Orientation orientation=Orientation::horizontal)</td></tr>
+<tr class="memdesc:afae911d5360b14d4a4e9509c76b72333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет или изменяет группу анимации.  <a href="#afae911d5360b14d4a4e9509c76b72333">Подробнее...</a><br /></td></tr>
+<tr class="separator:afae911d5360b14d4a4e9509c76b72333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0ef1f2d0bc661a88943b6e128e4938e"><td class="memItemLeft" align="right" valign="top"><a id="ae0ef1f2d0bc661a88943b6e128e4938e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#ae0ef1f2d0bc661a88943b6e128e4938e">setCurrentGroup</a> (const std::string &amp;groupname)</td></tr>
 <tr class="memdesc:ae0ef1f2d0bc661a88943b6e128e4938e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавлиает зацикленное воспроизведение указанной группы. <br /></td></tr>
@@ -102,6 +103,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#ab3335114fd8f9f05a50130f5a154b579">playGroup</a> (const std::string &amp;groupname)</td></tr>
 <tr class="memdesc:ab3335114fd8f9f05a50130f5a154b579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Воспроизводит указанную группу один раз и возвращается к предыдущей <br /></td></tr>
 <tr class="separator:ab3335114fd8f9f05a50130f5a154b579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a362e9ad41f8fdd9dada66a72d64b99af"><td class="memItemLeft" align="right" valign="top"><a id="a362e9ad41f8fdd9dada66a72d64b99af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#a362e9ad41f8fdd9dada66a72d64b99af">nextFrame</a> ()</td></tr>
+<tr class="memdesc:a362e9ad41f8fdd9dada66a72d64b99af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переходит к следующему кадру. <br /></td></tr>
+<tr class="separator:a362e9ad41f8fdd9dada66a72d64b99af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c5aa5d8b2c00863d342ee5c766c3a27"><td class="memItemLeft" align="right" valign="top"><a id="a5c5aa5d8b2c00863d342ee5c766c3a27"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#a5c5aa5d8b2c00863d342ee5c766c3a27">update</a> ()</td></tr>
 <tr class="memdesc:a5c5aa5d8b2c00863d342ee5c766c3a27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Если с предыдущего обновления прошло достаточно времени переходит к следующему кадру. <br /></td></tr>
@@ -110,6 +115,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#a66fdf4d62b774b1f2656d3b960681fee">currentGroup</a> () const</td></tr>
 <tr class="memdesc:a66fdf4d62b774b1f2656d3b960681fee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Имя текущей группы. <br /></td></tr>
 <tr class="separator:a66fdf4d62b774b1f2656d3b960681fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f7972e4ca710adb63d9b0295af1a4a1"><td class="memItemLeft" align="right" valign="top"><a id="a3f7972e4ca710adb63d9b0295af1a4a1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#a3f7972e4ca710adb63d9b0295af1a4a1">stop</a> ()</td></tr>
+<tr class="memdesc:a3f7972e4ca710adb63d9b0295af1a4a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Останавливает аниматор. <br /></td></tr>
+<tr class="separator:a3f7972e4ca710adb63d9b0295af1a4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Закрытые члены</h2></td></tr>
@@ -117,10 +126,6 @@ const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a cl
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#aac8678e89c322a7bdf10b46df97a344c">restoreGroup</a> ()</td></tr>
 <tr class="memdesc:aac8678e89c322a7bdf10b46df97a344c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращается к предыдущей группе. <br /></td></tr>
 <tr class="separator:aac8678e89c322a7bdf10b46df97a344c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a362e9ad41f8fdd9dada66a72d64b99af"><td class="memItemLeft" align="right" valign="top"><a id="a362e9ad41f8fdd9dada66a72d64b99af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#a362e9ad41f8fdd9dada66a72d64b99af">nextFrame</a> ()</td></tr>
-<tr class="memdesc:a362e9ad41f8fdd9dada66a72d64b99af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переходит к следующему кадру. <br /></td></tr>
-<tr class="separator:a362e9ad41f8fdd9dada66a72d64b99af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Закрытые данные</h2></td></tr>
@@ -160,12 +165,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 sf::Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sprite_animator.html#a5212e318765a0a8f91cb54cd54bd4447">_clock</a></td></tr>
 <tr class="memdesc:a5212e318765a0a8f91cb54cd54bd4447"><td class="mdescLeft">&#160;</td><td class="mdescRight">Таймер, для рассчета задержки. <br /></td></tr>
 <tr class="separator:a5212e318765a0a8f91cb54cd54bd4447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae78c50990a2b39c8efbe7848ff9b4be9"><td class="memItemLeft" align="right" valign="top"><a id="ae78c50990a2b39c8efbe7848ff9b4be9"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_isStopped</b></td></tr>
+<tr class="separator:ae78c50990a2b39c8efbe7848ff9b4be9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Класс, ответственный за анимацию спрайтов. </p>
 </div><h2 class="groupheader">Методы</h2>
-<a id="a8207139f5e5329e6d421ae2b184c4fa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8207139f5e5329e6d421ae2b184c4fa8">&#9670;&nbsp;</a></span>setAnimationGroup()</h2>
+<a id="afae911d5360b14d4a4e9509c76b72333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae911d5360b14d4a4e9509c76b72333">&#9670;&nbsp;</a></span>setAnimationGroup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,13 +212,13 @@ sf::Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numberOfFrames</em>, </td>
+          <td class="paramname"><em>numberOfFrames</em> = <code>1</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>isHorizontal</em> = <code>true</code>&#160;</td>
+          <td class="paramtype">Orientation&#160;</td>
+          <td class="paramname"><em>orientation</em> = <code>Orientation::horizontal</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -236,8 +244,8 @@ sf::Clock&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href=
 </div>
 </div>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
-<li>Game/<a class="el" href="_sprite_animator_8h_source.html">SpriteAnimator.h</a></li>
-<li>Game/SpriteAnimator.cpp</li>
+<li>Arena/<a class="el" href="_sprite_animator_8h_source.html">SpriteAnimator.h</a></li>
+<li>Arena/SpriteAnimator.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

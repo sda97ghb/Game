@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game: Класс Cable</title>
+<title>Arena: Класс Cable</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game
+   <div id="projectname">Arena
    </div>
   </td>
  </tr>
@@ -60,12 +60,18 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
 <a href="#pri-attribs">Закрытые данные</a> &#124;
 <a href="class_cable-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
 <div class="title">Класс Cable</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Класс троса, растянутого между двумя точками.  
+ <a href="class_cable.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_cable_8h_source.html">Cable.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:Cable:</div>
 <div class="dyncontent">
@@ -79,14 +85,15 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a0b56bdb65581089766cdbc798bb09fc5"><td class="memItemLeft" align="right" valign="top"><a id="a0b56bdb65581089766cdbc798bb09fc5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setBegin</b> (float x, float y)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#a0b56bdb65581089766cdbc798bb09fc5">setBegin</a> (float x, float y)</td></tr>
+<tr class="memdesc:a0b56bdb65581089766cdbc798bb09fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает начальную точку троса. <br /></td></tr>
 <tr class="separator:a0b56bdb65581089766cdbc798bb09fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36ef331ea05406172eb45e99e6634b2d"><td class="memItemLeft" align="right" valign="top"><a id="a36ef331ea05406172eb45e99e6634b2d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEnd</b> (float x, float y)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#a36ef331ea05406172eb45e99e6634b2d">setEnd</a> (float x, float y)</td></tr>
+<tr class="memdesc:a36ef331ea05406172eb45e99e6634b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает конечную точку троса. <br /></td></tr>
 <tr class="separator:a36ef331ea05406172eb45e99e6634b2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8084c64f809a9acee7c7e8bd57b1485e"><td class="memItemLeft" align="right" valign="top"><a id="a8084c64f809a9acee7c7e8bd57b1485e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#a8084c64f809a9acee7c7e8bd57b1485e">testPlayerOnIt</a> ()</td></tr>
-<tr class="memdesc:a8084c64f809a9acee7c7e8bd57b1485e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, если игрок находится перед объектом, то совершает определенное действие, в зависимости от конкретного объекта взаимодействия. <br /></td></tr>
+<tr class="memitem:a8084c64f809a9acee7c7e8bd57b1485e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#a8084c64f809a9acee7c7e8bd57b1485e">testPlayerOnIt</a> ()</td></tr>
+<tr class="memdesc:a8084c64f809a9acee7c7e8bd57b1485e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет взаимодействие с игроком.  <a href="#a8084c64f809a9acee7c7e8bd57b1485e">Подробнее...</a><br /></td></tr>
 <tr class="separator:a8084c64f809a9acee7c7e8bd57b1485e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a569b451989b738c5a6c696b2c64e8bee"><td class="memItemLeft" align="right" valign="top"><a id="a569b451989b738c5a6c696b2c64e8bee"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>x1</b> () const</td></tr>
@@ -110,24 +117,76 @@ sf::Texture &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 <tr class="memdesc:a554bb387b706e62ddfc5eae561c84707 inherit pub_methods_class_furniture"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ссылку на текстуру. <br /></td></tr>
 <tr class="separator:a554bb387b706e62ddfc5eae561c84707 inherit pub_methods_class_furniture"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a46f386922c76504fc07c3ac553d4908e"><td class="memItemLeft" align="right" valign="top"><a id="a46f386922c76504fc07c3ac553d4908e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#a46f386922c76504fc07c3ac553d4908e">setShape</a> ()</td></tr>
+<tr class="memdesc:a46f386922c76504fc07c3ac553d4908e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рассчитывает и устанавливает физическую форму лестницы. <br /></td></tr>
+<tr class="separator:a46f386922c76504fc07c3ac553d4908e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Закрытые данные</h2></td></tr>
 <tr class="memitem:a45097d6414d96fb8ec72e218a47900b9"><td class="memItemLeft" align="right" valign="top"><a id="a45097d6414d96fb8ec72e218a47900b9"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>_x1</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#a45097d6414d96fb8ec72e218a47900b9">_x1</a></td></tr>
+<tr class="memdesc:a45097d6414d96fb8ec72e218a47900b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Координата начала по X. <br /></td></tr>
 <tr class="separator:a45097d6414d96fb8ec72e218a47900b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7e9e7b0e54a692933e42caf52d74366"><td class="memItemLeft" align="right" valign="top"><a id="af7e9e7b0e54a692933e42caf52d74366"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>_x2</b></td></tr>
-<tr class="separator:af7e9e7b0e54a692933e42caf52d74366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1336bdf7e2341cabda6d6cd13afce97"><td class="memItemLeft" align="right" valign="top"><a id="ae1336bdf7e2341cabda6d6cd13afce97"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>_y1</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#ae1336bdf7e2341cabda6d6cd13afce97">_y1</a></td></tr>
+<tr class="memdesc:ae1336bdf7e2341cabda6d6cd13afce97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Координата начала по Y. <br /></td></tr>
 <tr class="separator:ae1336bdf7e2341cabda6d6cd13afce97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7e9e7b0e54a692933e42caf52d74366"><td class="memItemLeft" align="right" valign="top"><a id="af7e9e7b0e54a692933e42caf52d74366"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#af7e9e7b0e54a692933e42caf52d74366">_x2</a></td></tr>
+<tr class="memdesc:af7e9e7b0e54a692933e42caf52d74366"><td class="mdescLeft">&#160;</td><td class="mdescRight">Координата конца по X. <br /></td></tr>
+<tr class="separator:af7e9e7b0e54a692933e42caf52d74366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74cd0594d5da61486554d1af5b56a733"><td class="memItemLeft" align="right" valign="top"><a id="a74cd0594d5da61486554d1af5b56a733"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>_y2</b></td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#a74cd0594d5da61486554d1af5b56a733">_y2</a></td></tr>
+<tr class="memdesc:a74cd0594d5da61486554d1af5b56a733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Координата конца по Y. <br /></td></tr>
 <tr class="separator:a74cd0594d5da61486554d1af5b56a733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80f65b5cc17729930775bd610a0abe22"><td class="memItemLeft" align="right" valign="top"><a id="a80f65b5cc17729930775bd610a0abe22"></a>
+b2PolygonShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#a80f65b5cc17729930775bd610a0abe22">_shapeB2</a></td></tr>
+<tr class="memdesc:a80f65b5cc17729930775bd610a0abe22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Физическая фигура троса. <br /></td></tr>
+<tr class="separator:a80f65b5cc17729930775bd610a0abe22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae76cc791aad5112878ee54d5b1709ac5"><td class="memItemLeft" align="right" valign="top"><a id="ae76cc791aad5112878ee54d5b1709ac5"></a>
+sf::ConvexShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cable.html#ae76cc791aad5112878ee54d5b1709ac5">_shapeSF</a></td></tr>
+<tr class="memdesc:ae76cc791aad5112878ee54d5b1709ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Графическая фигура троса. <br /></td></tr>
+<tr class="separator:ae76cc791aad5112878ee54d5b1709ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс троса, растянутого между двумя точками. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a8084c64f809a9acee7c7e8bd57b1485e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8084c64f809a9acee7c7e8bd57b1485e">&#9670;&nbsp;</a></span>testPlayerOnIt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Cable::testPlayerOnIt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет взаимодействие с игроком. </p>
+<p>Если взаимодействует, то останавливает игрока, при зажатой кнопке влево или вправо поднимает или опускает соответственно. Переключает анимацию на лазание. </p>
+
+<p>Замещает <a class="el" href="class_furniture.html#a60240c8acb697ee763db94268772836c">Furniture</a>.</p>
+
+</div>
+</div>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
-<li>Game/<a class="el" href="_cable_8h_source.html">Cable.h</a></li>
-<li>Game/Cable.cpp</li>
+<li>Arena/Furniture/<a class="el" href="_cable_8h_source.html">Cable.h</a></li>
+<li>Arena/Furniture/Cable.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

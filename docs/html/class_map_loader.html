@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game: Класс MapLoader</title>
+<title>Arena: Класс MapLoader</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game
+   <div id="projectname">Arena
    </div>
   </td>
  </tr>
@@ -58,12 +58,178 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="class_map_loader-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
 <div class="title">Класс MapLoader</div>  </div>
 </div><!--header-->
 <div class="contents">
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
-<li>Game/<a class="el" href="_map_loader_8h_source.html">MapLoader.h</a></li>
+
+<p>Загрузчик карты.  
+ <a href="class_map_loader.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_map_loader_8h_source.html">MapLoader.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_map_loader_1_1_no_child_element_exception.html">NoChildElementException</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a4a915ad69fe65729b7015abb6b18de5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a4a915ad69fe65729b7015abb6b18de5d">loadFromFile</a> (std::string filename)</td></tr>
+<tr class="memdesc:a4a915ad69fe65729b7015abb6b18de5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает карту из файла сохранения.  <a href="#a4a915ad69fe65729b7015abb6b18de5d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a4a915ad69fe65729b7015abb6b18de5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4b88dfbb83d3a8104f72c51e9ccf490"><td class="memItemLeft" align="right" valign="top"><a id="ae4b88dfbb83d3a8104f72c51e9ccf490"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#ae4b88dfbb83d3a8104f72c51e9ccf490">loadGround</a> (const tinyxml2::XMLElement &amp;groundElem)</td></tr>
+<tr class="memdesc:ae4b88dfbb83d3a8104f72c51e9ccf490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает фон и платформы. <br /></td></tr>
+<tr class="separator:ae4b88dfbb83d3a8104f72c51e9ccf490"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2274bacaad37397988737f34675ec374"><td class="memItemLeft" align="right" valign="top"><a id="a2274bacaad37397988737f34675ec374"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a2274bacaad37397988737f34675ec374">loadBackground</a> (const tinyxml2::XMLElement &amp;backgroundElem)</td></tr>
+<tr class="memdesc:a2274bacaad37397988737f34675ec374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает фоновое изображение. <br /></td></tr>
+<tr class="separator:a2274bacaad37397988737f34675ec374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09bc9e2524d8f140845f6f9936f10cdd"><td class="memItemLeft" align="right" valign="top"><a id="a09bc9e2524d8f140845f6f9936f10cdd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a09bc9e2524d8f140845f6f9936f10cdd">loadPlatform</a> (const tinyxml2::XMLElement &amp;platformElem)</td></tr>
+<tr class="memdesc:a09bc9e2524d8f140845f6f9936f10cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает платформу. <br /></td></tr>
+<tr class="separator:a09bc9e2524d8f140845f6f9936f10cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a925c20208ecb3afeed4e653f8d4a9fb8"><td class="memItemLeft" align="right" valign="top"><a id="a925c20208ecb3afeed4e653f8d4a9fb8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a925c20208ecb3afeed4e653f8d4a9fb8">loadFurniture</a> (const tinyxml2::XMLElement &amp;furnitureElem)</td></tr>
+<tr class="memdesc:a925c20208ecb3afeed4e653f8d4a9fb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает Фурнитуру. <br /></td></tr>
+<tr class="separator:a925c20208ecb3afeed4e653f8d4a9fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa501b462a7ab9d726ffc20b35073ee8"><td class="memItemLeft" align="right" valign="top"><a id="afa501b462a7ab9d726ffc20b35073ee8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#afa501b462a7ab9d726ffc20b35073ee8">loadLadder</a> (const tinyxml2::XMLElement &amp;ladderElem)</td></tr>
+<tr class="memdesc:afa501b462a7ab9d726ffc20b35073ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает лестницу. <br /></td></tr>
+<tr class="separator:afa501b462a7ab9d726ffc20b35073ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeba71702754f0ff40e0ff5f781225b57"><td class="memItemLeft" align="right" valign="top"><a id="aeba71702754f0ff40e0ff5f781225b57"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#aeba71702754f0ff40e0ff5f781225b57">loadCable</a> (const tinyxml2::XMLElement &amp;cableElem)</td></tr>
+<tr class="memdesc:aeba71702754f0ff40e0ff5f781225b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает трос. <br /></td></tr>
+<tr class="separator:aeba71702754f0ff40e0ff5f781225b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bae96fe4c02dd08148e71bf532df0bd"><td class="memItemLeft" align="right" valign="top"><a id="a5bae96fe4c02dd08148e71bf532df0bd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a5bae96fe4c02dd08148e71bf532df0bd">loadRope</a> (const tinyxml2::XMLElement &amp;ropeElem)</td></tr>
+<tr class="memdesc:a5bae96fe4c02dd08148e71bf532df0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает канат. <br /></td></tr>
+<tr class="separator:a5bae96fe4c02dd08148e71bf532df0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af55fdcab049c4ad6e93f87381fc6edd4"><td class="memItemLeft" align="right" valign="top"><a id="af55fdcab049c4ad6e93f87381fc6edd4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#af55fdcab049c4ad6e93f87381fc6edd4">loadSpikes</a> (const tinyxml2::XMLElement &amp;spikesElem)</td></tr>
+<tr class="memdesc:af55fdcab049c4ad6e93f87381fc6edd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает шипы. <br /></td></tr>
+<tr class="separator:af55fdcab049c4ad6e93f87381fc6edd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c223cf787f4be5cc2984716296da081"><td class="memItemLeft" align="right" valign="top"><a id="a1c223cf787f4be5cc2984716296da081"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a1c223cf787f4be5cc2984716296da081">loadFallingGround</a> (const tinyxml2::XMLElement &amp;fallingGroundElem)</td></tr>
+<tr class="memdesc:a1c223cf787f4be5cc2984716296da081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает осыпающуюся землю. <br /></td></tr>
+<tr class="separator:a1c223cf787f4be5cc2984716296da081"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed78412265ea1ada7147f6998c176e0"><td class="memItemLeft" align="right" valign="top"><a id="a1ed78412265ea1ada7147f6998c176e0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a1ed78412265ea1ada7147f6998c176e0">loadWater</a> (const tinyxml2::XMLElement &amp;waterElem)</td></tr>
+<tr class="memdesc:a1ed78412265ea1ada7147f6998c176e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает водоем. <br /></td></tr>
+<tr class="separator:a1ed78412265ea1ada7147f6998c176e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd487c989014fe02be0abd64a46d3711"><td class="memItemLeft" align="right" valign="top"><a id="afd487c989014fe02be0abd64a46d3711"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#afd487c989014fe02be0abd64a46d3711">loadLava</a> (const tinyxml2::XMLElement &amp;lavaElem)</td></tr>
+<tr class="memdesc:afd487c989014fe02be0abd64a46d3711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает лавоем. <br /></td></tr>
+<tr class="separator:afd487c989014fe02be0abd64a46d3711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85cf33c8b1706713b8f890deeb3244a0"><td class="memItemLeft" align="right" valign="top"><a id="a85cf33c8b1706713b8f890deeb3244a0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a85cf33c8b1706713b8f890deeb3244a0">loadEntity</a> (const tinyxml2::XMLElement &amp;entityElem)</td></tr>
+<tr class="memdesc:a85cf33c8b1706713b8f890deeb3244a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает существо. <br /></td></tr>
+<tr class="separator:a85cf33c8b1706713b8f890deeb3244a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b139cdac2b757850fb29668c8db2335"><td class="memItemLeft" align="right" valign="top"><a id="a1b139cdac2b757850fb29668c8db2335"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a1b139cdac2b757850fb29668c8db2335">loadPlayer</a> (const tinyxml2::XMLElement &amp;playerElem)</td></tr>
+<tr class="memdesc:a1b139cdac2b757850fb29668c8db2335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает игрока. <br /></td></tr>
+<tr class="separator:a1b139cdac2b757850fb29668c8db2335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21a0aa7fbd45741869458cda8ffb03bf"><td class="memItemLeft" align="right" valign="top"><a id="a21a0aa7fbd45741869458cda8ffb03bf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a21a0aa7fbd45741869458cda8ffb03bf">loadPlayerAnimator</a> (<a class="el" href="class_sprite_animator.html">SpriteAnimator</a> &amp;animator)</td></tr>
+<tr class="memdesc:a21a0aa7fbd45741869458cda8ffb03bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает группы анимации для существа. <br /></td></tr>
+<tr class="separator:a21a0aa7fbd45741869458cda8ffb03bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2407ff9062b5fb0b2e8a5021961fa8c"><td class="memItemLeft" align="right" valign="top"><a id="aa2407ff9062b5fb0b2e8a5021961fa8c"></a>
+b2PolygonShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#aa2407ff9062b5fb0b2e8a5021961fa8c">loadPolygonShape</a> (const tinyxml2::XMLElement &amp;shapeElem)</td></tr>
+<tr class="memdesc:aa2407ff9062b5fb0b2e8a5021961fa8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает полигон. <br /></td></tr>
+<tr class="separator:aa2407ff9062b5fb0b2e8a5021961fa8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a797b3e7d0c830fea88aa29343b359618"><td class="memItemLeft" align="right" valign="top"><a id="a797b3e7d0c830fea88aa29343b359618"></a>
+const tinyxml2::XMLElement &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a797b3e7d0c830fea88aa29343b359618">childElement</a> (const std::string elementName, const tinyxml2::XMLElement &amp;parentElement)</td></tr>
+<tr class="memdesc:a797b3e7d0c830fea88aa29343b359618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает дочерний элемент, если он существует. Иначе кидает исключение. <br /></td></tr>
+<tr class="separator:a797b3e7d0c830fea88aa29343b359618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c46064a6abcd9a5e18912682d7a320f"><td class="memItemLeft" align="right" valign="top"><a id="a4c46064a6abcd9a5e18912682d7a320f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a4c46064a6abcd9a5e18912682d7a320f">loadCoordinates</a> (const tinyxml2::XMLElement &amp;coordinatesElem, b2Vec2 &amp;coordinates)</td></tr>
+<tr class="memdesc:a4c46064a6abcd9a5e18912682d7a320f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает координаты. <br /></td></tr>
+<tr class="separator:a4c46064a6abcd9a5e18912682d7a320f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4ccba8a614707a00cbd374bd55c8b57"><td class="memItemLeft" align="right" valign="top"><a id="af4ccba8a614707a00cbd374bd55c8b57"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#af4ccba8a614707a00cbd374bd55c8b57">loadCoordinates</a> (const tinyxml2::XMLElement &amp;coordinatesElem, float &amp;x, float &amp;y1, float &amp;y2)</td></tr>
+<tr class="memdesc:af4ccba8a614707a00cbd374bd55c8b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает координаты. <br /></td></tr>
+<tr class="separator:af4ccba8a614707a00cbd374bd55c8b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47831c8eda1bb636e3a795ae50dd7bb8"><td class="memItemLeft" align="right" valign="top"><a id="a47831c8eda1bb636e3a795ae50dd7bb8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a47831c8eda1bb636e3a795ae50dd7bb8">loadCoordinates</a> (const tinyxml2::XMLElement &amp;coordinatesElem, float &amp;x1, float &amp;x2, float &amp;y1, float &amp;y2)</td></tr>
+<tr class="memdesc:a47831c8eda1bb636e3a795ae50dd7bb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает координаты. <br /></td></tr>
+<tr class="separator:a47831c8eda1bb636e3a795ae50dd7bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a457313891ff3dc47a77392f5362b064e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a457313891ff3dc47a77392f5362b064e">loadTestThings</a> ()</td></tr>
+<tr class="memdesc:a457313891ff3dc47a77392f5362b064e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загружает тестовые предметы НЕ ИЗ ФАЙЛА.  <a href="#a457313891ff3dc47a77392f5362b064e">Подробнее...</a><br /></td></tr>
+<tr class="separator:a457313891ff3dc47a77392f5362b064e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a02148f98b698ac49128a8806659f04aa"><td class="memItemLeft" align="right" valign="top"><a id="a02148f98b698ac49128a8806659f04aa"></a>
+tinyxml2::XMLDocument&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_map_loader.html#a02148f98b698ac49128a8806659f04aa">_document</a></td></tr>
+<tr class="memdesc:a02148f98b698ac49128a8806659f04aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Открытый файл сохранения. <br /></td></tr>
+<tr class="separator:a02148f98b698ac49128a8806659f04aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Загрузчик карты. </p>
+<p>Загружает карту из файла. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a4a915ad69fe65729b7015abb6b18de5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a915ad69fe65729b7015abb6b18de5d">&#9670;&nbsp;</a></span>loadFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapLoader::loadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Загружает карту из файла сохранения. </p>
+<p>Смотрите "Формат уровней. XML стандарт" для получения информации о формате карт. </p>
+
+</div>
+</div>
+<a id="a457313891ff3dc47a77392f5362b064e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457313891ff3dc47a77392f5362b064e">&#9670;&nbsp;</a></span>loadTestThings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MapLoader::loadTestThings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Загружает тестовые предметы НЕ ИЗ ФАЙЛА. </p>
+<dl class="section note"><dt>Заметки</dt><dd>Нужна исключительно для отладки. </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Arena/<a class="el" href="_map_loader_8h_source.html">MapLoader.h</a></li>
+<li>Arena/MapLoader.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

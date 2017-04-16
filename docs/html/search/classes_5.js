@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imagescaler',['ImageScaler',['../class_image_scaler.html',1,'']]]
+  ['iddispenser',['IdDispenser',['../class_id_dispenser.html',1,'']]]
 ];

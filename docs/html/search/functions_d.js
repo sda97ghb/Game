@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['platforms',['platforms',['../class_world.html#ab8afdf32dda7bd712ac066a0172d63c5',1,'World']]],
-  ['player',['player',['../class_world.html#ad1513a7fa5928fec81164d50951a8674',1,'World']]],
-  ['playgroup',['playGroup',['../class_sprite_animator.html#ab3335114fd8f9f05a50130f5a154b579',1,'SpriteAnimator']]],
-  ['processkeyboard',['processKeyboard',['../class_keyboard_controller.html#ab029788d3fb2ae3f022421d4bd175ff8',1,'KeyboardController']]],
-  ['processmouse',['processMouse',['../class_mouse_controller.html#a34daf70dd7288a1ce62759e8a01829a2',1,'MouseController']]],
-  ['punch',['punch',['../class_player.html#a3c155db013778de34c0235521e387f22',1,'Player']]],
-  ['push',['push',['../class_log.html#a46b2eaf421b93a06ee4a6aad9318bc6c',1,'Log']]]
+  ['testplayeronit',['testPlayerOnIt',['../class_cable.html#a8084c64f809a9acee7c7e8bd57b1485e',1,'Cable::testPlayerOnIt()'],['../class_falling_ground.html#ac265d5f9896aeb27b4957a57cb517783',1,'FallingGround::testPlayerOnIt()'],['../class_furniture.html#a60240c8acb697ee763db94268772836c',1,'Furniture::testPlayerOnIt()'],['../class_ladder.html#a4b9bda039c34390de011507b54d9a263',1,'Ladder::testPlayerOnIt()'],['../class_lava.html#aff3e66f1c072655105a5c2d6fbd4ad34',1,'Lava::testPlayerOnIt()'],['../class_liquid.html#aec010c8bb9103b662520e896cca73173',1,'Liquid::testPlayerOnIt()'],['../class_spikes.html#a3e3622271df7a76b0bd41c80335ebe6e',1,'Spikes::testPlayerOnIt()'],['../class_water.html#a6d1ee944e736fd5a9cc340585d9c7b23',1,'Water::testPlayerOnIt()']]],
+  ['texture',['texture',['../class_furniture.html#a554bb387b706e62ddfc5eae561c84707',1,'Furniture::texture()'],['../class_platform.html#afe1a434252bc1bd0da2f213eef3538ac',1,'Platform::texture()'],['../class_platform.html#a6a9c4f4baa736f96c9ce4b9ea11cdf45',1,'Platform::texture() const']]],
+  ['textureback',['textureBack',['../class_liquid.html#a853bfe3afa1d64fa92e3f1a961688046',1,'Liquid::textureBack()'],['../class_liquid.html#a53fbf6a23ff42a62ce7ad35219df041a',1,'Liquid::textureBack() const']]],
+  ['type',['type',['../class_contact_sensor.html#ae2856611b98f6512de2e26a2a9fbb2b8',1,'ContactSensor::type()'],['../class_hit_sensor.html#a7fbc8a95cae679638dd23df28cc91fe2',1,'HitSensor::type()']]]
 ];

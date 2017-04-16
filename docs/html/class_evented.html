@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Класс Evented</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="class_evented-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Evented</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:Evented:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_evented.png" usemap="#Evented_map" alt=""/>
+  <map id="Evented_map" name="Evented_map">
+<area href="class_entity.html" alt="Entity" shape="rect" coords="156,56,250,80"/>
+<area href="class_animalia.html" alt="Animalia" shape="rect" coords="104,112,198,136"/>
+<area href="class_arrow.html" alt="Arrow" shape="rect" coords="208,112,302,136"/>
+<area href="class_archer.html" alt="Archer" shape="rect" coords="0,168,94,192"/>
+<area href="class_player.html" alt="Player" shape="rect" coords="104,168,198,192"/>
+<area href="class_test_final_entity.html" alt="TestFinalEntity" shape="rect" coords="208,168,302,192"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a9252218e68b00a45c820f0014b708e09"><td class="memItemLeft" align="right" valign="top"><a id="a9252218e68b00a45c820f0014b708e09"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setEventCallback</b> (const Event &amp;event, EventCallback callback)</td></tr>
+<tr class="separator:a9252218e68b00a45c820f0014b708e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac1b4fb56ef936b255f7ac87dfab7219"><td class="memItemLeft" align="right" valign="top"><a id="aac1b4fb56ef936b255f7ac87dfab7219"></a>
+const EventCallback &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>eventCallback</b> (const Event &amp;event) const</td></tr>
+<tr class="separator:aac1b4fb56ef936b255f7ac87dfab7219"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bb92a79828a96707f22de32360de7c6"><td class="memItemLeft" align="right" valign="top"><a id="a3bb92a79828a96707f22de32360de7c6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>callEventCallback</b> (const Event &amp;event)</td></tr>
+<tr class="separator:a3bb92a79828a96707f22de32360de7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a796cfe04ea12272dbef00c9ac6b00c79"><td class="memItemLeft" align="right" valign="top"><a id="a796cfe04ea12272dbef00c9ac6b00c79"></a>
+std::map&lt; Event, EventCallback &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_events</b></td></tr>
+<tr class="separator:a796cfe04ea12272dbef00c9ac6b00c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Arena/Entity/<a class="el" href="_evented_8h_source.html">Evented.h</a></li>
+<li>Arena/Entity/Evented.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

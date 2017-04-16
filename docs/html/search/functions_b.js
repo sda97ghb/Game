@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['makedamage',['makeDamage',['../class_entity.html#a9999426fa99a1fe0a59a61c5dd87ae65',1,'Entity']]],
-  ['mana',['mana',['../class_entity.html#a46566ae3fd47b62d48e371bd3c9cc40f',1,'Entity']]],
-  ['maxhealth',['maxHealth',['../class_entity.html#ae78f4fb8e15d79c402de3b1064a43974',1,'Entity']]],
-  ['maxmana',['maxMana',['../class_entity.html#a45c5f726a2990c7e7060e5e564b9e3ce',1,'Entity']]]
+  ['registrysensor',['registrySensor',['../class_sensor_listener.html#a3613f123863cdd914103ab1c0ab56d20',1,'SensorListener::registrySensor(ContactSensor &amp;sensor)'],['../class_sensor_listener.html#a14efa64a72266a336425d87185931a50',1,'SensorListener::registrySensor(HitSensor &amp;sensor)']]],
+  ['removeobject',['removeObject',['../class_object_counter.html#ac37d1f7e8dafea57a2edcb8cd0515b2b',1,'ObjectCounter']]],
+  ['restoregroup',['restoreGroup',['../class_sprite_animator.html#aac8678e89c322a7bdf10b46df97a344c',1,'SpriteAnimator']]]
 ];

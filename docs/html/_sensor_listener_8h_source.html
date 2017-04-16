@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Исходный файл Arena/SensorListener.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e42b35ca24e0aa47a7ae4839066a7370.html">Arena</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SensorListener.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_sensor_listener_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef SENSORLISTENER_H</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define SENSORLISTENER_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Box2D/Dynamics/b2WorldCallbacks.h&quot;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_contact_sensor_8h.html">Arena/Sensors/ContactSensor.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_hit_sensor_8h.html">Arena/Sensors/HitSensor.h</a>&quot;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_sensor_listener.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sensor_listener.html">SensorListener</a> : <span class="keyword">public</span> b2ContactListener</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_sensor_listener.html">SensorListener</a>&amp; <a class="code" href="class_sensor_listener.html#ae619b26698d8813a9a5f19df948755b6">instance</a>();</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sensor_listener.html#a3613f123863cdd914103ab1c0ab56d20">registrySensor</a>(<a class="code" href="class_contact_sensor.html">ContactSensor</a>&amp; sensor);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sensor_listener.html#a3613f123863cdd914103ab1c0ab56d20">registrySensor</a>(<a class="code" href="class_hit_sensor.html">HitSensor</a>&amp; sensor);</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_sensor_listener.html">SensorListener</a>() = <span class="keywordflow">default</span>;</div><div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_sensor_listener.html">SensorListener</a>(<span class="keyword">const</span> <a class="code" href="class_sensor_listener.html">SensorListener</a>&amp;) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> operator= (<span class="keyword">const</span> <a class="code" href="class_sensor_listener.html">SensorListener</a>&amp;) = <span class="keyword">delete</span>;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sensor_listener.html#a14781be069039d1615c04f09b843f446">BeginContact</a>(b2Contact* contact);</div><div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sensor_listener.html#a7dc0f58d97a62d8d18b19d16b11dbe9c">EndContact</a>(b2Contact* contact);</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sensor_listener.html#a1fe569e7067a0934d6b4d23cc916c8f5">setSensor</a>(b2Body* body, <span class="keywordtype">int</span> type, <span class="keywordtype">bool</span> value);</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_sensor_listener.html#ad80c95d5135c6e3b53442eecb48e6d1d">hitSensor</a>(b2Body* body, <span class="keywordtype">int</span> type, <span class="keywordtype">float</span> speed);</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="class_sensor_listener.html#a6a65d6b8155d929090a68c64ac9e985f">   55</a></span>&#160;    std::list&lt;ContactSensor*&gt; <a class="code" href="class_sensor_listener.html#a6a65d6b8155d929090a68c64ac9e985f">_contactSensors</a>; </div><div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="class_sensor_listener.html#a091d15732e14cd8a10c4bf87583d4ba2">   56</a></span>&#160;    std::list&lt;HitSensor*&gt; <a class="code" href="class_sensor_listener.html#a091d15732e14cd8a10c4bf87583d4ba2">_hitSensors</a>; </div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif // SENSORLISTENER_H</span></div><div class="ttc" id="class_contact_sensor_html"><div class="ttname"><a href="class_contact_sensor.html">ContactSensor</a></div><div class="ttdoc">Класс сенсора, реагирующего на контакт с другим телом. (Не путать с HitSensor) </div><div class="ttdef"><b>Definition:</b> ContactSensor.h:14</div></div>
+<div class="ttc" id="class_hit_sensor_html"><div class="ttname"><a href="class_hit_sensor.html">HitSensor</a></div><div class="ttdoc">Сенсор столкновения с другим объектом. (Не путать с ContactSensor) </div><div class="ttdef"><b>Definition:</b> HitSensor.h:21</div></div>
+<div class="ttc" id="class_sensor_listener_html_a091d15732e14cd8a10c4bf87583d4ba2"><div class="ttname"><a href="class_sensor_listener.html#a091d15732e14cd8a10c4bf87583d4ba2">SensorListener::_hitSensors</a></div><div class="ttdeci">std::list&lt; HitSensor * &gt; _hitSensors</div><div class="ttdoc">список всех сенсоров столкновения </div><div class="ttdef"><b>Definition:</b> SensorListener.h:56</div></div>
+<div class="ttc" id="class_sensor_listener_html_a1fe569e7067a0934d6b4d23cc916c8f5"><div class="ttname"><a href="class_sensor_listener.html#a1fe569e7067a0934d6b4d23cc916c8f5">SensorListener::setSensor</a></div><div class="ttdeci">void setSensor(b2Body *body, int type, bool value)</div><div class="ttdoc">Переводит сенсор с указаннымим параметрами в указанное состояние. </div><div class="ttdef"><b>Definition:</b> SensorListener.cpp:56</div></div>
+<div class="ttc" id="class_sensor_listener_html_a3613f123863cdd914103ab1c0ab56d20"><div class="ttname"><a href="class_sensor_listener.html#a3613f123863cdd914103ab1c0ab56d20">SensorListener::registrySensor</a></div><div class="ttdeci">void registrySensor(ContactSensor &amp;sensor)</div><div class="ttdoc">Регистрирует новый датчик контакта. </div><div class="ttdef"><b>Definition:</b> SensorListener.cpp:11</div></div>
+<div class="ttc" id="_hit_sensor_8h_html"><div class="ttname"><a href="_hit_sensor_8h.html">HitSensor.h</a></div><div class="ttdoc">Содержит класс датчика удара. </div></div>
+<div class="ttc" id="class_sensor_listener_html_a14781be069039d1615c04f09b843f446"><div class="ttname"><a href="class_sensor_listener.html#a14781be069039d1615c04f09b843f446">SensorListener::BeginContact</a></div><div class="ttdeci">void BeginContact(b2Contact *contact)</div><div class="ttdoc">Срабатывает при столкновении любых двух объектов. </div><div class="ttdef"><b>Definition:</b> SensorListener.cpp:21</div></div>
+<div class="ttc" id="class_sensor_listener_html_a7dc0f58d97a62d8d18b19d16b11dbe9c"><div class="ttname"><a href="class_sensor_listener.html#a7dc0f58d97a62d8d18b19d16b11dbe9c">SensorListener::EndContact</a></div><div class="ttdeci">void EndContact(b2Contact *contact)</div><div class="ttdoc">Срабатывает при разлетании двух любых объектов. </div><div class="ttdef"><b>Definition:</b> SensorListener.cpp:44</div></div>
+<div class="ttc" id="class_sensor_listener_html_ae619b26698d8813a9a5f19df948755b6"><div class="ttname"><a href="class_sensor_listener.html#ae619b26698d8813a9a5f19df948755b6">SensorListener::instance</a></div><div class="ttdeci">static SensorListener &amp; instance()</div><div class="ttdoc">Возвращает ссылку на объект класса. </div><div class="ttdef"><b>Definition:</b> SensorListener.cpp:5</div></div>
+<div class="ttc" id="class_sensor_listener_html"><div class="ttname"><a href="class_sensor_listener.html">SensorListener</a></div><div class="ttdoc">Класс, ответственный за срабатывание датчиков при столкновении. </div><div class="ttdef"><b>Definition:</b> SensorListener.h:18</div></div>
+<div class="ttc" id="class_sensor_listener_html_a6a65d6b8155d929090a68c64ac9e985f"><div class="ttname"><a href="class_sensor_listener.html#a6a65d6b8155d929090a68c64ac9e985f">SensorListener::_contactSensors</a></div><div class="ttdeci">std::list&lt; ContactSensor * &gt; _contactSensors</div><div class="ttdoc">список всех сенсоров контакта </div><div class="ttdef"><b>Definition:</b> SensorListener.h:55</div></div>
+<div class="ttc" id="_contact_sensor_8h_html"><div class="ttname"><a href="_contact_sensor_8h.html">ContactSensor.h</a></div><div class="ttdoc">Содержит класс датчика контакта. </div></div>
+<div class="ttc" id="class_sensor_listener_html_ad80c95d5135c6e3b53442eecb48e6d1d"><div class="ttname"><a href="class_sensor_listener.html#ad80c95d5135c6e3b53442eecb48e6d1d">SensorListener::hitSensor</a></div><div class="ttdeci">void hitSensor(b2Body *body, int type, float speed)</div><div class="ttdoc">Вызывает метод удара для указанного сенсора. </div><div class="ttdef"><b>Definition:</b> SensorListener.cpp:66</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

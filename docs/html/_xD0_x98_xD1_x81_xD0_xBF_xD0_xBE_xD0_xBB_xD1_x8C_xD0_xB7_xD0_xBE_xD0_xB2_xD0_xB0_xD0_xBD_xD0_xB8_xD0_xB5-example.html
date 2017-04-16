@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Использование</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Использование</div>  </div>
+</div><!--header-->
+<div class="contents">
+<p>Подсчитывает количество объектов указанного типа и возвращает их список.: In each of your class constructors: </p><div class="fragment"><div class="line"><a name="_a0"></a><a class="code" href="class_object_counter.html">ObjectCounter&lt;your class name&gt;::addObject</a>(<span class="keyword">this</span>); </div></div><!-- fragment --> <pre class="fragment">In your class destructor:
+</pre> <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html">ObjectCounter&lt;your class name&gt;::removeObject</a>(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">   And then in any place where you need:</div><div class="line">       Know count of objects of your <span class="keyword">class</span>:</div><div class="line">           @code <a class="code" href="class_object_counter.html">ObjectCounter&lt;your class name&gt;::count</a>() </div></div><!-- fragment --><p> Get list of all objects of your class: </p><div class="fragment"><div class="line"><a class="code" href="class_object_counter.html">ObjectCounter&lt;your class name&gt;::objects</a>()</div><div class="line">               <span class="comment">// =&gt; std::list&lt;your class name pointer&gt; </span></div></div><!-- fragment --><dl class="section note"><dt>Заметки</dt><dd>: This class can't count the number of objects which don't use addObject and removeObject in their constructors and destructor. This means that you can't count the number of strings or int for example which are used in your program.</dd></dl>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

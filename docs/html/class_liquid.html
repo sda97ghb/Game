@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game: Класс Liquid</title>
+<title>Arena: Класс Liquid</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game
+   <div id="projectname">Arena
    </div>
   </td>
  </tr>
@@ -60,11 +60,17 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
 <a href="class_liquid-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
-<div class="title">Класс Liquid</div>  </div>
+<div class="title">Класс Liquid<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Базовый класс жидкости.  
+ <a href="class_liquid.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_liquid_8h_source.html">Liquid.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:Liquid:</div>
 <div class="dyncontent">
@@ -72,16 +78,48 @@ $(function() {
   <img src="class_liquid.png" usemap="#Liquid_map" alt=""/>
   <map id="Liquid_map" name="Liquid_map">
 <area href="class_furniture.html" title="Базовый класс для всех предметов с которыми может взаимодействовать игрок или которые могут взаимодей..." alt="Furniture" shape="rect" coords="37,0,101,24"/>
-<area href="class_lava.html" alt="Lava" shape="rect" coords="0,112,64,136"/>
-<area href="class_water.html" alt="Water" shape="rect" coords="74,112,138,136"/>
+<area href="class_lava.html" title="Класс лавового озера. " alt="Lava" shape="rect" coords="0,112,64,136"/>
+<area href="class_water.html" title="Класс водоема. " alt="Water" shape="rect" coords="74,112,138,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:afcc1625997c3ac6fa508dc199434ffd1"><td class="memItemLeft" align="right" valign="top"><a id="afcc1625997c3ac6fa508dc199434ffd1"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setShape</b> (std::list&lt; b2Vec2 &gt; vertexes)</td></tr>
-<tr class="separator:afcc1625997c3ac6fa508dc199434ffd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a047cd5c6cfb9291f4e74c1ade4a44d6e"><td class="memItemLeft" align="right" valign="top"><a id="a047cd5c6cfb9291f4e74c1ade4a44d6e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#a047cd5c6cfb9291f4e74c1ade4a44d6e">setShape</a> (const b2PolygonShape &amp;shape)</td></tr>
+<tr class="memdesc:a047cd5c6cfb9291f4e74c1ade4a44d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает форму водоема с жидкостью. <br /></td></tr>
+<tr class="separator:a047cd5c6cfb9291f4e74c1ade4a44d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf032b7b82c587590e49bbcd8596d6d2"><td class="memItemLeft" align="right" valign="top"><a id="adf032b7b82c587590e49bbcd8596d6d2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#adf032b7b82c587590e49bbcd8596d6d2">setTextureBack</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:adf032b7b82c587590e49bbcd8596d6d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает текстуру подложки. <br /></td></tr>
+<tr class="separator:adf032b7b82c587590e49bbcd8596d6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec010c8bb9103b662520e896cca73173"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#aec010c8bb9103b662520e896cca73173">testPlayerOnIt</a> ()=0</td></tr>
+<tr class="memdesc:aec010c8bb9103b662520e896cca73173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает текстуру жидкости, которая рисуется над объектами.  <a href="#aec010c8bb9103b662520e896cca73173">Подробнее...</a><br /></td></tr>
+<tr class="separator:aec010c8bb9103b662520e896cca73173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace728d858717dda038fd68941f0b497d"><td class="memItemLeft" align="right" valign="top"><a id="ace728d858717dda038fd68941f0b497d"></a>
+b2PolygonShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#ace728d858717dda038fd68941f0b497d">shapeB2</a> ()</td></tr>
+<tr class="memdesc:ace728d858717dda038fd68941f0b497d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Физический многоугольник жидкости. <br /></td></tr>
+<tr class="separator:ace728d858717dda038fd68941f0b497d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f88fbd7bb027d4149f3fde92ec36ff"><td class="memItemLeft" align="right" valign="top"><a id="af1f88fbd7bb027d4149f3fde92ec36ff"></a>
+const b2PolygonShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#af1f88fbd7bb027d4149f3fde92ec36ff">shapeB2</a> () const</td></tr>
+<tr class="memdesc:af1f88fbd7bb027d4149f3fde92ec36ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Физический многоугольник жидкости. <br /></td></tr>
+<tr class="separator:af1f88fbd7bb027d4149f3fde92ec36ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36267d666ad260697af7d5159dbbfb10"><td class="memItemLeft" align="right" valign="top"><a id="a36267d666ad260697af7d5159dbbfb10"></a>
+sf::ConvexShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#a36267d666ad260697af7d5159dbbfb10">shapeSF</a> ()</td></tr>
+<tr class="memdesc:a36267d666ad260697af7d5159dbbfb10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Графический многоугольник жидкости. <br /></td></tr>
+<tr class="separator:a36267d666ad260697af7d5159dbbfb10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6920a163722947092465cb1464154b54"><td class="memItemLeft" align="right" valign="top"><a id="a6920a163722947092465cb1464154b54"></a>
+const sf::ConvexShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#a6920a163722947092465cb1464154b54">shapeSF</a> () const</td></tr>
+<tr class="memdesc:a6920a163722947092465cb1464154b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Графический многоугольник жидкости. <br /></td></tr>
+<tr class="separator:a6920a163722947092465cb1464154b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a853bfe3afa1d64fa92e3f1a961688046"><td class="memItemLeft" align="right" valign="top"><a id="a853bfe3afa1d64fa92e3f1a961688046"></a>
+sf::Texture &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#a853bfe3afa1d64fa92e3f1a961688046">textureBack</a> ()</td></tr>
+<tr class="memdesc:a853bfe3afa1d64fa92e3f1a961688046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текстура подложки жидкости. <br /></td></tr>
+<tr class="separator:a853bfe3afa1d64fa92e3f1a961688046"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53fbf6a23ff42a62ce7ad35219df041a"><td class="memItemLeft" align="right" valign="top"><a id="a53fbf6a23ff42a62ce7ad35219df041a"></a>
+const sf::Texture &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#a53fbf6a23ff42a62ce7ad35219df041a">textureBack</a> () const</td></tr>
+<tr class="memdesc:a53fbf6a23ff42a62ce7ad35219df041a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текстура подложки жидкости. <br /></td></tr>
+<tr class="separator:a53fbf6a23ff42a62ce7ad35219df041a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_furniture"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_furniture')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_furniture.html">Furniture</a></td></tr>
 <tr class="memitem:aefcf3dc3d25b166cc16ca9a47b4d1f2c inherit pub_methods_class_furniture"><td class="memItemLeft" align="right" valign="top"><a id="aefcf3dc3d25b166cc16ca9a47b4d1f2c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_furniture.html#aefcf3dc3d25b166cc16ca9a47b4d1f2c">setTexture</a> (const std::string &amp;filename)</td></tr>
@@ -91,13 +129,85 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 sf::Texture &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_furniture.html#a554bb387b706e62ddfc5eae561c84707">texture</a> ()</td></tr>
 <tr class="memdesc:a554bb387b706e62ddfc5eae561c84707 inherit pub_methods_class_furniture"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает ссылку на текстуру. <br /></td></tr>
 <tr class="separator:a554bb387b706e62ddfc5eae561c84707 inherit pub_methods_class_furniture"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60240c8acb697ee763db94268772836c inherit pub_methods_class_furniture"><td class="memItemLeft" align="right" valign="top"><a id="a60240c8acb697ee763db94268772836c"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_furniture.html#a60240c8acb697ee763db94268772836c">testPlayerOnIt</a> ()=0</td></tr>
-<tr class="memdesc:a60240c8acb697ee763db94268772836c inherit pub_methods_class_furniture"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, если игрок находится перед объектом, то совершает определенное действие, в зависимости от конкретного объекта взаимодействия. <br /></td></tr>
-<tr class="separator:a60240c8acb697ee763db94268772836c inherit pub_methods_class_furniture"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a2b443c27f871a1dffa481c0d7a753e76"><td class="memItemLeft" align="right" valign="top">b2PolygonShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#a2b443c27f871a1dffa481c0d7a753e76">_shapeB2</a></td></tr>
+<tr class="memdesc:a2b443c27f871a1dffa481c0d7a753e76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текстура жидкости.  <a href="#a2b443c27f871a1dffa481c0d7a753e76">Подробнее...</a><br /></td></tr>
+<tr class="separator:a2b443c27f871a1dffa481c0d7a753e76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a067f819eb5b602f0d6869d19bf7a2122"><td class="memItemLeft" align="right" valign="top"><a id="a067f819eb5b602f0d6869d19bf7a2122"></a>
+sf::ConvexShape&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#a067f819eb5b602f0d6869d19bf7a2122">_shapeSF</a></td></tr>
+<tr class="memdesc:a067f819eb5b602f0d6869d19bf7a2122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Графический многоугольник жидкости <br /></td></tr>
+<tr class="separator:a067f819eb5b602f0d6869d19bf7a2122"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe6ef39aec48b8a6eae0e5960295fb44"><td class="memItemLeft" align="right" valign="top"><a id="afe6ef39aec48b8a6eae0e5960295fb44"></a>
+sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_liquid.html#afe6ef39aec48b8a6eae0e5960295fb44">_textureBack</a></td></tr>
+<tr class="memdesc:afe6ef39aec48b8a6eae0e5960295fb44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текстура подложки <br /></td></tr>
+<tr class="separator:afe6ef39aec48b8a6eae0e5960295fb44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
-<li>Game/<a class="el" href="_liquid_8h_source.html">Liquid.h</a></li>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Базовый класс жидкости. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="aec010c8bb9103b662520e896cca73173"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec010c8bb9103b662520e896cca73173">&#9670;&nbsp;</a></span>testPlayerOnIt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Liquid::testPlayerOnIt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Устанавливает текстуру жидкости, которая рисуется над объектами. </p>
+<p>Метод взаимодействия с игроком, например плавание для воды. </p>
+
+<p>Замещает <a class="el" href="class_furniture.html#a60240c8acb697ee763db94268772836c">Furniture</a>.</p>
+
+<p>Замещается в <a class="el" href="class_lava.html#aff3e66f1c072655105a5c2d6fbd4ad34">Lava</a> и <a class="el" href="class_water.html#a6d1ee944e736fd5a9cc340585d9c7b23">Water</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a2b443c27f871a1dffa481c0d7a753e76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b443c27f871a1dffa481c0d7a753e76">&#9670;&nbsp;</a></span>_shapeB2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">b2PolygonShape Liquid::_shapeB2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Текстура жидкости. </p>
+<p>Текстура жидкости. Физическая форма жидкости </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Arena/Furniture/<a class="el" href="_liquid_8h_source.html">Liquid.h</a></li>
+<li>Arena/Furniture/Liquid.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
