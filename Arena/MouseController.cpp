@@ -23,13 +23,10 @@ void MouseController::processMousePressed(const sf::Event::MouseButtonEvent& eve
 
         b2Vec2 d = targetPos - playerPos;
         d.Normalize();
-        d *= 1.0f;
+        d *= 1.5f;
 
         playerPos += d;
 
-        ArrowBuilderSpawner()
-                .setPosition(playerPos)
-                .setTarget(targetPos)
-                .spawn();
+        ArrowBuilderSpawner().setPosition(playerPos).setTarget(targetPos).spawn();
     }
 }
