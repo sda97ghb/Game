@@ -42,6 +42,8 @@ public:
 
     void addEntity(Entity* entity);
 
+    void removeEntity(Entity* entity);
+
     /// \brief Метод добавления платформы.
     Platform& createPlatform();
 
@@ -110,6 +112,8 @@ private:
     std::list<Updatable*> _updatebles;
 
     Entity* _player;
+
+    std::list<Entity*> _entitiesToRemove;
 };
 
 #endif // WORLD_H

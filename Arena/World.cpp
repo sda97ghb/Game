@@ -1,4 +1,5 @@
 #include "Arena/GlobalConstants.h"
+#include "Arena/PaintingWindow.h"
 #include "Arena/SensorListener.h"
 #include "Arena/World.h"
 
@@ -38,6 +39,11 @@ void World::addUpdatable(Updatable* updatable)
 void World::addEntity(Entity* entity)
 {
     _entities.push_back(entity);
+}
+
+void World::removeEntity(Entity* entity)
+{
+    _entitiesToRemove.push_back(entity);
 }
 
 Platform& World::createPlatform()
@@ -119,11 +125,6 @@ const std::list<Spikes>& World::spikes() const
 	return _spikes;
 }
 
-//Player& World::player()
-//{
-//    return Player::instance();
-//}
-
 void World::update()
 {
     for (auto& updatable : _updatebles)
@@ -149,6 +150,14 @@ void World::update()
     const int32 positionIterations = 3;
 
     World::physical().Step(timeStep, velocityIterations, positionIterations);
+
+    for (Entity* entity : _entitiesToRemove)
+    {
+        _entities.remove(entity);
+        World::physical().DestroyBody(entity->body());
+        delete entity;
+    }
+    _entitiesToRemove.clear();
 }
 
 void World::setEntityAsPlayer(Entity* entity)

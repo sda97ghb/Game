@@ -3,14 +3,18 @@
 
 #include "Arena/GlobalConstants.h"
 #include "Arena/Log.h"
+#include "Arena/ObjectCounter.h"
 #include "Arena/World.h"
 
 #include "Arena/Entity/Archer.h"
+#include "Arena/Entity/ArrowBuilderSpawner.h"
 
 Archer::Archer()
 {
+    ObjectCounter<Archer>::addObject(this);
+
     setEventCallback(bumpEvent, METHOD_CALLBACK(onBump));
-//    setEventCallback(deathEvent,)
+    setEventCallback(deathEvent, METHOD_CALLBACK(onDeath));
     setEventCallback(gotSightOfPlayerEvent, METHOD_CALLBACK(onGotSightOfPlayer));
 //    setEventCallback(groundHitEvent,)
     setEventCallback(landingEvent, METHOD_CALLBACK(onLanding));
@@ -52,6 +56,11 @@ Archer::Archer()
             });
 
     activateState(lookingAroundState);
+}
+
+Archer::~Archer()
+{
+    ObjectCounter<Archer>::addObject(this);
 }
 
 void Archer::tryToJump()
@@ -160,9 +169,9 @@ void Archer::onLostSightOfPlayer()
 
 void Archer::onUpdate()
 {
-    for (const State& state : complexState())
-        std::cout << state << " ";
-    std::cout << std::endl;
+//    for (const State& state : complexState())
+//        std::cout << state << " ";
+//    std::cout << std::endl;
 
     callComplexStateFunctions();
 }
@@ -190,7 +199,20 @@ void Archer::preparingToStrike()
 void Archer::strike()
 {
     Log::instance().push("Strike!");
-//    World::instance().player().makeDamage(10.0f);
+
+    b2Vec2 myPos = body()->GetPosition();
+
+    Player& player = World::instance().player();
+    b2Vec2 playerPos = player.body()->GetPosition();
+
+    b2Vec2 d = playerPos - myPos;
+    d.Normalize();
+    d *= 1.5f;
+
+    myPos += d;
+
+    ArrowBuilderSpawner().setSpeed(10.0f).setPosition(myPos).setTarget(playerPos).spawn();
+
     activateState(lookingAroundState);
 
     std::cout << "Strike!" << std::endl;
@@ -238,4 +260,10 @@ void Archer::lookingAround()
             setLookingDirection(Direction::left);
         counter = 0;
     }
+}
+
+void Archer::onDeath()
+{
+//    World::instance().removeEntity(this);
+//    markAsDeleted();
 }

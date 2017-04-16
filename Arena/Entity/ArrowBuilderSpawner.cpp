@@ -2,6 +2,7 @@
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
+#include "Arena/ObjectCounter.h"
 #include "Arena/PaintingWindow.h"
 #include "Arena/World.h"
 
@@ -134,4 +135,22 @@ void ArrowBuilderSpawner::constructBody()
 
 void ArrowBuilderSpawner::constructSensors()
 {
+    Arrow* enityPtr = _arrow;
+
+    EnityCollisionSensor& entityCollisionSensor = enityPtr->_entityCollisionSensor;
+    entityCollisionSensor.setSize(width() / 2.0f, height() / 2.0f);
+    entityCollisionSensor.setOnCollisionCallback(
+        [enityPtr] (Entity* entity)
+        {
+            enityPtr->hitEntity(entity);
+        });
+    entityCollisionSensor.hangOnBody(body());
+
+//    entityCollisionSensor.setOnCollisionCallback(
+//        [enityPtr] (b2Body* body)
+//        {
+//            for (Entity* entity : ObjectCounter<Entity>::objects())
+//                if (entity->body() == body)
+//                    enityPtr->hitEntity(entity);
+//        });
 }

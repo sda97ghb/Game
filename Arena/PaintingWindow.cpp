@@ -118,6 +118,13 @@ void PaintingWindow::drawWorld()
     for (EntityView* view : _entityViews)
         draw(view->getSprite());
 
+    for (EntityView* view : _entityViewsToRemove)
+    {
+        _entityViews.remove(view);
+        delete view;
+    }
+    _entityViewsToRemove.clear();
+
     for (const Lava& lavaC : world.lavas())
     {
         Lava& lava = const_cast<Lava&>(lavaC);
@@ -376,4 +383,9 @@ b2Vec2 PaintingWindow::cursorCoordinatesToPhysical(int x, int y)
 void PaintingWindow::addEntityView(EntityView* entityView)
 {
     _entityViews.push_back(entityView);
+}
+
+void PaintingWindow::removeEntityView(EntityView* entityView)
+{
+    _entityViewsToRemove.push_back(entityView);
 }

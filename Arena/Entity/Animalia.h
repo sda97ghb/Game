@@ -9,6 +9,7 @@ class Animalia : public Entity
 {
 public:
     Animalia();
+    virtual ~Animalia();
 
     void kill();
 

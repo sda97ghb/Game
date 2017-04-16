@@ -1,6 +1,11 @@
+#include <iostream>
+
 #include "Box2D/Dynamics/Contacts/b2Contact.h"
 
+#include "Arena/ObjectCounter.h"
 #include "Arena/SensorListener.h"
+
+#include "Arena/Sensors/EnityCollisionSensor.h"
 
 SensorListener& SensorListener::instance()
 {
@@ -39,6 +44,16 @@ void SensorListener::BeginContact(b2Contact* contact)
 
     if (bSensorType != 0)
         hitSensor(contact->GetFixtureB()->GetBody(), bSensorType, speed);
+
+    for (EnityCollisionSensor* sensor : ObjectCounter<EnityCollisionSensor>::objects())
+    {
+        if (sensor->body() == contact->GetFixtureA()->GetBody() &&
+            sensor->type() == aSensorType)
+            sensor->hit(contact->GetFixtureB()->GetBody());
+        if (sensor->body() == contact->GetFixtureB()->GetBody() &&
+            sensor->type() == bSensorType)
+            sensor->hit(contact->GetFixtureA()->GetBody());
+    }
 }
 
 void SensorListener::EndContact(b2Contact* contact)

@@ -174,8 +174,7 @@ void ArcherBuilderSpawner::constructSensors()
     reloadSensor.setOnTimeoutCallback(
         [entityPtr] ()
         {
-//            entityPtr->strike();
-//            entityPtr->callEventCallback(entityPtr->strikeEvent);
+            entityPtr->callEventCallback(entityPtr->readyToStrikeEvent);
         });
     // Not need to hang the sensor on the body.
 }

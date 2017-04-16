@@ -26,6 +26,7 @@ public:
     EVENT(wentButNotFound)
 
     Archer();
+    ~Archer();
 
 private:
     STATE(chasing) // required() incompatible(lookingAround, preparingToStrike)
@@ -58,6 +59,8 @@ private:
     float movementSpeed() const;
 
     void lookingAround();
+
+    void onDeath();
 
     AbyssSensor _abyssSensor;
     ContactSensor _leftContactSensor;

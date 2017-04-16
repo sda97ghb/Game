@@ -1,10 +1,18 @@
-#include "Animalia.h"
+#include "Arena/ObjectCounter.h"
+
+#include "Arena/Entity/Animalia.h"
 
 Animalia::Animalia() :
     _maxHealth(100.0f),
     _currentHealth(_maxHealth),
     _lookingDirection(Direction::left)
 {
+    ObjectCounter<Animalia>::addObject(this);
+}
+
+Animalia::~Animalia()
+{
+    ObjectCounter<Animalia>::removeObject(this);
 }
 
 void Animalia::kill()

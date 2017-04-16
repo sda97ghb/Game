@@ -1,9 +1,20 @@
 #include <iostream>
-#include "Entity.h"
+
+#include "Arena/ObjectCounter.h"
+
+#include "Arena/Entity/Entity.h"
 
 Entity::Entity() :
-    _body(nullptr)
-{}
+    _body(nullptr),
+    _isMarkedAsDeleted(false)
+{
+    ObjectCounter<Entity>::addObject(this);
+}
+
+Entity::~Entity()
+{
+    ObjectCounter<Entity>::removeObject(this);
+}
 
 const b2Vec2& Entity::position() const
 {
@@ -28,4 +39,14 @@ b2Body* Entity::body() const
 void Entity::setBody(b2Body* body)
 {
     _body = body;
+}
+
+void Entity::markAsDeleted()
+{
+    _isMarkedAsDeleted = true;
+}
+
+bool Entity::inMarkedAsDeleted() const
+{
+    return _isMarkedAsDeleted;
 }

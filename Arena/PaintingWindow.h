@@ -90,6 +90,7 @@ public:
     b2Vec2 cursorCoordinatesToPhysical(int x, int y);
 
     void addEntityView(EntityView* entityView);
+    void removeEntityView(EntityView* entityView);
 
 private:
 	/// \brief Создает графическое окно, инициализирует графику.
@@ -109,6 +110,8 @@ private:
 	sf::Font font; ///< Шрифт для лога
 
     std::list<EntityView*> _entityViews;
+
+    std::list<EntityView*> _entityViewsToRemove;
 };
 
 #endif // PAINTER_H
