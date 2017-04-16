@@ -1,9 +1,8 @@
 #include "SFML/Window/Keyboard.hpp"
+#include "SFML/Window/Mouse.hpp"
 
 #include "Arena/KeyboardController.h"
 #include "Arena/World.h"
-
-#include "Arena/Entity/ArrowBuilderSpawner.h"
 
 void KeyboardController::processKeyboard()
 {
@@ -23,18 +22,7 @@ void KeyboardController::processKeyboard()
 //    {
 //    }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-    {
-        static int counter = 0;
-        if (counter++ <= 10)
-            return;
-        counter = 0;
-
-        ArrowBuilderSpawner()
-                .setPosition(World::instance().player().body()->GetPosition())
-//                .setDirection(10.0f / 180.0f * 3.14f)
-                .setTarget(0.0f, 10.0f)
-                .setSpeed(100.0f)
-                .spawn();
-    }
+//    if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+//    {
+//    }
 }

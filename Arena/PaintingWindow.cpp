@@ -7,6 +7,7 @@
 
 #include "Arena/GlobalConstants.h"
 #include "Arena/Log.h"
+#include "Arena/MouseController.h"
 #include "Arena/PaintingWindow.h"
 #include "Arena/World.h"
 
@@ -344,9 +345,32 @@ void PaintingWindow::processEvents()
     sf::Event event;
     while (pollEvent(event))
     {
-        if (event.type == sf::Event::Closed)
-            close();
+        switch (event.type)
+        {
+            case sf::Event::Closed :
+                close();
+                break;
+            case sf::Event::MouseButtonPressed :
+                onMouseButtonPressed(event.mouseButton);
+                break;
+        }
     }
+}
+
+void PaintingWindow::onMouseButtonPressed(const sf::Event::MouseButtonEvent& event)
+{
+    MouseController::processMousePressed(event);
+}
+
+b2Vec2 PaintingWindow::cursorCoordinatesToPhysical(const sf::Vector2i& cursorPos)
+{
+    sf::Vector2f pos = mapPixelToCoords(cursorPos, _worldView);
+    return b2Vec2(pos.x, pos.y);
+}
+
+b2Vec2 PaintingWindow::cursorCoordinatesToPhysical(int x, int y)
+{
+    return cursorCoordinatesToPhysical(sf::Vector2i(x, y));
 }
 
 void PaintingWindow::addEntityView(EntityView* entityView)

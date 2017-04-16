@@ -16,6 +16,8 @@
 #include "SFML/Graphics/Texture.hpp"
 #include "SFML/Graphics/View.hpp"
 
+#include "SFML/Window/Event.hpp"
+
 #include "Arena/Entity/EntityView.h"
 
 #include "Arena/Furniture/Ladder.h"
@@ -80,6 +82,12 @@ public:
 
     /// \brief Вызывает обработчики событий.
     void processEvents();
+
+    /// @brief Обработчик события нажатия кнопки мыши.
+    void onMouseButtonPressed(const sf::Event::MouseButtonEvent& event);
+
+    b2Vec2 cursorCoordinatesToPhysical(const sf::Vector2i& cursorPos);
+    b2Vec2 cursorCoordinatesToPhysical(int x, int y);
 
     void addEntityView(EntityView* entityView);
 

@@ -86,6 +86,7 @@ b2Body* ArrowBuilderSpawner::body()
 void ArrowBuilderSpawner::createBody()
 {
     b2BodyDef bodyDef;
+    bodyDef.bullet = true;
 //    bodyDef.fixedRotation = true;
     bodyDef.position = _position;
     bodyDef.type = b2_dynamicBody;
@@ -101,7 +102,7 @@ void ArrowBuilderSpawner::createBody()
             b2Vec2 d = _target - _position;
             d.Normalize();
 
-            bodyDef.angle = ::atan2f(d.x, d.y);
+            bodyDef.angle = ::atan2f(d.y, d.x);
 
             d *= _speed;
             bodyDef.linearVelocity = d;
