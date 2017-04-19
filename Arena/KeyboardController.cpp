@@ -4,14 +4,16 @@
 #include "Arena/KeyboardController.h"
 #include "Arena/World.h"
 
+#include "Arena/Entity/Player.h"
+
 void KeyboardController::processKeyboard()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        World::instance().player().tryToMoveLeft();
+        World::instance().player()->tryToMoveLeft();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        World::instance().player().tryToMoveRight();
+        World::instance().player()->tryToMoveRight();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-        World::instance().player().tryToJump();
+        World::instance().player()->tryToJump();
 //    if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
 //    {
 //    }

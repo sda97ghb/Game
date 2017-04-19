@@ -3,6 +3,8 @@
 
 #include "Arena/World.h"
 
+#include "Arena/Entity/Player.h"
+
 #include "Arena/Sensors/PlayerSensor.h"
 
 PlayerSensor::PlayerSensor() :
@@ -23,9 +25,11 @@ void PlayerSensor::hangOnBody(b2Body* body)
 
 bool PlayerSensor::canSee()
 {
+    Player& player = *(World::instance().player());
+
     b2RayCastInput input;
     input.p1 = _body->GetPosition();
-    input.p2 = World::instance().player().body()->GetPosition();
+    input.p2 = player.body()->GetPosition();
     input.maxFraction = 1.0f;
     int32 childIndex = 0;
     b2RayCastOutput output;
@@ -34,7 +38,7 @@ bool PlayerSensor::canSee()
          b != nullptr; b = b->GetNext())
     {
         // Dont test body with itself
-        if (b == _body || b == World::instance().player().body())
+        if (b == _body || b == player.body())
             continue;
 
         for (b2Fixture* fixture = b->GetFixtureList();
@@ -51,7 +55,7 @@ bool PlayerSensor::canSee()
 
 bool PlayerSensor::isNearby()
 {
-    return (World::instance().player().body()->GetPosition() -
+    return (World::instance().player()->body()->GetPosition() -
             _body->GetPosition()).Length() < _nearbyDistance;
 }
 

@@ -25,3 +25,8 @@ const sf::Sprite& ArrowView::getSprite()
 
     return _sprite;
 }
+
+const Entity* ArrowView::entity() const
+{
+    return &_arrow;
+}

@@ -1,7 +1,9 @@
 #include <cmath>
+#include <iostream>
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
+#include "Arena/IdDispenser.h"
 #include "Arena/ObjectCounter.h"
 #include "Arena/PaintingWindow.h"
 #include "Arena/World.h"
@@ -64,9 +66,8 @@ void ArrowBuilderSpawner::spawn()
     createBody();
     constructBody();
     constructSensors();
-    World::instance().addEntity(_arrow);
     _arrow->callEventCallback(_arrow->spawnEvent);
-    PaintingWindow::instance().addEntityView(new ArrowView(*_arrow));
+    new ArrowView(*_arrow);
 }
 
 float ArrowBuilderSpawner::width() const
@@ -135,22 +136,32 @@ void ArrowBuilderSpawner::constructBody()
 
 void ArrowBuilderSpawner::constructSensors()
 {
-    Arrow* enityPtr = _arrow;
+    Arrow* entityPtr = _arrow;
 
-    EnityCollisionSensor& entityCollisionSensor = enityPtr->_entityCollisionSensor;
+    EnityCollisionSensor& entityCollisionSensor = entityPtr->_entityCollisionSensor;
     entityCollisionSensor.setSize(width() / 2.0f, height() / 2.0f);
     entityCollisionSensor.setOnCollisionCallback(
-        [enityPtr] (Entity* entity)
+        [entityPtr] (Entity* entity)
         {
-            enityPtr->hitEntity(entity);
+            entityPtr->hitEntity(entity);
         });
     entityCollisionSensor.hangOnBody(body());
 
-//    entityCollisionSensor.setOnCollisionCallback(
-//        [enityPtr] (b2Body* body)
-//        {
-//            for (Entity* entity : ObjectCounter<Entity>::objects())
-//                if (entity->body() == body)
-//                    enityPtr->hitEntity(entity);
+    HitSensor& hitSensor = entityPtr->_hitSensor;
+    hitSensor.setType(IdDispenser::getNewId());
+    hitSensor.setSize(width() / 2.0f, height() / 2.0f);
+    hitSensor.setRequireActivationThreshold(false);
+    hitSensor.setOnHitCallback(
+        [entityPtr] (float)
+        {
+            entityPtr->callEventCallback(entityPtr->hitEvent);
+        });
+    hitSensor.hangOnBody(body());
+
+//    TimerSensor& disapperSensor = entityPtr->_disappearSensor;
+//    disapperSensor.setTime(5000.0f);
+//    disapperSensor.setOnTimeoutCallback(
+//        [entityPtr] () {
+//            entityPtr->disappear();
 //        });
 }

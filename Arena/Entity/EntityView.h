@@ -3,11 +3,17 @@
 
 #include "SFML/Graphics/Sprite.hpp"
 
+class Entity;
+
 class EntityView
 {
 public:
-    virtual ~EntityView() = default;
+    EntityView();
+    virtual ~EntityView();
+
     virtual const sf::Sprite& getSprite() = 0;
+
+    virtual const Entity* entity() const = 0;
 };
 
 #endif // ENTITYVIEW_H

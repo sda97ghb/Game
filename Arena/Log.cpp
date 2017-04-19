@@ -22,7 +22,7 @@ void Log::setLogSize(int logSize)
     _messages.clear();
 }
 
-void Log::push(const std::string& line)
+void Log::addMessage(const std::string& line)
 {
     if (_messages.size() >= _logSize)
         _messages.pop_front();

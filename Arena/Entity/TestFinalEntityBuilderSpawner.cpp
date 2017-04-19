@@ -36,9 +36,8 @@ void TestFinalEntityBuilderSpawner::spawn()
     createBody();
     constructBody();
     constructSensors();
-    World::instance().addEntity(_entity);
     _entity->callEventCallback(_entity->spawnEvent);
-    PaintingWindow::instance().addEntityView(new TestFinalEntityView(*_entity));
+//    PaintingWindow::instance().addEntityView(new TestFinalEntityView(*_entity));
 }
 
 float TestFinalEntityBuilderSpawner::width() const

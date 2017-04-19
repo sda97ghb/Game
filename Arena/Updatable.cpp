@@ -1,7 +1,12 @@
+#include "Arena/ObjectCounter.h"
 #include "Arena/Updatable.h"
-#include "Arena/World.h"
 
 Updatable::Updatable()
 {
-    World::instance().addUpdatable(this);
+    ObjectCounter<Updatable>::addObject(this);
+}
+
+Updatable::~Updatable()
+{
+    ObjectCounter<Updatable>::removeObject(this);
 }

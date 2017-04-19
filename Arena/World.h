@@ -8,11 +8,13 @@
 
 #include "Box2D/Dynamics/b2World.h"
 
-#include "Arena/Platform.h"
 #include "Arena/Updatable.h"
 
-#include "Arena/Entity/Player.h"
-#include "Arena/Entity/Entity.h"
+class Player;
+
+//---- ANCIENT SHIT CESTION BEGIN ----//
+
+#include "Arena/Platform.h"
 
 #include "Arena/Furniture/Cable.h"
 #include "Arena/Furniture/FallingGround.h"
@@ -21,6 +23,8 @@
 #include "Arena/Furniture/Rope.h"
 #include "Arena/Furniture/Spikes.h"
 #include "Arena/Furniture/Water.h"
+
+//---- ANCIENT SHIT CESTION END ----//
 
 /// \brief Класс мира.
 /// \details Хранит физический мир, платформы, объекты взаимодействия,
@@ -36,13 +40,15 @@ public:
     /// \brief Ссылка на объект мира. (не физического, а вообще)
     static World& instance();
 
-    ~World();
+    /// \brief Обновляет мир.
+    void update();
 
-    void addUpdatable(Updatable* updatable);
+    void setPlayer(Player* player);
 
-    void addEntity(Entity* entity);
+    /// \brief Возвращает ссылку на игрока.
+    Player* player();
 
-    void removeEntity(Entity* entity);
+    //---- ANCIENT SHIT CESTION BEGIN ----//
 
     /// \brief Метод добавления платформы.
     Platform& createPlatform();
@@ -80,23 +86,17 @@ public:
 	/// \brief Возвращает константный список всех шипов.
 	const std::list<Spikes>& spikes() const;
 
-//    /// \brief Возвращает ссылку на игрока.
-//    /// \note Вы можете использовать Player::instance() вместо этого
-//    /// метода.
-//    Player& player();
-
-    /// \brief Обновляет мир.
-    void update();
-
-    void setEntityAsPlayer(Entity* entity);
-
-    Player& player();
+    //---- ANCIENT SHIT CESTION END ----//
 
 private:
     World();
 
     World(const World&) = delete;
     void operator= (const World&) = delete;
+
+    Player* _player;
+
+    //---- ANCIENT SHIT CESTION BEGIN ----//
 
     std::list<Platform> _platforms; ///< список всех платформ
 
@@ -107,13 +107,7 @@ private:
     std::list<Lava> _lavas; ///< список всех лавовых озер
 	std::list<Spikes> _spikes; ///< список всех шипов
 
-    std::list<Entity*> _entities;
-
-    std::list<Updatable*> _updatebles;
-
-    Entity* _player;
-
-    std::list<Entity*> _entitiesToRemove;
+    //---- ANCIENT SHIT CESTION END ----//
 };
 
 #endif // WORLD_H

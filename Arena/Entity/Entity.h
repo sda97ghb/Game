@@ -3,9 +3,10 @@
 
 #include "Box2D/Dynamics/b2Body.h"
 
+#include "Arena/Updatable.h"
 #include "Arena/Entity/Evented.h"
 
-class Entity : public Evented
+class Entity : public Evented, public Updatable
 {
 public:
     EVENT(spawn)

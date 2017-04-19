@@ -1,21 +1,20 @@
 #include "Arena/GlobalConstants.h"
-#include "Arena/PaintingWindow.h"
+#include "Arena/ObjectCounter.h"
 #include "Arena/SensorListener.h"
 #include "Arena/World.h"
+
+#include "Arena/Entity/Entity.h"
 
 World::World() :
     _player(nullptr)
 {
-    (void)World::physical();
     World::physical().SetContactListener(&SensorListener::instance());
-
-//    createPlayer();
 }
 
 b2World& World::physical()
 {
-    static b2World worldInstance(GRAVITY_VECTOR);
-    return worldInstance;
+    static b2World physical(GRAVITY_VECTOR);
+    return physical;
 }
 
 World& World::instance()
@@ -24,27 +23,45 @@ World& World::instance()
     return instance;
 }
 
-World::~World()
+void World::update()
 {
-    for (Entity* entity : _entities)
-        if (entity != nullptr)
-            delete entity;
+    for (Updatable* updatable : ObjectCounter<Updatable>::objects())
+        updatable->update();
+
+    //---- ANCIENT SHIT CESTION BEGIN ----//
+
+    for (Ladder& ladder : _ladders)
+        ladder.testPlayerOnIt();
+
+    for (Spikes& spikes : _spikes)
+        spikes.testPlayerOnIt();
+
+    for (Water& water : _waters)
+        water.testPlayerOnIt();
+
+    for (Lava& lava : _lavas)
+        lava.testPlayerOnIt();
+
+    //---- ANCIENT SHIT CESTION END ----//
+
+    const float32 timeStep = 1.0f / 60.0f;
+    const int32 velocityIterations = 8;
+    const int32 positionIterations = 3;
+
+    World::physical().Step(timeStep, velocityIterations, positionIterations);
 }
 
-void World::addUpdatable(Updatable* updatable)
+void World::setPlayer(Player* player)
 {
-    _updatebles.push_back(updatable);
+    _player = player;
 }
 
-void World::addEntity(Entity* entity)
+Player* World::player()
 {
-    _entities.push_back(entity);
+    return _player;
 }
 
-void World::removeEntity(Entity* entity)
-{
-    _entitiesToRemove.push_back(entity);
-}
+//---- ANCIENT SHIT CESTION BEGIN ----//
 
 Platform& World::createPlatform()
 {
@@ -125,47 +142,4 @@ const std::list<Spikes>& World::spikes() const
 	return _spikes;
 }
 
-void World::update()
-{
-    for (auto& updatable : _updatebles)
-        updatable->update();
-
-    for (auto& entity : _entities)
-        entity->update();
-
-    for (Ladder& ladder : _ladders)
-        ladder.testPlayerOnIt();
-
-	for (Spikes& spikes : _spikes)
-		spikes.testPlayerOnIt();
-
-    for (Water& water : _waters)
-        water.testPlayerOnIt();
-
-    for (Lava& lava : _lavas)
-        lava.testPlayerOnIt();
-
-    const float32 timeStep = 1.0f / 60.0f;
-    const int32 velocityIterations = 8;
-    const int32 positionIterations = 3;
-
-    World::physical().Step(timeStep, velocityIterations, positionIterations);
-
-    for (Entity* entity : _entitiesToRemove)
-    {
-        _entities.remove(entity);
-        World::physical().DestroyBody(entity->body());
-        delete entity;
-    }
-    _entitiesToRemove.clear();
-}
-
-void World::setEntityAsPlayer(Entity* entity)
-{
-    _player = entity;
-}
-
-Player& World::player()
-{
-    return *static_cast<Player*>(_player);
-}
+//---- ANCIENT SHIT CESTION END ----//

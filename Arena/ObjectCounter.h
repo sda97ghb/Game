@@ -64,4 +64,14 @@ private:
 template <typename T>
 std::list<T*> ObjectCounter<T>::_objects;
 
+#define OBJECT_COUNTER_ADD_THIS \
+    using this_t_ptr = decltype(this); \
+    using this_t = std::remove_pointer<this_t_ptr>::type; \
+    ObjectCounter<this_t>::addObject(this);
+
+#define OBJECT_COUNTER_REMOVE_THIS \
+    using this_t_ptr = decltype(this); \
+    using this_t = std::remove_pointer<this_t_ptr>::type; \
+    ObjectCounter<this_t>::removeObject(this);
+
 #endif // OBJECTCOUNTER_H

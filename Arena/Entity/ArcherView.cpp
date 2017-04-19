@@ -52,3 +52,8 @@ const sf::Sprite& ArcherView::getSprite()
 
     return sprite;
 }
+
+const Entity* ArcherView::entity() const
+{
+    return &_archer;
+}

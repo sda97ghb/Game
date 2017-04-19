@@ -31,10 +31,9 @@ void PlayerBuilderSpawner::spawn()
     createBody();
     constructBody();
     constructSensors();
-    World::instance().addEntity(_player);
-    World::instance().setEntityAsPlayer(_player);
+    World::instance().setPlayer(_player);
     _player->callEventCallback(_player->spawnEvent);
-    PaintingWindow::instance().addEntityView(new PlayerView(*_player));
+    new PlayerView(*_player);
 }
 
 float PlayerBuilderSpawner::width() const

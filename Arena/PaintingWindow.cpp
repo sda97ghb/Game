@@ -8,22 +8,17 @@
 #include "Arena/GlobalConstants.h"
 #include "Arena/Log.h"
 #include "Arena/MouseController.h"
+#include "Arena/ObjectCounter.h"
 #include "Arena/PaintingWindow.h"
 #include "Arena/World.h"
 
+#include "Arena/Entity/Player.h"
+
 PaintingWindow& PaintingWindow::instance()
 {
-    static PaintingWindow instance(SCREEN_RESOLUTION_X, SCREEN_RESOLUTION_Y, "Game");
+    static PaintingWindow instance(SCREEN_RESOLUTION_X, SCREEN_RESOLUTION_Y,
+                                   GAME_NAME);
     return instance;
-}
-
-PaintingWindow::~PaintingWindow()
-{
-    for (EntityView* entityView : _entityViews)
-    {
-        if (entityView != nullptr)
-            delete entityView;
-    }
 }
 
 void PaintingWindow::setBackground(const std::string& background)
@@ -50,7 +45,8 @@ PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
     _worldView.setViewport(sf::FloatRect(0.0f, 0.0f, 1.0f, 1.0f));
 
     _guiView.setSize(SCREEN_RESOLUTION_X, SCREEN_RESOLUTION_Y);
-    _guiView.setCenter(0.0f, 0.0f);
+    _guiView.setCenter(SCREEN_RESOLUTION_X / 2.0f,
+                       SCREEN_RESOLUTION_Y / 2.0f);
     _guiView.setViewport(sf::FloatRect(0.0f, 0.0f, 1.0f, 1.0f));
 
     setView(_worldView);
@@ -85,6 +81,8 @@ void PaintingWindow::drawWorld()
                          6.0f / PIXELS_PER_METER);
     setView(_worldView);
 
+    //---- ANCIENT SHIT CESTION BEGIN ----//
+
     World& world = World::instance();
 
     for (const Platform& cPlatform : world.platforms())
@@ -115,15 +113,12 @@ void PaintingWindow::drawWorld()
 		draw(shape);
 	}
 
-    for (EntityView* view : _entityViews)
+    //---- ANCIENT SHIT CESTION END ----//
+
+    for (EntityView* view : ObjectCounter<EntityView>::objects())
         draw(view->getSprite());
 
-    for (EntityView* view : _entityViewsToRemove)
-    {
-        _entityViews.remove(view);
-        delete view;
-    }
-    _entityViewsToRemove.clear();
+    //---- ANCIENT SHIT CESTION BEGIN ----//
 
     for (const Lava& lavaC : world.lavas())
     {
@@ -144,14 +139,17 @@ void PaintingWindow::drawWorld()
     zeroSprite.setRadius(0.1f);
     zeroSprite.setFillColor(sf::Color(255, 0, 0));
     draw(zeroSprite);
+
+    //---- ANCIENT SHIT CESTION END ----//
 }
 
 void PaintingWindow::drawGui()
 {
     setView(_guiView);
 
-//    float health = Player::instance().health() / Player::instance().maxHealth();
-//    drawBar(-530.0f, -300.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
+    float health = World::instance().player()->currentHealth() /
+                   World::instance().player()->maxHealth();
+    drawBar(30.0f, 30.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
 
 //    if (Player::instance().maxMana() != 0.0f)
 //    {
@@ -218,6 +216,43 @@ void PaintingWindow::drawBar(float x, float y, float width, float height,
     draw(barBackground);
     draw(barLine);
 }
+
+void PaintingWindow::processEvents()
+{
+    sf::Event event;
+    while (pollEvent(event))
+    {
+        switch (event.type)
+        {
+            case sf::Event::Closed :
+                close();
+                break;
+            case sf::Event::MouseButtonPressed :
+                onMouseButtonPressed(event.mouseButton);
+                break;
+            default :
+                break;
+        }
+    }
+}
+
+void PaintingWindow::onMouseButtonPressed(const sf::Event::MouseButtonEvent& event)
+{
+    MouseController::processMousePressed(event);
+}
+
+b2Vec2 PaintingWindow::cursorCoordinatesToPhysical(const sf::Vector2i& cursorPos)
+{
+    sf::Vector2f pos = mapPixelToCoords(cursorPos, _worldView);
+    return b2Vec2(pos.x, pos.y);
+}
+
+b2Vec2 PaintingWindow::cursorCoordinatesToPhysical(int x, int y)
+{
+    return cursorCoordinatesToPhysical(sf::Vector2i(x, y));
+}
+
+//---- ANCIENT SHIT CESTION BEGIN ----//
 
 /// @brief Compute size of a shape by its aabb.
 b2Vec2 computeSize(b2Shape& shape)
@@ -347,45 +382,4 @@ sf::ConvexShape&PaintingWindow::constructLava(Lava& lava, bool isFront)
     return shapeSF;
 }
 
-void PaintingWindow::processEvents()
-{
-    sf::Event event;
-    while (pollEvent(event))
-    {
-        switch (event.type)
-        {
-            case sf::Event::Closed :
-                close();
-                break;
-            case sf::Event::MouseButtonPressed :
-                onMouseButtonPressed(event.mouseButton);
-                break;
-        }
-    }
-}
-
-void PaintingWindow::onMouseButtonPressed(const sf::Event::MouseButtonEvent& event)
-{
-    MouseController::processMousePressed(event);
-}
-
-b2Vec2 PaintingWindow::cursorCoordinatesToPhysical(const sf::Vector2i& cursorPos)
-{
-    sf::Vector2f pos = mapPixelToCoords(cursorPos, _worldView);
-    return b2Vec2(pos.x, pos.y);
-}
-
-b2Vec2 PaintingWindow::cursorCoordinatesToPhysical(int x, int y)
-{
-    return cursorCoordinatesToPhysical(sf::Vector2i(x, y));
-}
-
-void PaintingWindow::addEntityView(EntityView* entityView)
-{
-    _entityViews.push_back(entityView);
-}
-
-void PaintingWindow::removeEntityView(EntityView* entityView)
-{
-    _entityViewsToRemove.push_back(entityView);
-}
+//---- ANCIENT SHIT CESTION END ----//

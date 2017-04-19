@@ -13,6 +13,8 @@ public:
 
     const sf::Sprite& getSprite();
 
+    const Entity* entity() const;
+
 private:
     const Player& _player;
     SpriteAnimator _animator;

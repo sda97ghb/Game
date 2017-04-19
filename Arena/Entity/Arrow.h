@@ -4,7 +4,8 @@
 #include "Arena/Entity/Entity.h"
 
 #include "Arena/Sensors/EnityCollisionSensor.h"
-#include "Arena/Sensors/PlayerSensor.h"
+#include "Arena/Sensors/HitSensor.h"
+#include "Arena/Sensors/TimerSensor.h"
 
 class Arrow : public Entity
 {
@@ -21,9 +22,12 @@ public:
 
     void hitEntity(Entity*entity);
 
+    void disappear();
+
 private:
     EnityCollisionSensor _entityCollisionSensor;
-//    PlayerSensor _playerSensor;
+    HitSensor _hitSensor;
+//    TimerSensor _disappearSensor;
 
     bool _isDead;
 };

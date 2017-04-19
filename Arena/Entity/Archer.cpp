@@ -8,6 +8,8 @@
 
 #include "Arena/Entity/Archer.h"
 #include "Arena/Entity/ArrowBuilderSpawner.h"
+#include "Arena/Entity/EntityDestroyer.h"
+#include "Arena/Entity/Player.h"
 
 Archer::Archer()
 {
@@ -162,7 +164,7 @@ void Archer::onLostSightOfPlayer()
     if (isStateActive(preparingToStrikeState))
         _reloadSensor.stop();
 
-    _lastKnownPlayerLocation = World::instance().player().body()->GetPosition();
+    _lastKnownPlayerLocation = World::instance().player()->body()->GetPosition();
 
     activateState(chasingState);
 }
@@ -189,7 +191,7 @@ void Archer::prepareToStrike()
 
 void Archer::preparingToStrike()
 {
-    if (World::instance().player().body()->GetPosition().x <
+    if (World::instance().player()->body()->GetPosition().x <
         body()->GetPosition().x)
         setLookingDirection(Direction::left);
     else
@@ -198,11 +200,11 @@ void Archer::preparingToStrike()
 
 void Archer::strike()
 {
-    Log::instance().push("Strike!");
+    Log::instance().addMessage("Strike!");
 
     b2Vec2 myPos = body()->GetPosition();
 
-    Player& player = World::instance().player();
+    Player& player = *(World::instance().player());
     b2Vec2 playerPos = player.body()->GetPosition();
 
     b2Vec2 d = playerPos - myPos;
@@ -211,7 +213,7 @@ void Archer::strike()
 
     myPos += d;
 
-    ArrowBuilderSpawner().setSpeed(10.0f).setPosition(myPos).setTarget(playerPos).spawn();
+    ArrowBuilderSpawner().setSpeed(30.0f).setPosition(myPos).setTarget(playerPos).spawn();
 
     activateState(lookingAroundState);
 
@@ -264,6 +266,7 @@ void Archer::lookingAround()
 
 void Archer::onDeath()
 {
+    new EntityDestroyer(this);
 //    World::instance().removeEntity(this);
 //    markAsDeleted();
 }

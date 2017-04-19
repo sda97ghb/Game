@@ -17,7 +17,7 @@ public:
     static Log& instance();
 
     /// \brief Добавляет новое сообщение.
-    void push(const std::string& line);
+    void addMessage(const std::string& line);
 
     /// \brief Возвращает константный список всех сообщений.
     const std::list<std::string>& lines() const;

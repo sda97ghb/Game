@@ -53,3 +53,8 @@ const sf::Sprite& PlayerView::getSprite()
 
     return sprite;
 }
+
+const Entity* PlayerView::entity() const
+{
+    return &_player;
+}

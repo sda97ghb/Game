@@ -6,6 +6,7 @@
 #include "Arena/World.h"
 
 #include "Arena/Entity/ArrowBuilderSpawner.h"
+#include "Arena/Entity/Player.h"
 
 void MouseController::processMouse()
 {
@@ -18,7 +19,7 @@ void MouseController::processMousePressed(const sf::Event::MouseButtonEvent& eve
         PaintingWindow& window = PaintingWindow::instance();
         b2Vec2 targetPos = window.cursorCoordinatesToPhysical(event.x, event.y);
 
-        Player& player = World::instance().player();
+        Player& player = *(World::instance().player());
         b2Vec2 playerPos = player.body()->GetPosition();
 
         b2Vec2 d = targetPos - playerPos;

@@ -4,13 +4,15 @@
 #include "SFML/Window/Event.hpp"
 
 #include "Arena/KeyboardController.h"
+#include "Arena/MapLoader.h"
 #include "Arena/MouseController.h"
+#include "Arena/ObjectCounter.h"
 #include "Arena/PaintingWindow.h"
 #include "Arena/World.h"
 
-#include "Test/TestWorldLoader.h"
+#include "Arena/Entity/EntityDestroyer.h"
 
-#include "Arena/MapLoader.h"
+#include "Test/TestWorldLoader.h"
 
 int main(int argc, char** argv)
 {
@@ -96,7 +98,21 @@ int main(int argc, char** argv)
             MouseController::processMouse();
             mouseProcessingTimer.restart();
         }
+
+        auto destroyers = ObjectCounter<EntityDestroyer>::objects();
+        for (EntityDestroyer* destroyer : destroyers)
+        {
+            destroyer->destroy();
+            delete destroyer;
+        }
     }
+
+    for (Entity* entity : ObjectCounter<Entity>::objects())
+        new EntityDestroyer(entity);
+
+    auto destroyers = ObjectCounter<EntityDestroyer>::objects();
+    for (auto destroyer : destroyers)
+        destroyer->destroy();
 
     std::cout << "Done." << std::endl;
 

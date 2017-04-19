@@ -31,9 +31,8 @@ void ArcherBuilderSpawner::spawn()
     createBody();
     constructBody();
     constructSensors();
-    World::instance().addEntity(_archer);
     _archer->callEventCallback(_archer->spawnEvent);
-    PaintingWindow::instance().addEntityView(new ArcherView(*_archer));
+    new ArcherView(*_archer);
 }
 
 float ArcherBuilderSpawner::width() const

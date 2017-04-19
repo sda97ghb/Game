@@ -6,8 +6,6 @@
 #ifndef PAINTER_H
 #define PAINTER_H
 
-#include <list>
-
 #include "SFML/Graphics/ConvexShape.hpp"
 #include "SFML/Graphics/Font.hpp"
 #include "SFML/Graphics/RectangleShape.hpp"
@@ -20,12 +18,16 @@
 
 #include "Arena/Entity/EntityView.h"
 
+//---- ANCIENT SHIT CESTION BEGIN ----//
+
 #include "Arena/Furniture/Ladder.h"
 #include "Arena/Furniture/Lava.h"
 #include "Arena/Furniture/Spikes.h"
 #include "Arena/Furniture/Water.h"
 
 #include "Arena/Platform.h"
+
+//---- ANCIENT SHIT CESTION END ----//
 
 /// \brief Класс, отвечающий за графическую составляющую игры.
 /// \details Создает графическое окно, занимается отрисовкой
@@ -34,8 +36,6 @@ class PaintingWindow : public sf::RenderWindow
 {
 public:
 	static PaintingWindow& instance();
-
-    ~PaintingWindow();
 
 	void setBackground(const std::string& background);
 
@@ -65,6 +65,17 @@ public:
     void drawBar(float x, float y, float width, float height,
                  float border, float value, sf::Color color);
 
+    /// \brief Вызывает обработчики событий.
+    void processEvents();
+
+    /// @brief Обработчик события нажатия кнопки мыши.
+    void onMouseButtonPressed(const sf::Event::MouseButtonEvent& event);
+
+    b2Vec2 cursorCoordinatesToPhysical(const sf::Vector2i& cursorPos);
+    b2Vec2 cursorCoordinatesToPhysical(int x, int y);
+
+    //---- ANCIENT SHIT CESTION BEGIN ----//
+
     /// \brief Подготавливает к отрисовке многоугольник для платформы
     sf::ConvexShape& constructPlatform(Platform& platform);
 
@@ -80,17 +91,7 @@ public:
     /// \brief Подготавливает для отрисовки многоугольник для лавы.
     sf::ConvexShape& constructLava(Lava& lava, bool isFront = true);
 
-    /// \brief Вызывает обработчики событий.
-    void processEvents();
-
-    /// @brief Обработчик события нажатия кнопки мыши.
-    void onMouseButtonPressed(const sf::Event::MouseButtonEvent& event);
-
-    b2Vec2 cursorCoordinatesToPhysical(const sf::Vector2i& cursorPos);
-    b2Vec2 cursorCoordinatesToPhysical(int x, int y);
-
-    void addEntityView(EntityView* entityView);
-    void removeEntityView(EntityView* entityView);
+    //---- ANCIENT SHIT CESTION END ----//
 
 private:
 	/// \brief Создает графическое окно, инициализирует графику.
@@ -106,12 +107,8 @@ private:
 
     sf::Texture _backgroundTexture; ///< Текстура фона
     sf::Sprite _background; ///< Фон
-	
+
 	sf::Font font; ///< Шрифт для лога
-
-    std::list<EntityView*> _entityViews;
-
-    std::list<EntityView*> _entityViewsToRemove;
 };
 
 #endif // PAINTER_H

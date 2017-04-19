@@ -14,6 +14,8 @@ public:
 
     const sf::Sprite& getSprite();
 
+    const Entity* entity() const;
+
 private:
     const Arrow& _arrow;
     sf::Sprite _sprite;
