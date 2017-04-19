@@ -2,6 +2,7 @@
 #define GLOBALCONSTANTS_H
 
 #include <cstdint>
+#include <string>
 
 #include "Box2D/Common/b2Math.h"
 
@@ -18,5 +19,7 @@ static const uint32_t SCREEN_RESOLUTION_Y = 720;
 static const float PIXELART_SCALE_FACTOR = 5.0f;
 
 static const float PIXELS_PER_METER = 5.0f;
+
+static const std::string GAME_NAME = "Arena";
 
 #endif // GLOBALCONSTANTS_H
