@@ -127,7 +127,7 @@ void ArrowBuilderSpawner::constructBody()
 
     b2FixtureDef bodyFixtureDef;
     bodyFixtureDef.shape = &bodyShape;
-    bodyFixtureDef.density = 57.14f; // human density ~= (75kg / (1.75m * 0.75m))
+    bodyFixtureDef.density = 0.1f / (width() * height());
     bodyFixtureDef.friction = 20.0f;
     bodyFixtureDef.restitution = 0.0f;
 
@@ -139,7 +139,7 @@ void ArrowBuilderSpawner::constructSensors()
     Arrow* entityPtr = _arrow;
 
     EnityCollisionSensor& entityCollisionSensor = entityPtr->_entityCollisionSensor;
-    entityCollisionSensor.setSize(width() / 2.0f, height() / 2.0f);
+    entityCollisionSensor.setSize(width() / 2.0f * 1.2f, height() / 2.0f * 1.2f);
     entityCollisionSensor.setOnCollisionCallback(
         [entityPtr] (Entity* entity)
         {
@@ -149,7 +149,7 @@ void ArrowBuilderSpawner::constructSensors()
 
     HitSensor& hitSensor = entityPtr->_hitSensor;
     hitSensor.setType(IdDispenser::getNewId());
-    hitSensor.setSize(width() / 2.0f, height() / 2.0f);
+    hitSensor.setSize(width() / 2.0f * 1.1f, height() / 2.0f * 1.1f);
     hitSensor.setRequireActivationThreshold(false);
     hitSensor.setOnHitCallback(
         [entityPtr] (float)
@@ -157,11 +157,4 @@ void ArrowBuilderSpawner::constructSensors()
             entityPtr->callEventCallback(entityPtr->hitEvent);
         });
     hitSensor.hangOnBody(body());
-
-//    TimerSensor& disapperSensor = entityPtr->_disappearSensor;
-//    disapperSensor.setTime(5000.0f);
-//    disapperSensor.setOnTimeoutCallback(
-//        [entityPtr] () {
-//            entityPtr->disappear();
-//        });
 }

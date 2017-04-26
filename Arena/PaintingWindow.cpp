@@ -51,8 +51,8 @@ PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
 
     setView(_worldView);
 
-	const std::string FONTS_DIRECTORY = "Fonts";
-	font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
+    const std::string FONTS_DIRECTORY = "Fonts";
+    font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
 }
 
 void PaintingWindow::paint()

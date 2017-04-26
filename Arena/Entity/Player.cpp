@@ -17,17 +17,23 @@ Player::Player() :
 
 void Player::onGroundHit(float speed)
 {
+    return_if_deleted
+
     makeDamage(speed);
 }
 
 void Player::onLanding()
 {
+    return_if_deleted
+
     if (_state == State::jumping)
         _state = State::normal;
 }
 
 void Player::tryToJump()
 {
+    return_if_deleted
+
     if (!isAlive())
         return;
 
@@ -46,15 +52,13 @@ void Player::tryToJump()
 
 void Player::tryToMoveLeft()
 {
+    return_if_deleted
+
     if (!isAlive())
         return;
 
     if (_leftContactSensor.isActive())
         return;
-
-//    b2Vec2 velocity = body()->GetLinearVelocity();
-//    velocity.x = 0;
-//    body()->SetLinearVelocity(velocity);
 
     const float xImpulse = - body()->GetMass() * movementSpeed();
     body()->ApplyLinearImpulse(b2Vec2(xImpulse, 0.0f),
@@ -66,15 +70,13 @@ void Player::tryToMoveLeft()
 
 void Player::tryToMoveRight()
 {
+    return_if_deleted
+
     if (!isAlive())
         return;
 
     if (_rightContactSensor.isActive())
         return;
-
-//    b2Vec2 velocity = body()->GetLinearVelocity();
-//    velocity.x = 0;
-//    body()->SetLinearVelocity(velocity);
 
     const float xImpulse = body()->GetMass() * movementSpeed();
     body()->ApplyLinearImpulse(b2Vec2(xImpulse, 0.0f),
@@ -91,5 +93,5 @@ float Player::jumpHeight() const
 
 float Player::movementSpeed() const
 {
-    return 0.85 * 10.44f; // 10.44 m/s = usain bolt top speed
+    return 0.85 * 10.44f; // 10.44 m/s = Usain Bolt speed
 }

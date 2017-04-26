@@ -67,6 +67,8 @@ Archer::~Archer()
 
 void Archer::tryToJump()
 {
+    return_if_deleted
+
     if (!isAlive())
         return;
 
@@ -86,6 +88,8 @@ void Archer::tryToJump()
 
 void Archer::tryToMoveLeft()
 {
+    return_if_deleted
+
     if (!isAlive())
         return;
 
@@ -106,6 +110,8 @@ void Archer::tryToMoveLeft()
 
 void Archer::tryToMoveRight()
 {
+    return_if_deleted
+
     if (!isAlive())
         return;
 
@@ -126,6 +132,8 @@ void Archer::tryToMoveRight()
 
 void Archer::onBump()
 {
+    return_if_deleted
+
     if (lookingDirection() == Direction::left)
     {
         const float xImpulse = body()->GetMass() * movementSpeed();
@@ -146,21 +154,29 @@ void Archer::onBump()
 
 void Archer::onGroundHit(float speed)
 {
+    return_if_deleted
+
     makeDamage(speed);
 }
 
 void Archer::onLanding()
 {
+    return_if_deleted
+
     deactivateState(jumpingState);
 }
 
 void Archer::onGotSightOfPlayer()
 {
+    return_if_deleted
+
     prepareToStrike();
 }
 
 void Archer::onLostSightOfPlayer()
 {
+    return_if_deleted
+
     if (isStateActive(preparingToStrikeState))
         _reloadSensor.stop();
 
@@ -171,6 +187,8 @@ void Archer::onLostSightOfPlayer()
 
 void Archer::onUpdate()
 {
+    return_if_deleted
+
 //    for (const State& state : complexState())
 //        std::cout << state << " ";
 //    std::cout << std::endl;
@@ -180,17 +198,23 @@ void Archer::onUpdate()
 
 void Archer::onWentButNotFound()
 {
+    return_if_deleted
+
     activateState(lookingAroundState);
 }
 
 void Archer::prepareToStrike()
 {
+    return_if_deleted
+
     _reloadSensor.start();
     activateState(preparingToStrikeState);
 }
 
 void Archer::preparingToStrike()
 {
+    return_if_deleted
+
     if (World::instance().player()->body()->GetPosition().x <
         body()->GetPosition().x)
         setLookingDirection(Direction::left);
@@ -200,6 +224,8 @@ void Archer::preparingToStrike()
 
 void Archer::strike()
 {
+    return_if_deleted
+
     Log::instance().addMessage("Strike!");
 
     b2Vec2 myPos = body()->GetPosition();
@@ -222,6 +248,8 @@ void Archer::strike()
 
 void Archer::chasing()
 {
+    return_if_deleted
+
     if (_lastKnownPlayerLocation.x < body()->GetPosition().x)
         tryToMoveLeft();
     else
@@ -253,6 +281,8 @@ float Archer::movementSpeed() const
 
 void Archer::lookingAround()
 {
+    return_if_deleted
+
     static int counter = 0;
     if (counter >= 100)
     {
@@ -267,6 +297,5 @@ void Archer::lookingAround()
 void Archer::onDeath()
 {
     new EntityDestroyer(this);
-//    World::instance().removeEntity(this);
-//    markAsDeleted();
+    markAsDeleted();
 }

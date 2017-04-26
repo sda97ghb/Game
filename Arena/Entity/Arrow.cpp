@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include "Arena/Log.h"
 #include "Arena/ObjectCounter.h"
 #include "Arena/World.h"
@@ -6,8 +8,7 @@
 #include "Arena/Entity/Arrow.h"
 #include "Arena/Entity/EntityDestroyer.h"
 
-Arrow::Arrow() :
-    _isDead(false)
+Arrow::Arrow()
 {
     ObjectCounter<Arrow>::addObject(this);
 
@@ -21,33 +22,31 @@ Arrow::~Arrow()
 
 void Arrow::onHit()
 {
-    if (_isDead)
-        return;
+    return_if_deleted
 
-    Log::instance().addMessage("Arrow hit!");
-//    _disappearSensor.start();
-    new EntityDestroyer(this);
+    std::cout << "Arrow hit!" << std::endl;
 
-    _isDead = true;
+    disappear();
 }
 
 void Arrow::hitEntity(Entity* entity)
 {
-//    if (_isDead)
-//        return;
+    return_if_deleted
 
-//    for (Animalia* animalia : ObjectCounter<Animalia>::objects())
-//    {
-//        if (entity == animalia)
-//        {
-//            animalia->kill();
-//            _isDead = true;
-//            break;
-//        }
-            //    }
+    std::cout << "Hit entity!" << std::endl;
+
+    for (Animalia* animalia : ObjectCounter<Animalia>::objects())
+    {
+        if (entity == animalia)
+        {
+            animalia->makeDamage(10.0f);
+            break;
+        }
+    }
 }
 
 void Arrow::disappear()
 {
-//    new EntityDestroyer(this);
+    new EntityDestroyer(this);
+    markAsDeleted();
 }

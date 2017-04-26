@@ -53,6 +53,13 @@ void EntityDestroyer::setLogicDestroyed()
     _isLogicDestroyed = true;
 }
 
+bool EntityDestroyer::isDestroyed() const
+{
+    return isPhysicalBodyDestroyed() &&
+           isLogicDestroyed() &&
+           isViewDestroyed();
+}
+
 Entity* EntityDestroyer::entity() const
 {
     return _entity;

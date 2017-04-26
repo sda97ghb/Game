@@ -20,16 +20,13 @@ public:
 
     void onHit();
 
-    void hitEntity(Entity*entity);
-
-    void disappear();
+    void hitEntity(Entity* entity);
 
 private:
+    void disappear();
+
     EnityCollisionSensor _entityCollisionSensor;
     HitSensor _hitSensor;
-//    TimerSensor _disappearSensor;
-
-    bool _isDead;
 };
 
 #endif // ARROW_H

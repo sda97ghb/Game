@@ -19,6 +19,8 @@ public:
     bool isLogicDestroyed() const;
     void setLogicDestroyed();
 
+    bool isDestroyed() const;
+
     Entity* entity() const;
     b2Body* body() const;
     EntityView* view() const;

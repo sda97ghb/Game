@@ -108,7 +108,7 @@ private:
     sf::Texture _backgroundTexture; ///< Текстура фона
     sf::Sprite _background; ///< Фон
 
-	sf::Font font; ///< Шрифт для лога
+    sf::Font font; ///< Шрифт для лога
 };
 
 #endif // PAINTER_H

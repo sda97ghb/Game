@@ -17,12 +17,16 @@ Animalia::~Animalia()
 
 void Animalia::kill()
 {
+    return_if_deleted
+
     _currentHealth = 0.0f;
     callEventCallback(deathEvent);
 }
 
 void Animalia::makeDamage(float damage)
 {
+    return_if_deleted
+
     _currentHealth -= damage;
     if (_currentHealth <= 0.0f)
         kill();
@@ -30,6 +34,8 @@ void Animalia::makeDamage(float damage)
 
 void Animalia::heal(float health)
 {
+    return_if_deleted
+
     _currentHealth += health;
 }
 
@@ -45,11 +51,15 @@ float Animalia::currentHealth() const
 
 void Animalia::setCurrentHealth(float currentHealth)
 {
+    return_if_deleted
+
     _currentHealth = currentHealth;
 }
 
 void Animalia::update()
 {
+    return_if_deleted
+
     if (isAlive())
         callEventCallback(updateEvent);
 }
@@ -61,6 +71,8 @@ Direction Animalia::lookingDirection() const
 
 void Animalia::setLookingDirection(const Direction& lookingDirection)
 {
+    return_if_deleted
+
     _lookingDirection = lookingDirection;
 }
 
@@ -71,5 +83,7 @@ float Animalia::maxHealth() const
 
 void Animalia::setMaxHealth(float maxHealth)
 {
+    return_if_deleted
+
     _maxHealth = maxHealth;
 }

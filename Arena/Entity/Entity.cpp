@@ -16,18 +16,10 @@ Entity::~Entity()
     ObjectCounter<Entity>::removeObject(this);
 }
 
-const b2Vec2& Entity::position() const
-{
-    return body()->GetPosition();
-}
-
-void Entity::setPosition(float x, float y)
-{
-    body()->SetTransform(b2Vec2(x, y), body()->GetAngle());
-}
-
 void Entity::update()
 {
+    return_if_deleted
+
     callEventCallback(updateEvent);
 }
 
@@ -46,7 +38,7 @@ void Entity::markAsDeleted()
     _isMarkedAsDeleted = true;
 }
 
-bool Entity::inMarkedAsDeleted() const
+bool Entity::isMarkedAsDeleted() const
 {
     return _isMarkedAsDeleted;
 }

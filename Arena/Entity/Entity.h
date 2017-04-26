@@ -6,6 +6,10 @@
 #include "Arena/Updatable.h"
 #include "Arena/Entity/Evented.h"
 
+#define return_if_deleted \
+    if (isMarkedAsDeleted()) \
+        return;
+
 class Entity : public Evented, public Updatable
 {
 public:
@@ -25,7 +29,7 @@ public:
     void setBody(b2Body* body);
 
     void markAsDeleted();
-    bool inMarkedAsDeleted() const;
+    bool isMarkedAsDeleted() const;
 
 private:
     b2Body* _body;

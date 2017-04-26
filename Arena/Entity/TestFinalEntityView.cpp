@@ -42,7 +42,7 @@ const sf::Sprite& TestFinalEntityView::getSprite()
 
     sprite.setScale(1.0f / PIXELS_PER_METER, -1.0f / PIXELS_PER_METER);
 
-    b2Vec2 pos = _entity.position();
+    b2Vec2 pos = _entity.body()->GetPosition();
     sf::Vector2f posSF = sf::Vector2f(pos.x, pos.y);
     posSF.x -= sprite.getTextureRect().width / PIXELS_PER_METER / 2.0f;
     posSF.y += sprite.getTextureRect().height / PIXELS_PER_METER / 2.0f;
