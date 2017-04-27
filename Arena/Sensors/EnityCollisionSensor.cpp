@@ -2,9 +2,12 @@
 
 #include "Box2D/Collision/Shapes/b2PolygonShape.h"
 #include "Box2D/Dynamics/b2Fixture.h"
+#include "Box2D/Dynamics/b2Body.h"
 
 #include "Arena/IdDispenser.h"
 #include "Arena/ObjectCounter.h"
+
+#include "Arena/Entity/Entity.h"
 
 #include "Arena/Sensors/EnityCollisionSensor.h"
 

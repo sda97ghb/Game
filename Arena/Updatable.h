@@ -5,7 +5,7 @@ class Updatable
 {
 public:
     Updatable();
-    ~Updatable();
+    virtual ~Updatable();
 
     virtual void update() = 0;
 };

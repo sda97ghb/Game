@@ -62,12 +62,23 @@ Archer::Archer()
 
 Archer::~Archer()
 {
-    ObjectCounter<Archer>::addObject(this);
+    delete _abyssSensor;
+    delete _leftContactSensor;
+    delete _rightContactSensor;
+    delete _groundContactSensor;
+    delete _groundHitSensor;
+    delete _landingSensor;
+    delete _leftBumpSensor;
+    delete _rightBumpSensor;
+    delete _playerSensor;
+    delete _reloadSensor;
+
+    ObjectCounter<Archer>::removeObject(this);
 }
 
 void Archer::tryToJump()
 {
-    return_if_deleted
+//    return_if_deleted
 
     if (!isAlive())
         return;
@@ -75,7 +86,7 @@ void Archer::tryToJump()
     if (isStateActive(jumpingState))
         return;
 
-    if (!_groundContactSensor.isActive())
+    if (!_groundContactSensor->isActive())
         return;
 
     float yImpulse = body()->GetMass() * ::sqrt(g * jumpHeight() * 2.0);
@@ -88,12 +99,12 @@ void Archer::tryToJump()
 
 void Archer::tryToMoveLeft()
 {
-    return_if_deleted
+//    return_if_deleted
 
     if (!isAlive())
         return;
 
-    if (_leftContactSensor.isActive())
+    if (_leftContactSensor->isActive())
         return;
 
     b2Vec2 velocity = body()->GetLinearVelocity();
@@ -110,12 +121,12 @@ void Archer::tryToMoveLeft()
 
 void Archer::tryToMoveRight()
 {
-    return_if_deleted
+//    return_if_deleted
 
     if (!isAlive())
         return;
 
-    if (_rightContactSensor.isActive())
+    if (_rightContactSensor->isActive())
         return;
 
     b2Vec2 velocity = body()->GetLinearVelocity();
@@ -132,7 +143,7 @@ void Archer::tryToMoveRight()
 
 void Archer::onBump()
 {
-    return_if_deleted
+//    return_if_deleted
 
     if (lookingDirection() == Direction::left)
     {
@@ -154,31 +165,31 @@ void Archer::onBump()
 
 void Archer::onGroundHit(float speed)
 {
-    return_if_deleted
+//    return_if_deleted
 
     makeDamage(speed);
 }
 
 void Archer::onLanding()
 {
-    return_if_deleted
+//    return_if_deleted
 
     deactivateState(jumpingState);
 }
 
 void Archer::onGotSightOfPlayer()
 {
-    return_if_deleted
+//    return_if_deleted
 
     prepareToStrike();
 }
 
 void Archer::onLostSightOfPlayer()
 {
-    return_if_deleted
+//    return_if_deleted
 
     if (isStateActive(preparingToStrikeState))
-        _reloadSensor.stop();
+        _reloadSensor->stop();
 
     _lastKnownPlayerLocation = World::instance().player()->body()->GetPosition();
 
@@ -187,7 +198,7 @@ void Archer::onLostSightOfPlayer()
 
 void Archer::onUpdate()
 {
-    return_if_deleted
+//    return_if_deleted
 
 //    for (const State& state : complexState())
 //        std::cout << state << " ";
@@ -198,22 +209,22 @@ void Archer::onUpdate()
 
 void Archer::onWentButNotFound()
 {
-    return_if_deleted
+//    return_if_deleted
 
     activateState(lookingAroundState);
 }
 
 void Archer::prepareToStrike()
 {
-    return_if_deleted
+//    return_if_deleted
 
-    _reloadSensor.start();
+    _reloadSensor->start();
     activateState(preparingToStrikeState);
 }
 
 void Archer::preparingToStrike()
 {
-    return_if_deleted
+//    return_if_deleted
 
     if (World::instance().player()->body()->GetPosition().x <
         body()->GetPosition().x)
@@ -224,7 +235,7 @@ void Archer::preparingToStrike()
 
 void Archer::strike()
 {
-    return_if_deleted
+//    return_if_deleted
 
     Log::instance().addMessage("Strike!");
 
@@ -248,15 +259,15 @@ void Archer::strike()
 
 void Archer::chasing()
 {
-    return_if_deleted
+//    return_if_deleted
 
     if (_lastKnownPlayerLocation.x < body()->GetPosition().x)
         tryToMoveLeft();
     else
         tryToMoveRight();
 
-    _abyssSensor.setDirection(lookingDirection());
-    if (_abyssSensor.isActive())
+    _abyssSensor->setDirection(lookingDirection());
+    if (_abyssSensor->isActive())
         tryToJump();
 
     if (_lastKnownPlayerLocation.x < body()->GetPosition().x)
@@ -281,7 +292,7 @@ float Archer::movementSpeed() const
 
 void Archer::lookingAround()
 {
-    return_if_deleted
+//    return_if_deleted
 
     static int counter = 0;
     if (counter >= 100)
@@ -296,6 +307,7 @@ void Archer::lookingAround()
 
 void Archer::onDeath()
 {
+    return_if_deleted
     new EntityDestroyer(this);
-    markAsDeleted();
+//    markAsDeleted();
 }

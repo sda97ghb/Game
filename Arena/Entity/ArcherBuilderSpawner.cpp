@@ -8,6 +8,12 @@
 #include "Arena/Entity/ArcherBuilderSpawner.h"
 #include "Arena/Entity/ArcherView.h"
 
+#include "Arena/Sensors/AbyssSensorBuilder.h"
+#include "Arena/Sensors/ContactSensorBuilder.h"
+#include "Arena/Sensors/HitSensorBuilder.h"
+#include "Arena/Sensors/PlayerSensorBuilder.h"
+#include "Arena/Sensors/TimerSensorBuilder.h"
+
 ArcherBuilderSpawner::ArcherBuilderSpawner() :
     _position(0.0f, 0.0f)
 {
@@ -84,96 +90,100 @@ void ArcherBuilderSpawner::constructSensors()
 {
     Archer* entityPtr = _archer;
 
-    AbyssSensor& abyssSensor = _archer->_abyssSensor;
-    abyssSensor.setDx(  width() * 0.65f);
-    abyssSensor.setDy(- height() / 2.0f - 0.1f);
-    abyssSensor.hangOnBody(body());
+    _archer->_abyssSensor = AbyssSensorBuilder()
+            .setDx(width() * 0.65f)
+            .setDy(- height() / 2.0f - 0.1f)
+            .setBody(body())
+            .build();
 
-    ContactSensor& leftContactSensor = _archer->_leftContactSensor;
-    leftContactSensor.setType(IdDispenser::getNewId());
-    leftContactSensor.setPosition(-width() / 2.0, 0.0f);
-    leftContactSensor.setSize(0.1, height() / 2.0f * 0.9f);
-    leftContactSensor.hangOnBody(body());
+    _archer->_leftContactSensor = ContactSensorBuilder()
+            .setPosition(-width() / 2.0, 0.0f)
+            .setSize(0.1, height() / 2.0f * 0.9f)
+            .setBody(body())
+            .build();
 
-    ContactSensor& rightContactSensor = _archer->_rightContactSensor;
-    rightContactSensor.setType(IdDispenser::getNewId());
-    rightContactSensor.setPosition(width() / 2.0, 0.0f);
-    rightContactSensor.setSize(0.1, height() / 2.0f * 0.9f);
-    rightContactSensor.hangOnBody(body());
+    _archer->_rightContactSensor = ContactSensorBuilder()
+            .setPosition(width() / 2.0, 0.0f)
+            .setSize(0.1, height() / 2.0f * 0.9f)
+            .setBody(body())
+            .build();
 
-    ContactSensor& groundContactSensor = _archer->_groundContactSensor;
-    groundContactSensor.setType(IdDispenser::getNewId());
-    groundContactSensor.setPosition(0.0f, -height() / 2.0f);
-    groundContactSensor.setSize(width() / 2.0f * 0.9f, 0.1);
-    groundContactSensor.hangOnBody(body());
+    _archer->_groundContactSensor = ContactSensorBuilder()
+            .setPosition(0.0f, -height() / 2.0f)
+            .setSize(width() / 2.0f * 0.9f, 0.3)
+            .setBody(body())
+            .build();
 
-    HitSensor& groundHitSensor = _archer->_groundHitSensor;
-    groundHitSensor.setType(IdDispenser::getNewId());
-    groundHitSensor.setPosition(0.0f, -height() / 2.0f);
-    groundHitSensor.setSize(width() / 2.0f * 0.9f, 0.3);
-    groundHitSensor.setActivationThreshold(10.0f);
-    groundHitSensor.setOnHitCallback(
-        [entityPtr] (float speed)
-        {
-            entityPtr->onGroundHit(speed);
-            entityPtr->callEventCallback(entityPtr->groundHitEvent);
-        });
-    groundHitSensor.hangOnBody(body());
+    _archer->_groundHitSensor = HitSensorBuilder()
+            .setPosition(0.0f, -height() / 2.0f)
+            .setSize(width() / 2.0f * 0.9f, 0.3)
+            .setActivationThreshold(10.0f)
+            .setOnHitCallback(
+                [entityPtr] (float speed)
+                {
+                    entityPtr->onGroundHit(speed);
+                    entityPtr->callEventCallback(entityPtr->groundHitEvent);
+                })
+            .setBody(body())
+            .build();
 
-    HitSensor& landingSensor = entityPtr->_landingSensor;
-    landingSensor.setType(IdDispenser::getNewId());
-    landingSensor.setPosition(0.0f, -height() / 2.0f);
-    landingSensor.setSize(width() / 2.0f * 0.95f, 0.1f);
-    landingSensor.setRequireActivationThreshold(false);
-    landingSensor.setOnHitCallback(
-        [entityPtr] (float)
-        {
-            entityPtr->callEventCallback(entityPtr->landingEvent);
-        });
-    landingSensor.hangOnBody(body());
+    _archer->_landingSensor = HitSensorBuilder()
+            .setPosition(0.0f, -height() / 2.0f)
+            .setSize(width() / 2.0f * 0.95f, 0.1f)
+            .setRequireActivationThreshold(false)
+            .setOnHitCallback(
+                [entityPtr] (float)
+                {
+                    entityPtr->callEventCallback(entityPtr->landingEvent);
+                })
+            .setBody(body())
+            .build();
 
-    HitSensor& leftBumpSensor = entityPtr->_leftBumpSensor;
-    leftBumpSensor.setType(IdDispenser::getNewId());
-    leftBumpSensor.setPosition(-width() / 2.0f, 0.0f);
-    leftBumpSensor.setSize(0.1f, width() / 2.0f * 0.95f);
-    leftBumpSensor.setRequireActivationThreshold(false);
-    leftBumpSensor.setOnHitCallback(
-        [entityPtr] (float)
-        {
-            entityPtr->callEventCallback(entityPtr->bumpEvent);
-        });
-    leftBumpSensor.hangOnBody(body());
+    _archer->_leftBumpSensor = HitSensorBuilder()
+            .setType(IdDispenser::getNewId())
+            .setPosition(-width() / 2.0f, 0.0f)
+            .setSize(0.1f, width() / 2.0f * 0.95f)
+            .setRequireActivationThreshold(false)
+            .setOnHitCallback(
+                [entityPtr] (float)
+                {
+                    entityPtr->callEventCallback(entityPtr->bumpEvent);
+                })
+            .setBody(body())
+            .build();
 
-    HitSensor& rightBumpSensor = entityPtr->_rightBumpSensor;
-    rightBumpSensor.setType(IdDispenser::getNewId());
-    rightBumpSensor.setPosition(width() / 2.0f, 0.0f);
-    rightBumpSensor.setSize(0.1f, width() / 2.0f * 0.95f);
-    rightBumpSensor.setRequireActivationThreshold(false);
-    rightBumpSensor.setOnHitCallback(
-        [entityPtr] (float)
-        {
-            entityPtr->callEventCallback(entityPtr->bumpEvent);
-        });
-    rightBumpSensor.hangOnBody(body());
+    _archer->_rightBumpSensor = HitSensorBuilder()
+            .setType(IdDispenser::getNewId())
+            .setPosition(width() / 2.0f, 0.0f)
+            .setSize(0.1f, width() / 2.0f * 0.95f)
+            .setRequireActivationThreshold(false)
+            .setOnHitCallback(
+                [entityPtr] (float)
+                {
+                    entityPtr->callEventCallback(entityPtr->bumpEvent);
+                })
+            .setBody(body())
+            .build();
 
-    PlayerSensor& playerSensor = _archer->_playerSensor;
-    playerSensor.setNearbyDistance(25.0f);
-    playerSensor.setOnGotSightOfPlayerCallback(
-        [entityPtr] () {
-            entityPtr->callEventCallback(entityPtr->gotSightOfPlayerEvent);
-        });
-    playerSensor.setOnLostSightOfPlayerCallback(
-        [entityPtr] () {
-            entityPtr->callEventCallback(entityPtr->lostSightOfPlayerEvent);
-        });
-    playerSensor.hangOnBody(body());
+    _archer->_playerSensor = PlayerSensorBuilder()
+            .setNearbyDistance(25.0f)
+            .setOnGotSightOfPlayerCallback(
+                [entityPtr] () {
+                    entityPtr->callEventCallback(entityPtr->gotSightOfPlayerEvent);
+                })
+            .setOnLostSightOfPlayerCallback(
+                [entityPtr] () {
+                    entityPtr->callEventCallback(entityPtr->lostSightOfPlayerEvent);
+                })
+            .setBody(body())
+            .build();
 
-    TimerSensor& reloadSensor = _archer->_reloadSensor;
-    reloadSensor.setTime(1000.0);
-    reloadSensor.setOnTimeoutCallback(
-        [entityPtr] ()
-        {
-            entityPtr->callEventCallback(entityPtr->readyToStrikeEvent);
-        });
-    // Not need to hang the sensor on the body.
+    _archer->_reloadSensor = TimerSensorBuilder()
+            .setTime(1000.0)
+            .setOnTimeoutCallback(
+                [entityPtr] ()
+                {
+                    entityPtr->callEventCallback(entityPtr->readyToStrikeEvent);
+                })
+            .build();
 }

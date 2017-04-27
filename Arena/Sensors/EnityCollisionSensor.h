@@ -3,9 +3,9 @@
 
 #include <functional>
 
-#include "Box2D/Dynamics/b2Body.h"
+class b2Body;
 
-#include "Arena/Entity/Entity.h"
+class Entity;
 
 class EnityCollisionSensor
 {

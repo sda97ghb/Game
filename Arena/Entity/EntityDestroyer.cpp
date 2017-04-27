@@ -15,6 +15,8 @@ EntityDestroyer::EntityDestroyer(Entity* entity) :
         if (view->entity() == entity)
             _view = view;
 
+    entity->markAsDeleted();
+
     ObjectCounter<EntityDestroyer>::addObject(this);
 }
 

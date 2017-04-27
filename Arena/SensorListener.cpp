@@ -6,21 +6,13 @@
 #include "Arena/SensorListener.h"
 
 #include "Arena/Sensors/EnityCollisionSensor.h"
+#include "Arena/Sensors/ContactSensor.h"
+#include "Arena/Sensors/HitSensor.h"
 
 SensorListener& SensorListener::instance()
 {
     static SensorListener instance;
     return instance;
-}
-
-void SensorListener::registrySensor(ContactSensor& sensor)
-{
-    _contactSensors.push_back(&sensor);
-}
-
-void SensorListener::registrySensor(HitSensor& sensor)
-{
-    _hitSensors.push_back(&sensor);
 }
 
 void SensorListener::BeginContact(b2Contact* contact)
@@ -70,7 +62,7 @@ void SensorListener::EndContact(b2Contact* contact)
 
 void SensorListener::setSensor(b2Body* body, int type, bool value)
 {
-    for (ContactSensor* sensor : _contactSensors)
+    for (ContactSensor* sensor : ObjectCounter<ContactSensor>::objects())
         if (sensor->body() == body && sensor->type() == type)
         {
             sensor->set(value);
@@ -80,7 +72,7 @@ void SensorListener::setSensor(b2Body* body, int type, bool value)
 
 void SensorListener::hitSensor(b2Body* body, int type, float speed)
 {
-    for (HitSensor* sensor : _hitSensors)
+    for (HitSensor* sensor : ObjectCounter<HitSensor>::objects())
         if (sensor->body() == body && sensor->type() == type)
         {
             sensor->hit(speed);

@@ -26,7 +26,7 @@ private:
     void disappear();
 
     EnityCollisionSensor _entityCollisionSensor;
-    HitSensor _hitSensor;
+    HitSensor* _hitSensor;
 };
 
 #endif // ARROW_H

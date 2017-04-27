@@ -23,13 +23,13 @@ private:
     void onLivingUpdate();
     void onGroundHit(float speed);
 
-    AbyssSensor _abyssSensor;
-    ContactSensor _leftContactSensor;
-    ContactSensor _rightContactSensor;
-    ContactSensor _groundContactSensor;
-    HitSensor _groundHitSensor;
-    PlayerSensor _playerSensor;
-    PlayerSensor _nearEnoughToAttackSensor;
+    AbyssSensor* _abyssSensor;
+    ContactSensor* _leftContactSensor;
+    ContactSensor* _rightContactSensor;
+    ContactSensor* _groundContactSensor;
+    HitSensor* _groundHitSensor;
+    PlayerSensor* _playerSensor;
+    PlayerSensor* _nearEnoughToAttackSensor;
 };
 
 #endif // TESTFINALENTITY_H

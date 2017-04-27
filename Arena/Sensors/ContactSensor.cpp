@@ -1,59 +1,11 @@
-#include "Box2D/Collision/Shapes/b2PolygonShape.h"
-#include "Box2D/Dynamics/b2Fixture.h"
+#include "Arena/ObjectCounter.h"
 
 #include "Arena/Sensors/ContactSensor.h"
 #include "Arena/SensorListener.h"
 
-ContactSensor::ContactSensor() :
-    _x(0.0f),
-    _y(0.0f),
-    _width(0.0f),
-    _height(0.0f),
-    _state(false),
-    _type(0),
-    _body(nullptr)
+ContactSensor::~ContactSensor()
 {
-}
-
-void ContactSensor::setPosition(float x, float y)
-{
-    _x = x;
-    _y = y;
-}
-
-void ContactSensor::setSize(float width, float height)
-{
-    _width = width;
-    _height = height;
-}
-
-void ContactSensor::setType(int type)
-{
-    _type = type;
-}
-
-void ContactSensor::hangOnBody(b2Body* body, b2Shape* sensorShape)
-{
-    _body = body;    
-
-    b2FixtureDef sensorFixtureDef;
-    sensorFixtureDef.isSensor = true;
-
-    b2PolygonShape sensorBoxShape;
-    if (sensorShape == nullptr)
-    {
-        sensorBoxShape.SetAsBox(_width, _height, b2Vec2(_x, _y), 0.0f);
-        sensorFixtureDef.shape = &sensorBoxShape;
-    }
-    else
-    {
-        sensorFixtureDef.shape = sensorShape;
-    }
-
-    b2Fixture* fixture = _body->CreateFixture(&sensorFixtureDef);
-    fixture->SetUserData((void*)_type);
-
-    SensorListener::instance().registrySensor(*this);
+    ObjectCounter<ContactSensor>::removeObject(this);
 }
 
 void ContactSensor::set(bool state)
@@ -74,4 +26,9 @@ int ContactSensor::type() const
 const b2Body* ContactSensor::body() const
 {
     return _body;
+}
+
+ContactSensor::ContactSensor()
+{
+    ObjectCounter<ContactSensor>::addObject(this);
 }

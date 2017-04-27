@@ -1,3 +1,4 @@
+#include "Box2D/Dynamics/b2Body.h"
 #include "Box2D/Dynamics/b2Fixture.h"
 #include "Box2D/Dynamics/b2World.h"
 
@@ -16,11 +17,6 @@ PlayerSensor::PlayerSensor() :
     _onLostSightOfPlayerCallback([](){}),
     _body(nullptr)
 {
-}
-
-void PlayerSensor::hangOnBody(b2Body* body)
-{
-    _body = body;
 }
 
 bool PlayerSensor::canSee()
@@ -77,29 +73,14 @@ float PlayerSensor::nearbyDistance() const
     return _nearbyDistance;
 }
 
-void PlayerSensor::setNearbyDistance(float nearbyDistance)
-{
-    _nearbyDistance = nearbyDistance;
-}
-
 bool PlayerSensor::canSeeRequired() const
 {
     return _canSeeRequired;
 }
 
-void PlayerSensor::setCanSeeRequired(bool canSeeRequiered)
-{
-    _canSeeRequired = canSeeRequiered;
-}
-
 bool PlayerSensor::isNearbyRequired() const
 {
     return _isNearbyRequired;
-}
-
-void PlayerSensor::setIsNearbyRequired(bool isNearbyRequired)
-{
-    _isNearbyRequired = isNearbyRequired;
 }
 
 void PlayerSensor::update()
@@ -108,18 +89,8 @@ void PlayerSensor::update()
 
     if (_previousState == false && isActiveNow)
         _onGotSightOfPlayerCallback();
-    if (_previousState == true && !isActiveNow)
+    else if (_previousState == true && !isActiveNow)
         _onLostSightOfPlayerCallback();
 
     _previousState = isActiveNow;
-}
-
-void PlayerSensor::setOnGotSightOfPlayerCallback(const Callback& onGotSightOfPlayerCallback)
-{
-    _onGotSightOfPlayerCallback = onGotSightOfPlayerCallback;
-}
-
-void PlayerSensor::setOnLostSightOfPlayerCallback(const Callback& onLostSightOfPlayerCallback)
-{
-    _onLostSightOfPlayerCallback = onLostSightOfPlayerCallback;
 }

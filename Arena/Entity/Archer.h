@@ -62,16 +62,16 @@ private:
 
     void onDeath();
 
-    AbyssSensor _abyssSensor;
-    ContactSensor _leftContactSensor;
-    ContactSensor _rightContactSensor;
-    ContactSensor _groundContactSensor;
-    HitSensor _groundHitSensor;
-    HitSensor _landingSensor;
-    HitSensor _leftBumpSensor;
-    HitSensor _rightBumpSensor;
-    PlayerSensor _playerSensor;
-    TimerSensor _reloadSensor;
+    AbyssSensor* _abyssSensor;
+    ContactSensor* _leftContactSensor;
+    ContactSensor* _rightContactSensor;
+    ContactSensor* _groundContactSensor;
+    HitSensor* _groundHitSensor;
+    HitSensor* _landingSensor;
+    HitSensor* _leftBumpSensor;
+    HitSensor* _rightBumpSensor;
+    PlayerSensor* _playerSensor;
+    TimerSensor* _reloadSensor;
 
     b2Vec2 _lastKnownPlayerLocation;
 };

@@ -5,12 +5,7 @@
 #ifndef SENSORLISTENER_H
 #define SENSORLISTENER_H
 
-#include <list>
-
 #include "Box2D/Dynamics/b2WorldCallbacks.h"
-
-#include "Arena/Sensors/ContactSensor.h"
-#include "Arena/Sensors/HitSensor.h"
 
 /// \brief Класс, ответственный за срабатывание датчиков при столкновении.
 /// \warning Этот класс нужен для внутренней механики игры.
@@ -20,14 +15,6 @@ class SensorListener : public b2ContactListener
 public:
     /// \brief Возвращает ссылку на объект класса.
     static SensorListener& instance();
-
-    /// \brief Регистрирует новый датчик контакта.
-    /// \note Не создает копию сенсора.
-    void registrySensor(ContactSensor& sensor);
-
-    /// \brief Регистрирует новый датчик столкновения.
-    /// \note Не создает копию сенсора.
-    void registrySensor(HitSensor& sensor);
 
 private:
     SensorListener() = default;
@@ -51,9 +38,6 @@ private:
     /// \param [in] type тип датчика на теле
     /// \param [in] speed скорость датчика в момент удара
     void hitSensor(b2Body* body, int type, float speed);
-
-    std::list<ContactSensor*> _contactSensors; ///< список всех сенсоров контакта
-    std::list<HitSensor*> _hitSensors; ///< список всех сенсоров столкновения
 };
 
 #endif // SENSORLISTENER_H

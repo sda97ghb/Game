@@ -36,11 +36,11 @@ private:
         jumping
     } _state;
 
-    ContactSensor _leftContactSensor;
-    ContactSensor _rightContactSensor;
-    ContactSensor _groundContactSensor;
-    HitSensor _groundHitSensor;
-    HitSensor _landingSensor;
+    ContactSensor* _leftContactSensor;
+    ContactSensor* _rightContactSensor;
+    ContactSensor* _groundContactSensor;
+    HitSensor* _groundHitSensor;
+    HitSensor* _landingSensor;
 };
 
 #endif // PLAYER_H

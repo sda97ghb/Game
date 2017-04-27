@@ -40,7 +40,7 @@ void Player::tryToJump()
     if (_state != State::normal)
         return;
 
-    if (!_groundContactSensor.isActive())
+    if (!_groundContactSensor->isActive())
         return;
 
     float yImpulse = body()->GetMass() * ::sqrt(g * jumpHeight() * 2.0);
@@ -57,7 +57,7 @@ void Player::tryToMoveLeft()
     if (!isAlive())
         return;
 
-    if (_leftContactSensor.isActive())
+    if (_leftContactSensor->isActive())
         return;
 
     const float xImpulse = - body()->GetMass() * movementSpeed();
@@ -75,7 +75,7 @@ void Player::tryToMoveRight()
     if (!isAlive())
         return;
 
-    if (_rightContactSensor.isActive())
+    if (_rightContactSensor->isActive())
         return;
 
     const float xImpulse = body()->GetMass() * movementSpeed();

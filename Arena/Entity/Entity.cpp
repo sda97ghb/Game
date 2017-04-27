@@ -18,7 +18,7 @@ Entity::~Entity()
 
 void Entity::update()
 {
-    return_if_deleted
+//    return_if_deleted
 
     callEventCallback(updateEvent);
 }

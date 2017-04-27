@@ -11,6 +11,8 @@
 #include "Arena/Entity/ArrowBuilderSpawner.h"
 #include "Arena/Entity/ArrowView.h"
 
+#include "Arena/Sensors/HitSensorBuilder.h"
+
 ArrowBuilderSpawner::ArrowBuilderSpawner() :
     _arrow(nullptr),
     _position(0.0f, 0.0f),
@@ -147,14 +149,14 @@ void ArrowBuilderSpawner::constructSensors()
         });
     entityCollisionSensor.hangOnBody(body());
 
-    HitSensor& hitSensor = entityPtr->_hitSensor;
-    hitSensor.setType(IdDispenser::getNewId());
-    hitSensor.setSize(width() / 2.0f * 1.1f, height() / 2.0f * 1.1f);
-    hitSensor.setRequireActivationThreshold(false);
-    hitSensor.setOnHitCallback(
-        [entityPtr] (float)
-        {
-            entityPtr->callEventCallback(entityPtr->hitEvent);
-        });
-    hitSensor.hangOnBody(body());
+    _arrow->_hitSensor = HitSensorBuilder()
+        .setSize(width() / 2.0f * 1.1f, height() / 2.0f * 1.1f)
+        .setRequireActivationThreshold(false)
+        .setOnHitCallback(
+            [entityPtr] (float)
+            {
+                entityPtr->callEventCallback(entityPtr->hitEvent);
+            })
+        .setBody(body())
+        .build();
 }

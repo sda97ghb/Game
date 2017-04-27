@@ -22,7 +22,7 @@ Arrow::~Arrow()
 
 void Arrow::onHit()
 {
-    return_if_deleted
+//    return_if_deleted
 
     std::cout << "Arrow hit!" << std::endl;
 
@@ -31,7 +31,7 @@ void Arrow::onHit()
 
 void Arrow::hitEntity(Entity* entity)
 {
-    return_if_deleted
+//    return_if_deleted
 
     std::cout << "Hit entity!" << std::endl;
 
@@ -47,6 +47,7 @@ void Arrow::hitEntity(Entity* entity)
 
 void Arrow::disappear()
 {
+    return_if_deleted
     new EntityDestroyer(this);
-    markAsDeleted();
+//    markAsDeleted();
 }

@@ -52,7 +52,7 @@ private:
 
     b2PolygonShape _shapeB2;
     sf::RectangleShape _shapeSF;
-    ContactSensor _sensor;
+    ContactSensor* _sensor;
     b2Body* _body;
 };
 

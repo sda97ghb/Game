@@ -87,48 +87,48 @@ void TestFinalEntityBuilderSpawner::constructBody()
 
 void TestFinalEntityBuilderSpawner::constructSensors()
 {
-    AbyssSensor& abyssSensor = _entity->_abyssSensor;
-    abyssSensor.setDx(  width() * 0.65f);
-    abyssSensor.setDy(- height() / 2.0f);
-    abyssSensor.hangOnBody(body());
+//    AbyssSensor& abyssSensor = _entity->_abyssSensor;
+//    abyssSensor.setDx(  width() * 0.65f);
+//    abyssSensor.setDy(- height() / 2.0f);
+//    abyssSensor.hangOnBody(body());
 
-    ContactSensor& leftContactSensor = _entity->_leftContactSensor;
-    leftContactSensor.setType(IdDispenser::getNewId());
-    leftContactSensor.setPosition(-width() / 2.0, 0.0f);
-    leftContactSensor.setSize(0.1, height() / 2.0f * 0.9f);
-    leftContactSensor.hangOnBody(body());
+//    ContactSensor& leftContactSensor = _entity->_leftContactSensor;
+//    leftContactSensor.setType(IdDispenser::getNewId());
+//    leftContactSensor.setPosition(-width() / 2.0, 0.0f);
+//    leftContactSensor.setSize(0.1, height() / 2.0f * 0.9f);
+//    leftContactSensor.hangOnBody(body());
 
-    ContactSensor& rightContactSensor = _entity->_rightContactSensor;
-    rightContactSensor.setType(IdDispenser::getNewId());
-    rightContactSensor.setPosition(width() / 2.0, 0.0f);
-    rightContactSensor.setSize(0.1, height() / 2.0f * 0.9f);
-    rightContactSensor.hangOnBody(body());
+//    ContactSensor& rightContactSensor = _entity->_rightContactSensor;
+//    rightContactSensor.setType(IdDispenser::getNewId());
+//    rightContactSensor.setPosition(width() / 2.0, 0.0f);
+//    rightContactSensor.setSize(0.1, height() / 2.0f * 0.9f);
+//    rightContactSensor.hangOnBody(body());
 
-    ContactSensor& groundContactSensor = _entity->_groundContactSensor;
-    groundContactSensor.setType(IdDispenser::getNewId());
-    groundContactSensor.setPosition(0.0f, -height() / 2.0f);
-    groundContactSensor.setSize(width() / 2.0f * 0.9f, 0.1);
-    groundContactSensor.hangOnBody(body());
+//    ContactSensor& groundContactSensor = _entity->_groundContactSensor;
+//    groundContactSensor.setType(IdDispenser::getNewId());
+//    groundContactSensor.setPosition(0.0f, -height() / 2.0f);
+//    groundContactSensor.setSize(width() / 2.0f * 0.9f, 0.1);
+//    groundContactSensor.hangOnBody(body());
 
-    HitSensor& groundHitSensor = _entity->_groundHitSensor;
-    groundHitSensor.setType(IdDispenser::getNewId());
-    groundHitSensor.setPosition(0.0f, -height() / 2.0f);
-    groundHitSensor.setSize(width() / 2.0f * 0.9f, 0.3);
-    groundHitSensor.setActivationThreshold(10.0f);
-    TestFinalEntity* entityPtr = _entity;
-    groundHitSensor.setOnHitCallback(
-        [entityPtr] (float speed)
-        {
-            entityPtr->onGroundHit(speed);
-            entityPtr->callEventCallback(entityPtr->groundHitEvent);
-        });
-    groundHitSensor.hangOnBody(body());
+//    HitSensor& groundHitSensor = _entity->_groundHitSensor;
+//    groundHitSensor.setType(IdDispenser::getNewId());
+//    groundHitSensor.setPosition(0.0f, -height() / 2.0f);
+//    groundHitSensor.setSize(width() / 2.0f * 0.9f, 0.3);
+//    groundHitSensor.setActivationThreshold(10.0f);
+//    TestFinalEntity* entityPtr = _entity;
+//    groundHitSensor.setOnHitCallback(
+//        [entityPtr] (float speed)
+//        {
+//            entityPtr->onGroundHit(speed);
+//            entityPtr->callEventCallback(entityPtr->groundHitEvent);
+//        });
+//    groundHitSensor.hangOnBody(body());
 
-    PlayerSensor& playerSensor = _entity->_playerSensor;
-    playerSensor.setNearbyDistance(15.0f);
-    playerSensor.hangOnBody(body());
+//    PlayerSensor& playerSensor = _entity->_playerSensor;
+//    playerSensor.setNearbyDistance(15.0f);
+//    playerSensor.hangOnBody(body());
 
-    PlayerSensor& nearEnoughToAttackSensor = _entity->_nearEnoughToAttackSensor;
-    nearEnoughToAttackSensor.setNearbyDistance(2.0f);
-    nearEnoughToAttackSensor.hangOnBody(body());
+//    PlayerSensor& nearEnoughToAttackSensor = _entity->_nearEnoughToAttackSensor;
+//    nearEnoughToAttackSensor.setNearbyDistance(2.0f);
+//    nearEnoughToAttackSensor.hangOnBody(body());
 }

@@ -8,6 +8,9 @@
 #include "Arena/Entity/PlayerBuilderSpawner.h"
 #include "Arena/Entity/PlayerView.h"
 
+#include "Arena/Sensors/ContactSensorBuilder.h"
+#include "Arena/Sensors/HitSensorBuilder.h"
+
 PlayerBuilderSpawner::PlayerBuilderSpawner() :
     _position(0.0f, 0.0f)
 {
@@ -85,46 +88,46 @@ void PlayerBuilderSpawner::constructSensors()
 {
     Player* entityPtr = _player;
 
-    ContactSensor& leftContactSensor = entityPtr->_leftContactSensor;
-    leftContactSensor.setType(IdDispenser::getNewId());
-    leftContactSensor.setPosition(-width() / 2.0, 0.0f);
-    leftContactSensor.setSize(0.1, height() / 2.0f * 0.9f);
-    leftContactSensor.hangOnBody(body());
+    _player->_leftContactSensor = ContactSensorBuilder()
+            .setPosition(-width() / 2.0, 0.0f)
+            .setSize(0.1, height() / 2.0f * 0.9f)
+            .setBody(body())
+            .build();
 
-    ContactSensor& rightContactSensor = entityPtr->_rightContactSensor;
-    rightContactSensor.setType(IdDispenser::getNewId());
-    rightContactSensor.setPosition(width() / 2.0, 0.0f);
-    rightContactSensor.setSize(0.1, height() / 2.0f * 0.9f);
-    rightContactSensor.hangOnBody(body());
+    _player->_rightContactSensor = ContactSensorBuilder()
+            .setPosition(width() / 2.0, 0.0f)
+            .setSize(0.1, height() / 2.0f * 0.9f)
+            .setBody(body())
+            .build();
 
-    ContactSensor& groundContactSensor = entityPtr->_groundContactSensor;
-    groundContactSensor.setType(IdDispenser::getNewId());
-    groundContactSensor.setPosition(0.0f, -height() / 2.0f);
-    groundContactSensor.setSize(width() / 2.0f * 0.9f, 0.1);
-    groundContactSensor.hangOnBody(body());
+    _player->_groundContactSensor = ContactSensorBuilder()
+            .setPosition(0.0f, -height() / 2.0f)
+            .setSize(width() / 2.0f * 0.9f, 0.1)
+            .setBody(body())
+            .build();
 
-    HitSensor& groundHitSensor = entityPtr->_groundHitSensor;
-    groundHitSensor.setType(IdDispenser::getNewId());
-    groundHitSensor.setPosition(0.0f, -height() / 2.0f);
-    groundHitSensor.setSize(width() / 2.0f * 0.9f, 0.3);
-    groundHitSensor.setActivationThreshold(10.0f);
-    groundHitSensor.setOnHitCallback(
-        [entityPtr] (float speed)
-        {
-            entityPtr->onGroundHit(speed);
-            entityPtr->callEventCallback(entityPtr->groundHitEvent);
-        });
-    groundHitSensor.hangOnBody(body());
+    _player->_groundHitSensor = HitSensorBuilder()
+        .setPosition(0.0f, -height() / 2.0f)
+        .setSize(width() / 2.0f * 0.9f, 0.3)
+        .setActivationThreshold(10.0f)
+        .setOnHitCallback(
+            [entityPtr] (float speed)
+            {
+                entityPtr->onGroundHit(speed);
+                entityPtr->callEventCallback(entityPtr->groundHitEvent);
+            })
+        .setBody(body())
+        .build();
 
-    HitSensor& landingSensor = entityPtr->_landingSensor;
-    landingSensor.setType(IdDispenser::getNewId());
-    landingSensor.setPosition(0.0f, -height() / 2.0f);
-    landingSensor.setSize(width() / 2.0f * 0.9f, 0.1f);
-    landingSensor.setRequireActivationThreshold(false);
-    landingSensor.setOnHitCallback(
-        [entityPtr] (float)
-        {
-            entityPtr->callEventCallback(entityPtr->landingEvent);
-        });
-    landingSensor.hangOnBody(body());
+    _player->_landingSensor = HitSensorBuilder()
+        .setPosition(0.0f, -height() / 2.0f)
+        .setSize(width() / 2.0f * 0.9f, 0.1f)
+        .setRequireActivationThreshold(false)
+        .setOnHitCallback(
+            [entityPtr] (float)
+            {
+                entityPtr->callEventCallback(entityPtr->landingEvent);
+            })
+        .setBody(body())
+        .build();
 }
