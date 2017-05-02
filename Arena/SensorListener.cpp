@@ -9,6 +9,8 @@
 #include "Arena/Sensors/ContactSensor.h"
 #include "Arena/Sensors/HitSensor.h"
 
+#include "Stream.h"
+
 SensorListener& SensorListener::instance()
 {
     static SensorListener instance;
@@ -62,6 +64,19 @@ void SensorListener::EndContact(b2Contact* contact)
 
 void SensorListener::setSensor(b2Body* body, int type, bool value)
 {
+    using namespace stream;
+    using namespace stream::op;
+
+    MakeStream::from(ObjectCounter<ContactSensor>::objects()) |
+        filter([=] (ContactSensor* sensor)
+        {
+            return sensor->body() == body && sensor->type() == type;
+        }) |
+        for_each([=] (ContactSensor* sensor)
+        {
+            sensor->set(value);
+        });
+
     for (ContactSensor* sensor : ObjectCounter<ContactSensor>::objects())
         if (sensor->body() == body && sensor->type() == type)
         {
@@ -72,10 +87,23 @@ void SensorListener::setSensor(b2Body* body, int type, bool value)
 
 void SensorListener::hitSensor(b2Body* body, int type, float speed)
 {
-    for (HitSensor* sensor : ObjectCounter<HitSensor>::objects())
-        if (sensor->body() == body && sensor->type() == type)
+    using namespace stream;
+    using namespace stream::op;
+
+    MakeStream::from(ObjectCounter<HitSensor>::objects()) |
+        filter([=] (HitSensor* sensor)
+        {
+            return sensor->body() == body && sensor->type() == type;
+        }) |
+        for_each([=] (HitSensor* sensor)
         {
             sensor->hit(speed);
-            return;
-        }
+        });
+
+//    for (HitSensor* sensor : ObjectCounter<HitSensor>::objects())
+//        if (sensor->body() == body && sensor->type() == type)
+//        {
+//            sensor->hit(speed);
+//            return;
+//        }
 }
