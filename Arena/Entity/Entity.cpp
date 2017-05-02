@@ -20,7 +20,7 @@ void Entity::update()
 {
 //    return_if_deleted
 
-    callEventCallback(updateEvent);
+    callEventCallbacks(updateEvent);
 }
 
 b2Body* Entity::body() const

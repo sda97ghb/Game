@@ -7,8 +7,8 @@
 Player::Player() :
     _state(State::normal)
 {
-    setEventCallback(landingEvent, METHOD_CALLBACK(onLanding));
-    setEventCallback(updateEvent, [&](){
+    addEventCallback(landingEvent, METHOD_CALLBACK(onLanding));
+    addEventCallback(updateEvent, [&](){
         b2Vec2 velocity = body()->GetLinearVelocity();
         velocity.x *= 0.5;
         body()->SetLinearVelocity(velocity);

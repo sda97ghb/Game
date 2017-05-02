@@ -3,12 +3,19 @@
 
 #include "Arena/Entity/Evented.h"
 
-void Evented::setEventCallback(const Event& event, EventCallback callback)
+void Evented::addEventCallback(const Event& event, EventCallback callback)
 {
-    _events[event] = callback;
+    try
+    {
+        _events.at(event).push_back(callback);
+    }
+    catch (std::out_of_range&)
+    {
+        _events.emplace(event, std::list<EventCallback>{callback});
+    }
 }
 
-const EventCallback& Evented::eventCallback(const Event& event) const
+std::list<EventCallback>& Evented::eventCallbacks(const Event& event)
 {
     try
     {
@@ -16,12 +23,13 @@ const EventCallback& Evented::eventCallback(const Event& event) const
     }
     catch (std::out_of_range&)
     {
-        return DO_NOTHING_CALLBACK;
+        static std::list<EventCallback> emptyCallbackList {};
+        return emptyCallbackList;
     }
 }
 
-void Evented::callEventCallback(const Event& event)
+void Evented::callEventCallbacks(const Event& event)
 {
-    const EventCallback& callback = eventCallback(event);
-    callback();
+    for (EventCallback& callback : eventCallbacks(event))
+        callback();
 }

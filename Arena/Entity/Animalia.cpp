@@ -20,7 +20,7 @@ void Animalia::kill()
 //    return_if_deleted
 
     _currentHealth = 0.0f;
-    callEventCallback(deathEvent);
+    callEventCallbacks(deathEvent);
 }
 
 void Animalia::makeDamage(float damage)
@@ -61,7 +61,7 @@ void Animalia::update()
 //    return_if_deleted
 
     if (isAlive())
-        callEventCallback(updateEvent);
+        callEventCallbacks(updateEvent);
 }
 
 Direction Animalia::lookingDirection() const

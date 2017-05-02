@@ -35,7 +35,7 @@ void PlayerBuilderSpawner::spawn()
     constructBody();
     constructSensors();
     World::instance().setPlayer(_player);
-    _player->callEventCallback(_player->spawnEvent);
+    _player->callEventCallbacks(_player->spawnEvent);
     new PlayerView(*_player);
 }
 
@@ -114,7 +114,7 @@ void PlayerBuilderSpawner::constructSensors()
             [entityPtr] (float speed)
             {
                 entityPtr->onGroundHit(speed);
-                entityPtr->callEventCallback(entityPtr->groundHitEvent);
+                entityPtr->callEventCallbacks(entityPtr->groundHitEvent);
             })
         .setBody(body())
         .build();
@@ -126,7 +126,7 @@ void PlayerBuilderSpawner::constructSensors()
         .setOnHitCallback(
             [entityPtr] (float)
             {
-                entityPtr->callEventCallback(entityPtr->landingEvent);
+                entityPtr->callEventCallbacks(entityPtr->landingEvent);
             })
         .setBody(body())
         .build();

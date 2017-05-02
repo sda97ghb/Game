@@ -15,16 +15,16 @@ Archer::Archer()
 {
     ObjectCounter<Archer>::addObject(this);
 
-    setEventCallback(bumpEvent, METHOD_CALLBACK(onBump));
-    setEventCallback(deathEvent, METHOD_CALLBACK(onDeath));
-    setEventCallback(gotSightOfPlayerEvent, METHOD_CALLBACK(onGotSightOfPlayer));
+    addEventCallback(bumpEvent, METHOD_CALLBACK(onBump));
+    addEventCallback(deathEvent, METHOD_CALLBACK(onDeath));
+    addEventCallback(gotSightOfPlayerEvent, METHOD_CALLBACK(onGotSightOfPlayer));
 //    setEventCallback(groundHitEvent,)
-    setEventCallback(landingEvent, METHOD_CALLBACK(onLanding));
-    setEventCallback(lostSightOfPlayerEvent, METHOD_CALLBACK(onLostSightOfPlayer));
-    setEventCallback(readyToStrikeEvent, METHOD_CALLBACK(strike));
+    addEventCallback(landingEvent, METHOD_CALLBACK(onLanding));
+    addEventCallback(lostSightOfPlayerEvent, METHOD_CALLBACK(onLostSightOfPlayer));
+    addEventCallback(readyToStrikeEvent, METHOD_CALLBACK(strike));
 //    setEventCallback(spawnEvent,)
-    setEventCallback(updateEvent, METHOD_CALLBACK(onUpdate));
-    setEventCallback(wentButNotFoundEvent, METHOD_CALLBACK(onWentButNotFound));
+    addEventCallback(updateEvent, METHOD_CALLBACK(onUpdate));
+    addEventCallback(wentButNotFoundEvent, METHOD_CALLBACK(onWentButNotFound));
 
     stateBuilder(chasingState)
         .setStateFunction(METHOD_FUNCTION(chasing))
@@ -277,7 +277,7 @@ void Archer::chasing()
 
     float dx = ::fabsf(_lastKnownPlayerLocation.x - body()->GetPosition().x);
     if (dx < 0.1f)
-        callEventCallback(wentButNotFoundEvent);
+        callEventCallbacks(wentButNotFoundEvent);
 }
 
 float Archer::jumpHeight() const

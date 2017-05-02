@@ -36,7 +36,7 @@ void TestFinalEntityBuilderSpawner::spawn()
     createBody();
     constructBody();
     constructSensors();
-    _entity->callEventCallback(_entity->spawnEvent);
+    _entity->callEventCallbacks(_entity->spawnEvent);
 //    PaintingWindow::instance().addEntityView(new TestFinalEntityView(*_entity));
 }
 

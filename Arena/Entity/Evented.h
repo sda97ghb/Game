@@ -2,11 +2,11 @@
 #define EVENTED_H
 
 #include <functional>
+#include <list>
 #include <map>
 
 using Event = const std::string;
 using EventCallback = std::function<void()>;
-static const EventCallback DO_NOTHING_CALLBACK([](){});
 
 #define EVENT(eventName) \
     Event eventName##Event = #eventName;
@@ -16,13 +16,13 @@ static const EventCallback DO_NOTHING_CALLBACK([](){});
 class Evented
 {
 public:
-    void setEventCallback(const Event& event, EventCallback callback);
-    const EventCallback& eventCallback(const Event& event) const;
+    void addEventCallback(const Event& event, EventCallback callback);
+    std::list<EventCallback>& eventCallbacks(const Event& event);
 
-    void callEventCallback(const Event& event);
+    void callEventCallbacks(const Event& event);
 
 private:
-    std::map<Event, EventCallback> _events;
+    std::map<Event, std::list<EventCallback>> _events;
 };
 
 #endif // EVENTED_H

@@ -37,7 +37,7 @@ void ArcherBuilderSpawner::spawn()
     createBody();
     constructBody();
     constructSensors();
-    _archer->callEventCallback(_archer->spawnEvent);
+    _archer->callEventCallbacks(_archer->spawnEvent);
     new ArcherView(*_archer);
 }
 
@@ -122,7 +122,7 @@ void ArcherBuilderSpawner::constructSensors()
                 [entityPtr] (float speed)
                 {
                     entityPtr->onGroundHit(speed);
-                    entityPtr->callEventCallback(entityPtr->groundHitEvent);
+                    entityPtr->callEventCallbacks(entityPtr->groundHitEvent);
                 })
             .setBody(body())
             .build();
@@ -134,7 +134,7 @@ void ArcherBuilderSpawner::constructSensors()
             .setOnHitCallback(
                 [entityPtr] (float)
                 {
-                    entityPtr->callEventCallback(entityPtr->landingEvent);
+                    entityPtr->callEventCallbacks(entityPtr->landingEvent);
                 })
             .setBody(body())
             .build();
@@ -147,7 +147,7 @@ void ArcherBuilderSpawner::constructSensors()
             .setOnHitCallback(
                 [entityPtr] (float)
                 {
-                    entityPtr->callEventCallback(entityPtr->bumpEvent);
+                    entityPtr->callEventCallbacks(entityPtr->bumpEvent);
                 })
             .setBody(body())
             .build();
@@ -160,7 +160,7 @@ void ArcherBuilderSpawner::constructSensors()
             .setOnHitCallback(
                 [entityPtr] (float)
                 {
-                    entityPtr->callEventCallback(entityPtr->bumpEvent);
+                    entityPtr->callEventCallbacks(entityPtr->bumpEvent);
                 })
             .setBody(body())
             .build();
@@ -169,11 +169,11 @@ void ArcherBuilderSpawner::constructSensors()
             .setNearbyDistance(25.0f)
             .setOnGotSightOfPlayerCallback(
                 [entityPtr] () {
-                    entityPtr->callEventCallback(entityPtr->gotSightOfPlayerEvent);
+                    entityPtr->callEventCallbacks(entityPtr->gotSightOfPlayerEvent);
                 })
             .setOnLostSightOfPlayerCallback(
                 [entityPtr] () {
-                    entityPtr->callEventCallback(entityPtr->lostSightOfPlayerEvent);
+                    entityPtr->callEventCallbacks(entityPtr->lostSightOfPlayerEvent);
                 })
             .setBody(body())
             .build();
@@ -183,7 +183,7 @@ void ArcherBuilderSpawner::constructSensors()
             .setOnTimeoutCallback(
                 [entityPtr] ()
                 {
-                    entityPtr->callEventCallback(entityPtr->readyToStrikeEvent);
+                    entityPtr->callEventCallbacks(entityPtr->readyToStrikeEvent);
                 })
             .build();
 }

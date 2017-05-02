@@ -68,7 +68,7 @@ void ArrowBuilderSpawner::spawn()
     createBody();
     constructBody();
     constructSensors();
-    _arrow->callEventCallback(_arrow->spawnEvent);
+    _arrow->callEventCallbacks(_arrow->spawnEvent);
     new ArrowView(*_arrow);
 }
 
@@ -155,7 +155,7 @@ void ArrowBuilderSpawner::constructSensors()
         .setOnHitCallback(
             [entityPtr] (float)
             {
-                entityPtr->callEventCallback(entityPtr->hitEvent);
+                entityPtr->callEventCallbacks(entityPtr->hitEvent);
             })
         .setBody(body())
         .build();

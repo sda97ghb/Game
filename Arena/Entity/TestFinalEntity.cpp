@@ -8,9 +8,9 @@
 
 TestFinalEntity::TestFinalEntity()
 {
-    setEventCallback(spawnEvent, METHOD_CALLBACK(onSpawn));
-    setEventCallback(deathEvent, METHOD_CALLBACK(onDeath));
-    setEventCallback(updateEvent, METHOD_CALLBACK(onLivingUpdate));
+    addEventCallback(spawnEvent, METHOD_CALLBACK(onSpawn));
+    addEventCallback(deathEvent, METHOD_CALLBACK(onDeath));
+    addEventCallback(updateEvent, METHOD_CALLBACK(onLivingUpdate));
 
     setMaxHealth(50.0f);
     setCurrentHealth(maxHealth());

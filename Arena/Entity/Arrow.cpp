@@ -12,7 +12,7 @@ Arrow::Arrow()
 {
     ObjectCounter<Arrow>::addObject(this);
 
-    setEventCallback(hitEvent, METHOD_CALLBACK(onHit));
+    addEventCallback(hitEvent, METHOD_CALLBACK(onHit));
 }
 
 Arrow::~Arrow()
