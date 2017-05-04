@@ -2,7 +2,7 @@
 #define OBJECTCOUNTER_H
 
 #include <algorithm>
-#include <list>
+#include <set>
 
 /**
  *  @brief Подсчитывает количество объектов указанного типа и возвращает
@@ -34,7 +34,7 @@ class ObjectCounter
 {
 public:
     /// @brief Возвращает список всех объектов указаного типа.
-    static const std::list<T*> objects()
+    static const std::set<T*> objects()
     {
         return _objects;
     }
@@ -42,13 +42,13 @@ public:
     /// @brief Запоминает указанный объект.
     static void addObject(T* object)
     {
-        _objects.push_back(object);
+        _objects.insert(object);
     }
 
     /// @brief Забывает указанный объект.
     static void removeObject(T* object)
     {
-        _objects.erase(std::find(_objects.begin(), _objects.end(), object));
+        _objects.erase(object);
     }
 
     /// @brief Возвращает количество объектов указанного типа.
@@ -58,11 +58,11 @@ public:
     }
 
 private:
-    static std::list<T*> _objects; ///< Объекты указанного типа.
+    static std::set<T*> _objects; ///< Объекты указанного типа.
 };
 
 template <typename T>
-std::list<T*> ObjectCounter<T>::_objects;
+std::set<T*> ObjectCounter<T>::_objects;
 
 #define OBJECT_COUNTER_ADD_THIS \
     using this_t_ptr = decltype(this); \
