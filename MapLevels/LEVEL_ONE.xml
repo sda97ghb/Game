@@ -1,62 +1,109 @@
-<?xml version = "1.0" encoding = "utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <world>
     <ground>
-		<background picture="Textures/background.png"/>
-		<platforms>
-			<platform>
+        <background picture="Textures/arena_ancient_bg.png"/>
+        <platforms>
+            <platform>
                 <shape>
-                    <vertex x="-20.0" y="-30.0"/>
-                    <vertex x="20.0" y="-30.0"/>
-					<vertex x="20.0" y="0.0"/>
-                    <vertex x="-20.0" y="0.0"/>
+                    <vertex x="-25.6" y="-0.01"/>
+                    <vertex x="25.6" y="-0.01"/>
+                    <vertex x="25.6" y="0.0"/>
+                    <vertex x="-25.6" y="0.0"/>
                 </shape>
                 <texture picture="Textures/stonebricks.png"/>
             </platform>
-	   </platforms>
+            <platform>
+                <shape>
+                    <vertex x="-25.7" y="0.0"/>
+                    <vertex x="-25.6" y="0.0"/>
+                    <vertex x="-25.6" y="27.6"/>
+                    <vertex x="-25.7" y="27.6"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+            <platform>
+                <shape>
+                    <vertex x="25.8" y="0.0"/>
+                    <vertex x="25.7" y="0.0"/>
+                    <vertex x="25.7" y="27.6"/>
+                    <vertex x="25.8" y="27.6"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+
+            <platform>
+                <shape>
+                    <vertex x="-1.0" y="0.0"/>
+                    <vertex x="1.0" y="0.0"/>
+                    <vertex x="1.0" y="0.8"/>
+                    <vertex x="-1.0" y="0.8"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+
+            <platform>
+                <shape>
+                    <vertex x="-20.0" y="10.0"/>
+                    <vertex x="-2.0" y="10.0"/>
+                    <vertex x="-2.0" y="11.0"/>
+                    <vertex x="-20.0" y="11.0"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+            <platform>
+                <shape>
+                    <vertex x="2.0" y="10.0"/>
+                    <vertex x="20.0" y="10.0"/>
+                    <vertex x="20.0" y="11.0"/>
+                    <vertex x="2.0" y="11.0"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+
+            <platform>
+                <shape>
+                    <vertex x="23.0" y="3.0"/>
+                    <vertex x="25.0" y="3.0"/>
+                    <vertex x="25.0" y="3.5"/>
+                    <vertex x="23.0" y="3.5"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+            <platform>
+                <shape>
+                    <vertex x="20.0" y="6.0"/>
+                    <vertex x="22.0" y="6.0"/>
+                    <vertex x="22.0" y="6.5"/>
+                    <vertex x="20.0" y="6.5"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+            <platform>
+                <shape>
+                    <vertex x="23.0" y="9.0"/>
+                    <vertex x="25.0" y="9.0"/>
+                    <vertex x="25.0" y="9.5"/>
+                    <vertex x="23.0" y="9.5"/>
+                </shape>
+                <texture picture="Textures/stonebricks.png"/>
+            </platform>
+
+        </platforms>
     </ground>
-	
+
     <furniture>
         <ladder>
-            <coordinates x="5.5" y1="0.0" y2="100.0"/>
+            <coordinates x="5.5" y1="0.0" y2="20.0"/>
             <width>1.0</width>
             <texture picture="Textures/ladder.png"/>
         </ladder>
-		<cable>
-            <coordinates x1="0.0" y1="0.0" x2="1.0"  y2="1.0"/>
-            <texture picture="cable.png"/>
-        </cable>
-		<water>
-			<shape>
-				<vertex x="-18.0" y="0.0"/>
-				<vertex x="-13.0" y="0.0"/>
-				<vertex x="-13.0" y="3.8"/>
-				<vertex x="-18.0" y="3.8"/>
-			</shape>
-			<texture picture="Textures/water.png"/>
-			<textureback picture="Textures/stonebricks.png"/>
-		</water>
-		<lava>
-			<shape>
-				<vertex x="-12.0" y="0.0"/>
-				<vertex x="-7.0" y="0.0"/>
-				<vertex x="-7.0" y="3.8"/>
-				<vertex x="-12.0" y="3.8"/>
-			</shape>
-			<texture picture="Textures/lava.png"/>
-			<textureback picture="Textures/lava.png"/>
-		</lava>
-		<spikes>
-            <coordinates x="5.5" y1="0.0" y2="100.0"/>
-            <width>1.0</width>
-            <texture picture="Textures/spikes.png"/>
-        </spikes>
     </furniture>
-	
+
     <actors>
-		<player>
-			<position x="5.5" y="0.875"/>
-			<texture picture="Textures/playerFrames.png"/>
-		</player>
+        <player>
+            <position x="-5.5" y="12.875"/>
+            <texture picture="Textures/player.png"/>
+        </player>
     </actors>
 </world>
