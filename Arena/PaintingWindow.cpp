@@ -31,10 +31,10 @@ PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
                                const std::string& title) :
     sf::RenderWindow(sf::VideoMode(width, height), title)
 {
-    _backgroundView.setCenter(SCREEN_RESOLUTION_X / PIXELART_SCALE_FACTOR / 2.0f,
-                              SCREEN_RESOLUTION_Y / PIXELART_SCALE_FACTOR / 2.0f);
-    _backgroundView.setSize(SCREEN_RESOLUTION_X / PIXELART_SCALE_FACTOR,
-                            SCREEN_RESOLUTION_Y / PIXELART_SCALE_FACTOR);
+    _backgroundView.setCenter(SCREEN_RESOLUTION_X / PIXELART_BACKGROUND_SCALE_FACTOR / 2.0f,
+                              SCREEN_RESOLUTION_Y / PIXELART_BACKGROUND_SCALE_FACTOR / 2.0f);
+    _backgroundView.setSize(SCREEN_RESOLUTION_X / PIXELART_BACKGROUND_SCALE_FACTOR,
+                            SCREEN_RESOLUTION_Y / PIXELART_BACKGROUND_SCALE_FACTOR);
     _backgroundView.setViewport(sf::FloatRect(0.0f, 0.0f, 1.0f, 1.0f));
 
     _worldView.setCenter(0.0f, 0.0f);
@@ -75,10 +75,11 @@ void PaintingWindow::drawBackground()
 
 void PaintingWindow::drawWorld()
 {
-//    b2Vec2 playerPos = Player::instance().body().GetPosition();
+//    b2Vec2 playerPos = World::instance().player()->body()->GetPosition();
 //    _worldView.setCenter(playerPos.x, playerPos.y + 5.0f);
-    _worldView.setCenter(0.0f, SCREEN_RESOLUTION_Y / PIXELART_SCALE_FACTOR / PIXELS_PER_METER / 2.0f -
-                         6.0f / PIXELS_PER_METER);
+    _worldView.setCenter(0.0f, 3.5f);
+//    _worldView.setCenter(0.0f, SCREEN_RESOLUTION_Y / PIXELART_SCALE_FACTOR / PIXELS_PER_METER / 2.0f -
+//                         6.0f / PIXELS_PER_METER);
     setView(_worldView);
 
     //---- ANCIENT SHIT CESTION BEGIN ----//

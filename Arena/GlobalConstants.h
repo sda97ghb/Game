@@ -13,12 +13,21 @@ static const b2Vec2 GRAVITY_VECTOR = b2Vec2(0.0f, -::g);
 
 // -------- Graphic constants -------- //
 
-static const uint32_t SCREEN_RESOLUTION_X = 1280;
-static const uint32_t SCREEN_RESOLUTION_Y = 720;
+//static const uint32_t SCREEN_RESOLUTION_X = 1280;
+//static const uint32_t SCREEN_RESOLUTION_Y = 720;
 
-static const float PIXELART_SCALE_FACTOR = 5.0f;
+static const uint32_t SCREEN_RESOLUTION_X = 1366;
+static const uint32_t SCREEN_RESOLUTION_Y = 768;
+
+static const float PIXELART_SCALE_FACTOR = 10.0f;
+static const float PIXELART_BACKGROUND_SCALE_FACTOR = 5.0;
 
 static const float PIXELS_PER_METER = 5.0f;
+
+//static const float PIXELART_SCALE_FACTOR = 5.0f;
+//static const float PIXELART_BACKGROUND_SCALE_FACTOR = 2.5;
+
+//static const float PIXELS_PER_METER = 5.0f;
 
 static const std::string GAME_NAME = "Arena";
 
