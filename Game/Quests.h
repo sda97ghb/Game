@@ -19,8 +19,6 @@ public:
     Quests& operator=(Quests const&) = delete;
     Quests& operator=(Quests &&) = delete;
 
-    Quest& questUniformauto(uint32_t id);
-
     std::map<uint32_t, Quest> getQuest();//id
     Quest& createQuests(uint32_t);
 

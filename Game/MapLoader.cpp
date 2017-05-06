@@ -48,14 +48,13 @@ MapLoader::MapLoader()
 
 void MapLoader::loadMap(std::string filename)
 {
+
 	_document.LoadFile(filename.c_str());
 	if (_document.Error())
 	{
 		_document.PrintError();
 		throw XmlError(-1);
 	}
-
-	
 
 	const XMLElement* world = _document.RootElement();
 	if (std::string(world->Value()) != section::WORLD)
@@ -111,15 +110,11 @@ void MapLoader::loadPlatform(const tinyxml2::XMLElement& platform)
 		_vertex.push_back(coordinates);
 	}
 
-	
-
 	shape.Set(&_vertex.front(), _vertex.size());
 	platform_.setShape(shape);
 
 	const XMLElement& textureElement = childElement(section::TEXTURE, platform);
 	platform_.setTexture(textureElement.Attribute("picture"));
-	
-
 }
 
 void MapLoader::loadFurniture(const tinyxml2::XMLElement& furniture)
@@ -132,8 +127,7 @@ void MapLoader::loadFurniture(const tinyxml2::XMLElement& furniture)
 		loadWater(*water);
 	for (const XMLElement* lava = furniture.FirstChildElement(section::LAVA);
 		lava != nullptr; lava = lava->NextSiblingElement(section::LAVA))
-		loadLava(*lava);
-	
+		loadLava(*lava);	
 }
 
 void MapLoader::loadLadder(const tinyxml2::XMLElement& ladder)
@@ -239,7 +233,6 @@ const XMLElement& MapLoader::childElement(const std::string elementName,
 		throw NotExistChildElement(element.GetLineNum(), element.Name(), elementName.c_str());
 
 	return *childElement;
-
 }
 
 void MapLoader::loadCoordinates(const tinyxml2::XMLElement& element, b2Vec2& coordinates)
