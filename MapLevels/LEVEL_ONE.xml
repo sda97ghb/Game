@@ -2,7 +2,7 @@
 
 <world>
     <ground>
-        <background picture="Textures/arena_bg.png"/>
+        <background picture="Textures/arena_ancient_bg.png"/>
         <platforms>
             <platform>
                 <shape>
@@ -15,23 +15,23 @@
             </platform>
             <platform>
                 <shape>
-                    <vertex x="-25.7" y="0.0"/>
-                    <vertex x="-25.6" y="0.0"/>
-                    <vertex x="-25.6" y="27.6"/>
-                    <vertex x="-25.7" y="27.6"/>
+                    <vertex x="-12.7" y="0.0"/>
+                    <vertex x="-12.69" y="0.0"/>
+                    <vertex x="-12.69" y="27.6"/>
+                    <vertex x="-12.7" y="27.6"/>
                 </shape>
                 <texture picture="Textures/stonebricks.png"/>
             </platform>
             <platform>
                 <shape>
-                    <vertex x="25.8" y="0.0"/>
-                    <vertex x="25.7" y="0.0"/>
-                    <vertex x="25.7" y="27.6"/>
-                    <vertex x="25.8" y="27.6"/>
+                    <vertex x="12.8" y="0.0"/>
+                    <vertex x="12.79" y="0.0"/>
+                    <vertex x="12.79" y="27.6"/>
+                    <vertex x="12.8" y="27.6"/>
                 </shape>
                 <texture picture="Textures/stonebricks.png"/>
             </platform>
-
+<!--
             <platform>
                 <shape>
                     <vertex x="-1.0" y="0.0"/>
@@ -88,7 +88,7 @@
                 </shape>
                 <texture picture="Textures/stonebricks.png"/>
             </platform>
-
+-->
         </platforms>
     </ground>
 

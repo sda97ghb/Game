@@ -327,8 +327,8 @@ void MapLoader::loadCoordinates(const tinyxml2::XMLElement& coordinatesElem,
 void MapLoader::loadTestThings()
 {
 //    TestFinalEntityBuilderSpawner().setPosition(5.0f, 10.0f).spawn();
-    ArcherBuilderSpawner().setPosition(10.0f, 13.0f).spawn();
-    ArcherBuilderSpawner().setPosition(15.0f, 13.0f).spawn();
-    ArcherBuilderSpawner().setPosition(20.0f, 13.0f).spawn();
-    PlayerBuilderSpawner().setPosition(-20.0f, 13.0f).spawn();
+    ArcherBuilderSpawner().setPosition(10.0f, 2.0f).spawn();
+    ArcherBuilderSpawner().setPosition(15.0f, 2.0f).spawn();
+    ArcherBuilderSpawner().setPosition(20.0f, 2.0f).spawn();
+    PlayerBuilderSpawner().setPosition(-10.0f, 2.0f).spawn();
 }
