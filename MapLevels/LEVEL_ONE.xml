@@ -2,7 +2,7 @@
 
 <world>
     <ground>
-        <background picture="Textures/arena_ancient_bg.png"/>
+        <background picture="Textures/arena_bg.png"/>
         <platforms>
             <platform>
                 <shape>
