@@ -9,11 +9,19 @@
 void KeyboardController::processKeyboard()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-        World::instance().player()->tryToMoveLeft();
+        World::instance().player1()->tryToMoveLeft();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-        World::instance().player()->tryToMoveRight();
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-        World::instance().player()->tryToJump();
+        World::instance().player1()->tryToMoveRight();
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        World::instance().player1()->tryToJump();
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        World::instance().player2()->tryToMoveLeft();
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        World::instance().player2()->tryToMoveRight();
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        World::instance().player2()->tryToJump();
+
 //    if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
 //    {
 //    }

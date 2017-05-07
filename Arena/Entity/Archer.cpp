@@ -191,7 +191,7 @@ void Archer::onLostSightOfPlayer()
     if (isStateActive(preparingToStrikeState))
         _reloadSensor->stop();
 
-    _lastKnownPlayerLocation = World::instance().player()->body()->GetPosition();
+    _lastKnownPlayerLocation = World::instance().player1()->body()->GetPosition();
 
     activateState(chasingState);
 }
@@ -226,7 +226,7 @@ void Archer::preparingToStrike()
 {
 //    return_if_deleted
 
-    if (World::instance().player()->body()->GetPosition().x <
+    if (World::instance().player1()->body()->GetPosition().x <
         body()->GetPosition().x)
         setLookingDirection(Direction::left);
     else
@@ -241,7 +241,7 @@ void Archer::strike()
 
     b2Vec2 myPos = body()->GetPosition();
 
-    Player& player = *(World::instance().player());
+    Player& player = *(World::instance().player1());
     b2Vec2 playerPos = player.body()->GetPosition();
 
     b2Vec2 d = playerPos - myPos;

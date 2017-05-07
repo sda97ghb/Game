@@ -11,7 +11,7 @@ public:
     PlayerBuilderSpawner& setPosition(const b2Vec2& position);
     PlayerBuilderSpawner& setPosition(float x, float y);
 
-    void spawn();
+    Player* spawn();
 
 private:
     float width() const;

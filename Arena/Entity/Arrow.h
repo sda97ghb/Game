@@ -27,6 +27,8 @@ private:
 
     EnityCollisionSensor _entityCollisionSensor;
     HitSensor* _hitSensor;
+
+    float _damage;
 };
 
 #endif // ARROW_H

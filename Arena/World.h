@@ -43,10 +43,14 @@ public:
     /// \brief Обновляет мир.
     void update();
 
-    void setPlayer(Player* player);
+    void setPlayer1(Player* player);
+    void setPlayer2(Player* player);
 
-    /// \brief Возвращает ссылку на игрока.
-    Player* player();
+    /// \brief Возвращает указатель на первого игрока.
+    Player* player1();
+
+    /// \brief Возвращает указатель на второго игрока.
+    Player* player2();
 
     //---- ANCIENT SHIT CESTION BEGIN ----//
 
@@ -94,7 +98,8 @@ private:
     World(const World&) = delete;
     void operator= (const World&) = delete;
 
-    Player* _player;
+    Player* _player1;
+    Player* _player2;
 
     //---- ANCIENT SHIT CESTION BEGIN ----//
 

@@ -8,7 +8,8 @@
 #include "Arena/Entity/Arrow.h"
 #include "Arena/Entity/EntityDestroyer.h"
 
-Arrow::Arrow()
+Arrow::Arrow() :
+    _damage(10.0f)
 {
     ObjectCounter<Arrow>::addObject(this);
 
@@ -39,7 +40,7 @@ void Arrow::hitEntity(Entity* entity)
     {
         if (entity == animalia)
         {
-            animalia->makeDamage(10.0f);
+            animalia->makeDamage(_damage);
             break;
         }
     }

@@ -14,6 +14,7 @@ public:
     ArrowBuilderSpawner& setTarget(float x, float y);
     ArrowBuilderSpawner& setDirection(float angle);
     ArrowBuilderSpawner& setSpeed(float speed);
+    ArrowBuilderSpawner& setDamage(float damage);
 
     void spawn();
 
@@ -33,6 +34,7 @@ private:
     b2Vec2 _target;
     float _angle;
     float _speed;
+    float _damage;
 
     enum class LaunchMode
     {

@@ -19,7 +19,7 @@ void MouseController::processMousePressed(const sf::Event::MouseButtonEvent& eve
         PaintingWindow& window = PaintingWindow::instance();
         b2Vec2 targetPos = window.cursorCoordinatesToPhysical(event.x, event.y);
 
-        Player& player = *(World::instance().player());
+        Player& player = *(World::instance().player2());
         b2Vec2 playerPos = player.body()->GetPosition();
 
         b2Vec2 d = targetPos - playerPos;
@@ -28,6 +28,10 @@ void MouseController::processMousePressed(const sf::Event::MouseButtonEvent& eve
 
         playerPos += d;
 
-        ArrowBuilderSpawner().setPosition(playerPos).setTarget(targetPos).spawn();
+        ArrowBuilderSpawner()
+                .setPosition(playerPos)
+                .setTarget(targetPos)
+                .setDamage(2.5f)
+                .spawn();
     }
 }

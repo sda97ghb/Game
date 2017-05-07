@@ -6,7 +6,8 @@
 #include "Arena/Entity/Entity.h"
 
 World::World() :
-    _player(nullptr)
+    _player1(nullptr),
+    _player2(nullptr)
 {
     World::physical().SetContactListener(&SensorListener::instance());
 }
@@ -51,14 +52,24 @@ void World::update()
     World::physical().Step(timeStep, velocityIterations, positionIterations);
 }
 
-void World::setPlayer(Player* player)
+void World::setPlayer1(Player* player)
 {
-    _player = player;
+    _player1 = player;
 }
 
-Player* World::player()
+void World::setPlayer2(Player* player)
 {
-    return _player;
+    _player2 = player;
+}
+
+Player* World::player1()
+{
+    return _player1;
+}
+
+Player* World::player2()
+{
+    return _player2;
 }
 
 //---- ANCIENT SHIT CESTION BEGIN ----//

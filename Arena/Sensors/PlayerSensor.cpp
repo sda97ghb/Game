@@ -21,7 +21,7 @@ PlayerSensor::PlayerSensor() :
 
 bool PlayerSensor::canSee()
 {
-    Player& player = *(World::instance().player());
+    Player& player = *(World::instance().player1());
 
     b2RayCastInput input;
     input.p1 = _body->GetPosition();
@@ -51,7 +51,7 @@ bool PlayerSensor::canSee()
 
 bool PlayerSensor::isNearby()
 {
-    return (World::instance().player()->body()->GetPosition() -
+    return (World::instance().player1()->body()->GetPosition() -
             _body->GetPosition()).Length() < _nearbyDistance;
 }
 

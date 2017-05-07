@@ -148,9 +148,16 @@ void PaintingWindow::drawGui()
 {
     setView(_guiView);
 
-    float health = World::instance().player()->currentHealth() /
-                   World::instance().player()->maxHealth();
-    drawBar(30.0f, 30.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
+    {
+        float health = World::instance().player1()->currentHealth() /
+                       World::instance().player1()->maxHealth();
+        drawBar(30.0f, 30.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
+    }
+    {
+        float health = World::instance().player2()->currentHealth() /
+                       World::instance().player2()->maxHealth();
+        drawBar(SCREEN_RESOLUTION_X - 230.0f, 30.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
+    }
 
 //    if (Player::instance().maxMana() != 0.0f)
 //    {

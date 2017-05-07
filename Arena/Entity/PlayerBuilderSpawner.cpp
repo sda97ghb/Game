@@ -29,14 +29,14 @@ PlayerBuilderSpawner& PlayerBuilderSpawner::setPosition(float x, float y)
     return *this;
 }
 
-void PlayerBuilderSpawner::spawn()
+Player* PlayerBuilderSpawner::spawn()
 {
     createBody();
     constructBody();
     constructSensors();
-    World::instance().setPlayer(_player);
     _player->callEventCallbacks(_player->spawnEvent);
     new PlayerView(*_player);
+    return _player;
 }
 
 float PlayerBuilderSpawner::width() const

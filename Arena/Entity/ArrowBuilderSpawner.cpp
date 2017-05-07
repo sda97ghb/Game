@@ -63,11 +63,18 @@ ArrowBuilderSpawner& ArrowBuilderSpawner::setSpeed(float speed)
     return *this;
 }
 
+ArrowBuilderSpawner&ArrowBuilderSpawner::setDamage(float damage)
+{
+    _damage = damage;
+    return *this;
+}
+
 void ArrowBuilderSpawner::spawn()
 {
     createBody();
     constructBody();
     constructSensors();
+    _arrow->_damage = _damage;
     _arrow->callEventCallbacks(_arrow->spawnEvent);
     new ArrowView(*_arrow);
 }
