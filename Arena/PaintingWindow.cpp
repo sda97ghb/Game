@@ -81,8 +81,8 @@ void PaintingWindow::drawBackground()
 
 void PaintingWindow::drawWorld()
 {
-//    b2Vec2 playerPos = World::instance().player()->body()->GetPosition();
-//    _worldView.setCenter(playerPos.x, playerPos.y + 5.0f);
+//    b2Vec2 playerPos = World::instance().player1()->body()->GetPosition();
+//    _worldView.setCenter(playerPos.x, playerPos.y + 4.5f);
     _worldView.setCenter(0.0f, 4.5f);
 //    _worldView.setCenter(0.0f, SCREEN_RESOLUTION_Y / PIXELART_SCALE_FACTOR / PIXELS_PER_METER / 2.0f -
 //                         6.0f / PIXELS_PER_METER);
