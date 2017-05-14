@@ -5,27 +5,34 @@
 PlayerView::PlayerView(const Player& player) :
     _player(player)
 {
-    _animator.setTexture("Textures/player.png");
+//    _animator.setTexture("Textures/player1.png");
 
-    _animator.setAnimationGroup("going_left", 0, 0, 5, 9, 2, Orientation::horizontal);
-    _animator.setAnimationGroup("going_right", 0, 9, 5, 9, 2, Orientation::horizontal);
-    _animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
-    _animator.setAnimationGroup("punching_right", 0, 0, 5, 9, 1, Orientation::vertical);
-    _animator.setAnimationGroup("punching_left", 0, 0, 5, 9, 1, Orientation::vertical);
-    _animator.setAnimationGroup("dead", 0, 0, 5, 9);
+//    _animator.setAnimationGroup("going_left", 0, 0, 9, 9, 2, Orientation::horizontal);
+//    _animator.setAnimationGroup("going_right", 0, 9, 9, 9, 2, Orientation::horizontal);
+////    _animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
+//    _animator.setAnimationGroup("punching_right", 18, 0, 10, 9);
+//    _animator.setAnimationGroup("punching_left", 18, 9, 10, 9);
+//    _animator.setAnimationGroup("dead", 0, 18, 5, 5);
 
-    _animator.setCurrentGroup("going_right");
-    _animator.nextFrame();
+//    _animator.setAnimationGroup("going_left", 0, 0, 7, 9, 2, Orientation::horizontal);
+//    _animator.setAnimationGroup("going_right", 0, 9, 7, 9, 2, Orientation::horizontal);
+////    _animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
+//    _animator.setAnimationGroup("punching_right", 14, 0, 9, 9);
+//    _animator.setAnimationGroup("punching_left", 14, 9, 9, 9);
+//    _animator.setAnimationGroup("dead", 0, 18, 5, 5);
+
+//    _animator.setCurrentGroup("going_right");
+//    _animator.nextFrame();
 }
 
 const sf::Sprite& PlayerView::getSprite()
 {
-    static bool f = true;
-    if (f)
-    {
-        f = false;
-        _animator.setTexture("Textures/player.png");
-    }
+//    static bool f = true;
+//    if (f)
+//    {
+//        f = false;
+//        _animator.setTexture("Textures/player1.png");
+//    }
 
     _animator.update();
 
@@ -37,9 +44,19 @@ const sf::Sprite& PlayerView::getSprite()
     }
 
     if (_player.lookingDirection() == Direction::left)
-        _animator.setCurrentGroup("going_left");
+    {
+        if (_player.isPreparingForAttack())
+            _animator.setCurrentGroup("punching_left");
+        else
+            _animator.setCurrentGroup("going_left");
+    }
     else
-        _animator.setCurrentGroup("going_right");
+    {
+        if (_player.isPreparingForAttack())
+            _animator.setCurrentGroup("punching_right");
+        else
+            _animator.setCurrentGroup("going_right");
+    }
 
     sf::Sprite& sprite = _animator.sprite();
 

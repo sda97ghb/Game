@@ -60,7 +60,7 @@ ComplexStateMachine::deactivateState(const State& state)
 }
 
 bool
-ComplexStateMachine::isStateActive(const State& state)
+ComplexStateMachine::isStateActive(const State& state) const
 {
     return std::find(_complexState.begin(), _complexState.end(), state) !=
             _complexState.end();
