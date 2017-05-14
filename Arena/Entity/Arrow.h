@@ -7,6 +7,7 @@
 #include "Arena/Sensors/HitSensor.h"
 #include "Arena/Sensors/TimerSensor.h"
 
+/// Класс
 class Arrow : public Entity
 {
     friend class ArrowBuilderSpawner;

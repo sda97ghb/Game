@@ -13,6 +13,8 @@ public:
 
     Player* spawn();
 
+    PlayerBuilderSpawner& setPlayerNum(int playerNum);
+
 private:
     float width() const;
     float height() const;
@@ -26,6 +28,8 @@ private:
     Player* _player;
 
     b2Vec2 _position;
+
+    int _playerNum;
 };
 
 #endif // PLAYERBUILDERSPAWNER_H

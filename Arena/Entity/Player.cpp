@@ -4,8 +4,7 @@
 
 #include "Arena/Entity/Player.h"
 
-Player::Player() :
-    _state(State::normal)
+Player::Player()
 {
     addEventCallback(landingEvent, METHOD_CALLBACK(onLanding));
     addEventCallback(updateEvent, [&](){
@@ -13,6 +12,8 @@ Player::Player() :
         velocity.x *= 0.5;
         body()->SetLinearVelocity(velocity);
     });
+
+
 }
 
 void Player::onGroundHit(float speed)
@@ -26,8 +27,8 @@ void Player::onLanding()
 {
     return_if_deleted
 
-    if (_state == State::jumping)
-        _state = State::normal;
+    if (isStateActive(jumpingState))
+        deactivateState(jumpingState);
 }
 
 void Player::tryToJump()
@@ -37,7 +38,7 @@ void Player::tryToJump()
     if (!isAlive())
         return;
 
-    if (_state != State::normal)
+    if (isStateActive(jumpingState))
         return;
 
     if (!_groundContactSensor->isActive())
@@ -47,7 +48,7 @@ void Player::tryToJump()
     body()->ApplyLinearImpulse(b2Vec2(0.0f, yImpulse),
                                body()->GetWorldCenter(),
                                true);
-    _state = State::jumping;
+    activateState(jumpingState);
 }
 
 void Player::tryToMoveLeft()

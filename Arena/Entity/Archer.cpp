@@ -6,6 +6,8 @@
 #include "Arena/ObjectCounter.h"
 #include "Arena/World.h"
 
+#include "Arena/Attacks/BowAttack.h"
+
 #include "Arena/Entity/Archer.h"
 #include "Arena/Entity/ArrowBuilderSpawner.h"
 #include "Arena/Entity/EntityDestroyer.h"
@@ -237,7 +239,7 @@ void Archer::strike()
 {
 //    return_if_deleted
 
-    Log::instance().addMessage("Strike!");
+//    Log::instance().addMessage("Strike!");
 
     b2Vec2 myPos = body()->GetPosition();
 
@@ -250,7 +252,7 @@ void Archer::strike()
 
     myPos += d;
 
-    ArrowBuilderSpawner().setSpeed(30.0f).setPosition(myPos).setTarget(playerPos).spawn();
+    BowAttack().setPosition(myPos).setTarget(player).setSpeed(30.0f).setDamage(5.0f).perform();
 
     activateState(lookingAroundState);
 

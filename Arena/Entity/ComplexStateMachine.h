@@ -17,7 +17,8 @@ static const StateList EMPTY_COMPLEX_STATE{};
 using StateFunction = std::function<void()>;
 static const StateFunction DO_NOTHING{[](){}};
 #define METHOD_FUNCTION(methodName) \
-    [&](){methodName();}
+    std::bind(&methodName, this)
+//    [&](){methodName();}
 
 class ComplexStateMachine;
 

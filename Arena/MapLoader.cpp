@@ -331,9 +331,15 @@ void MapLoader::loadTestThings()
 //    ArcherBuilderSpawner().setPosition(15.0f, 2.0f).spawn();
 //    ArcherBuilderSpawner().setPosition(20.0f, 2.0f).spawn();
 
-    Player* player1 = PlayerBuilderSpawner().setPosition(-10.0f, 2.0f).spawn();
+    Player* player1 = PlayerBuilderSpawner()
+            .setPosition(-10.0f, 2.0f)
+            .setPlayerNum(1)
+            .spawn();
     World::instance().setPlayer1(player1);
 
-    Player* player2 = PlayerBuilderSpawner().setPosition(10.0f, 2.0f).spawn();
+    Player* player2 = PlayerBuilderSpawner()
+            .setPosition(10.0f, 2.0f)
+            .setPlayerNum(2)
+            .spawn();
     World::instance().setPlayer2(player2);
 }
