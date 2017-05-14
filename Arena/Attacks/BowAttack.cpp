@@ -1,3 +1,5 @@
+#include "Arena/Audio.h"
+
 #include "Arena/Attacks/BowAttack.h"
 
 #include "Arena/Entity/Animalia.h"
@@ -71,4 +73,5 @@ BowAttack& BowAttack::setTarget(Animalia& target)
 void BowAttack::perform()
 {
     _arrowBuilderSpawner.spawn();
+    Audio::instance().playSound("Audio/bowAttack.ogg");
 }

@@ -21,40 +21,41 @@ Menu::Menu() : _isShown(true),_isShownOptions(false),
 
     auto nextTop = [](uint8_t index)
     {
-        const uint32_t itemHeight = 40; // 40px
+        const uint32_t itemHeight = 80; // 80px
         return itemHeight * index;
     };
 
-    auto setItem = [&](uint8_t index, sf::Color color, std::string text, std::function<void()> action)
+    auto setItem = [&](uint8_t index, sf::Color color, std::wstring text, std::function<void()> action)
     {
         _menuItems.emplace_back();
         _menuItems.back().action = action;
         sf::Text& itemView = _menuItems.back().itemView;
         itemView.setFont(font);
+        itemView.setCharacterSize(40);
         itemView.setFillColor(color);
         itemView.setString(text);
-        itemView.setPosition(sf::Vector2f(SCREEN_RESOLUTION_X / 2 - 25,
-                                               30 + nextTop(index)));
+        itemView.setPosition(sf::Vector2f(SCREEN_RESOLUTION_X / 2 - itemView.getLocalBounds().width / 2,
+                                               275 + nextTop(index)));
     };
 
     // Главное меню
-    setItem(0, sf::Color::Red,   "Arena",    [&]()
+    setItem(0, sf::Color::Red,   L"Арена",    [&]()
     {
         MapLoader().safeLoadFromFile("MapLevels/ARENA.xml");
         PaintingWindow::instance().setYFloorOffset(4.5f);
         hide();
     });
-    setItem(1, sf::Color::White, "Options", [&](){Optoins();});
-    setItem(2, sf::Color::White, "Exit",    [&](){Exit();});
+    setItem(1, sf::Color::White, L"История", [&](){loadStory();});
+    setItem(2, sf::Color::White, L"Выход",    [&](){exit();});
 
     // Меню с уровнями
-    setItem(0, sf::Color::Red,   "Level 1", [&]()
+    setItem(0, sf::Color::Red,   L"Level 1", [&]()
     {
         MapLoader().safeLoadFromFile("MapLevels/LEVEL_ONE.xml");
         PaintingWindow::instance().setYFloorOffset(8.8f);
         hide();
     });
-    setItem(1, sf::Color::White, "Level 2", [&]()
+    setItem(1, sf::Color::White, L"Level 2", [&]()
     {
         MapLoader().safeLoadFromFile("MapLevels/LEVEL_TWO.xml");
         PaintingWindow::instance().setYFloorOffset(8.8f);
@@ -62,7 +63,9 @@ Menu::Menu() : _isShown(true),_isShownOptions(false),
         _menuItems[4].itemView.setFillColor(sf::Color::White);
         hide();
     });
-    setItem(2, sf::Color::White, "Back", [&](){Back();});
+    setItem(2, sf::Color::White, L"Назад", [&](){back();});
+
+    show();
 }
 
 Menu::~Menu()
@@ -73,6 +76,7 @@ Menu::~Menu()
 void Menu::drawMenu()
 {
     auto& window = PaintingWindow::instance();
+    window.drawBackground();
     window.prepareForGui();
 
     for(int i = 0; i < 3; i++)
@@ -84,6 +88,7 @@ void Menu::drawMenu()
 void Menu::drawOptions()
 {
     auto& window = PaintingWindow::instance();
+    window.drawBackground();
     window.prepareForGui();
 
     for(int i = 3; i < 6; i++)
@@ -92,7 +97,7 @@ void Menu::drawOptions()
     }
 }
 
-void Menu::Optoins()
+void Menu::loadStory()
 {
     _isShown = false;
     _isShownOptions = true;
@@ -101,13 +106,13 @@ void Menu::Optoins()
     _menuItems[1].itemView.setFillColor(sf::Color::White);
 }
 
-void Menu::Exit()
+void Menu::exit()
 {
     PaintingWindow::instance().close();
     MapUnloader().unload();
 }
 
-void Menu::Back()
+void Menu::back()
 {
     _isShown = true;
     _isShownOptions = false;
@@ -116,7 +121,7 @@ void Menu::Back()
     _menuItems[5].itemView.setFillColor(sf::Color::White);
 }
 
-void Menu::MoveUp()
+void Menu::moveUp()
 {
     if(_isShown)
         _min = 0;
@@ -128,11 +133,10 @@ void Menu::MoveUp()
         _menuItems[_selectedItemIndex].itemView.setFillColor(sf::Color::White);
         _selectedItemIndex--;
         _menuItems[_selectedItemIndex].itemView.setFillColor(sf::Color::Red);
-        std::cout << "Up" << std::endl;
     }
 }
 
-void Menu::MoveDown()
+void Menu::moveDown()
 {
     if(_isShown)
         _max = 3;
@@ -144,7 +148,6 @@ void Menu::MoveDown()
         _menuItems[_selectedItemIndex].itemView.setFillColor(sf::Color::White);
         _selectedItemIndex++;
         _menuItems[_selectedItemIndex].itemView.setFillColor(sf::Color::Red);
-        std::cout << "Down" << std::endl;
     }
 }
 
@@ -160,16 +163,19 @@ bool Menu::isShownOptions() const
 
 void Menu::onKeyReleased(sf::Event::KeyEvent event)
 {
+    if(event.code == sf::Keyboard::U)
+        Menu::instance().show();
+
     if(!isShown() && !isShownOptions())
         return;
 
     switch(event.code)
     {
     case sf::Keyboard::Up :
-        MoveUp();
+        moveUp();
         break;
     case sf::Keyboard::Down :
-        MoveDown();
+        moveDown();
         break;
     case sf::Keyboard::Return :
         _menuItems.at(_selectedItemIndex).action();
@@ -189,6 +195,8 @@ void Menu::show()
         _isShown = false;
     else
         _isShown = true;
+
+    PaintingWindow::instance().setBackground("Textures/Menu.png");
 }
 
 void Menu::hide()

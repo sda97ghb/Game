@@ -1,5 +1,7 @@
 #include "Stream.h"
 
+#include "Arena/Audio.h"
+
 #include "Arena/ObjectCounter.h"
 
 #include "Arena/Attacks/SwordAttack.h"
@@ -70,4 +72,6 @@ void SwordAttack::perform()
         {
             animalia->makeDamage(_damage);
         });
+
+    Audio::instance().playSound("Audio/swordAttack.ogg");
 }

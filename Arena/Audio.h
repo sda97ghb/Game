@@ -1,6 +1,8 @@
 #ifndef AUDIO_H
 #define AUDIO_H
 
+#include <string>
+
 #include "SFML/Audio.hpp"
 
 class Audio
@@ -10,13 +12,15 @@ public:
 
     Audio();
 
-    void playMusic();
+    void playMusic(const std::string& filename);
+    void playSound(const std::string& filename);
 
     sf::Music music() const;
 
 private:
     sf::Music _music;
-    sf::SoundBuffer _sound;
+    sf::SoundBuffer _buffer;
+    sf::Sound _sound;
 };
 
 #endif // AUDIO_H

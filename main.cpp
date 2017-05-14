@@ -42,8 +42,6 @@ int main(int argc, char** argv)
 
     PaintingWindow& window = PaintingWindow::instance();
 
-    Audio::instance().playMusic();
-
     while (window.isOpen())
     {
         window.processEvents();

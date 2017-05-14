@@ -256,8 +256,6 @@ void PaintingWindow::processEvents()
         switch (event.type)
         {
         case sf::Event::KeyReleased :
-            if(event.key.code == sf::Keyboard::U)
-                Menu::instance().show();
             Menu::instance().onKeyReleased(event.key);
             break;
         case sf::Event::Closed :
