@@ -1,6 +1,7 @@
 #include "SFML/Window/Mouse.hpp"
 
 #include "Arena/Log.h"
+#include "Arena/Menu.h"
 #include "Arena/MouseController.h"
 #include "Arena/PaintingWindow.h"
 #include "Arena/World.h"
@@ -16,6 +17,9 @@ void MouseController::processMouse()
 
 void MouseController::processMousePressed(const sf::Event::MouseButtonEvent& event)
 {
+    if (Menu::instance().isShown() || Menu::instance().isShownOptions())
+        return;
+
 //    Player* player1 = World::instance().player1();
     Player* player2 = World::instance().player2();
 

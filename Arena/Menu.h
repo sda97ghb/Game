@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "SFML/Graphics/Text.hpp"
+#include "SFML/Window/Event.hpp"
 
 class Menu
 {
