@@ -33,7 +33,7 @@ const char* WORLD = "world";
 		const char* SPIKES = "spikes";
 		const char* FALLINGGROUND = "fallingground";
 			
-	const char* ENTITY = "actors";
+    const char* ACTORS = "actors";
 		const char* PLAYER = "player";
 		const char* ENEMY = "enemy";
 			const char* ARCHER = "archer";
@@ -103,7 +103,7 @@ void MapLoader::loadFromFile(std::string filename)
     if (furnitureElem != nullptr)
         loadFurniture(*furnitureElem);
 
-    const XMLElement* entityElem = worldElem->FirstChildElement(section::ENTITY);
+    const XMLElement* entityElem = worldElem->FirstChildElement(section::ACTORS);
     if (entityElem != nullptr)
         loadEntity(*entityElem);
 
@@ -208,6 +208,12 @@ void MapLoader::loadEntity(const tinyxml2::XMLElement& entityElem)
     const XMLElement* playerElement = entityElem.FirstChildElement(section::PLAYER);
     if (playerElement)
         loadPlayer(*playerElement);
+
+    for(const XMLElement* archerElement = entityElem.FirstChildElement(section::ARCHER);
+        archerElement != nullptr;
+        archerElement = archerElement->NextSiblingElement(section::ARCHER))
+        loadArcher(*archerElement);
+
 }
 
 void MapLoader::loadPlayer(const tinyxml2::XMLElement& playerElem)
@@ -223,35 +229,16 @@ void MapLoader::loadPlayer(const tinyxml2::XMLElement& playerElem)
 //    const XMLElement& textureElement = childElement(section::TEXTURE, playerElem);
 //    animator.setTexture(textureElement.Attribute("picture"));
 
-//    loadPlayerAnimator(animator);
+    //    loadPlayerAnimator(animator);
 }
 
-void MapLoader::loadPlayerAnimator(SpriteAnimator& animator)
+void MapLoader::loadArcher(const XMLElement& archerElement)
 {
-//	animator.setAnimationGroup("going_left", 0, 0, 12, 28, 4, false);
-//	animator.setAnimationGroup("going_right", 12, 0, 12, 28, 4, false);
-//	animator.setAnimationGroup("climbing", 24, 0, 12, 28, 2, false);
-//	animator.setAnimationGroup("punching_right", 36, 0, 15, 28, 3, true);
-//	animator.setAnimationGroup("punching_left", 36, 28, 15, 28, 3, true);
-//	animator.setAnimationGroup("dead", 52, 56, 28, 28, 1, true);
-//	animator.setCurrentGroup("going_right");
-
-//    animator.setAnimationGroup("going_left", 0, 0, 5, 9, 2, Orientation::horizontal);
-//    animator.setAnimationGroup("going_right", 0, 9, 5, 9, 2, Orientation::horizontal);
-//    animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, Orientation::vertical);
-//    animator.setAnimationGroup("punching_right", 0, 0, 5, 9, 1, Orientation::vertical);
-//    animator.setAnimationGroup("punching_left", 0, 0, 5, 9, 1, Orientation::vertical);
-//    animator.setAnimationGroup("dead", 0, 0, 5, 9);
-//    animator.setCurrentGroup("going_right");
-
-//    animator.setAnimationGroup("going_left", 32, 0, 32, 12, 2, false);
-//    animator.setAnimationGroup("going_right", 0, 0, 32, 12, 2, false);
-//    animator.setAnimationGroup("climbing", 0, 0, 5, 9, 1, false);
-//    animator.setAnimationGroup("punching_right", 64, 0, 32, 12, 2, false);
-//    animator.setAnimationGroup("punching_left", 0, 0, 5, 9, 1, false);
-//    animator.setAnimationGroup("dead", 0, 0, 5, 9, 1, false);
-//    animator.setCurrentGroup("going_right");
+    b2Vec2 coordinates;
+    loadCoordinates(archerElement, coordinates);
+    ArcherBuilderSpawner().setPosition(coordinates).spawn();
 }
+
 
 b2PolygonShape MapLoader::loadPolygonShape(const XMLElement& shapeElem)
 {

@@ -31,79 +31,15 @@
                 </shape>
                 <texture picture="Textures/stonebricks.png"/>
             </platform>
-<!--
             <platform>
                 <shape>
-                    <vertex x="-1.0" y="0.0"/>
-                    <vertex x="1.0" y="0.0"/>
-                    <vertex x="1.0" y="0.8"/>
-                    <vertex x="-1.0" y="0.8"/>
+                    <vertex x="-25.6" y="14.5"/>
+                    <vertex x="25.6" y="14.5"/>
+                    <vertex x="25.6" y="14.51"/>
+                    <vertex x="-25.6" y="14.51"/>
                 </shape>
                 <texture picture="Textures/stonebricks.png"/>
             </platform>
-
-            <platform>
-                <shape>
-                    <vertex x="-20.0" y="10.0"/>
-                    <vertex x="-2.0" y="10.0"/>
-                    <vertex x="-2.0" y="11.0"/>
-                    <vertex x="-20.0" y="11.0"/>
-                </shape>
-                <texture picture="Textures/stonebricks.png"/>
-            </platform>
-            <platform>
-                <shape>
-                    <vertex x="2.0" y="10.0"/>
-                    <vertex x="20.0" y="10.0"/>
-                    <vertex x="20.0" y="11.0"/>
-                    <vertex x="2.0" y="11.0"/>
-                </shape>
-                <texture picture="Textures/stonebricks.png"/>
-            </platform>
-
-            <platform>
-                <shape>
-                    <vertex x="23.0" y="3.0"/>
-                    <vertex x="25.0" y="3.0"/>
-                    <vertex x="25.0" y="3.5"/>
-                    <vertex x="23.0" y="3.5"/>
-                </shape>
-                <texture picture="Textures/stonebricks.png"/>
-            </platform>
-            <platform>
-                <shape>
-                    <vertex x="20.0" y="6.0"/>
-                    <vertex x="22.0" y="6.0"/>
-                    <vertex x="22.0" y="6.5"/>
-                    <vertex x="20.0" y="6.5"/>
-                </shape>
-                <texture picture="Textures/stonebricks.png"/>
-            </platform>
-            <platform>
-                <shape>
-                    <vertex x="23.0" y="9.0"/>
-                    <vertex x="25.0" y="9.0"/>
-                    <vertex x="25.0" y="9.5"/>
-                    <vertex x="23.0" y="9.5"/>
-                </shape>
-                <texture picture="Textures/stonebricks.png"/>
-            </platform>
--->
         </platforms>
     </ground>
-
-    <furniture>
-        <ladder>
-            <coordinates x="5.5" y1="0.0" y2="20.0"/>
-            <width>1.0</width>
-            <texture picture="Textures/ladder.png"/>
-        </ladder>
-    </furniture>
-
-    <actors>
-        <player>
-            <position x="-5.5" y="12.875"/>
-            <texture picture="Textures/player.png"/>
-        </player>
-    </actors>
 </world>

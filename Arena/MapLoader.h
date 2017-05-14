@@ -99,8 +99,8 @@ public:
     /// @brief Загружает игрока.
     void loadPlayer(const tinyxml2::XMLElement& playerElem);
 
-    /// @brief Загружает группы анимации для существа.
-    void loadPlayerAnimator(SpriteAnimator& animator);
+    /// @brief Загружает лучника.
+    void loadArcher(const tinyxml2::XMLElement& archerElement);
 
     /// @brief Загружает полигон.
     b2PolygonShape loadPolygonShape(const tinyxml2::XMLElement& shapeElem);
