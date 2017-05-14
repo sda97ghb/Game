@@ -33,9 +33,16 @@ void Ladder::setWidth(float width)
 
 void Ladder::testPlayerOnIt()
 {
-    try {
-        testBody(*World::instance().player1()->body());
-        testBody(*World::instance().player2()->body());
+    try
+    {
+        Player* player1 = World::instance().player1();
+        Player* player2 = World::instance().player2();
+
+        if (player1->isAlive())
+            testBody(*player1->body());
+        if (player2->isAlive())
+            testBody(*player2->body());
+
 //        player.spriteAnimator().setCurrentGroup("climbing");
     }
     catch (...)
