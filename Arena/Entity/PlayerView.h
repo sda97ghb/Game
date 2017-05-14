@@ -15,7 +15,7 @@ public:
 
     const Entity* entity() const;
 
-private:
+protected:
     const Player& _player;
     SpriteAnimator _animator;
 };

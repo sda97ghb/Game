@@ -36,5 +36,6 @@ void TimerSensor::update()
         return;
 
     _onTimeoutCallback();
-    _isRunned = false;
+
+    stop();
 }

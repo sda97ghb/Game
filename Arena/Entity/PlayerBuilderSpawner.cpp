@@ -6,13 +6,16 @@
 #include "Arena/World.h"
 
 #include "Arena/Entity/PlayerBuilderSpawner.h"
-#include "Arena/Entity/PlayerView.h"
+#include "Arena/Entity/Player1View.h"
+#include "Arena/Entity/Player2View.h"
 
 #include "Arena/Sensors/ContactSensorBuilder.h"
 #include "Arena/Sensors/HitSensorBuilder.h"
+#include "Arena/Sensors/TimerSensorBuilder.h"
 
 PlayerBuilderSpawner::PlayerBuilderSpawner() :
-    _position(0.0f, 0.0f)
+    _position(0.0f, 0.0f),
+    _playerNum(1)
 {
     _player = new Player;
 }
@@ -35,7 +38,11 @@ Player* PlayerBuilderSpawner::spawn()
     constructBody();
     constructSensors();
     _player->callEventCallbacks(_player->spawnEvent);
-    new PlayerView(*_player);
+
+    if (_playerNum == 2)
+        new Player2View(*_player);
+    else
+        new Player1View(*_player);
     return _player;
 }
 
@@ -130,4 +137,19 @@ void PlayerBuilderSpawner::constructSensors()
             })
         .setBody(body())
         .build();
+
+    _player->_attackReloadSensor = TimerSensorBuilder()
+        .setOnTimeoutCallback(
+            [entityPtr] ()
+            {
+                entityPtr->callEventCallbacks(entityPtr->readyForAttackEvent);
+            })
+        .setTime(1000.0f)
+        .build();
+}
+
+PlayerBuilderSpawner& PlayerBuilderSpawner::setPlayerNum(int playerNum)
+{
+    _playerNum = playerNum;
+    return *this;
 }
