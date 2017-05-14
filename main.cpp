@@ -112,7 +112,10 @@ int main(int argc, char** argv)
 
     auto destroyers = ObjectCounter<EntityDestroyer>::objects();
     for (auto destroyer : destroyers)
+    {
         destroyer->destroy();
+        delete destroyer;
+    }
 
     std::cout << "Done." << std::endl;
 

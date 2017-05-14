@@ -32,10 +32,11 @@ void MouseController::processMousePressed(const sf::Event::MouseButtonEvent& eve
 
         playerPos += d;
 
-        BowAttack()
+        auto attack = new BowAttack;
+        (*attack)
                 .setPosition(playerPos)
                 .setTarget(targetPos)
-                .setDamage(2.5f)
-                .perform();
+                .setDamage(3.5f);
+        player2->tryToAttack(attack, 300);
     }
 }

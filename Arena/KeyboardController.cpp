@@ -22,11 +22,12 @@ void KeyboardController::processKeyboard()
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
     {
-        SwordAttack()
+        auto attack = new SwordAttack;
+        (*attack)
                 .setActor(player1)
-                .setDamage(0.2f)
-                .setDistance(3.0f)
-                .perform();
+                .setDamage(10.0f)
+                .setDistance(3.0f);
+        player1->tryToAttack(attack, 500, true);
     }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))

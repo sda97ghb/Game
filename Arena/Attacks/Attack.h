@@ -10,6 +10,7 @@ class Attack
 {
 public:
     Attack();
+    virtual ~Attack() = default;
 
     /// @brief Устанавливает, кто будет производить атаку.
     void setActor(Animalia* actor);

@@ -3,6 +3,8 @@
 
 #include <functional>
 
+class TimerSensor;
+
 class TimerSensorBuilder
 {
 public:

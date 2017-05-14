@@ -46,7 +46,7 @@ public:
     void activateState(const State& state);
     void deactivateState(const State& state);
 
-    bool isStateActive(const State& state);
+    bool isStateActive(const State& state) const;
 
     const StateFunction& stateFunction(const State& state);
     void setStateFunction(const State& state, StateFunction function);

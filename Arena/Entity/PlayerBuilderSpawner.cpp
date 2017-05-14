@@ -11,6 +11,7 @@
 
 #include "Arena/Sensors/ContactSensorBuilder.h"
 #include "Arena/Sensors/HitSensorBuilder.h"
+#include "Arena/Sensors/TimerSensorBuilder.h"
 
 PlayerBuilderSpawner::PlayerBuilderSpawner() :
     _position(0.0f, 0.0f),
@@ -135,6 +136,15 @@ void PlayerBuilderSpawner::constructSensors()
                 entityPtr->callEventCallbacks(entityPtr->landingEvent);
             })
         .setBody(body())
+        .build();
+
+    _player->_attackReloadSensor = TimerSensorBuilder()
+        .setOnTimeoutCallback(
+            [entityPtr] ()
+            {
+                entityPtr->callEventCallbacks(entityPtr->readyForAttackEvent);
+            })
+        .setTime(1000.0f)
         .build();
 }
 

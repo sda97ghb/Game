@@ -44,9 +44,19 @@ const sf::Sprite& PlayerView::getSprite()
     }
 
     if (_player.lookingDirection() == Direction::left)
-        _animator.setCurrentGroup("going_left");
+    {
+        if (_player.isPreparingForAttack())
+            _animator.setCurrentGroup("punching_left");
+        else
+            _animator.setCurrentGroup("going_left");
+    }
     else
-        _animator.setCurrentGroup("going_right");
+    {
+        if (_player.isPreparingForAttack())
+            _animator.setCurrentGroup("punching_right");
+        else
+            _animator.setCurrentGroup("going_right");
+    }
 
     sf::Sprite& sprite = _animator.sprite();
 
