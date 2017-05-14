@@ -23,11 +23,11 @@ public:
 
     void drawMenu();
     void drawOptions();
-    void Optoins();
-    void Exit();
-    void Back();
-    void MoveUp();/// @brief Вверх на один пункт меню
-    void MoveDown();/// @brief Вниз на один пункт меню
+    void loadStory();
+    void exit();
+    void back();
+    void moveUp();/// @brief Вверх на один пункт меню
+    void moveDown();/// @brief Вниз на один пункт меню
     bool isShown() const;
     bool isShownOptions() const;
 

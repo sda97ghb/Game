@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 
+#include "Arena/Audio.h"
 #include "Arena/MapLoader.h"
 #include "Arena/MapUnloader.h"
 #include "Arena/World.h"
@@ -79,6 +80,8 @@ void MapLoader::safeLoadFromFile(const std::string& filename)
         std::cout << error._lineNum << std::endl;
         exit(EXIT_FAILURE);
     }
+
+    Audio::instance().playMusic("Audio/Arena.ogg");
 }
 
 void MapLoader::loadFromFile(std::string filename)
