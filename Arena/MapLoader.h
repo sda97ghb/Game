@@ -51,6 +51,10 @@ public:
         std::string childElementName;
 	};
 
+    /// @brief Загружает карту из файла сохранения и не кидает ошибки.
+    /// @details
+    void safeLoadFromFile(const std::string& filename);
+
     /// @brief Загружает карту из файла сохранения.
     /// @details Смотрите "Формат уровней. XML стандарт" для получения информации
     /// о формате карт.

@@ -7,6 +7,7 @@
 
 #include "Arena/GlobalConstants.h"
 #include "Arena/Log.h"
+#include "Arena/Menu.h"
 #include "Arena/MouseController.h"
 #include "Arena/ObjectCounter.h"
 #include "Arena/PaintingWindow.h"
@@ -52,13 +53,18 @@ PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
     setView(_worldView);
 
     const std::string FONTS_DIRECTORY = "Fonts";
-    font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
+    _font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
+}
+
+sf::Font& PaintingWindow::font()
+{
+    return _font;
 }
 
 void PaintingWindow::paint()
 {
     clear();
-
+    
     drawBackground();
     drawWorld();
     drawGui();
@@ -159,6 +165,11 @@ void PaintingWindow::drawGui()
         drawBar(SCREEN_RESOLUTION_X - 230.0f, 30.0f, 200.0f, 20.0f, 2.0f, health, sf::Color::Red);
     }
 
+//    if(Menu::instance().isShown())
+//        Menu::instance().drawMenu();
+//    if(Menu::instance().isShownOptions())
+//        Menu::instance().drawOptions();
+
 //    if (Player::instance().maxMana() != 0.0f)
 //    {
 //        float mana = Player::instance().mana() / Player::instance().maxMana();
@@ -176,7 +187,7 @@ void PaintingWindow::drawGui()
 //                         posB2.y + archer.height() / 2.0f + 0.2f);
 //        float health = archer.health() / archer.maxHealth();
 //        drawBar(pos.x, pos.y, 1.6f, 0.2f, 0.04f, health, sf::Color::Red);
-//    }
+    //    }
 }
 
 void PaintingWindow::drawLog()
@@ -184,7 +195,7 @@ void PaintingWindow::drawLog()
     setView(_guiView);
 
     sf::Text text;
-    text.setFont(font);
+    text.setFont(font());
     text.setCharacterSize(16);
     text.setFillColor(sf::Color::Black);
     text.setOutlineColor(sf::Color::White);
@@ -199,6 +210,11 @@ void PaintingWindow::drawLog()
         draw(text);
         ++i;
     }
+}
+
+void PaintingWindow::prepareForGui()
+{
+    setView(_guiView);
 }
 
 void PaintingWindow::drawBar(float x, float y, float width, float height,
@@ -232,14 +248,19 @@ void PaintingWindow::processEvents()
     {
         switch (event.type)
         {
-            case sf::Event::Closed :
-                close();
-                break;
-            case sf::Event::MouseButtonPressed :
-                onMouseButtonPressed(event.mouseButton);
-                break;
-            default :
-                break;
+        case sf::Event::KeyReleased :
+            if(event.key.code == sf::Keyboard::U)
+                Menu::instance().show();
+            Menu::instance().onKeyReleased(event.key);
+            break;
+        case sf::Event::Closed :
+            close();
+            break;
+        case sf::Event::MouseButtonPressed :
+            onMouseButtonPressed(event.mouseButton);
+            break;
+        default :
+            break;
         }
     }
 }
