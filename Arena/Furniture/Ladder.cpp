@@ -2,9 +2,12 @@
 
 #include "Box2D/Dynamics/b2Fixture.h"
 
-#include "Arena/Furniture/Ladder.h"
-#include "Arena/Entity/Player.h"
+#include "Arena/GlobalConstants.h"
 #include "Arena/World.h"
+
+#include "Arena/Entity/Player.h"
+
+#include "Arena/Furniture/Ladder.h"
 
 Ladder::Ladder() :
     _x(0.0f),
@@ -31,31 +34,9 @@ void Ladder::setWidth(float width)
 void Ladder::testPlayerOnIt()
 {
     try {
-        Player& player = *World::instance().player1();
-        b2Body& body = *player.body();
-        b2Transform transform;
-        transform.SetIdentity();
-        if (_shapeB2.TestPoint(transform, body.GetPosition()))
-        {
-            b2Vec2 velocity = body.GetLinearVelocity();
-
-            if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) &&
-                !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-                velocity.x *= body.GetFixtureList()->GetFriction();
-
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
-                velocity.y = 3.0f;
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-                velocity.y = -3.0f;
-            else
-                velocity.y = 0.0f;
-
-            body.SetLinearVelocity(velocity);
-
-            body.ApplyForce(b2Vec2(0.0f, 12.0f), body.GetWorldCenter(), true);
-
-//            player.spriteAnimator().setCurrentGroup("climbing");
-        }
+        testBody(*World::instance().player1()->body());
+        testBody(*World::instance().player2()->body());
+//        player.spriteAnimator().setCurrentGroup("climbing");
     }
     catch (...)
     {
@@ -110,6 +91,38 @@ sf::RectangleShape& Ladder::shapeSF()
 const sf::RectangleShape& Ladder::shapeSF() const
 {
     return _shapeSF;
+}
+
+bool Ladder::testBody(b2Body& body)
+{
+    b2Transform transform;
+    transform.SetIdentity();
+    if (!_shapeB2.TestPoint(transform, body.GetPosition()))
+        return false;
+
+    b2Vec2 velocity = body.GetLinearVelocity();
+
+    if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A) &&
+        !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D) &&
+        !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) &&
+        !sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+        velocity.x *= body.GetFixtureList()->GetFriction();
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) ||
+        sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) )
+        velocity.y = 3.0f;
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) ||
+             sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+        velocity.y = -3.0f;
+    else
+        velocity.y = 0.0f;
+
+    body.SetLinearVelocity(velocity);
+
+    float yForce = ::g * body.GetMass();
+    body.ApplyForce(b2Vec2(0.0f, yForce), body.GetWorldCenter(), true);
+
+    return true;
 }
 
 void Ladder::setShape()

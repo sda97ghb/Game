@@ -10,6 +10,8 @@
 
 #include "Arena/Furniture/Furniture.h"
 
+class b2Body;
+
 /// \brief Класс лестницы.
 class Ladder : public Furniture
 {
@@ -58,6 +60,8 @@ public:
     const sf::RectangleShape& shapeSF() const;
 
 private:
+    bool testBody(b2Body& body);
+
     /// \brief Рассчитывает и устанавливает физическую форму лестницы.
     void setShape();
 

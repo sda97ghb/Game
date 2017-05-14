@@ -97,6 +97,8 @@ public:
 
     sf::Font& font();
 
+    void setYFloorOffset(float yFloorOffset);
+
 private:
     /// \brief Создает графическое окно, инициализирует графику.
 	PaintingWindow(uint32_t width, uint32_t height, const std::string& title);
@@ -113,6 +115,8 @@ private:
     sf::Sprite _background; ///< Фон
 
     sf::Font _font; ///< Шрифт для лога
+
+    float _yFloorOffset;
 };
 
 #endif // PAINTER_H

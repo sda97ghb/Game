@@ -41,6 +41,7 @@ Menu::Menu() : _isShown(true),_isShownOptions(false),
     setItem(0, sf::Color::Red,   "Arena",    [&]()
     {
         MapLoader().safeLoadFromFile("MapLevels/ARENA.xml");
+        PaintingWindow::instance().setYFloorOffset(4.5f);
         hide();
     });
     setItem(1, sf::Color::White, "Options", [&](){Optoins();});
@@ -50,11 +51,13 @@ Menu::Menu() : _isShown(true),_isShownOptions(false),
     setItem(0, sf::Color::Red,   "Level 1", [&]()
     {
         MapLoader().safeLoadFromFile("MapLevels/LEVEL_ONE.xml");
+        PaintingWindow::instance().setYFloorOffset(8.8f);
         hide();
     });
     setItem(1, sf::Color::White, "Level 2", [&]()
     {
         MapLoader().safeLoadFromFile("MapLevels/LEVEL_TWO.xml");
+        PaintingWindow::instance().setYFloorOffset(8.8f);
         _menuItems[3].itemView.setFillColor(sf::Color::Red);
         _menuItems[4].itemView.setFillColor(sf::Color::White);
         hide();

@@ -30,7 +30,8 @@ void PaintingWindow::setBackground(const std::string& background)
 
 PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
                                const std::string& title) :
-    sf::RenderWindow(sf::VideoMode(width, height), title)
+    sf::RenderWindow(sf::VideoMode(width, height), title),
+    _yFloorOffset(4.5f)
 {
     _backgroundView.setCenter(SCREEN_RESOLUTION_X / PIXELART_BACKGROUND_SCALE_FACTOR / 2.0f,
                               SCREEN_RESOLUTION_Y / PIXELART_BACKGROUND_SCALE_FACTOR / 2.0f);
@@ -54,6 +55,11 @@ PaintingWindow::PaintingWindow(uint32_t width, uint32_t height,
 
     const std::string FONTS_DIRECTORY = "Fonts";
     _font.loadFromFile(FONTS_DIRECTORY + "/open-sans/OpenSans-Light.ttf");
+}
+
+void PaintingWindow::setYFloorOffset(float yFloorOffset)
+{
+    _yFloorOffset = yFloorOffset;
 }
 
 sf::Font& PaintingWindow::font()
@@ -82,8 +88,9 @@ void PaintingWindow::drawBackground()
 void PaintingWindow::drawWorld()
 {
 //    b2Vec2 playerPos = World::instance().player1()->body()->GetPosition();
+//    _worldView.setCenter(playerPos.x, 8.8f);
 //    _worldView.setCenter(playerPos.x, playerPos.y + 4.5f);
-    _worldView.setCenter(0.0f, 4.5f);
+    _worldView.setCenter(0.0f, _yFloorOffset); // THIS LINE IS FOR ARENA
 //    _worldView.setCenter(0.0f, SCREEN_RESOLUTION_Y / PIXELART_SCALE_FACTOR / PIXELS_PER_METER / 2.0f -
 //                         6.0f / PIXELS_PER_METER);
     setView(_worldView);
@@ -206,7 +213,7 @@ void PaintingWindow::drawLog()
     for (const std::string line : Log::instance().lines())
     {
         text.setString(line);
-        text.setPosition(-530.0f, 100.0f + 20.0f * i);
+        text.setPosition(30.0f, 490.0f + 20.0f * i);
         draw(text);
         ++i;
     }

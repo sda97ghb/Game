@@ -1,4 +1,5 @@
 #include "Arena/ObjectCounter.h"
+#include "Arena/Log.h"
 
 #include "Arena/Entity/Animalia.h"
 
@@ -21,6 +22,8 @@ void Animalia::kill()
 
     _currentHealth = 0.0f;
     callEventCallbacks(deathEvent);
+
+    Log::instance().addMessage("Entity died.");
 }
 
 void Animalia::makeDamage(float damage)
@@ -30,6 +33,8 @@ void Animalia::makeDamage(float damage)
     _currentHealth -= damage;
     if (_currentHealth <= 0.0f)
         kill();
+
+    Log::instance().addMessage("Make damage: " + std::to_string(damage));
 }
 
 void Animalia::heal(float health)
