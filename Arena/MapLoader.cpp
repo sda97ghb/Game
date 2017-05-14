@@ -2,6 +2,7 @@
 #include <vector>
 
 #include "Arena/MapLoader.h"
+#include "Arena/MapUnloader.h"
 #include "Arena/World.h"
 #include "Arena/PaintingWindow.h"
 
@@ -44,6 +45,40 @@ const char* WORLD = "world";
 	const char* TEXTUREBACK = "textureback";
 	const char* COORDINATES = "coordinates";
 	const char* WIDTH = "width";
+}
+
+void MapLoader::safeLoadFromFile(const std::string& filename)
+{
+    MapUnloader().unload();
+
+    try
+    {
+        loadFromFile(filename);
+    }
+    catch (MapLoader::XmlError& error)
+    {
+        std::cout << error.what() << std::endl;
+        std::cout << error._lineNum << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    catch (MapLoader::MissingArgument& error)
+    {
+        std::cout << error.what() << std::endl;
+        std::cout << error._lineNum << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    catch (MapLoader::WrongArgumentFormat& error)
+    {
+        std::cout << error.what() << std::endl;
+        std::cout << error._lineNum << std::endl;
+        exit(EXIT_FAILURE);
+    }
+    catch (MapLoader::NoChildElementException& error)
+    {
+        std::cout << error.what() << std::endl;
+        std::cout << error._lineNum << std::endl;
+        exit(EXIT_FAILURE);
+    }
 }
 
 void MapLoader::loadFromFile(std::string filename)

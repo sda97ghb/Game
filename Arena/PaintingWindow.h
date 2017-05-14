@@ -18,7 +18,7 @@
 
 #include "Arena/Entity/EntityView.h"
 
-//---- ANCIENT SHIT CESTION BEGIN ----//
+//---- ANCIENT SHIT SECTION BEGIN ----//
 
 #include "Arena/Furniture/Ladder.h"
 #include "Arena/Furniture/Lava.h"
@@ -27,7 +27,7 @@
 
 #include "Arena/Platform.h"
 
-//---- ANCIENT SHIT CESTION END ----//
+//---- ANCIENT SHIT SECTION END ----//
 
 /// \brief Класс, отвечающий за графическую составляющую игры.
 /// \details Создает графическое окно, занимается отрисовкой
@@ -53,6 +53,8 @@ public:
 
     /// \brief Рисует чат.
     void drawLog();
+
+    void prepareForGui();
 
     /// \brief Рисует полоску под лайфбар или манабар.
     /// \param [in] x,y положение полоски в графических координатах
@@ -93,8 +95,10 @@ public:
 
     //---- ANCIENT SHIT CESTION END ----//
 
+    sf::Font& font();
+
 private:
-	/// \brief Создает графическое окно, инициализирует графику.
+    /// \brief Создает графическое окно, инициализирует графику.
 	PaintingWindow(uint32_t width, uint32_t height, const std::string& title);
 
 	PaintingWindow(PaintingWindow const&) = delete;
@@ -108,7 +112,7 @@ private:
     sf::Texture _backgroundTexture; ///< Текстура фона
     sf::Sprite _background; ///< Фон
 
-    sf::Font font; ///< Шрифт для лога
+    sf::Font _font; ///< Шрифт для лога
 };
 
 #endif // PAINTER_H

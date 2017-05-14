@@ -3,8 +3,11 @@
 
 #include "SFML/Window/Event.hpp"
 
+#include "Arena/Audio.h"
 #include "Arena/KeyboardController.h"
+#include "Arena/Menu.h"
 #include "Arena/MapLoader.h"
+#include "Arena/MapUnloader.h"
 #include "Arena/MouseController.h"
 #include "Arena/ObjectCounter.h"
 #include "Arena/PaintingWindow.h"
@@ -37,45 +40,28 @@ int main(int argc, char** argv)
     //    1024    768     1,3
     //    320     240     1,3
 
-//    sf::VideoMode::getDesktopMode()
     PaintingWindow& window = PaintingWindow::instance();
 
-    /*TestWorldLoader loader;
-    loader.load();*/
-
-    MapLoader loader;
-    try
-    {
-        loader.loadFromFile("MapLevels/LEVEL_ONE.xml");
-    }
-    catch (MapLoader::XmlError& error)
-    {
-        std::cout << error.what() << std::endl;
-        std::cout << error._lineNum << std::endl;
-        exit(EXIT_FAILURE);
-    }
-    catch (MapLoader::MissingArgument& error)
-    {
-        std::cout << error.what() << std::endl;
-        std::cout << error._lineNum << std::endl;
-        exit(EXIT_FAILURE);
-    }
-    catch (MapLoader::WrongArgumentFormat& error)
-    {
-        std::cout << error.what() << std::endl;
-        std::cout << error._lineNum << std::endl;
-        exit(EXIT_FAILURE);
-    }
-    catch (MapLoader::NoChildElementException& error)
-    {
-        std::cout << error.what() << std::endl;
-        std::cout << error._lineNum << std::endl;
-        exit(EXIT_FAILURE);
-    }
+    Audio::instance().playMusic();
 
     while (window.isOpen())
     {
         window.processEvents();
+
+        if (Menu::instance().isShown() || Menu::instance().isShownOptions())
+        {
+            window.clear(sf::Color::Black);
+
+            if (Menu::instance().isShown())
+                Menu::instance().drawMenu();
+            if (Menu::instance().isShownOptions())
+                Menu::instance().drawOptions();
+
+            window.display();
+
+            continue;
+        }
+
         window.paint();
 
         static sf::Clock physicTimer;
@@ -107,15 +93,7 @@ int main(int argc, char** argv)
         }
     }
 
-    for (Entity* entity : ObjectCounter<Entity>::objects())
-        new EntityDestroyer(entity);
-
-    auto destroyers = ObjectCounter<EntityDestroyer>::objects();
-    for (auto destroyer : destroyers)
-    {
-        destroyer->destroy();
-        delete destroyer;
-    }
+    MapUnloader().unload();
 
     std::cout << "Done." << std::endl;
 
