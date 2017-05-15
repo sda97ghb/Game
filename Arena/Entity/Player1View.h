@@ -3,6 +3,7 @@
 
 #include "Arena/Entity/PlayerView.h"
 
+/// @brief Класс отображение первого игрока.
 class Player1View : public PlayerView
 {
 public:
