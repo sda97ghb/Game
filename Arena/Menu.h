@@ -22,13 +22,20 @@ public:
     Menu();
     ~Menu();
 
+    /// @brief Отрисовывает меню
     void drawMenu();
+
     void drawOptions();
     void loadStory();
     void exit();
     void back();
-    void moveUp();/// @brief Вверх на один пункт меню
-    void moveDown();/// @brief Вниз на один пункт меню
+
+    /// @brief Вверх на один пункт меню
+    void moveUp();
+
+    /// @brief Вниз на один пункт меню
+    void moveDown();
+
     bool isShown() const;
     bool isShownOptions() const;
 
