@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Исходный файл Arena/Entity/ArcherView.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_e42b35ca24e0aa47a7ae4839066a7370.html">Arena</a></li><li class="navelem"><a class="el" href="dir_702717ac7d47de94319882bc05a24000.html">Entity</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ArcherView.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef ARCHERVIEW_H</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define ARCHERVIEW_H</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_sprite_animator_8h.html">Arena/SpriteAnimator.h</a>&quot;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Arena/Entity/Archer.h&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Arena/Entity/EntityView.h&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_archer_view.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_archer_view.html">ArcherView</a> : <span class="keyword">public</span> <a class="code" href="class_entity_view.html">EntityView</a></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_archer_view.html#acbdd4f4d9947bff40fc0aa88da789b54">ArcherView</a>(<span class="keyword">const</span> <a class="code" href="class_archer.html">Archer</a>&amp; archer);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">const</span> sf::Sprite&amp; <a class="code" href="class_archer_view.html#aee048de0900fdc5cd7849a71363acb4c">getSprite</a>();</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">const</span> <a class="code" href="class_entity.html">Entity</a>* <a class="code" href="class_archer_view.html#afc9dcac6849b31aeba1da2c95db20b5c">entity</a>() <span class="keyword">const</span>;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">private</span>:</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_archer_view.html#ac47d56a385aa7b25cae82d1b115b88cf">   23</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="class_archer.html">Archer</a>&amp; <a class="code" href="class_archer_view.html#ac47d56a385aa7b25cae82d1b115b88cf">_archer</a>;    </div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_archer_view.html#a884b3f511752c84333f7bdbca45b0962">   24</a></span>&#160;    <a class="code" href="class_sprite_animator.html">SpriteAnimator</a> <a class="code" href="class_archer_view.html#a884b3f511752c84333f7bdbca45b0962">_animator</a>; </div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif // ARCHERVIEW_H</span></div><div class="ttc" id="class_archer_view_html_acbdd4f4d9947bff40fc0aa88da789b54"><div class="ttname"><a href="class_archer_view.html#acbdd4f4d9947bff40fc0aa88da789b54">ArcherView::ArcherView</a></div><div class="ttdeci">ArcherView(const Archer &amp;archer)</div><div class="ttdoc">Создает отображение лучника. </div><div class="ttdef"><b>Definition:</b> ArcherView.cpp:5</div></div>
+<div class="ttc" id="class_archer_view_html"><div class="ttname"><a href="class_archer_view.html">ArcherView</a></div><div class="ttdoc">Класс-отображение лучника. </div><div class="ttdef"><b>Definition:</b> ArcherView.h:10</div></div>
+<div class="ttc" id="class_sprite_animator_html"><div class="ttname"><a href="class_sprite_animator.html">SpriteAnimator</a></div><div class="ttdoc">Класс, ответственный за анимацию спрайтов. </div><div class="ttdef"><b>Definition:</b> SpriteAnimator.h:16</div></div>
+<div class="ttc" id="class_archer_view_html_afc9dcac6849b31aeba1da2c95db20b5c"><div class="ttname"><a href="class_archer_view.html#afc9dcac6849b31aeba1da2c95db20b5c">ArcherView::entity</a></div><div class="ttdeci">const Entity * entity() const</div><div class="ttdoc">Существо, для которого создано это отображение. </div><div class="ttdef"><b>Definition:</b> ArcherView.cpp:56</div></div>
+<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdoc">Базовый класс всех существ. </div><div class="ttdef"><b>Definition:</b> Entity.h:14</div></div>
+<div class="ttc" id="_sprite_animator_8h_html"><div class="ttname"><a href="_sprite_animator_8h.html">SpriteAnimator.h</a></div><div class="ttdoc">Содержит класс, ответственный за анимацию спрайтов. </div></div>
+<div class="ttc" id="class_archer_view_html_ac47d56a385aa7b25cae82d1b115b88cf"><div class="ttname"><a href="class_archer_view.html#ac47d56a385aa7b25cae82d1b115b88cf">ArcherView::_archer</a></div><div class="ttdeci">const Archer &amp; _archer</div><div class="ttdoc">лучник этого отображения </div><div class="ttdef"><b>Definition:</b> ArcherView.h:23</div></div>
+<div class="ttc" id="class_entity_view_html"><div class="ttname"><a href="class_entity_view.html">EntityView</a></div><div class="ttdoc">Интерфейс класса-отображения существа. </div><div class="ttdef"><b>Definition:</b> EntityView.h:9</div></div>
+<div class="ttc" id="class_archer_view_html_aee048de0900fdc5cd7849a71363acb4c"><div class="ttname"><a href="class_archer_view.html#aee048de0900fdc5cd7849a71363acb4c">ArcherView::getSprite</a></div><div class="ttdeci">const sf::Sprite &amp; getSprite()</div><div class="ttdoc">Спрайт, готовый к отрисовке. </div><div class="ttdef"><b>Definition:</b> ArcherView.cpp:21</div></div>
+<div class="ttc" id="class_archer_view_html_a884b3f511752c84333f7bdbca45b0962"><div class="ttname"><a href="class_archer_view.html#a884b3f511752c84333f7bdbca45b0962">ArcherView::_animator</a></div><div class="ttdeci">SpriteAnimator _animator</div><div class="ttdoc">аниматор текстуры </div><div class="ttdef"><b>Definition:</b> ArcherView.h:24</div></div>
+<div class="ttc" id="class_archer_html"><div class="ttname"><a href="class_archer.html">Archer</a></div><div class="ttdoc">Класс лучника. Отвечает только за логику, но не за создание или отображение. </div><div class="ttdef"><b>Definition:</b> Archer.h:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

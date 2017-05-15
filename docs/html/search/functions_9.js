@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kill',['kill',['../class_entity.html#a522648b330daab91b49f78f0737a943f',1,'Entity']]]
+  ['kill',['kill',['../class_animalia.html#af1626c40314b399b055832186519269a',1,'Animalia']]]
 ];

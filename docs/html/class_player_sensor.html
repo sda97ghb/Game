@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Класс PlayerSensor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
+<a href="class_player_sensor-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс PlayerSensor</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс сенсора, который может определить находится ли игрок поблизости от сенсора или можно ли увидеть игрока с позиции сенсора. По умолчанию сенсор будет активен, если игрок находится в прямой видимости и на расстоянии не более 20 метров.  
+ <a href="class_player_sensor.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_player_sensor_8h_source.html">PlayerSensor.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:PlayerSensor:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_player_sensor.png" usemap="#PlayerSensor_map" alt=""/>
+  <map id="PlayerSensor_map" name="PlayerSensor_map">
+<area href="class_updatable.html" title="Базовый класс обновляемого объекта. " alt="Updatable" shape="rect" coords="0,0,89,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a30beed20e43c8987257253e3fdddebd8"><td class="memItemLeft" align="right" valign="top"><a id="a30beed20e43c8987257253e3fdddebd8"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Callback</b> = std::function&lt; void()&gt;</td></tr>
+<tr class="separator:a30beed20e43c8987257253e3fdddebd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ae09cfb4f478530b1867c38cc1ffab68a"><td class="memItemLeft" align="right" valign="top"><a id="ae09cfb4f478530b1867c38cc1ffab68a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_sensor.html#ae09cfb4f478530b1867c38cc1ffab68a">canSee</a> ()</td></tr>
+<tr class="memdesc:ae09cfb4f478530b1867c38cc1ffab68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка возможности видеть игрока с позиции сенсора. <br /></td></tr>
+<tr class="separator:ae09cfb4f478530b1867c38cc1ffab68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af04974898ebf0e5701e4d35d6b02754a"><td class="memItemLeft" align="right" valign="top"><a id="af04974898ebf0e5701e4d35d6b02754a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_sensor.html#af04974898ebf0e5701e4d35d6b02754a">isNearby</a> ()</td></tr>
+<tr class="memdesc:af04974898ebf0e5701e4d35d6b02754a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка нахождения игрока рядом с сенсором. <br /></td></tr>
+<tr class="separator:af04974898ebf0e5701e4d35d6b02754a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73b4f1c62fcc2300850e9758f34f826"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_sensor.html#ae73b4f1c62fcc2300850e9758f34f826">isActive</a> ()</td></tr>
+<tr class="memdesc:ae73b4f1c62fcc2300850e9758f34f826"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка активности сенсора.  <a href="#ae73b4f1c62fcc2300850e9758f34f826">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae73b4f1c62fcc2300850e9758f34f826"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6d70f8f7828f86422bbd2679f26e640"><td class="memItemLeft" align="right" valign="top"><a id="ab6d70f8f7828f86422bbd2679f26e640"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>nearbyDistance</b> () const</td></tr>
+<tr class="separator:ab6d70f8f7828f86422bbd2679f26e640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea33154d58202a920e704df0550c7ee5"><td class="memItemLeft" align="right" valign="top"><a id="aea33154d58202a920e704df0550c7ee5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>canSeeRequired</b> () const</td></tr>
+<tr class="separator:aea33154d58202a920e704df0550c7ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af84c1785cd489ac313b871db6801dff6"><td class="memItemLeft" align="right" valign="top"><a id="af84c1785cd489ac313b871db6801dff6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNearbyRequired</b> () const</td></tr>
+<tr class="separator:af84c1785cd489ac313b871db6801dff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3db34f1da4b42ede1c9c6abf4859ca0c"><td class="memItemLeft" align="right" valign="top"><a id="a3db34f1da4b42ede1c9c6abf4859ca0c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="separator:a3db34f1da4b42ede1c9c6abf4859ca0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:ac839efaa5010b83e27b1b2c65177cb05"><td class="memItemLeft" align="right" valign="top"><a id="ac839efaa5010b83e27b1b2c65177cb05"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_sensor.html#ac839efaa5010b83e27b1b2c65177cb05">PlayerSensor</a> ()</td></tr>
+<tr class="memdesc:ac839efaa5010b83e27b1b2c65177cb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор. <br /></td></tr>
+<tr class="separator:ac839efaa5010b83e27b1b2c65177cb05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:af649abe48688ed5095dbcd1cccc7bead"><td class="memItemLeft" align="right" valign="top"><a id="af649abe48688ed5095dbcd1cccc7bead"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_nearbyDistance</b></td></tr>
+<tr class="separator:af649abe48688ed5095dbcd1cccc7bead"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a751f4704297a32b7e8b80128d7edb97a"><td class="memItemLeft" align="right" valign="top"><a id="a751f4704297a32b7e8b80128d7edb97a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_isNearbyRequired</b></td></tr>
+<tr class="separator:a751f4704297a32b7e8b80128d7edb97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f9401427a97e6d8b9aabbd524d256a1"><td class="memItemLeft" align="right" valign="top"><a id="a2f9401427a97e6d8b9aabbd524d256a1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_canSeeRequired</b></td></tr>
+<tr class="separator:a2f9401427a97e6d8b9aabbd524d256a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2403de4818c8a9993642a1461b176864"><td class="memItemLeft" align="right" valign="top"><a id="a2403de4818c8a9993642a1461b176864"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_previousState</b></td></tr>
+<tr class="separator:a2403de4818c8a9993642a1461b176864"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88c54a2ea1bb115993b5cb08172f37f2"><td class="memItemLeft" align="right" valign="top"><a id="a88c54a2ea1bb115993b5cb08172f37f2"></a>
+Callback&#160;</td><td class="memItemRight" valign="bottom"><b>_onGotSightOfPlayerCallback</b></td></tr>
+<tr class="separator:a88c54a2ea1bb115993b5cb08172f37f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9fac588ebf07d26dfce891a0011139e"><td class="memItemLeft" align="right" valign="top"><a id="ab9fac588ebf07d26dfce891a0011139e"></a>
+Callback&#160;</td><td class="memItemRight" valign="bottom"><b>_onLostSightOfPlayerCallback</b></td></tr>
+<tr class="separator:ab9fac588ebf07d26dfce891a0011139e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab77c9886c2828d13b14555497874ab2f"><td class="memItemLeft" align="right" valign="top"><a id="ab77c9886c2828d13b14555497874ab2f"></a>
+b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>_body</b></td></tr>
+<tr class="separator:ab77c9886c2828d13b14555497874ab2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:a8dd76730c7e8e3484b455432a7a3251c"><td class="memItemLeft" align="right" valign="top"><a id="a8dd76730c7e8e3484b455432a7a3251c"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerSensorBuilder</b></td></tr>
+<tr class="separator:a8dd76730c7e8e3484b455432a7a3251c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс сенсора, который может определить находится ли игрок поблизости от сенсора или можно ли увидеть игрока с позиции сенсора. По умолчанию сенсор будет активен, если игрок находится в прямой видимости и на расстоянии не более 20 метров. </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="ae73b4f1c62fcc2300850e9758f34f826"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae73b4f1c62fcc2300850e9758f34f826">&#9670;&nbsp;</a></span>isActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool PlayerSensor::isActive </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверка активности сенсора. </p>
+<p>Активность сенсора зависит от установленных критериев. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Arena/Sensors/<a class="el" href="_player_sensor_8h_source.html">PlayerSensor.h</a></li>
+<li>Arena/Sensors/PlayerSensor.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

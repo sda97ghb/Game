@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jump',['jump',['../class_entity.html#a43595ae321edcc76739f2801ec53ebe1',1,'Entity']]]
+  ['jumpheight',['jumpHeight',['../class_archer.html#a527f630f331c281786f1b2cf697afa10',1,'Archer']]]
 ];

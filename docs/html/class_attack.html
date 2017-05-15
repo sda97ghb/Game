@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Класс Attack</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="class_attack-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс Attack<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Базовый класс для всех атак.  
+ <a href="class_attack.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_attack_8h_source.html">Attack.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф наследования:Attack:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_attack.png" usemap="#Attack_map" alt=""/>
+  <map id="Attack_map" name="Attack_map">
+<area href="class_bow_attack.html" title="Класс атаки из лука. " alt="BowAttack" shape="rect" coords="0,56,83,80"/>
+<area href="class_sword_attack.html" title="Класс атаки мечем. " alt="SwordAttack" shape="rect" coords="93,56,176,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aba7fd2fad2fe0f812f7a8707d0bc2838"><td class="memItemLeft" align="right" valign="top"><a id="aba7fd2fad2fe0f812f7a8707d0bc2838"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_attack.html#aba7fd2fad2fe0f812f7a8707d0bc2838">setActor</a> (<a class="el" href="class_animalia.html">Animalia</a> *actor)</td></tr>
+<tr class="memdesc:aba7fd2fad2fe0f812f7a8707d0bc2838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает, кто будет производить атаку. <br /></td></tr>
+<tr class="separator:aba7fd2fad2fe0f812f7a8707d0bc2838"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac30b1a1378dacdc881c8d70b408cee33"><td class="memItemLeft" align="right" valign="top"><a id="ac30b1a1378dacdc881c8d70b408cee33"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_attack.html#ac30b1a1378dacdc881c8d70b408cee33">perform</a> ()=0</td></tr>
+<tr class="memdesc:ac30b1a1378dacdc881c8d70b408cee33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Воспроизводит атаку. <br /></td></tr>
+<tr class="separator:ac30b1a1378dacdc881c8d70b408cee33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:abb504c001629fdecac607dd35f4dfd91"><td class="memItemLeft" align="right" valign="top"><a id="abb504c001629fdecac607dd35f4dfd91"></a>
+<a class="el" href="class_animalia.html">Animalia</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_attack.html#abb504c001629fdecac607dd35f4dfd91">_actor</a></td></tr>
+<tr class="memdesc:abb504c001629fdecac607dd35f4dfd91"><td class="mdescLeft">&#160;</td><td class="mdescRight">кто будет производить атаку <br /></td></tr>
+<tr class="separator:abb504c001629fdecac607dd35f4dfd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Базовый класс для всех атак. </p>
+<p>Содержит указатель на того, кто производит атаку и чисто виртуальный метод для воспроизведения атаки. </p>
+</div><hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Arena/Attacks/<a class="el" href="_attack_8h_source.html">Attack.h</a></li>
+<li>Arena/Attacks/Attack.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Класс ComplexStateMachine</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="class_complex_state_machine-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс ComplexStateMachine</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+Граф наследования:ComplexStateMachine:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_complex_state_machine.png" usemap="#ComplexStateMachine_map" alt=""/>
+  <map id="ComplexStateMachine_map" name="ComplexStateMachine_map">
+<area href="class_archer.html" title="Класс лучника. Отвечает только за логику, но не за создание или отображение. " alt="Archer" shape="rect" coords="0,56,137,80"/>
+<area href="class_player.html" title="Класс игрока. " alt="Player" shape="rect" coords="147,56,284,80"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a4061dc6babca5e471c69f38727f9d1a3"><td class="memItemLeft" align="right" valign="top"><a id="a4061dc6babca5e471c69f38727f9d1a3"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ComplexState</b> = StateList</td></tr>
+<tr class="separator:a4061dc6babca5e471c69f38727f9d1a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aa2116759b7953b4246383010caac0a1e"><td class="memItemLeft" align="right" valign="top"><a id="aa2116759b7953b4246383010caac0a1e"></a>
+const ComplexState &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>complexState</b> () const</td></tr>
+<tr class="separator:aa2116759b7953b4246383010caac0a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab13ad1b62a442d19768bbde1c667819b"><td class="memItemLeft" align="right" valign="top"><a id="ab13ad1b62a442d19768bbde1c667819b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>activateState</b> (const State &amp;state)</td></tr>
+<tr class="separator:ab13ad1b62a442d19768bbde1c667819b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766e64afc88bf611d34c0a1e8cf6b3b2"><td class="memItemLeft" align="right" valign="top"><a id="a766e64afc88bf611d34c0a1e8cf6b3b2"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>deactivateState</b> (const State &amp;state)</td></tr>
+<tr class="separator:a766e64afc88bf611d34c0a1e8cf6b3b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37ecfde0faeb4115c3cd6f44311035a6"><td class="memItemLeft" align="right" valign="top"><a id="a37ecfde0faeb4115c3cd6f44311035a6"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isStateActive</b> (const State &amp;state) const</td></tr>
+<tr class="separator:a37ecfde0faeb4115c3cd6f44311035a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d6a56717bc2f122591caa45beab7ef7"><td class="memItemLeft" align="right" valign="top"><a id="a7d6a56717bc2f122591caa45beab7ef7"></a>
+const StateFunction &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>stateFunction</b> (const State &amp;state)</td></tr>
+<tr class="separator:a7d6a56717bc2f122591caa45beab7ef7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01b88adc5c34c4274b8d1d4615b35644"><td class="memItemLeft" align="right" valign="top"><a id="a01b88adc5c34c4274b8d1d4615b35644"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setStateFunction</b> (const State &amp;state, StateFunction function)</td></tr>
+<tr class="separator:a01b88adc5c34c4274b8d1d4615b35644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30e0d9e0fcec12e02fb14e8c983ceeaa"><td class="memItemLeft" align="right" valign="top"><a id="a30e0d9e0fcec12e02fb14e8c983ceeaa"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>callStateFunction</b> (const State &amp;state)</td></tr>
+<tr class="separator:a30e0d9e0fcec12e02fb14e8c983ceeaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10118a168231024099c5d64dfa3525db"><td class="memItemLeft" align="right" valign="top"><a id="a10118a168231024099c5d64dfa3525db"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>callComplexStateFunctions</b> ()</td></tr>
+<tr class="separator:a10118a168231024099c5d64dfa3525db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99f8f4cc713d27bd8b22c35aa3c7125a"><td class="memItemLeft" align="right" valign="top"><a id="a99f8f4cc713d27bd8b22c35aa3c7125a"></a>
+const StateList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>stateRequirements</b> (const State &amp;state)</td></tr>
+<tr class="separator:a99f8f4cc713d27bd8b22c35aa3c7125a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2779676fc01fce8069867bbeceea82ef"><td class="memItemLeft" align="right" valign="top"><a id="a2779676fc01fce8069867bbeceea82ef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setStateRequirements</b> (const State &amp;state, const StateList &amp;requirements)</td></tr>
+<tr class="separator:a2779676fc01fce8069867bbeceea82ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af38b8d8b39c582b15d7a6ee67adb2417"><td class="memItemLeft" align="right" valign="top"><a id="af38b8d8b39c582b15d7a6ee67adb2417"></a>
+const StateList &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>stateIncompatibilities</b> (const State &amp;state)</td></tr>
+<tr class="separator:af38b8d8b39c582b15d7a6ee67adb2417"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a399a6ddceaeadf27cb874bf8f20410f8"><td class="memItemLeft" align="right" valign="top"><a id="a399a6ddceaeadf27cb874bf8f20410f8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setStateIncompatibilities</b> (const State &amp;state, const StateList &amp;incompatibilities)</td></tr>
+<tr class="separator:a399a6ddceaeadf27cb874bf8f20410f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5140e58f6357f5983e120bb887e7a82f"><td class="memItemLeft" align="right" valign="top"><a id="a5140e58f6357f5983e120bb887e7a82f"></a>
+<a class="el" href="class_state_builder.html">StateBuilder</a>&#160;</td><td class="memItemRight" valign="bottom"><b>stateBuilder</b> (const State &amp;state)</td></tr>
+<tr class="separator:a5140e58f6357f5983e120bb887e7a82f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a22ffe26123d877a086c621b4427260d1"><td class="memItemLeft" align="right" valign="top"><a id="a22ffe26123d877a086c621b4427260d1"></a>
+ComplexState&#160;</td><td class="memItemRight" valign="bottom"><b>_complexState</b></td></tr>
+<tr class="separator:a22ffe26123d877a086c621b4427260d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a645e888c66cfacf36de78d910f93405b"><td class="memItemLeft" align="right" valign="top"><a id="a645e888c66cfacf36de78d910f93405b"></a>
+std::map&lt; State, StateFunction &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_stateFunctions</b></td></tr>
+<tr class="separator:a645e888c66cfacf36de78d910f93405b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad04398aca358e9a6b1a6eeb669ed04cb"><td class="memItemLeft" align="right" valign="top"><a id="ad04398aca358e9a6b1a6eeb669ed04cb"></a>
+std::map&lt; State, std::list&lt; std::remove_const&lt; State &gt;::type &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_stateRequirements</b></td></tr>
+<tr class="separator:ad04398aca358e9a6b1a6eeb669ed04cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09ae6f45d860bb492fd951835212376"><td class="memItemLeft" align="right" valign="top"><a id="ae09ae6f45d860bb492fd951835212376"></a>
+std::map&lt; State, std::list&lt; std::remove_const&lt; State &gt;::type &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_stateIncompatibilities</b></td></tr>
+<tr class="separator:ae09ae6f45d860bb492fd951835212376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Arena/Entity/<a class="el" href="_complex_state_machine_8h_source.html">ComplexStateMachine.h</a></li>
+<li>Arena/Entity/ComplexStateMachine.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

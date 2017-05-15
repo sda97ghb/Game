@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game: Класс Entity</title>
+<title>Arena: Класс Entity</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game
+   <div id="projectname">Arena
    </div>
   </td>
  </tr>
@@ -59,18 +59,15 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Классы</a> &#124;
 <a href="#pub-methods">Открытые члены</a> &#124;
-<a href="#pro-attribs">Защищенные данные</a> &#124;
-<a href="#pri-methods">Закрытые члены</a> &#124;
-<a href="#friends">Друзья</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
 <a href="class_entity-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
-<div class="title">Класс Entity<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
+<div class="title">Класс Entity</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Базовый класс для всех существ.  
+<p>Базовый класс всех существ.  
  <a href="class_entity.html#details">Подробнее...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_entity_8h_source.html">Entity.h</a>&gt;</code></p>
@@ -80,579 +77,67 @@ $(function() {
  <div class="center">
   <img src="class_entity.png" usemap="#Entity_map" alt=""/>
   <map id="Entity_map" name="Entity_map">
-<area href="class_enemy.html" title="Базовый класс для враждебных к игроку существ. " alt="Enemy" shape="rect" coords="81,56,152,80"/>
-<area href="class_player.html" title="Класс игрока. " alt="Player" shape="rect" coords="162,56,233,80"/>
-<area href="class_archer.html" title="Класс лучника " alt="Archer" shape="rect" coords="0,112,71,136"/>
-<area href="class_mage.html" alt="Mage" shape="rect" coords="81,112,152,136"/>
-<area href="class_swordman.html" alt="Swordman" shape="rect" coords="162,112,233,136"/>
+<area href="class_evented.html" title="Добавляет возможность использования механизма событий для объектов какого-либо класса. " alt="Evented" shape="rect" coords="104,0,198,24"/>
+<area href="class_updatable.html" title="Базовый класс обновляемого объекта. " alt="Updatable" shape="rect" coords="208,0,302,24"/>
+<area href="class_animalia.html" title="Базовый класс всех живых существ. " alt="Animalia" shape="rect" coords="104,112,198,136"/>
+<area href="class_arrow.html" title="Класс стрелы. Отвечает только за логику, но не за создание или отображение. " alt="Arrow" shape="rect" coords="208,112,302,136"/>
+<area href="class_archer.html" title="Класс лучника. Отвечает только за логику, но не за создание или отображение. " alt="Archer" shape="rect" coords="0,168,94,192"/>
+<area href="class_player.html" title="Класс игрока. " alt="Player" shape="rect" coords="104,168,198,192"/>
+<area href="class_test_final_entity.html" alt="TestFinalEntity" shape="rect" coords="208,168,302,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Классы</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_entity_1_1_no_body_exception.html">NoBodyException</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_entity_1_1_no_fixture_exception.html">NoFixtureException</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_entity_1_1_no_shape_exception.html">NoShapeException</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a93306ecdce9446da37560f5f2b5307c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a93306ecdce9446da37560f5f2b5307c0">setPosition</a> (float x, float y)</td></tr>
-<tr class="memdesc:a93306ecdce9446da37560f5f2b5307c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Установка координат центра масс существа.  <a href="#a93306ecdce9446da37560f5f2b5307c0">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a0fac6742bccd1b2a7627a1c498f95f5e"><td class="memItemLeft" align="right" valign="top"><a id="a0fac6742bccd1b2a7627a1c498f95f5e"></a>
+const b2Vec2 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> () const</td></tr>
+<tr class="separator:a0fac6742bccd1b2a7627a1c498f95f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93306ecdce9446da37560f5f2b5307c0"><td class="memItemLeft" align="right" valign="top"><a id="a93306ecdce9446da37560f5f2b5307c0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (float x, float y)</td></tr>
 <tr class="separator:a93306ecdce9446da37560f5f2b5307c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a465d84c94da6433dee25d701c0a2aa06"><td class="memItemLeft" align="right" valign="top"><a id="a465d84c94da6433dee25d701c0a2aa06"></a>
-b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a465d84c94da6433dee25d701c0a2aa06">footPosition</a> () const</td></tr>
-<tr class="memdesc:a465d84c94da6433dee25d701c0a2aa06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает координаты нижней границы существа в физических координатах. <br /></td></tr>
-<tr class="separator:a465d84c94da6433dee25d701c0a2aa06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a134f7c209babf508929062df0e19f0d2"><td class="memItemLeft" align="right" valign="top"><a id="a134f7c209babf508929062df0e19f0d2"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a134f7c209babf508929062df0e19f0d2">width</a> () const =0</td></tr>
-<tr class="memdesc:a134f7c209babf508929062df0e19f0d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Физическая ширина существа. <br /></td></tr>
-<tr class="separator:a134f7c209babf508929062df0e19f0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaef8c5ee178faebc1d86473932535e64"><td class="memItemLeft" align="right" valign="top"><a id="aaef8c5ee178faebc1d86473932535e64"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aaef8c5ee178faebc1d86473932535e64">height</a> () const =0</td></tr>
-<tr class="memdesc:aaef8c5ee178faebc1d86473932535e64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Физическая высота существа. <br /></td></tr>
-<tr class="separator:aaef8c5ee178faebc1d86473932535e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe6d9b2c407670f0b90c0728507281fa"><td class="memItemLeft" align="right" valign="top"><a id="abe6d9b2c407670f0b90c0728507281fa"></a>
-b2PolygonShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>shape</b> ()</td></tr>
-<tr class="separator:abe6d9b2c407670f0b90c0728507281fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dcaf1f3c1a9cc2acc1fdc1b7f026318"><td class="memItemLeft" align="right" valign="top"><a id="a6dcaf1f3c1a9cc2acc1fdc1b7f026318"></a>
-const b2PolygonShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>shape</b> () const</td></tr>
-<tr class="separator:a6dcaf1f3c1a9cc2acc1fdc1b7f026318"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa21930707a6469ec8dc18d4b444b3c48"><td class="memItemLeft" align="right" valign="top"><a id="aa21930707a6469ec8dc18d4b444b3c48"></a>
-b2Body &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>body</b> ()</td></tr>
-<tr class="separator:aa21930707a6469ec8dc18d4b444b3c48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6272307f7152a38b1de080d3740090e6"><td class="memItemLeft" align="right" valign="top"><a id="a6272307f7152a38b1de080d3740090e6"></a>
-const b2Body &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>body</b> () const</td></tr>
-<tr class="separator:a6272307f7152a38b1de080d3740090e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6d877548b745046c3ffe19c461640cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac6d877548b745046c3ffe19c461640cd">stepLeft</a> ()</td></tr>
-<tr class="memdesc:ac6d877548b745046c3ffe19c461640cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Делает шаг влево.  <a href="#ac6d877548b745046c3ffe19c461640cd">Подробнее...</a><br /></td></tr>
-<tr class="separator:ac6d877548b745046c3ffe19c461640cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a93a3bd2589ec8fc1fa0ffdf4ed4f98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a1a93a3bd2589ec8fc1fa0ffdf4ed4f98">stepRight</a> ()</td></tr>
-<tr class="memdesc:a1a93a3bd2589ec8fc1fa0ffdf4ed4f98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Делает шаг вправо.  <a href="#a1a93a3bd2589ec8fc1fa0ffdf4ed4f98">Подробнее...</a><br /></td></tr>
-<tr class="separator:a1a93a3bd2589ec8fc1fa0ffdf4ed4f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43595ae321edcc76739f2801ec53ebe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a43595ae321edcc76739f2801ec53ebe1">jump</a> ()</td></tr>
-<tr class="memdesc:a43595ae321edcc76739f2801ec53ebe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Делает прыжок.  <a href="#a43595ae321edcc76739f2801ec53ebe1">Подробнее...</a><br /></td></tr>
-<tr class="separator:a43595ae321edcc76739f2801ec53ebe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a985db9ccce9666481d45b606be7ca964"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a985db9ccce9666481d45b606be7ca964">hit</a> (int sensorType, float speed)</td></tr>
-<tr class="memdesc:a985db9ccce9666481d45b606be7ca964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработчик события удара по сенсору удара.  <a href="#a985db9ccce9666481d45b606be7ca964">Подробнее...</a><br /></td></tr>
-<tr class="separator:a985db9ccce9666481d45b606be7ca964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59a29d9b7474baf13c9c76859242287d"><td class="memItemLeft" align="right" valign="top"><a id="a59a29d9b7474baf13c9c76859242287d"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a59a29d9b7474baf13c9c76859242287d">update</a> ()=0</td></tr>
-<tr class="memdesc:a59a29d9b7474baf13c9c76859242287d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывает функцию для текущего состояния существа. <br /></td></tr>
-<tr class="separator:a59a29d9b7474baf13c9c76859242287d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a112de6a5895de7c3f8b9ba951ab173ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a112de6a5895de7c3f8b9ba951ab173ce">setMaxHealth</a> (float value)</td></tr>
-<tr class="memdesc:a112de6a5895de7c3f8b9ba951ab173ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает максимальный уровень здоровья  <a href="#a112de6a5895de7c3f8b9ba951ab173ce">Подробнее...</a><br /></td></tr>
-<tr class="separator:a112de6a5895de7c3f8b9ba951ab173ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8b69ab96fdc0d42f43a183b219e389b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af8b69ab96fdc0d42f43a183b219e389b">setHealth</a> (float value)</td></tr>
-<tr class="memdesc:af8b69ab96fdc0d42f43a183b219e389b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает текущий уровень здоровья  <a href="#af8b69ab96fdc0d42f43a183b219e389b">Подробнее...</a><br /></td></tr>
-<tr class="separator:af8b69ab96fdc0d42f43a183b219e389b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9999426fa99a1fe0a59a61c5dd87ae65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a9999426fa99a1fe0a59a61c5dd87ae65">makeDamage</a> (float value)</td></tr>
-<tr class="memdesc:a9999426fa99a1fe0a59a61c5dd87ae65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Наносит урон (отнимает здоровье).  <a href="#a9999426fa99a1fe0a59a61c5dd87ae65">Подробнее...</a><br /></td></tr>
-<tr class="separator:a9999426fa99a1fe0a59a61c5dd87ae65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fca21a351ee1d8e0c0a81089b0bf1bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a5fca21a351ee1d8e0c0a81089b0bf1bd">heal</a> (float value)</td></tr>
-<tr class="memdesc:a5fca21a351ee1d8e0c0a81089b0bf1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Лечит (добавляет здоровье).  <a href="#a5fca21a351ee1d8e0c0a81089b0bf1bd">Подробнее...</a><br /></td></tr>
-<tr class="separator:a5fca21a351ee1d8e0c0a81089b0bf1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a522648b330daab91b49f78f0737a943f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a522648b330daab91b49f78f0737a943f">kill</a> ()</td></tr>
-<tr class="memdesc:a522648b330daab91b49f78f0737a943f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Мгновенно убивает существо.  <a href="#a522648b330daab91b49f78f0737a943f">Подробнее...</a><br /></td></tr>
-<tr class="separator:a522648b330daab91b49f78f0737a943f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad911fcbc8095962239e55dc6d0476484"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ad911fcbc8095962239e55dc6d0476484">setMaxMana</a> (float value)</td></tr>
-<tr class="memdesc:ad911fcbc8095962239e55dc6d0476484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает новый максимальный уровень маны.  <a href="#ad911fcbc8095962239e55dc6d0476484">Подробнее...</a><br /></td></tr>
-<tr class="separator:ad911fcbc8095962239e55dc6d0476484"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d1382d8b8d3b06c42d68b353d82ed05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a4d1382d8b8d3b06c42d68b353d82ed05">setMana</a> (float value)</td></tr>
-<tr class="memdesc:a4d1382d8b8d3b06c42d68b353d82ed05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает новый текущий уровень маны.  <a href="#a4d1382d8b8d3b06c42d68b353d82ed05">Подробнее...</a><br /></td></tr>
-<tr class="separator:a4d1382d8b8d3b06c42d68b353d82ed05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abadcf5fb781cafa3a9779091e210b96f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#abadcf5fb781cafa3a9779091e210b96f">isAlive</a> () const</td></tr>
-<tr class="memdesc:abadcf5fb781cafa3a9779091e210b96f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет живое ли существо.  <a href="#abadcf5fb781cafa3a9779091e210b96f">Подробнее...</a><br /></td></tr>
-<tr class="separator:abadcf5fb781cafa3a9779091e210b96f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae78f4fb8e15d79c402de3b1064a43974"><td class="memItemLeft" align="right" valign="top"><a id="ae78f4fb8e15d79c402de3b1064a43974"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ae78f4fb8e15d79c402de3b1064a43974">maxHealth</a> () const</td></tr>
-<tr class="memdesc:ae78f4fb8e15d79c402de3b1064a43974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает максимальный уровень здоровья. <br /></td></tr>
-<tr class="separator:ae78f4fb8e15d79c402de3b1064a43974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45c5f726a2990c7e7060e5e564b9e3ce"><td class="memItemLeft" align="right" valign="top"><a id="a45c5f726a2990c7e7060e5e564b9e3ce"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a45c5f726a2990c7e7060e5e564b9e3ce">maxMana</a> () const</td></tr>
-<tr class="memdesc:a45c5f726a2990c7e7060e5e564b9e3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает максимальный уровень маны. <br /></td></tr>
-<tr class="separator:a45c5f726a2990c7e7060e5e564b9e3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9ca4d9ad33ea9c1f59050cd1d9d637a"><td class="memItemLeft" align="right" valign="top"><a id="ac9ca4d9ad33ea9c1f59050cd1d9d637a"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac9ca4d9ad33ea9c1f59050cd1d9d637a">health</a> () const</td></tr>
-<tr class="memdesc:ac9ca4d9ad33ea9c1f59050cd1d9d637a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает текущий уровень здоровья. <br /></td></tr>
-<tr class="separator:ac9ca4d9ad33ea9c1f59050cd1d9d637a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46566ae3fd47b62d48e371bd3c9cc40f"><td class="memItemLeft" align="right" valign="top"><a id="a46566ae3fd47b62d48e371bd3c9cc40f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a46566ae3fd47b62d48e371bd3c9cc40f">mana</a> () const</td></tr>
-<tr class="memdesc:a46566ae3fd47b62d48e371bd3c9cc40f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает текущий уровень маны. <br /></td></tr>
-<tr class="separator:a46566ae3fd47b62d48e371bd3c9cc40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf6158c82c11eae1bc13d8dc5822809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sprite_animator.html">SpriteAnimator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aeaf6158c82c11eae1bc13d8dc5822809">spriteAnimator</a> ()</td></tr>
-<tr class="memdesc:aeaf6158c82c11eae1bc13d8dc5822809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает аниматор для этого существа.  <a href="#aeaf6158c82c11eae1bc13d8dc5822809">Подробнее...</a><br /></td></tr>
-<tr class="separator:aeaf6158c82c11eae1bc13d8dc5822809"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
-Защищенные данные</h2></td></tr>
-<tr class="memitem:a25a1e374436840d20fb4aa394e7545c9"><td class="memItemLeft" align="right" valign="top"><a id="a25a1e374436840d20fb4aa394e7545c9"></a>
-b2Body *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a25a1e374436840d20fb4aa394e7545c9">_body</a></td></tr>
-<tr class="memdesc:a25a1e374436840d20fb4aa394e7545c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">физическое тело существа <br /></td></tr>
-<tr class="separator:a25a1e374436840d20fb4aa394e7545c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5ef84a4b490f9995912668d7c9085ca"><td class="memItemLeft" align="right" valign="top"><a id="ab5ef84a4b490f9995912668d7c9085ca"></a>
-<a class="el" href="class_sprite_animator.html">SpriteAnimator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ab5ef84a4b490f9995912668d7c9085ca">_spriteAnimator</a></td></tr>
-<tr class="memdesc:ab5ef84a4b490f9995912668d7c9085ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">аниматор существа <br /></td></tr>
-<tr class="separator:ab5ef84a4b490f9995912668d7c9085ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59dec4d89b27ddd34528a059d55dfd1f"><td class="memItemLeft" align="right" valign="top"><a id="a59dec4d89b27ddd34528a059d55dfd1f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a59dec4d89b27ddd34528a059d55dfd1f">_maxHealth</a></td></tr>
-<tr class="memdesc:a59dec4d89b27ddd34528a059d55dfd1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">максимальный уровень здоровья <br /></td></tr>
-<tr class="separator:a59dec4d89b27ddd34528a059d55dfd1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad9646c92d301a6f04b1675dae4f947f"><td class="memItemLeft" align="right" valign="top"><a id="aad9646c92d301a6f04b1675dae4f947f"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aad9646c92d301a6f04b1675dae4f947f">_health</a></td></tr>
-<tr class="memdesc:aad9646c92d301a6f04b1675dae4f947f"><td class="mdescLeft">&#160;</td><td class="mdescRight">текущий уровень здоровья <br /></td></tr>
-<tr class="separator:aad9646c92d301a6f04b1675dae4f947f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6aea4e1c065bd8226500fbce5a2c747"><td class="memItemLeft" align="right" valign="top"><a id="af6aea4e1c065bd8226500fbce5a2c747"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#af6aea4e1c065bd8226500fbce5a2c747">_maxMana</a></td></tr>
-<tr class="memdesc:af6aea4e1c065bd8226500fbce5a2c747"><td class="mdescLeft">&#160;</td><td class="mdescRight">максимальный уровень маны <br /></td></tr>
-<tr class="separator:af6aea4e1c065bd8226500fbce5a2c747"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae82350bd5629a45098141803d93beef9"><td class="memItemLeft" align="right" valign="top"><a id="ae82350bd5629a45098141803d93beef9"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ae82350bd5629a45098141803d93beef9">_mana</a></td></tr>
-<tr class="memdesc:ae82350bd5629a45098141803d93beef9"><td class="mdescLeft">&#160;</td><td class="mdescRight">текущий уровень маны <br /></td></tr>
-<tr class="separator:ae82350bd5629a45098141803d93beef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a866e04649cd0cfbe572d15c859150155"><td class="memItemLeft" align="right" valign="top"><a id="a866e04649cd0cfbe572d15c859150155"></a>
-<a class="el" href="class_contact_sensor.html">ContactSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a866e04649cd0cfbe572d15c859150155">_groundSensor</a></td></tr>
-<tr class="memdesc:a866e04649cd0cfbe572d15c859150155"><td class="mdescLeft">&#160;</td><td class="mdescRight">сенсор контакта с землей <br /></td></tr>
-<tr class="separator:a866e04649cd0cfbe572d15c859150155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5b6b5572962a2fb02cf03ba9a146113"><td class="memItemLeft" align="right" valign="top"><a id="ab5b6b5572962a2fb02cf03ba9a146113"></a>
-<a class="el" href="class_contact_sensor.html">ContactSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ab5b6b5572962a2fb02cf03ba9a146113">_leftSensor</a></td></tr>
-<tr class="memdesc:ab5b6b5572962a2fb02cf03ba9a146113"><td class="mdescLeft">&#160;</td><td class="mdescRight">левый сенсор контакта <br /></td></tr>
-<tr class="separator:ab5b6b5572962a2fb02cf03ba9a146113"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fb0fd078b7791aa158f9cb4a675ed2a"><td class="memItemLeft" align="right" valign="top"><a id="a0fb0fd078b7791aa158f9cb4a675ed2a"></a>
-<a class="el" href="class_contact_sensor.html">ContactSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0fb0fd078b7791aa158f9cb4a675ed2a">_rightSensor</a></td></tr>
-<tr class="memdesc:a0fb0fd078b7791aa158f9cb4a675ed2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">правый сенсор контакта <br /></td></tr>
-<tr class="separator:a0fb0fd078b7791aa158f9cb4a675ed2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ea28e3886b9a4894e02c0629f794155"><td class="memItemLeft" align="right" valign="top"><a id="a0ea28e3886b9a4894e02c0629f794155"></a>
-<a class="el" href="class_hit_sensor.html">HitSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#a0ea28e3886b9a4894e02c0629f794155">_groundHitSensor</a></td></tr>
-<tr class="memdesc:a0ea28e3886b9a4894e02c0629f794155"><td class="mdescLeft">&#160;</td><td class="mdescRight">сенсор удара нижней поверхности <br /></td></tr>
-<tr class="separator:a0ea28e3886b9a4894e02c0629f794155"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
-Закрытые члены</h2></td></tr>
-<tr class="memitem:aeb908b6404d421091e31b99d532b1fdb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#aeb908b6404d421091e31b99d532b1fdb">setBody</a> (b2Body *body)</td></tr>
-<tr class="memdesc:aeb908b6404d421091e31b99d532b1fdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает _body для <a class="el" href="class_entity.html" title="Базовый класс для всех существ. ">Entity</a>.  <a href="#aeb908b6404d421091e31b99d532b1fdb">Подробнее...</a><br /></td></tr>
+<tr class="memitem:a00b6eeaf99b35c8f8b10b5fbfc1baf4f"><td class="memItemLeft" align="right" valign="top"><a id="a00b6eeaf99b35c8f8b10b5fbfc1baf4f"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+<tr class="separator:a00b6eeaf99b35c8f8b10b5fbfc1baf4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6859f442194dceaf5f04393a2418babe"><td class="memItemLeft" align="right" valign="top"><a id="a6859f442194dceaf5f04393a2418babe"></a>
+b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>body</b> () const</td></tr>
+<tr class="separator:a6859f442194dceaf5f04393a2418babe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb908b6404d421091e31b99d532b1fdb"><td class="memItemLeft" align="right" valign="top"><a id="aeb908b6404d421091e31b99d532b1fdb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setBody</b> (b2Body *body)</td></tr>
 <tr class="separator:aeb908b6404d421091e31b99d532b1fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8fd82badb5c94b886e59d49f61d629c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_entity.html#ac8fd82badb5c94b886e59d49f61d629c">constructBody</a> ()</td></tr>
-<tr class="memdesc:ac8fd82badb5c94b886e59d49f61d629c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Создает b2Shape для тела. Конструирует и вешает датчики на тело.  <a href="#ac8fd82badb5c94b886e59d49f61d629c">Подробнее...</a><br /></td></tr>
-<tr class="separator:ac8fd82badb5c94b886e59d49f61d629c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5331dfd530acab729da214ff8a124f1"><td class="memItemLeft" align="right" valign="top"><a id="af5331dfd530acab729da214ff8a124f1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>markAsDeleted</b> ()</td></tr>
+<tr class="separator:af5331dfd530acab729da214ff8a124f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d2516ddf56703c9b5e98baf230d6a15"><td class="memItemLeft" align="right" valign="top"><a id="a8d2516ddf56703c9b5e98baf230d6a15"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMarkedAsDeleted</b> () const</td></tr>
+<tr class="separator:a8d2516ddf56703c9b5e98baf230d6a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_class_evented"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_evented')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_evented.html">Evented</a></td></tr>
+<tr class="memitem:a83c8ad442f12b216b26251ec5d3d560d inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="a83c8ad442f12b216b26251ec5d3d560d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a83c8ad442f12b216b26251ec5d3d560d">addEventCallback</a> (const Event &amp;event, EventCallback callback)</td></tr>
+<tr class="memdesc:a83c8ad442f12b216b26251ec5d3d560d inherit pub_methods_class_evented"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет функцию обработки события. <br /></td></tr>
+<tr class="separator:a83c8ad442f12b216b26251ec5d3d560d inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6048ecc6dac0bfbd2315dd8d4d42b5 inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="a8a6048ecc6dac0bfbd2315dd8d4d42b5"></a>
+std::list&lt; EventCallback &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a8a6048ecc6dac0bfbd2315dd8d4d42b5">eventCallbacks</a> (const Event &amp;event)</td></tr>
+<tr class="memdesc:a8a6048ecc6dac0bfbd2315dd8d4d42b5 inherit pub_methods_class_evented"><td class="mdescLeft">&#160;</td><td class="mdescRight">Список всех коллбэков для события. <br /></td></tr>
+<tr class="separator:a8a6048ecc6dac0bfbd2315dd8d4d42b5 inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f683f01307c5474c56b3944cfa13de inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="a20f683f01307c5474c56b3944cfa13de"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a20f683f01307c5474c56b3944cfa13de">callEventCallbacks</a> (const Event &amp;event)</td></tr>
+<tr class="memdesc:a20f683f01307c5474c56b3944cfa13de inherit pub_methods_class_evented"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызвать событие. <br /></td></tr>
+<tr class="separator:a20f683f01307c5474c56b3944cfa13de inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Друзья</h2></td></tr>
-<tr class="memitem:a7b4bcdf992c21ae83363f25df05b1d25"><td class="memItemLeft" align="right" valign="top"><a id="a7b4bcdf992c21ae83363f25df05b1d25"></a>
-class&#160;</td><td class="memItemRight" valign="bottom"><b>World</b></td></tr>
-<tr class="separator:a7b4bcdf992c21ae83363f25df05b1d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a25a1e374436840d20fb4aa394e7545c9"><td class="memItemLeft" align="right" valign="top"><a id="a25a1e374436840d20fb4aa394e7545c9"></a>
+b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>_body</b></td></tr>
+<tr class="separator:a25a1e374436840d20fb4aa394e7545c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae320e3da7b3d0e4b79c040592afcdcc3"><td class="memItemLeft" align="right" valign="top"><a id="ae320e3da7b3d0e4b79c040592afcdcc3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_isMarkedAsDeleted</b></td></tr>
+<tr class="separator:ae320e3da7b3d0e4b79c040592afcdcc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
-<div class="textblock"><p>Базовый класс для всех существ. </p>
-<dl class="section attention"><dt>Внимание</dt><dd>Не наследуйтесь напрямую от этого класса, если вы разрабатывает существо, враждебное к игроку, используйте класс <a class="el" href="class_enemy.html" title="Базовый класс для враждебных к игроку существ. ">Enemy</a>. </dd></dl>
-</div><h2 class="groupheader">Методы</h2>
-<a id="ac8fd82badb5c94b886e59d49f61d629c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8fd82badb5c94b886e59d49f61d629c">&#9670;&nbsp;</a></span>constructBody()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::constructBody </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Создает b2Shape для тела. Конструирует и вешает датчики на тело. </p>
-<dl class="section attention"><dt>Внимание</dt><dd>Этот метод должен быть вызван только в классе <a class="el" href="class_world.html" title="Класс мира. ">World</a> после метода <a class="el" href="class_entity.html#aeb908b6404d421091e31b99d532b1fdb" title="Устанавливает _body для Entity. ">setBody(b2Body* body)</a>. </dd></dl>
-
-</div>
-</div>
-<a id="a5fca21a351ee1d8e0c0a81089b0bf1bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fca21a351ee1d8e0c0a81089b0bf1bd">&#9670;&nbsp;</a></span>heal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::heal </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Лечит (добавляет здоровье). </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>количество добавляемого здоровья </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Заметки</dt><dd>Не может увеличить здоровье выше максимально возможного уровня. </dd></dl>
-
-</div>
-</div>
-<a id="a985db9ccce9666481d45b606be7ca964"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a985db9ccce9666481d45b606be7ca964">&#9670;&nbsp;</a></span>hit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::hit </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>sensorType</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>speed</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Обработчик события удара по сенсору удара. </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">sensorType</td><td>тип сенсора, например <a class="el" href="class_sensors_listener.html#ab85862198f1c60e931dfd9ccd88a5427a25eace9c9440c6d6be7f2600b8e65494" title="датчик удара о землю ">SensorsListener::GROUND_HIT_SENSOR_TYPE</a> или произвольное целое </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">speed</td><td>скорость сенсора относительно препятствия в момент столкновения </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="abadcf5fb781cafa3a9779091e210b96f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abadcf5fb781cafa3a9779091e210b96f">&#9670;&nbsp;</a></span>isAlive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Entity::isAlive </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Проверяет живое ли существо. </p>
-<p>Возвращает true если уровень здоровья больше нуля. </p>
-
-</div>
-</div>
-<a id="a43595ae321edcc76739f2801ec53ebe1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43595ae321edcc76739f2801ec53ebe1">&#9670;&nbsp;</a></span>jump()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::jump </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Делает прыжок. </p>
-<p>Если существо касается нижней поверхностью платформы прикладывает импульс необходимый для прыжка. </p>
-
-</div>
-</div>
-<a id="a522648b330daab91b49f78f0737a943f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a522648b330daab91b49f78f0737a943f">&#9670;&nbsp;</a></span>kill()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::kill </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Мгновенно убивает существо. </p>
-<p>Мгновенно уменьшает здоровье до 0. </p>
-
-</div>
-</div>
-<a id="a9999426fa99a1fe0a59a61c5dd87ae65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9999426fa99a1fe0a59a61c5dd87ae65">&#9670;&nbsp;</a></span>makeDamage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::makeDamage </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Наносит урон (отнимает здоровье). </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">количество</td><td>отнимаемого здоровья </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aeb908b6404d421091e31b99d532b1fdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb908b6404d421091e31b99d532b1fdb">&#9670;&nbsp;</a></span>setBody()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::setBody </td>
-          <td>(</td>
-          <td class="paramtype">b2Body *&#160;</td>
-          <td class="paramname"><em>body</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Устанавливает _body для <a class="el" href="class_entity.html" title="Базовый класс для всех существ. ">Entity</a>. </p>
-<dl class="section attention"><dt>Внимание</dt><dd>Этот метод должен быть вызван только в классе <a class="el" href="class_world.html" title="Класс мира. ">World</a> при создании существа. </dd></dl>
-
-</div>
-</div>
-<a id="af8b69ab96fdc0d42f43a183b219e389b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8b69ab96fdc0d42f43a183b219e389b">&#9670;&nbsp;</a></span>setHealth()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::setHealth </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Устанавливает текущий уровень здоровья </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>новый текущий уровень здоровья </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4d1382d8b8d3b06c42d68b353d82ed05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d1382d8b8d3b06c42d68b353d82ed05">&#9670;&nbsp;</a></span>setMana()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::setMana </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Устанавливает новый текущий уровень маны. </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>новый текущий уровень маны </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a112de6a5895de7c3f8b9ba951ab173ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a112de6a5895de7c3f8b9ba951ab173ce">&#9670;&nbsp;</a></span>setMaxHealth()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::setMaxHealth </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Устанавливает максимальный уровень здоровья </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>новый максимальный уровень здоровья </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad911fcbc8095962239e55dc6d0476484"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad911fcbc8095962239e55dc6d0476484">&#9670;&nbsp;</a></span>setMaxMana()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::setMaxMana </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Устанавливает новый максимальный уровень маны. </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>новый максимальный уровень маны </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a93306ecdce9446da37560f5f2b5307c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93306ecdce9446da37560f5f2b5307c0">&#9670;&nbsp;</a></span>setPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::setPosition </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Установка координат центра масс существа. </p>
-<p>Координтаты задаются в физических координатах. </p>
-
-</div>
-</div>
-<a id="aeaf6158c82c11eae1bc13d8dc5822809"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaf6158c82c11eae1bc13d8dc5822809">&#9670;&nbsp;</a></span>spriteAnimator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_sprite_animator.html">SpriteAnimator</a> &amp; Entity::spriteAnimator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Возвращает аниматор для этого существа. </p>
-<p>Более подробно описан в классе <a class="el" href="class_sprite_animator.html" title="Класс, ответственный за анимацию спрайтов. ">SpriteAnimator</a>. </p>
-
-</div>
-</div>
-<a id="ac6d877548b745046c3ffe19c461640cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6d877548b745046c3ffe19c461640cd">&#9670;&nbsp;</a></span>stepLeft()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::stepLeft </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Делает шаг влево. </p>
-<p>Если скорость существа по горизонтали по модулю меньше максимальной разрешенной прикладывает импульс, направленный влево. </p>
-
-</div>
-</div>
-<a id="a1a93a3bd2589ec8fc1fa0ffdf4ed4f98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a93a3bd2589ec8fc1fa0ffdf4ed4f98">&#9670;&nbsp;</a></span>stepRight()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Entity::stepRight </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Делает шаг вправо. </p>
-<p>Если скорость существа по горизонтали по модулю меньше максимальной разрешенной прикладывает импульс, направленный вправо. </p>
-
-</div>
-</div>
-<hr/>Объявления и описания членов классов находятся в файлах:<ul>
-<li>Game/<a class="el" href="_entity_8h_source.html">Entity.h</a></li>
-<li>Game/Entity.cpp</li>
+<div class="textblock"><p>Базовый класс всех существ. </p>
+</div><hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Arena/Entity/<a class="el" href="_entity_8h_source.html">Entity.h</a></li>
+<li>Arena/Entity/Entity.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['noanimationgroupexception',['NoAnimationGroupException',['../struct_sprite_animator_1_1_no_animation_group_exception.html',1,'SpriteAnimator']]],
-  ['nobodyexception',['NoBodyException',['../struct_platform_1_1_no_body_exception.html',1,'Platform::NoBodyException'],['../struct_entity_1_1_no_body_exception.html',1,'Entity::NoBodyException']]],
-  ['nofixtureexception',['NoFixtureException',['../struct_platform_1_1_no_fixture_exception.html',1,'Platform::NoFixtureException'],['../struct_entity_1_1_no_fixture_exception.html',1,'Entity::NoFixtureException']]],
-  ['noshapeexception',['NoShapeException',['../struct_entity_1_1_no_shape_exception.html',1,'Entity::NoShapeException'],['../struct_platform_1_1_no_shape_exception.html',1,'Platform::NoShapeException']]]
+  ['maploader',['MapLoader',['../class_map_loader.html',1,'']]],
+  ['mapunloader',['MapUnloader',['../class_map_unloader.html',1,'']]],
+  ['menu',['Menu',['../class_menu.html',1,'']]],
+  ['menuitem',['MenuItem',['../struct_menu_1_1_menu_item.html',1,'Menu']]],
+  ['mousecontroller',['MouseController',['../class_mouse_controller.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Game: Класс HitSensor</title>
+<title>Arena: Класс HitSensor</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Game
+   <div id="projectname">Arena
    </div>
   </td>
  </tr>
@@ -59,8 +59,10 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
 <a href="#pub-methods">Открытые члены</a> &#124;
 <a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
 <a href="class_hit_sensor-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
 <div class="title">Класс HitSensor</div>  </div>
@@ -72,26 +74,14 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="_hit_sensor_8h_source.html">HitSensor.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a5a6ea41941c94754d8f40ff5eac39c17"><td class="memItemLeft" align="right" valign="top"><a id="a5a6ea41941c94754d8f40ff5eac39c17"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>OnHitCallback</b> = std::function&lt; void(float)&gt;</td></tr>
+<tr class="separator:a5a6ea41941c94754d8f40ff5eac39c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:aee2acb5acb1b3b84c874a9fef7044583"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#aee2acb5acb1b3b84c874a9fef7044583">setPosition</a> (float x, float y)</td></tr>
-<tr class="memdesc:aee2acb5acb1b3b84c874a9fef7044583"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает координаты центра сенсора.  <a href="#aee2acb5acb1b3b84c874a9fef7044583">Подробнее...</a><br /></td></tr>
-<tr class="separator:aee2acb5acb1b3b84c874a9fef7044583"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa97902fd3d4e439536b9eb28b6c114d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#aa97902fd3d4e439536b9eb28b6c114d7">setSize</a> (float width, float height)</td></tr>
-<tr class="memdesc:aa97902fd3d4e439536b9eb28b6c114d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает размеры сенсора.  <a href="#aa97902fd3d4e439536b9eb28b6c114d7">Подробнее...</a><br /></td></tr>
-<tr class="separator:aa97902fd3d4e439536b9eb28b6c114d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4187a922eadf498d2c6f1c8996e9f9e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a4187a922eadf498d2c6f1c8996e9f9e9">setType</a> (int <a class="el" href="class_hit_sensor.html#a7fbc8a95cae679638dd23df28cc91fe2">type</a>)</td></tr>
-<tr class="memdesc:a4187a922eadf498d2c6f1c8996e9f9e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает тип сенсора.  <a href="#a4187a922eadf498d2c6f1c8996e9f9e9">Подробнее...</a><br /></td></tr>
-<tr class="separator:a4187a922eadf498d2c6f1c8996e9f9e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b85d591911dbc64ee1d37e5a778fa86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a2b85d591911dbc64ee1d37e5a778fa86">setActivationThreshold</a> (float value)</td></tr>
-<tr class="memdesc:a2b85d591911dbc64ee1d37e5a778fa86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает уровень воздействия на сенсор, необходимый для его активации.  <a href="#a2b85d591911dbc64ee1d37e5a778fa86">Подробнее...</a><br /></td></tr>
-<tr class="separator:a2b85d591911dbc64ee1d37e5a778fa86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb118545e115fc1b3c80708043e65307"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#acb118545e115fc1b3c80708043e65307">setEntity</a> (<a class="el" href="class_entity.html">Entity</a> *entity)</td></tr>
-<tr class="memdesc:acb118545e115fc1b3c80708043e65307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запоминает существо для последующего обратного вызова метода удара.  <a href="#acb118545e115fc1b3c80708043e65307">Подробнее...</a><br /></td></tr>
-<tr class="separator:acb118545e115fc1b3c80708043e65307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43c02105013c91115cf07f919deb1500"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a43c02105013c91115cf07f919deb1500">hangOnBody</a> (b2Body *<a class="el" href="class_hit_sensor.html#adfbfe75f437e23a666868ba6e3f3e57d">body</a>)</td></tr>
-<tr class="memdesc:a43c02105013c91115cf07f919deb1500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вешает сенсор на указанное тело.  <a href="#a43c02105013c91115cf07f919deb1500">Подробнее...</a><br /></td></tr>
-<tr class="separator:a43c02105013c91115cf07f919deb1500"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa925f1b3aa327de9645704470198b8a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#aa925f1b3aa327de9645704470198b8a8">hit</a> (float speed)</td></tr>
 <tr class="memdesc:aa925f1b3aa327de9645704470198b8a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ударяет сенсор с указанной скоростью.  <a href="#aa925f1b3aa327de9645704470198b8a8">Подробнее...</a><br /></td></tr>
 <tr class="separator:aa925f1b3aa327de9645704470198b8a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -103,25 +93,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 const b2Body *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#adfbfe75f437e23a666868ba6e3f3e57d">body</a> () const</td></tr>
 <tr class="memdesc:adfbfe75f437e23a666868ba6e3f3e57d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает указатель на тело, на которое повешан датчик. <br /></td></tr>
 <tr class="separator:adfbfe75f437e23a666868ba6e3f3e57d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24addf5da34ef845c2c0f8ebc934ecad"><td class="memItemLeft" align="right" valign="top"><a id="a24addf5da34ef845c2c0f8ebc934ecad"></a>
+OnHitCallback&#160;</td><td class="memItemRight" valign="bottom"><b>onHitCallback</b> () const</td></tr>
+<tr class="separator:a24addf5da34ef845c2c0f8ebc934ecad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Закрытые данные</h2></td></tr>
-<tr class="memitem:af71c6f6fb97bf0519875fbc0450eb2c8"><td class="memItemLeft" align="right" valign="top"><a id="af71c6f6fb97bf0519875fbc0450eb2c8"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#af71c6f6fb97bf0519875fbc0450eb2c8">_x</a></td></tr>
-<tr class="memdesc:af71c6f6fb97bf0519875fbc0450eb2c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Позиция центра датчика по x. <br /></td></tr>
-<tr class="separator:af71c6f6fb97bf0519875fbc0450eb2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80e3e3511aef93698753ab7eb6d13938"><td class="memItemLeft" align="right" valign="top"><a id="a80e3e3511aef93698753ab7eb6d13938"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a80e3e3511aef93698753ab7eb6d13938">_y</a></td></tr>
-<tr class="memdesc:a80e3e3511aef93698753ab7eb6d13938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Позиция центра датчика по y. <br /></td></tr>
-<tr class="separator:a80e3e3511aef93698753ab7eb6d13938"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f04fa47e9d2c669bf61955eb4cfdea"><td class="memItemLeft" align="right" valign="top"><a id="a54f04fa47e9d2c669bf61955eb4cfdea"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a54f04fa47e9d2c669bf61955eb4cfdea">_width</a></td></tr>
-<tr class="memdesc:a54f04fa47e9d2c669bf61955eb4cfdea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ширина датчика. <br /></td></tr>
-<tr class="separator:a54f04fa47e9d2c669bf61955eb4cfdea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf82f88e4100e26df09acf3a233ae653"><td class="memItemLeft" align="right" valign="top"><a id="aaf82f88e4100e26df09acf3a233ae653"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#aaf82f88e4100e26df09acf3a233ae653">_height</a></td></tr>
-<tr class="memdesc:aaf82f88e4100e26df09acf3a233ae653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Высота датчика. <br /></td></tr>
-<tr class="separator:aaf82f88e4100e26df09acf3a233ae653"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32583f219e03c0b7db549429be15fe68"><td class="memItemLeft" align="right" valign="top"><a id="a32583f219e03c0b7db549429be15fe68"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a32583f219e03c0b7db549429be15fe68">_type</a></td></tr>
 <tr class="memdesc:a32583f219e03c0b7db549429be15fe68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тип датчика. <br /></td></tr>
@@ -130,43 +107,28 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a0b7259cb7eba091d8be6529284c9e020">_activationThreshold</a></td></tr>
 <tr class="memdesc:a0b7259cb7eba091d8be6529284c9e020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Порог воздействия, необходимый для активации датчика <br /></td></tr>
 <tr class="separator:a0b7259cb7eba091d8be6529284c9e020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f1fee0822eb4d9d565a55009551743a"><td class="memItemLeft" align="right" valign="top"><a id="a4f1fee0822eb4d9d565a55009551743a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a4f1fee0822eb4d9d565a55009551743a">_requireActivationThreshold</a></td></tr>
+<tr class="memdesc:a4f1fee0822eb4d9d565a55009551743a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Требовать, чтобы для активации сила воздействия на сенсор была больше порогового значения. <br /></td></tr>
+<tr class="separator:a4f1fee0822eb4d9d565a55009551743a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a766fbee880aa760bd6616c83d9e4460e"><td class="memItemLeft" align="right" valign="top"><a id="a766fbee880aa760bd6616c83d9e4460e"></a>
 b2Body *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a766fbee880aa760bd6616c83d9e4460e">_body</a></td></tr>
 <tr class="memdesc:a766fbee880aa760bd6616c83d9e4460e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Тело, на которое повешан датчик. <br /></td></tr>
 <tr class="separator:a766fbee880aa760bd6616c83d9e4460e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b29962829cef4a5925c0eec565ef883"><td class="memItemLeft" align="right" valign="top"><a id="a0b29962829cef4a5925c0eec565ef883"></a>
-<a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_hit_sensor.html#a0b29962829cef4a5925c0eec565ef883">_entity</a></td></tr>
-<tr class="memdesc:a0b29962829cef4a5925c0eec565ef883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Существо, которому следует обработать удар <br /></td></tr>
-<tr class="separator:a0b29962829cef4a5925c0eec565ef883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bc6854ddc336c80effea8c4afdc3403"><td class="memItemLeft" align="right" valign="top"><a id="a1bc6854ddc336c80effea8c4afdc3403"></a>
+OnHitCallback&#160;</td><td class="memItemRight" valign="bottom"><b>_onHitCallback</b></td></tr>
+<tr class="separator:a1bc6854ddc336c80effea8c4afdc3403"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:aaf51edc513dee463054733f92de37bf8"><td class="memItemLeft" align="right" valign="top"><a id="aaf51edc513dee463054733f92de37bf8"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>HitSensorBuilder</b></td></tr>
+<tr class="separator:aaf51edc513dee463054733f92de37bf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Сенсор столкновения с другим объектом. (Не путать с <a class="el" href="class_contact_sensor.html" title="Класс сенсора, реагирующего на контакт с другим телом. (Не путать с HitSensor) ">ContactSensor</a>) </p>
-<p>Создает для указанного тела новую фигуру (прямоугольник), чувствительную к взаимодейтвию с другим телом и регистрируется в классе <a class="el" href="class_sensors_listener.html" title="Класс, ответственный за срабатывание датчиков при столкновении. ">SensorsListener</a>. В отличии от <a class="el" href="class_contact_sensor.html" title="Класс сенсора, реагирующего на контакт с другим телом. (Не путать с HitSensor) ">ContactSensor</a> срабатывает только в момент столкновения и не умеет проверять существавание контакта в текущий момент. </p><dl class="section note"><dt>Заметки</dt><dd>Для работы с этим датчиком унаследуйте свой класс от <a class="el" href="class_entity.html" title="Базовый класс для всех существ. ">Entity</a> или производных от него. </dd></dl>
+<p>Создает для указанного тела новую фигуру (прямоугольник), чувствительную к взаимодейтвию с другим телом и регистрируется в классе SensorsListener. В отличии от <a class="el" href="class_contact_sensor.html" title="Класс сенсора, реагирующего на контакт с другим телом. (Не путать с HitSensor) ">ContactSensor</a> срабатывает только в момент столкновения и не умеет проверять существавание контакта в текущий момент. </p><dl class="section note"><dt>Заметки</dt><dd>Для работы с этим датчиком унаследуйте свой класс от <a class="el" href="class_entity.html" title="Базовый класс всех существ. ">Entity</a> или производных от него. </dd></dl>
 </div><h2 class="groupheader">Методы</h2>
-<a id="a43c02105013c91115cf07f919deb1500"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43c02105013c91115cf07f919deb1500">&#9670;&nbsp;</a></span>hangOnBody()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HitSensor::hangOnBody </td>
-          <td>(</td>
-          <td class="paramtype">b2Body *&#160;</td>
-          <td class="paramname"><em>body</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Вешает сенсор на указанное тело. </p>
-<p>Запоминает указанное телов в _body, создает для него фигуру-сенсор, регистрирует сенсор в <a class="el" href="class_sensors_listener.html" title="Класс, ответственный за срабатывание датчиков при столкновении. ">SensorsListener</a>. </p><dl class="section warning"><dt>Предупреждения</dt><dd>Должен быть вызвано один раз для одного тела. </dd>
-<dd>
-При повторном вызове для разных тел датчик не будет снят с предыдущего тела. </dd></dl>
-<dl class="section note"><dt>Заметки</dt><dd>Указанное тело не обязательно должно принадлежать существу, указанному ранее. </dd></dl>
-
-</div>
-</div>
 <a id="aa925f1b3aa327de9645704470198b8a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa925f1b3aa327de9645704470198b8a8">&#9670;&nbsp;</a></span>hit()</h2>
 
@@ -190,155 +152,13 @@ b2Body *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Заметки</dt><dd>В норме должен вызываться только из класса SensorListener, но вызов из других мест не должен привести к ошибкам. </dd></dl>
-
-</div>
-</div>
-<a id="a2b85d591911dbc64ee1d37e5a778fa86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b85d591911dbc64ee1d37e5a778fa86">&#9670;&nbsp;</a></span>setActivationThreshold()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HitSensor::setActivationThreshold </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Устанавливает уровень воздействия на сенсор, необходимый для его активации. </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>необходимая скорость сенсора в момент удара </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="acb118545e115fc1b3c80708043e65307"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb118545e115fc1b3c80708043e65307">&#9670;&nbsp;</a></span>setEntity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HitSensor::setEntity </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_entity.html">Entity</a> *&#160;</td>
-          <td class="paramname"><em>entity</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Запоминает существо для последующего обратного вызова метода удара. </p>
-<dl class="section note"><dt>Заметки</dt><dd>Запоминает существо, но не владеет им. </dd>
-<dd>
-Для нормальной работы сенсора в классе указанного существа нужно определить метод void hit(int sensorType, float speed). </dd>
-<dd>
-Вы можете повешать сенсор на тело, не принадлежащее указанному существу. </dd></dl>
-
-</div>
-</div>
-<a id="aee2acb5acb1b3b84c874a9fef7044583"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee2acb5acb1b3b84c874a9fef7044583">&#9670;&nbsp;</a></span>setPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HitSensor::setPosition </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>y</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Устанавливает координаты центра сенсора. </p>
-<dl class="section warning"><dt>Предупреждения</dt><dd>Должен быть вызван раньше, чем <a class="el" href="class_hit_sensor.html#a43c02105013c91115cf07f919deb1500" title="Вешает сенсор на указанное тело. ">hangOnBody(b2Body* body)</a>. </dd></dl>
-
-</div>
-</div>
-<a id="aa97902fd3d4e439536b9eb28b6c114d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa97902fd3d4e439536b9eb28b6c114d7">&#9670;&nbsp;</a></span>setSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HitSensor::setSize </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>width</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>height</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Устанавливает размеры сенсора. </p>
-<dl class="section warning"><dt>Предупреждения</dt><dd>Должен быть вызван раньше, чем <a class="el" href="class_hit_sensor.html#a43c02105013c91115cf07f919deb1500" title="Вешает сенсор на указанное тело. ">hangOnBody(b2Body* body)</a>. </dd></dl>
-
-</div>
-</div>
-<a id="a4187a922eadf498d2c6f1c8996e9f9e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4187a922eadf498d2c6f1c8996e9f9e9">&#9670;&nbsp;</a></span>setType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HitSensor::setType </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Устанавливает тип сенсора. </p>
-<p>Нужно, чтобы различать сенсоры повешанные на одно тело. </p><dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>тип сенсора, например <a class="el" href="class_sensors_listener.html#ab85862198f1c60e931dfd9ccd88a5427a25eace9c9440c6d6be7f2600b8e65494" title="датчик удара о землю ">SensorsListener::GROUND_HIT_SENSOR_TYPE</a> или произвольное целое. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section warning"><dt>Предупреждения</dt><dd>У одного тела не должно быть несколько сенсоров одинакового типа. </dd>
-<dd>
-Должен быть вызван раньше, чем <a class="el" href="class_hit_sensor.html#a43c02105013c91115cf07f919deb1500" title="Вешает сенсор на указанное тело. ">hangOnBody(b2Body* body)</a>. </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>В норме должен вызываться только из класса <a class="el" href="class_sensor_listener.html" title="Класс, ответственный за срабатывание датчиков при столкновении. ">SensorListener</a>, но вызов из других мест не должен привести к ошибкам. </dd></dl>
 
 </div>
 </div>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
-<li>Game/<a class="el" href="_hit_sensor_8h_source.html">HitSensor.h</a></li>
-<li>Game/HitSensor.cpp</li>
+<li>Arena/Sensors/<a class="el" href="_hit_sensor_8h_source.html">HitSensor.h</a></li>
+<li>Arena/Sensors/HitSensor.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

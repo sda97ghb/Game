@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Шаблон класса ObjectCounter&lt; T &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="#pri-static-attribs">Закрытые статические данные</a> &#124;
+<a href="class_object_counter-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Шаблон класса ObjectCounter&lt; T &gt;</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Подсчитывает количество объектов указанного типа и возвращает их список.  
+ <a href="class_object_counter.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_object_counter_8h_source.html">ObjectCounter.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:ac098ce7bba625fde2ab2ee542a921d7d"><td class="memItemLeft" align="right" valign="top"><a id="ac098ce7bba625fde2ab2ee542a921d7d"></a>
+static const std::set&lt; T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#ac098ce7bba625fde2ab2ee542a921d7d">objects</a> ()</td></tr>
+<tr class="memdesc:ac098ce7bba625fde2ab2ee542a921d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает список всех объектов указаного типа. <br /></td></tr>
+<tr class="separator:ac098ce7bba625fde2ab2ee542a921d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a310e2c94f075c6a80684206aaced86e5"><td class="memItemLeft" align="right" valign="top"><a id="a310e2c94f075c6a80684206aaced86e5"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#a310e2c94f075c6a80684206aaced86e5">addObject</a> (T *object)</td></tr>
+<tr class="memdesc:a310e2c94f075c6a80684206aaced86e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запоминает указанный объект. <br /></td></tr>
+<tr class="separator:a310e2c94f075c6a80684206aaced86e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac37d1f7e8dafea57a2edcb8cd0515b2b"><td class="memItemLeft" align="right" valign="top"><a id="ac37d1f7e8dafea57a2edcb8cd0515b2b"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#ac37d1f7e8dafea57a2edcb8cd0515b2b">removeObject</a> (T *object)</td></tr>
+<tr class="memdesc:ac37d1f7e8dafea57a2edcb8cd0515b2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Забывает указанный объект. <br /></td></tr>
+<tr class="separator:ac37d1f7e8dafea57a2edcb8cd0515b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e20d2aa539267e1883ccd39e06b05b5"><td class="memItemLeft" align="right" valign="top"><a id="a1e20d2aa539267e1883ccd39e06b05b5"></a>
+static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#a1e20d2aa539267e1883ccd39e06b05b5">count</a> ()</td></tr>
+<tr class="memdesc:a1e20d2aa539267e1883ccd39e06b05b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает количество объектов указанного типа. <br /></td></tr>
+<tr class="separator:a1e20d2aa539267e1883ccd39e06b05b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
+Закрытые статические данные</h2></td></tr>
+<tr class="memitem:a37295992585b00c9d02843dac0f406ec"><td class="memItemLeft" align="right" valign="top"><a id="a37295992585b00c9d02843dac0f406ec"></a>
+static std::set&lt; T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#a37295992585b00c9d02843dac0f406ec">_objects</a></td></tr>
+<tr class="memdesc:a37295992585b00c9d02843dac0f406ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Объекты указанного типа. <br /></td></tr>
+<tr class="separator:a37295992585b00c9d02843dac0f406ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><h3>template&lt;typename T&gt;<br />
+class ObjectCounter&lt; T &gt;</h3>
+
+<p>Подсчитывает количество объектов указанного типа и возвращает их список. </p>
+<p>Использование:</p><ol type="1">
+<li>В каждом конструкторе класса, объекты которого надо подсчитывать: <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html#a310e2c94f075c6a80684206aaced86e5">ObjectCounter&lt;your class name&gt;::addObject</a>(<span class="keyword">this</span>); </div></div><!-- fragment --></li>
+<li>В дестркторе класса, объекты которого надо подсчитывать: <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html#ac37d1f7e8dafea57a2edcb8cd0515b2b">ObjectCounter&lt;your class name&gt;::removeObject</a>(<span class="keyword">this</span>); </div></div><!-- fragment --></li>
+<li>В любом месте, где вам это нужно:<ul>
+<li>Узнать количество объектов: <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html#a1e20d2aa539267e1883ccd39e06b05b5">ObjectCounter&lt;your class name&gt;::count</a>() </div></div><!-- fragment --></li>
+<li>Получить список всех объектов: <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html#ac098ce7bba625fde2ab2ee542a921d7d">ObjectCounter&lt;your class name&gt;::objects</a>()</div><div class="line">           <span class="comment">// =&gt; std::list&lt;your class name pointer&gt; </span></div></div><!-- fragment --></li>
+</ul>
+</li>
+</ol>
+<dl class="section note"><dt>Заметки</dt><dd>Этот класс не может подсчитывать объекты, которые не используют <em>addObject</em> и <em>removeObject</em> в их конструкторах и деструкторе. Например вы не можете при помощи этого класса узнать список всех std::string или int использованных в вашей программе. </dd></dl>
+</div><hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>Arena/<a class="el" href="_object_counter_8h_source.html">ObjectCounter.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['x',['x',['../struct_sprite_animator_1_1_animation_group.html#a0d5fb0ade3933a9d6abd4c29a3505ce6',1,'SpriteAnimator::AnimationGroup::x()'],['../class_ladder.html#aa5a76bf59152db605804bdb67b2610f8',1,'Ladder::x()']]]
+  ['y',['y',['../struct_sprite_animator_1_1_animation_group.html#a4a3e8cf0b0737662967016abfa4fcb1c',1,'SpriteAnimator::AnimationGroup']]],
+  ['y1',['y1',['../class_ladder.html#ab2faf7a0c7726ab8f0c91d5eb2cabfda',1,'Ladder']]],
+  ['y2',['y2',['../class_ladder.html#aa4b7cf30500361a2afd68b8f1980a469',1,'Ladder']]]
 ];
