@@ -65,16 +65,23 @@ $(function() {
 <div class="title">Класс EntityView<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Интерфейс класса-отображения существа.  
+ <a href="class_entity_view.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_entity_view_8h_source.html">EntityView.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:EntityView:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_entity_view.png" usemap="#EntityView_map" alt=""/>
   <map id="EntityView_map" name="EntityView_map">
-<area href="class_archer_view.html" alt="ArcherView" shape="rect" coords="0,56,122,80"/>
-<area href="class_arrow_view.html" alt="ArrowView" shape="rect" coords="132,56,254,80"/>
-<area href="class_player_view.html" alt="PlayerView" shape="rect" coords="264,56,386,80"/>
+<area href="class_archer_view.html" title="Класс-отображение лучника. " alt="ArcherView" shape="rect" coords="0,56,122,80"/>
+<area href="class_arrow_view.html" title="Класс-отображение стрелы. " alt="ArrowView" shape="rect" coords="132,56,254,80"/>
+<area href="class_player_view.html" title="Базовый класс-отображение для игроков. " alt="PlayerView" shape="rect" coords="264,56,386,80"/>
 <area href="class_test_final_entity_view.html" alt="TestFinalEntityView" shape="rect" coords="396,56,518,80"/>
+<area href="class_player1_view.html" title="Класс отображение первого игрока. " alt="Player1View" shape="rect" coords="198,112,320,136"/>
+<area href="class_player2_view.html" title="Класс отображение второго игрока. " alt="Player2View" shape="rect" coords="330,112,452,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -83,9 +90,15 @@ $(function() {
 <tr class="memitem:ae785eb56b3ab5623055c7ff30ea31e12"><td class="memItemLeft" align="right" valign="top"><a id="ae785eb56b3ab5623055c7ff30ea31e12"></a>
 virtual const sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSprite</b> ()=0</td></tr>
 <tr class="separator:ae785eb56b3ab5623055c7ff30ea31e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d13588c776161acf04dad47ea5f5d5a"><td class="memItemLeft" align="right" valign="top"><a id="a7d13588c776161acf04dad47ea5f5d5a"></a>
+virtual const <a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>entity</b> () const =0</td></tr>
+<tr class="separator:a7d13588c776161acf04dad47ea5f5d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Интерфейс класса-отображения существа. </p>
+</div><hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>Arena/Entity/<a class="el" href="_entity_view_8h_source.html">EntityView.h</a></li>
+<li>Arena/Entity/EntityView.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

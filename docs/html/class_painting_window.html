@@ -107,9 +107,26 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#a0bb80882d757919782e5b1d5c0d3906a">drawLog</a> ()</td></tr>
 <tr class="memdesc:a0bb80882d757919782e5b1d5c0d3906a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует чат. <br /></td></tr>
 <tr class="separator:a0bb80882d757919782e5b1d5c0d3906a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af572e1502210aeaa22447318d71223dd"><td class="memItemLeft" align="right" valign="top"><a id="af572e1502210aeaa22447318d71223dd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>prepareForGui</b> ()</td></tr>
+<tr class="separator:af572e1502210aeaa22447318d71223dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb668d0479809605c4ea9feb045e465f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#abb668d0479809605c4ea9feb045e465f">drawBar</a> (float x, float y, float width, float height, float border, float value, sf::Color color)</td></tr>
 <tr class="memdesc:abb668d0479809605c4ea9feb045e465f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Рисует полоску под лайфбар или манабар.  <a href="#abb668d0479809605c4ea9feb045e465f">Подробнее...</a><br /></td></tr>
 <tr class="separator:abb668d0479809605c4ea9feb045e465f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9cb3421e6eefd656a68d64819731a8c"><td class="memItemLeft" align="right" valign="top"><a id="af9cb3421e6eefd656a68d64819731a8c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#af9cb3421e6eefd656a68d64819731a8c">processEvents</a> ()</td></tr>
+<tr class="memdesc:af9cb3421e6eefd656a68d64819731a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывает обработчики событий. <br /></td></tr>
+<tr class="separator:af9cb3421e6eefd656a68d64819731a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabbc3fc6c4364865e708fa4c060b5cef"><td class="memItemLeft" align="right" valign="top"><a id="aabbc3fc6c4364865e708fa4c060b5cef"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#aabbc3fc6c4364865e708fa4c060b5cef">onMouseButtonPressed</a> (const sf::Event::MouseButtonEvent &amp;event)</td></tr>
+<tr class="memdesc:aabbc3fc6c4364865e708fa4c060b5cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработчик события нажатия кнопки мыши. <br /></td></tr>
+<tr class="separator:aabbc3fc6c4364865e708fa4c060b5cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f74f8265c45d44a1c12ad854d9defb"><td class="memItemLeft" align="right" valign="top"><a id="a65f74f8265c45d44a1c12ad854d9defb"></a>
+b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>cursorCoordinatesToPhysical</b> (const sf::Vector2i &amp;cursorPos)</td></tr>
+<tr class="separator:a65f74f8265c45d44a1c12ad854d9defb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa515b2d694a0b2dca88561a5d48cf842"><td class="memItemLeft" align="right" valign="top"><a id="aa515b2d694a0b2dca88561a5d48cf842"></a>
+b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>cursorCoordinatesToPhysical</b> (int x, int y)</td></tr>
+<tr class="separator:aa515b2d694a0b2dca88561a5d48cf842"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bcb6c897b991b3c3f6679488b52b1b4"><td class="memItemLeft" align="right" valign="top"><a id="a3bcb6c897b991b3c3f6679488b52b1b4"></a>
 sf::ConvexShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#a3bcb6c897b991b3c3f6679488b52b1b4">constructPlatform</a> (<a class="el" href="class_platform.html">Platform</a> &amp;platform)</td></tr>
 <tr class="memdesc:a3bcb6c897b991b3c3f6679488b52b1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготавливает к отрисовке многоугольник для платформы <br /></td></tr>
@@ -130,23 +147,12 @@ sf::ConvexShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a clas
 sf::ConvexShape &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#acd90be35f6141f5f0f1706c1af94bc3a">constructLava</a> (<a class="el" href="class_lava.html">Lava</a> &amp;lava, bool isFront=true)</td></tr>
 <tr class="memdesc:acd90be35f6141f5f0f1706c1af94bc3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Подготавливает для отрисовки многоугольник для лавы. <br /></td></tr>
 <tr class="separator:acd90be35f6141f5f0f1706c1af94bc3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9cb3421e6eefd656a68d64819731a8c"><td class="memItemLeft" align="right" valign="top"><a id="af9cb3421e6eefd656a68d64819731a8c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#af9cb3421e6eefd656a68d64819731a8c">processEvents</a> ()</td></tr>
-<tr class="memdesc:af9cb3421e6eefd656a68d64819731a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывает обработчики событий. <br /></td></tr>
-<tr class="separator:af9cb3421e6eefd656a68d64819731a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabbc3fc6c4364865e708fa4c060b5cef"><td class="memItemLeft" align="right" valign="top"><a id="aabbc3fc6c4364865e708fa4c060b5cef"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#aabbc3fc6c4364865e708fa4c060b5cef">onMouseButtonPressed</a> (const sf::Event::MouseButtonEvent &amp;event)</td></tr>
-<tr class="memdesc:aabbc3fc6c4364865e708fa4c060b5cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработчик события нажатия кнопки мыши. <br /></td></tr>
-<tr class="separator:aabbc3fc6c4364865e708fa4c060b5cef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65f74f8265c45d44a1c12ad854d9defb"><td class="memItemLeft" align="right" valign="top"><a id="a65f74f8265c45d44a1c12ad854d9defb"></a>
-b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>cursorCoordinatesToPhysical</b> (const sf::Vector2i &amp;cursorPos)</td></tr>
-<tr class="separator:a65f74f8265c45d44a1c12ad854d9defb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa515b2d694a0b2dca88561a5d48cf842"><td class="memItemLeft" align="right" valign="top"><a id="aa515b2d694a0b2dca88561a5d48cf842"></a>
-b2Vec2&#160;</td><td class="memItemRight" valign="bottom"><b>cursorCoordinatesToPhysical</b> (int x, int y)</td></tr>
-<tr class="separator:aa515b2d694a0b2dca88561a5d48cf842"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8acdcc955831ddf65e531ffd5d225e3b"><td class="memItemLeft" align="right" valign="top"><a id="a8acdcc955831ddf65e531ffd5d225e3b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addEntityView</b> (<a class="el" href="class_entity_view.html">EntityView</a> *entityView)</td></tr>
-<tr class="separator:a8acdcc955831ddf65e531ffd5d225e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18af246e3d59be55464aa2ff84c6df71"><td class="memItemLeft" align="right" valign="top"><a id="a18af246e3d59be55464aa2ff84c6df71"></a>
+sf::Font &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>font</b> ()</td></tr>
+<tr class="separator:a18af246e3d59be55464aa2ff84c6df71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69aee7ceec205dd76081906832159ca1"><td class="memItemLeft" align="right" valign="top"><a id="a69aee7ceec205dd76081906832159ca1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setYFloorOffset</b> (float yFloorOffset)</td></tr>
+<tr class="separator:a69aee7ceec205dd76081906832159ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Открытые статические члены</h2></td></tr>
@@ -193,13 +199,13 @@ sf::Texture&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 sf::Sprite&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#a12742fb867df6b35aa547927d7adffc1">_background</a></td></tr>
 <tr class="memdesc:a12742fb867df6b35aa547927d7adffc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Фон <br /></td></tr>
 <tr class="separator:a12742fb867df6b35aa547927d7adffc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0512edb0160e7ac7080738630cf0fc0"><td class="memItemLeft" align="right" valign="top"><a id="af0512edb0160e7ac7080738630cf0fc0"></a>
-sf::Font&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#af0512edb0160e7ac7080738630cf0fc0">font</a></td></tr>
-<tr class="memdesc:af0512edb0160e7ac7080738630cf0fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Шрифт для лога <br /></td></tr>
-<tr class="separator:af0512edb0160e7ac7080738630cf0fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47b331c027040b74edffc2a5064a0869"><td class="memItemLeft" align="right" valign="top"><a id="a47b331c027040b74edffc2a5064a0869"></a>
-std::list&lt; <a class="el" href="class_entity_view.html">EntityView</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_entityViews</b></td></tr>
-<tr class="separator:a47b331c027040b74edffc2a5064a0869"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cb2bd94b5326068185dd9a4ea53b732"><td class="memItemLeft" align="right" valign="top"><a id="a2cb2bd94b5326068185dd9a4ea53b732"></a>
+sf::Font&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_painting_window.html#a2cb2bd94b5326068185dd9a4ea53b732">_font</a></td></tr>
+<tr class="memdesc:a2cb2bd94b5326068185dd9a4ea53b732"><td class="mdescLeft">&#160;</td><td class="mdescRight">Шрифт для лога <br /></td></tr>
+<tr class="separator:a2cb2bd94b5326068185dd9a4ea53b732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3b62706df5dbfc34c609dfbef5066d7"><td class="memItemLeft" align="right" valign="top"><a id="ab3b62706df5dbfc34c609dfbef5066d7"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_yFloorOffset</b></td></tr>
+<tr class="separator:ab3b62706df5dbfc34c609dfbef5066d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Класс, отвечающий за графическую составляющую игры. </p>

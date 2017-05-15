@@ -61,32 +61,23 @@ $(function() {
   <div class="summary">
 <a href="#pub-methods">Открытые члены</a> &#124;
 <a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
 <a href="class_abyss_sensor-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
 <div class="title">Класс AbyssSensor</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Датчик пропасти впереди.  
+ <a href="class_abyss_sensor.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_abyss_sensor_8h_source.html">AbyssSensor.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a9893e68e4252a8b87973ce18446fd390"><td class="memItemLeft" align="right" valign="top"><a id="a9893e68e4252a8b87973ce18446fd390"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>hangOnBody</b> (b2Body *body)</td></tr>
-<tr class="separator:a9893e68e4252a8b87973ce18446fd390"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e5d2abf4f8fe0c4f7f223ddd4c08702"><td class="memItemLeft" align="right" valign="top"><a id="a2e5d2abf4f8fe0c4f7f223ddd4c08702"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isActive</b> ()</td></tr>
 <tr class="separator:a2e5d2abf4f8fe0c4f7f223ddd4c08702"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6f686184728e4567730c9746ba6913d"><td class="memItemLeft" align="right" valign="top"><a id="ad6f686184728e4567730c9746ba6913d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDx</b> (float dx)</td></tr>
-<tr class="separator:ad6f686184728e4567730c9746ba6913d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a681fa42506f77dbdbe375ed74c853ff7"><td class="memItemLeft" align="right" valign="top"><a id="a681fa42506f77dbdbe375ed74c853ff7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDy</b> (float dy)</td></tr>
-<tr class="separator:a681fa42506f77dbdbe375ed74c853ff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b390da40155dd4c2977af776aa4602c"><td class="memItemLeft" align="right" valign="top"><a id="a8b390da40155dd4c2977af776aa4602c"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>dx</b> () const</td></tr>
-<tr class="separator:a8b390da40155dd4c2977af776aa4602c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa11eae23cd3442f159f6759258e5b4fa"><td class="memItemLeft" align="right" valign="top"><a id="aa11eae23cd3442f159f6759258e5b4fa"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>dy</b> () const</td></tr>
-<tr class="separator:aa11eae23cd3442f159f6759258e5b4fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafc91c3753d6437c305abfe619e1d797"><td class="memItemLeft" align="right" valign="top"><a id="aafc91c3753d6437c305abfe619e1d797"></a>
 Direction&#160;</td><td class="memItemRight" valign="bottom"><b>direction</b> () const</td></tr>
 <tr class="separator:aafc91c3753d6437c305abfe619e1d797"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,14 +93,22 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>_dx</b></td></tr>
 <tr class="memitem:ad69f7cd99507673c9e9164306ec5395b"><td class="memItemLeft" align="right" valign="top"><a id="ad69f7cd99507673c9e9164306ec5395b"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>_dy</b></td></tr>
 <tr class="separator:ad69f7cd99507673c9e9164306ec5395b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040e5026eac6a5b53f94946d437ba19a"><td class="memItemLeft" align="right" valign="top"><a id="a040e5026eac6a5b53f94946d437ba19a"></a>
-Direction&#160;</td><td class="memItemRight" valign="bottom"><b>_direction</b></td></tr>
-<tr class="separator:a040e5026eac6a5b53f94946d437ba19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb0c2422a3c92be71a0f5b0682c16acd"><td class="memItemLeft" align="right" valign="top"><a id="abb0c2422a3c92be71a0f5b0682c16acd"></a>
 b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>_body</b></td></tr>
 <tr class="separator:abb0c2422a3c92be71a0f5b0682c16acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a040e5026eac6a5b53f94946d437ba19a"><td class="memItemLeft" align="right" valign="top"><a id="a040e5026eac6a5b53f94946d437ba19a"></a>
+Direction&#160;</td><td class="memItemRight" valign="bottom"><b>_direction</b></td></tr>
+<tr class="separator:a040e5026eac6a5b53f94946d437ba19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:af46e15fcd0d5ad3d3d4ed307767f3e36"><td class="memItemLeft" align="right" valign="top"><a id="af46e15fcd0d5ad3d3d4ed307767f3e36"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>AbyssSensorBuilder</b></td></tr>
+<tr class="separator:af46e15fcd0d5ad3d3d4ed307767f3e36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Датчик пропасти впереди. </p>
+</div><hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>Arena/Sensors/<a class="el" href="_abyss_sensor_8h_source.html">AbyssSensor.h</a></li>
 <li>Arena/Sensors/AbyssSensor.cpp</li>
 </ul>

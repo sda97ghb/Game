@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x',['x',['../struct_sprite_animator_1_1_animation_group.html#a0d5fb0ade3933a9d6abd4c29a3505ce6',1,'SpriteAnimator::AnimationGroup::x()'],['../class_ladder.html#aa5a76bf59152db605804bdb67b2610f8',1,'Ladder::x()']]]
+  ['updatable',['Updatable',['../class_updatable.html',1,'']]],
+  ['update',['update',['../class_animalia.html#a03e557a799e878e5532fa117b09ec526',1,'Animalia::update()'],['../class_sprite_animator.html#a5c5aa5d8b2c00863d342ee5c766c3a27',1,'SpriteAnimator::update()'],['../class_world.html#aac8c1fde63c06577ffc648aaefdb37f0',1,'World::update()']]]
 ];

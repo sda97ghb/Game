@@ -61,14 +61,16 @@ $(function() {
   <div class="summary">
 <a href="#pub-types">Открытые типы</a> &#124;
 <a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
 <a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
 <a href="class_player_sensor-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
 <div class="title">Класс PlayerSensor</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Класс сенсора, который может определить находится ли игрок поблизости от сенсора или можно ли увидеть игрока с позиции сенсора.  
+<p>Класс сенсора, который может определить находится ли игрок поблизости от сенсора или можно ли увидеть игрока с позиции сенсора. По умолчанию сенсор будет активен, если игрок находится в прямой видимости и на расстоянии не более 20 метров.  
  <a href="class_player_sensor.html#details">Подробнее...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_player_sensor_8h_source.html">PlayerSensor.h</a>&gt;</code></p>
@@ -78,7 +80,7 @@ $(function() {
  <div class="center">
   <img src="class_player_sensor.png" usemap="#PlayerSensor_map" alt=""/>
   <map id="PlayerSensor_map" name="PlayerSensor_map">
-<area href="class_updatable.html" alt="Updatable" shape="rect" coords="0,0,89,24"/>
+<area href="class_updatable.html" title="Базовый класс обновляемого объекта. " alt="Updatable" shape="rect" coords="0,0,89,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -90,14 +92,6 @@ using&#160;</td><td class="memItemRight" valign="bottom"><b>Callback</b> = std::
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:ac839efaa5010b83e27b1b2c65177cb05"><td class="memItemLeft" align="right" valign="top"><a id="ac839efaa5010b83e27b1b2c65177cb05"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_sensor.html#ac839efaa5010b83e27b1b2c65177cb05">PlayerSensor</a> ()</td></tr>
-<tr class="memdesc:ac839efaa5010b83e27b1b2c65177cb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор. <br /></td></tr>
-<tr class="separator:ac839efaa5010b83e27b1b2c65177cb05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bead4d5eca41664ccf5d29c229a0cfe"><td class="memItemLeft" align="right" valign="top"><a id="a2bead4d5eca41664ccf5d29c229a0cfe"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_sensor.html#a2bead4d5eca41664ccf5d29c229a0cfe">hangOnBody</a> (b2Body *body)</td></tr>
-<tr class="memdesc:a2bead4d5eca41664ccf5d29c229a0cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вешает датчик на тело. <br /></td></tr>
-<tr class="separator:a2bead4d5eca41664ccf5d29c229a0cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae09cfb4f478530b1867c38cc1ffab68a"><td class="memItemLeft" align="right" valign="top"><a id="ae09cfb4f478530b1867c38cc1ffab68a"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_sensor.html#ae09cfb4f478530b1867c38cc1ffab68a">canSee</a> ()</td></tr>
 <tr class="memdesc:ae09cfb4f478530b1867c38cc1ffab68a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка возможности видеть игрока с позиции сенсора. <br /></td></tr>
@@ -112,30 +106,22 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ab6d70f8f7828f86422bbd2679f26e640"><td class="memItemLeft" align="right" valign="top"><a id="ab6d70f8f7828f86422bbd2679f26e640"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>nearbyDistance</b> () const</td></tr>
 <tr class="separator:ab6d70f8f7828f86422bbd2679f26e640"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95a6d5727411b2c7cc8997afcbd42bb8"><td class="memItemLeft" align="right" valign="top"><a id="a95a6d5727411b2c7cc8997afcbd42bb8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNearbyDistance</b> (float nearbyDistance)</td></tr>
-<tr class="separator:a95a6d5727411b2c7cc8997afcbd42bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea33154d58202a920e704df0550c7ee5"><td class="memItemLeft" align="right" valign="top"><a id="aea33154d58202a920e704df0550c7ee5"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>canSeeRequired</b> () const</td></tr>
 <tr class="separator:aea33154d58202a920e704df0550c7ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af84c1785cd489ac313b871db6801dff6"><td class="memItemLeft" align="right" valign="top"><a id="af84c1785cd489ac313b871db6801dff6"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNearbyRequired</b> () const</td></tr>
 <tr class="separator:af84c1785cd489ac313b871db6801dff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cb1c53771506611eb533874ebd80072"><td class="memItemLeft" align="right" valign="top"><a id="a5cb1c53771506611eb533874ebd80072"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCanSeeRequired</b> (bool canSeeRequired)</td></tr>
-<tr class="separator:a5cb1c53771506611eb533874ebd80072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60bdb8a5eeda167ccf26bb9e7eb0d96a"><td class="memItemLeft" align="right" valign="top"><a id="a60bdb8a5eeda167ccf26bb9e7eb0d96a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIsNearbyRequired</b> (bool isNearbyRequired)</td></tr>
-<tr class="separator:a60bdb8a5eeda167ccf26bb9e7eb0d96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3db34f1da4b42ede1c9c6abf4859ca0c"><td class="memItemLeft" align="right" valign="top"><a id="a3db34f1da4b42ede1c9c6abf4859ca0c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
 <tr class="separator:a3db34f1da4b42ede1c9c6abf4859ca0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a339bd2b3d434a537ff6cc97130b27fcf"><td class="memItemLeft" align="right" valign="top"><a id="a339bd2b3d434a537ff6cc97130b27fcf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOnGotSightOfPlayerCallback</b> (const Callback &amp;onGotSightOfPlayerCallback)</td></tr>
-<tr class="separator:a339bd2b3d434a537ff6cc97130b27fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacafb9028ad33f1c5b0cd3053d80fc32"><td class="memItemLeft" align="right" valign="top"><a id="aacafb9028ad33f1c5b0cd3053d80fc32"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOnLostSightOfPlayerCallback</b> (const Callback &amp;onLostSightOfPlayerCallback)</td></tr>
-<tr class="separator:aacafb9028ad33f1c5b0cd3053d80fc32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:ac839efaa5010b83e27b1b2c65177cb05"><td class="memItemLeft" align="right" valign="top"><a id="ac839efaa5010b83e27b1b2c65177cb05"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_player_sensor.html#ac839efaa5010b83e27b1b2c65177cb05">PlayerSensor</a> ()</td></tr>
+<tr class="memdesc:ac839efaa5010b83e27b1b2c65177cb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор. <br /></td></tr>
+<tr class="separator:ac839efaa5010b83e27b1b2c65177cb05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Закрытые данные</h2></td></tr>
@@ -160,9 +146,15 @@ Callback&#160;</td><td class="memItemRight" valign="bottom"><b>_onLostSightOfPla
 <tr class="memitem:ab77c9886c2828d13b14555497874ab2f"><td class="memItemLeft" align="right" valign="top"><a id="ab77c9886c2828d13b14555497874ab2f"></a>
 b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>_body</b></td></tr>
 <tr class="separator:ab77c9886c2828d13b14555497874ab2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:a8dd76730c7e8e3484b455432a7a3251c"><td class="memItemLeft" align="right" valign="top"><a id="a8dd76730c7e8e3484b455432a7a3251c"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>PlayerSensorBuilder</b></td></tr>
+<tr class="separator:a8dd76730c7e8e3484b455432a7a3251c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
-<div class="textblock"><p>Класс сенсора, который может определить находится ли игрок поблизости от сенсора или можно ли увидеть игрока с позиции сенсора. </p>
+<div class="textblock"><p>Класс сенсора, который может определить находится ли игрок поблизости от сенсора или можно ли увидеть игрока с позиции сенсора. По умолчанию сенсор будет активен, если игрок находится в прямой видимости и на расстоянии не более 20 метров. </p>
 </div><h2 class="groupheader">Методы</h2>
 <a id="ae73b4f1c62fcc2300850e9758f34f826"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae73b4f1c62fcc2300850e9758f34f826">&#9670;&nbsp;</a></span>isActive()</h2>
@@ -180,7 +172,7 @@ b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>_body</b></td></t
 </div><div class="memdoc">
 
 <p>Проверка активности сенсора. </p>
-<p>Активность сенсора зависит от установленных критериев. По умолчанию сенсор будет активен, если игрок находится в прямой видимости и на расстоянии не более 20 метров. </p>
+<p>Активность сенсора зависит от установленных критериев. </p>
 
 </div>
 </div>
