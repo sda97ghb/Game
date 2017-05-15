@@ -5,6 +5,7 @@
 
 class b2Body;
 
+/// @brief Датчик пропасти впереди.
 class AbyssSensor
 {
     friend class AbyssSensorBuilder;

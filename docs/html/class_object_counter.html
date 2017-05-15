@@ -74,10 +74,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Открытые статические члены</h2></td></tr>
-<tr class="memitem:a3c14e0687ad2462376b2125408bdd30f"><td class="memItemLeft" align="right" valign="top"><a id="a3c14e0687ad2462376b2125408bdd30f"></a>
-static const std::list&lt; T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#a3c14e0687ad2462376b2125408bdd30f">objects</a> ()</td></tr>
-<tr class="memdesc:a3c14e0687ad2462376b2125408bdd30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает список всех объектов указаного типа. <br /></td></tr>
-<tr class="separator:a3c14e0687ad2462376b2125408bdd30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac098ce7bba625fde2ab2ee542a921d7d"><td class="memItemLeft" align="right" valign="top"><a id="ac098ce7bba625fde2ab2ee542a921d7d"></a>
+static const std::set&lt; T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#ac098ce7bba625fde2ab2ee542a921d7d">objects</a> ()</td></tr>
+<tr class="memdesc:ac098ce7bba625fde2ab2ee542a921d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает список всех объектов указаного типа. <br /></td></tr>
+<tr class="separator:ac098ce7bba625fde2ab2ee542a921d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a310e2c94f075c6a80684206aaced86e5"><td class="memItemLeft" align="right" valign="top"><a id="a310e2c94f075c6a80684206aaced86e5"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#a310e2c94f075c6a80684206aaced86e5">addObject</a> (T *object)</td></tr>
 <tr class="memdesc:a310e2c94f075c6a80684206aaced86e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запоминает указанный объект. <br /></td></tr>
@@ -93,10 +93,10 @@ static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Закрытые статические данные</h2></td></tr>
-<tr class="memitem:a136dbca8a2487da8b719d26c4567bad2"><td class="memItemLeft" align="right" valign="top"><a id="a136dbca8a2487da8b719d26c4567bad2"></a>
-static std::list&lt; T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#a136dbca8a2487da8b719d26c4567bad2">_objects</a></td></tr>
-<tr class="memdesc:a136dbca8a2487da8b719d26c4567bad2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Объекты указанного типа. <br /></td></tr>
-<tr class="separator:a136dbca8a2487da8b719d26c4567bad2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37295992585b00c9d02843dac0f406ec"><td class="memItemLeft" align="right" valign="top"><a id="a37295992585b00c9d02843dac0f406ec"></a>
+static std::set&lt; T * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_object_counter.html#a37295992585b00c9d02843dac0f406ec">_objects</a></td></tr>
+<tr class="memdesc:a37295992585b00c9d02843dac0f406ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Объекты указанного типа. <br /></td></tr>
+<tr class="separator:a37295992585b00c9d02843dac0f406ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><h3>template&lt;typename T&gt;<br />
@@ -108,7 +108,7 @@ class ObjectCounter&lt; T &gt;</h3>
 <li>В дестркторе класса, объекты которого надо подсчитывать: <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html#ac37d1f7e8dafea57a2edcb8cd0515b2b">ObjectCounter&lt;your class name&gt;::removeObject</a>(<span class="keyword">this</span>); </div></div><!-- fragment --></li>
 <li>В любом месте, где вам это нужно:<ul>
 <li>Узнать количество объектов: <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html#a1e20d2aa539267e1883ccd39e06b05b5">ObjectCounter&lt;your class name&gt;::count</a>() </div></div><!-- fragment --></li>
-<li>Получитьсписок всех объектов: <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html#a3c14e0687ad2462376b2125408bdd30f">ObjectCounter&lt;your class name&gt;::objects</a>()</div><div class="line">           <span class="comment">// =&gt; std::list&lt;your class name pointer&gt; </span></div></div><!-- fragment --></li>
+<li>Получить список всех объектов: <div class="fragment"><div class="line"><a class="code" href="class_object_counter.html#ac098ce7bba625fde2ab2ee542a921d7d">ObjectCounter&lt;your class name&gt;::objects</a>()</div><div class="line">           <span class="comment">// =&gt; std::list&lt;your class name pointer&gt; </span></div></div><!-- fragment --></li>
 </ul>
 </li>
 </ol>

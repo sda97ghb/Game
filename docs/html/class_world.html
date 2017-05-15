@@ -76,12 +76,24 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:ad3dd69971aba3d6577e96afb1dc2d6af"><td class="memItemLeft" align="right" valign="top"><a id="ad3dd69971aba3d6577e96afb1dc2d6af"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addUpdatable</b> (<a class="el" href="class_updatable.html">Updatable</a> *updatable)</td></tr>
-<tr class="separator:ad3dd69971aba3d6577e96afb1dc2d6af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67068d9321bd0a894bbff75c46673c8d"><td class="memItemLeft" align="right" valign="top"><a id="a67068d9321bd0a894bbff75c46673c8d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addEntity</b> (<a class="el" href="class_entity.html">Entity</a> *entity)</td></tr>
-<tr class="separator:a67068d9321bd0a894bbff75c46673c8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac8c1fde63c06577ffc648aaefdb37f0"><td class="memItemLeft" align="right" valign="top"><a id="aac8c1fde63c06577ffc648aaefdb37f0"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#aac8c1fde63c06577ffc648aaefdb37f0">update</a> ()</td></tr>
+<tr class="memdesc:aac8c1fde63c06577ffc648aaefdb37f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновляет мир. <br /></td></tr>
+<tr class="separator:aac8c1fde63c06577ffc648aaefdb37f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b5d19a8efe74bf74a174205dd33722c"><td class="memItemLeft" align="right" valign="top"><a id="a3b5d19a8efe74bf74a174205dd33722c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPlayer1</b> (<a class="el" href="class_player.html">Player</a> *player)</td></tr>
+<tr class="separator:a3b5d19a8efe74bf74a174205dd33722c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa81509593b51f3270df7384991808fb8"><td class="memItemLeft" align="right" valign="top"><a id="aa81509593b51f3270df7384991808fb8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPlayer2</b> (<a class="el" href="class_player.html">Player</a> *player)</td></tr>
+<tr class="separator:aa81509593b51f3270df7384991808fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7f752fc0c0150bd1663b1bd2a89fab"><td class="memItemLeft" align="right" valign="top"><a id="a9b7f752fc0c0150bd1663b1bd2a89fab"></a>
+<a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a9b7f752fc0c0150bd1663b1bd2a89fab">player1</a> ()</td></tr>
+<tr class="memdesc:a9b7f752fc0c0150bd1663b1bd2a89fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает указатель на первого игрока. <br /></td></tr>
+<tr class="separator:a9b7f752fc0c0150bd1663b1bd2a89fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0d8d9e67da167d452f0e658d7b0e32c"><td class="memItemLeft" align="right" valign="top"><a id="ac0d8d9e67da167d452f0e658d7b0e32c"></a>
+<a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#ac0d8d9e67da167d452f0e658d7b0e32c">player2</a> ()</td></tr>
+<tr class="memdesc:ac0d8d9e67da167d452f0e658d7b0e32c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает указатель на второго игрока. <br /></td></tr>
+<tr class="separator:ac0d8d9e67da167d452f0e658d7b0e32c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef76dbe716dad85fadb7d86c4aede562"><td class="memItemLeft" align="right" valign="top"><a id="aef76dbe716dad85fadb7d86c4aede562"></a>
 <a class="el" href="class_platform.html">Platform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#aef76dbe716dad85fadb7d86c4aede562">createPlatform</a> ()</td></tr>
 <tr class="memdesc:aef76dbe716dad85fadb7d86c4aede562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод добавления платформы. <br /></td></tr>
@@ -130,16 +142,6 @@ const std::list&lt; <a class="el" href="class_lava.html">Lava</a> &gt; &amp;&#16
 const std::list&lt; <a class="el" href="class_spikes.html">Spikes</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#a59cdb953cdfc88692702b8e98d919a77">spikes</a> () const</td></tr>
 <tr class="memdesc:a59cdb953cdfc88692702b8e98d919a77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает константный список всех шипов. <br /></td></tr>
 <tr class="separator:a59cdb953cdfc88692702b8e98d919a77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac8c1fde63c06577ffc648aaefdb37f0"><td class="memItemLeft" align="right" valign="top"><a id="aac8c1fde63c06577ffc648aaefdb37f0"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#aac8c1fde63c06577ffc648aaefdb37f0">update</a> ()</td></tr>
-<tr class="memdesc:aac8c1fde63c06577ffc648aaefdb37f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обновляет мир. <br /></td></tr>
-<tr class="separator:aac8c1fde63c06577ffc648aaefdb37f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fe8d30c89f0ff15646b451980d858dd"><td class="memItemLeft" align="right" valign="top"><a id="a2fe8d30c89f0ff15646b451980d858dd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEntityAsPlayer</b> (<a class="el" href="class_entity.html">Entity</a> *entity)</td></tr>
-<tr class="separator:a2fe8d30c89f0ff15646b451980d858dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1513a7fa5928fec81164d50951a8674"><td class="memItemLeft" align="right" valign="top"><a id="ad1513a7fa5928fec81164d50951a8674"></a>
-<a class="el" href="class_player.html">Player</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>player</b> ()</td></tr>
-<tr class="separator:ad1513a7fa5928fec81164d50951a8674"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Открытые статические члены</h2></td></tr>
@@ -163,6 +165,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const 
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Закрытые данные</h2></td></tr>
+<tr class="memitem:a933e91d6226c99dc46720350ce5fce8f"><td class="memItemLeft" align="right" valign="top"><a id="a933e91d6226c99dc46720350ce5fce8f"></a>
+<a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_player1</b></td></tr>
+<tr class="separator:a933e91d6226c99dc46720350ce5fce8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a523a49b48efc84e2a446ff3c0f3bc"><td class="memItemLeft" align="right" valign="top"><a id="a13a523a49b48efc84e2a446ff3c0f3bc"></a>
+<a class="el" href="class_player.html">Player</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_player2</b></td></tr>
+<tr class="separator:a13a523a49b48efc84e2a446ff3c0f3bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7325b05981ac4992588a53658f86fe0"><td class="memItemLeft" align="right" valign="top"><a id="af7325b05981ac4992588a53658f86fe0"></a>
 std::list&lt; <a class="el" href="class_platform.html">Platform</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#af7325b05981ac4992588a53658f86fe0">_platforms</a></td></tr>
 <tr class="memdesc:af7325b05981ac4992588a53658f86fe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">список всех платформ <br /></td></tr>
@@ -187,15 +195,6 @@ std::list&lt; <a class="el" href="class_lava.html">Lava</a> &gt;&#160;</td><td c
 std::list&lt; <a class="el" href="class_spikes.html">Spikes</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_world.html#ac21591d5a0b6cdcc1eef2ee3f5b99463">_spikes</a></td></tr>
 <tr class="memdesc:ac21591d5a0b6cdcc1eef2ee3f5b99463"><td class="mdescLeft">&#160;</td><td class="mdescRight">список всех шипов <br /></td></tr>
 <tr class="separator:ac21591d5a0b6cdcc1eef2ee3f5b99463"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1127dfea063f4372c13bf7aa473f4a6b"><td class="memItemLeft" align="right" valign="top"><a id="a1127dfea063f4372c13bf7aa473f4a6b"></a>
-std::list&lt; <a class="el" href="class_entity.html">Entity</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_entities</b></td></tr>
-<tr class="separator:a1127dfea063f4372c13bf7aa473f4a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf5313c8fc2d1eb515d96f3509d23372"><td class="memItemLeft" align="right" valign="top"><a id="abf5313c8fc2d1eb515d96f3509d23372"></a>
-std::list&lt; <a class="el" href="class_updatable.html">Updatable</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_updatebles</b></td></tr>
-<tr class="separator:abf5313c8fc2d1eb515d96f3509d23372"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc422981cdc22eaffe92d18730dcd1b8"><td class="memItemLeft" align="right" valign="top"><a id="afc422981cdc22eaffe92d18730dcd1b8"></a>
-<a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_player</b></td></tr>
-<tr class="separator:afc422981cdc22eaffe92d18730dcd1b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Класс мира. </p>

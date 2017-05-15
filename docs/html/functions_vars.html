@@ -61,14 +61,30 @@ $(function() {
 &#160;
 
 <h3><a id="index__"></a>- _ -</h3><ul>
+<li>_abyssSensor
+: <a class="el" href="class_archer.html#ae64ad1cd188c7636209051b9b402d5b6">Archer</a>
+</li>
 <li>_activationThreshold
 : <a class="el" href="class_hit_sensor.html#a0b7259cb7eba091d8be6529284c9e020">HitSensor</a>
+, <a class="el" href="class_hit_sensor_builder.html#a0aaf2887fb7b68fcd3653987c57caa14">HitSensorBuilder</a>
+</li>
+<li>_actor
+: <a class="el" href="class_attack.html#abb504c001629fdecac607dd35f4dfd91">Attack</a>
 </li>
 <li>_animationDelay
 : <a class="el" href="class_sprite_animator.html#a7e7c1365fb945a6cf1b743a28f40022a">SpriteAnimator</a>
 </li>
 <li>_animationGroups
 : <a class="el" href="class_sprite_animator.html#a742dab40feb473720122f6e38e2ef677">SpriteAnimator</a>
+</li>
+<li>_animator
+: <a class="el" href="class_archer_view.html#a884b3f511752c84333f7bdbca45b0962">ArcherView</a>
+</li>
+<li>_archer
+: <a class="el" href="class_archer_view.html#ac47d56a385aa7b25cae82d1b115b88cf">ArcherView</a>
+</li>
+<li>_arrowBuilderSpawner
+: <a class="el" href="class_bow_attack.html#a2e6ecdf41e5a98cea345c1c2154970f4">BowAttack</a>
 </li>
 <li>_background
 : <a class="el" href="class_painting_window.html#a12742fb867df6b35aa547927d7adffc1">PaintingWindow</a>
@@ -82,6 +98,7 @@ $(function() {
 <li>_body
 : <a class="el" href="class_contact_sensor.html#a65fb1aa0dfffb1eb5cdf28fc0eddc925">ContactSensor</a>
 , <a class="el" href="class_hit_sensor.html#a766fbee880aa760bd6616c83d9e4460e">HitSensor</a>
+, <a class="el" href="class_hit_sensor_builder.html#ada29e5a6b022a9e9355a8a3d97ec7892">HitSensorBuilder</a>
 , <a class="el" href="class_platform.html#a2c2353e88bfef547fe38cf519fc496a7">Platform</a>
 </li>
 <li>_cables
@@ -90,54 +107,108 @@ $(function() {
 <li>_clock
 : <a class="el" href="class_sprite_animator.html#a5212e318765a0a8f91cb54cd54bd4447">SpriteAnimator</a>
 </li>
-<li>_contactSensors
-: <a class="el" href="class_sensor_listener.html#a6a65d6b8155d929090a68c64ac9e985f">SensorListener</a>
-</li>
 <li>_currentFrame
 : <a class="el" href="class_sprite_animator.html#a958d02fbc19597618e424d74fb839f8a">SpriteAnimator</a>
 </li>
 <li>_currentGroup
 : <a class="el" href="class_sprite_animator.html#aacfe8fd3bdbf836d78975bf2aebdafd8">SpriteAnimator</a>
 </li>
+<li>_currentHealth
+: <a class="el" href="class_animalia.html#a8a0df8dfa89f6fdbcd8c3b98312e20ac">Animalia</a>
+</li>
+<li>_damage
+: <a class="el" href="class_sword_attack.html#aaa869524202a82e8c24dc3b545332a1a">SwordAttack</a>
+</li>
+<li>_distance
+: <a class="el" href="class_sword_attack.html#adf718f6c433febb81e0fbead4ec093dd">SwordAttack</a>
+</li>
 <li>_document
 : <a class="el" href="class_map_loader.html#a02148f98b698ac49128a8806659f04aa">MapLoader</a>
+</li>
+<li>_dx
+: <a class="el" href="class_hit_sensor_builder.html#a1590bcaeb3a439b28f6bf66029e6cd27">HitSensorBuilder</a>
+</li>
+<li>_dy
+: <a class="el" href="class_hit_sensor_builder.html#a228e71d1903bc5e8ad4ee729cd1e779e">HitSensorBuilder</a>
+</li>
+<li>_events
+: <a class="el" href="class_evented.html#a828e495708f1c54893d5c58b1932053e">Evented</a>
+</li>
+<li>_font
+: <a class="el" href="class_painting_window.html#a2cb2bd94b5326068185dd9a4ea53b732">PaintingWindow</a>
+</li>
+<li>_groundContactSensor
+: <a class="el" href="class_archer.html#a414bcd0c3d084cc620a3dc0430c79cf6">Archer</a>
+</li>
+<li>_groundHitSensor
+: <a class="el" href="class_archer.html#a1ce30961e8576c3763f7fb50f272886d">Archer</a>
 </li>
 <li>_guiView
 : <a class="el" href="class_painting_window.html#a129e8de824fd36bff535fd3e3e43fc05">PaintingWindow</a>
 </li>
 <li>_height
-: <a class="el" href="class_contact_sensor.html#ae95667ae1e207e804e528487e8eec726">ContactSensor</a>
-, <a class="el" href="class_hit_sensor.html#aaf82f88e4100e26df09acf3a233ae653">HitSensor</a>
-</li>
-<li>_hitSensors
-: <a class="el" href="class_sensor_listener.html#a091d15732e14cd8a10c4bf87583d4ba2">SensorListener</a>
+: <a class="el" href="class_hit_sensor_builder.html#a8bd8dc567ce505f9c40144859cf8489c">HitSensorBuilder</a>
 </li>
 <li>_ladders
 : <a class="el" href="class_world.html#a0876079fb79418907197dd5c8d2ec10a">World</a>
 </li>
+<li>_landingSensor
+: <a class="el" href="class_archer.html#aae2de687e60f22a9d5debc7336edcf5d">Archer</a>
+</li>
+<li>_lastKnownPlayerLocation
+: <a class="el" href="class_archer.html#ac06d7c4780f500a6ff9a659dabbe4ddc">Archer</a>
+</li>
 <li>_lavas
 : <a class="el" href="class_world.html#aca2f0d6dd28d56702e1587b24cd9a67a">World</a>
 </li>
+<li>_leftBumpSensor
+: <a class="el" href="class_archer.html#a6a79a5f589ed76533b2727989501d991">Archer</a>
+</li>
+<li>_leftContactSensor
+: <a class="el" href="class_archer.html#a4ca8a939aad1c8008e263223f38b31e7">Archer</a>
+</li>
 <li>_logSize
 : <a class="el" href="class_log.html#add2cc1a62d565b702f15e1f002d45168">Log</a>
+</li>
+<li>_lookingDirection
+: <a class="el" href="class_animalia.html#ab68d72116cdd9113e138490ec744b5ca">Animalia</a>
+</li>
+<li>_maxHealth
+: <a class="el" href="class_animalia.html#a755191318cdabaee944eb45d4b21e8c6">Animalia</a>
 </li>
 <li>_messages
 : <a class="el" href="class_log.html#a128ee67fe0c78e55f46e6f728d87a6a1">Log</a>
 </li>
 <li>_objects
-: <a class="el" href="class_object_counter.html#a136dbca8a2487da8b719d26c4567bad2">ObjectCounter&lt; T &gt;</a>
+: <a class="el" href="class_object_counter.html#a37295992585b00c9d02843dac0f406ec">ObjectCounter&lt; T &gt;</a>
 </li>
 <li>_platforms
 : <a class="el" href="class_world.html#af7325b05981ac4992588a53658f86fe0">World</a>
 </li>
+<li>_playerSensor
+: <a class="el" href="class_archer.html#a10b9c4ab3b7da89efa0fb1b7033906eb">Archer</a>
+</li>
 <li>_playOnce
 : <a class="el" href="class_sprite_animator.html#afd0dd645bb984dc9e99d3d974f9d6521">SpriteAnimator</a>
+</li>
+<li>_position
+: <a class="el" href="class_archer_builder_spawner.html#a66a1cd7576a97971cf41ac46672b20e0">ArcherBuilderSpawner</a>
 </li>
 <li>_previousGroup
 : <a class="el" href="class_sprite_animator.html#aca66428609e849677edf1a69eb7e5153">SpriteAnimator</a>
 </li>
+<li>_reloadSensor
+: <a class="el" href="class_archer.html#aa96bba5d134551ab84136baeca063b0b">Archer</a>
+</li>
 <li>_requireActivationThreshold
 : <a class="el" href="class_hit_sensor.html#a4f1fee0822eb4d9d565a55009551743a">HitSensor</a>
+, <a class="el" href="class_hit_sensor_builder.html#aafff57ebf9f27910110275fd80149e11">HitSensorBuilder</a>
+</li>
+<li>_rightBumpSensor
+: <a class="el" href="class_archer.html#ad2c2ef5beaf55a25aef143531ac17560">Archer</a>
+</li>
+<li>_rightContactSensor
+: <a class="el" href="class_archer.html#ac6f78a8959d692669714abe96efd1a11">Archer</a>
 </li>
 <li>_shape
 : <a class="el" href="class_platform.html#a456d86757a9129822b9ea867d23827d5">Platform</a>
@@ -172,13 +243,13 @@ $(function() {
 <li>_type
 : <a class="el" href="class_contact_sensor.html#ae249d53e6aaa96c154d562022ad0cb00">ContactSensor</a>
 , <a class="el" href="class_hit_sensor.html#a32583f219e03c0b7db549429be15fe68">HitSensor</a>
+, <a class="el" href="class_hit_sensor_builder.html#a4b22c16f9af2cad259b434541b90e161">HitSensorBuilder</a>
 </li>
 <li>_waters
 : <a class="el" href="class_world.html#a974050b7b4b1d8eacc9fe0917a67aa08">World</a>
 </li>
 <li>_width
-: <a class="el" href="class_contact_sensor.html#af2efd3c537c7e9f9ec77a00d4d6fc13d">ContactSensor</a>
-, <a class="el" href="class_hit_sensor.html#a54f04fa47e9d2c669bf61955eb4cfdea">HitSensor</a>
+: <a class="el" href="class_hit_sensor_builder.html#a6bb2b07c2d60f912e442e7fce1fcfa65">HitSensorBuilder</a>
 , <a class="el" href="class_ladder.html#a853e0efbdc467906a42a9e66805a992b">Ladder</a>
 </li>
 <li>_window
@@ -188,19 +259,13 @@ $(function() {
 : <a class="el" href="class_painting_window.html#a447a61e43e7e243fdf2d3806cbd34cc3">PaintingWindow</a>
 </li>
 <li>_x
-: <a class="el" href="class_contact_sensor.html#a22521e59d326826d5faab766383adb0e">ContactSensor</a>
-, <a class="el" href="class_hit_sensor.html#af71c6f6fb97bf0519875fbc0450eb2c8">HitSensor</a>
-, <a class="el" href="class_ladder.html#a233ef47f06821a2c89d4d02df0146759">Ladder</a>
+: <a class="el" href="class_ladder.html#a233ef47f06821a2c89d4d02df0146759">Ladder</a>
 </li>
 <li>_x1
 : <a class="el" href="class_cable.html#a45097d6414d96fb8ec72e218a47900b9">Cable</a>
 </li>
 <li>_x2
 : <a class="el" href="class_cable.html#af7e9e7b0e54a692933e42caf52d74366">Cable</a>
-</li>
-<li>_y
-: <a class="el" href="class_contact_sensor.html#afb726ecf2d15b1db03b17ae70555fb0a">ContactSensor</a>
-, <a class="el" href="class_hit_sensor.html#a80e3e3511aef93698753ab7eb6d13938">HitSensor</a>
 </li>
 <li>_y1
 : <a class="el" href="class_cable.html#ae1336bdf7e2341cabda6d6cd13afce97">Cable</a>
@@ -214,9 +279,6 @@ $(function() {
 
 
 <h3><a id="index_f"></a>- f -</h3><ul>
-<li>font
-: <a class="el" href="class_painting_window.html#af0512edb0160e7ac7080738630cf0fc0">PaintingWindow</a>
-</li>
 <li>frameHeight
 : <a class="el" href="struct_sprite_animator_1_1_animation_group.html#abaf9deba249ff1386d1cd8aa3599a435">SpriteAnimator::AnimationGroup</a>
 </li>

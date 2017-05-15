@@ -3,6 +3,7 @@
 
 #include "Arena/Entity/PlayerView.h"
 
+/// @brief Класс отображение второго игрока.
 class Player2View : public PlayerView
 {
 public:

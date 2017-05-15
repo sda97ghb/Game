@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arena: Класс EnityCollisionSensor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arena
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="class_enity_collision_sensor-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс EnityCollisionSensor</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Сенсор столкновения с другим муществом.  
+ <a href="class_enity_collision_sensor.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_enity_collision_sensor_8h_source.html">EnityCollisionSensor.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:ab67cb75200bb6f0339f4b33d6b80e679"><td class="memItemLeft" align="right" valign="top"><a id="ab67cb75200bb6f0339f4b33d6b80e679"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>OnCollisionCallback</b> = std::function&lt; void(<a class="el" href="class_entity.html">Entity</a> *)&gt;</td></tr>
+<tr class="separator:ab67cb75200bb6f0339f4b33d6b80e679"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a6f37651a87b8c47d6eac38a172d57c78"><td class="memItemLeft" align="right" valign="top"><a id="a6f37651a87b8c47d6eac38a172d57c78"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (float x, float y)</td></tr>
+<tr class="separator:a6f37651a87b8c47d6eac38a172d57c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47596ffd3075957b74b5582e0d33340f"><td class="memItemLeft" align="right" valign="top"><a id="a47596ffd3075957b74b5582e0d33340f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setSize</b> (float width, float height)</td></tr>
+<tr class="separator:a47596ffd3075957b74b5582e0d33340f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c7a5ace982bc1a8b6e8eddf857e85e5"><td class="memItemLeft" align="right" valign="top"><a id="a0c7a5ace982bc1a8b6e8eddf857e85e5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setType</b> (int type)</td></tr>
+<tr class="separator:a0c7a5ace982bc1a8b6e8eddf857e85e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4741415f408b48f89d6b263143194ff5"><td class="memItemLeft" align="right" valign="top"><a id="a4741415f408b48f89d6b263143194ff5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hangOnBody</b> (b2Body *body)</td></tr>
+<tr class="separator:a4741415f408b48f89d6b263143194ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20c41297bab7a170b58b82e6dd63d107"><td class="memItemLeft" align="right" valign="top"><a id="a20c41297bab7a170b58b82e6dd63d107"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>hit</b> (b2Body *body)</td></tr>
+<tr class="separator:a20c41297bab7a170b58b82e6dd63d107"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc2f7b95202010b451777e839c00f2c"><td class="memItemLeft" align="right" valign="top"><a id="adcc2f7b95202010b451777e839c00f2c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setOnCollisionCallback</b> (const OnCollisionCallback &amp;callback)</td></tr>
+<tr class="separator:adcc2f7b95202010b451777e839c00f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd26b5d167a320d594adb566d36754fe"><td class="memItemLeft" align="right" valign="top"><a id="abd26b5d167a320d594adb566d36754fe"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const</td></tr>
+<tr class="separator:abd26b5d167a320d594adb566d36754fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06685bff128c2aecad72cc321cd66480"><td class="memItemLeft" align="right" valign="top"><a id="a06685bff128c2aecad72cc321cd66480"></a>
+b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>body</b> () const</td></tr>
+<tr class="separator:a06685bff128c2aecad72cc321cd66480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:ae897a6664da9767b87620152110db999"><td class="memItemLeft" align="right" valign="top"><a id="ae897a6664da9767b87620152110db999"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_x</b></td></tr>
+<tr class="separator:ae897a6664da9767b87620152110db999"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a029dba51c1714e977491369ffb75739d"><td class="memItemLeft" align="right" valign="top"><a id="a029dba51c1714e977491369ffb75739d"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_y</b></td></tr>
+<tr class="separator:a029dba51c1714e977491369ffb75739d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f2e013d8c1c693ecb5833295a5f89fb"><td class="memItemLeft" align="right" valign="top"><a id="a4f2e013d8c1c693ecb5833295a5f89fb"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_width</b></td></tr>
+<tr class="separator:a4f2e013d8c1c693ecb5833295a5f89fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78b98f45218e72381d720782e1d66697"><td class="memItemLeft" align="right" valign="top"><a id="a78b98f45218e72381d720782e1d66697"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>_height</b></td></tr>
+<tr class="separator:a78b98f45218e72381d720782e1d66697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a426755991671c34e7a4c9331bf22f14e"><td class="memItemLeft" align="right" valign="top"><a id="a426755991671c34e7a4c9331bf22f14e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>_type</b></td></tr>
+<tr class="separator:a426755991671c34e7a4c9331bf22f14e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a674bd5c3b56d1fad8d71a2e37843208e"><td class="memItemLeft" align="right" valign="top"><a id="a674bd5c3b56d1fad8d71a2e37843208e"></a>
+b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>_body</b></td></tr>
+<tr class="separator:a674bd5c3b56d1fad8d71a2e37843208e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeedc0d3be77a8fa74557f5b917e2517"><td class="memItemLeft" align="right" valign="top"><a id="afeedc0d3be77a8fa74557f5b917e2517"></a>
+OnCollisionCallback&#160;</td><td class="memItemRight" valign="bottom"><b>_onCollisionCallback</b></td></tr>
+<tr class="separator:afeedc0d3be77a8fa74557f5b917e2517"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Сенсор столкновения с другим муществом. </p>
+</div><hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>Arena/Sensors/<a class="el" href="_enity_collision_sensor_8h_source.html">EnityCollisionSensor.h</a></li>
+<li>Arena/Sensors/EnityCollisionSensor.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

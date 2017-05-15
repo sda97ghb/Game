@@ -7,6 +7,7 @@
 
 #include "Arena/Updatable.h"
 
+/// @brief Таймер. Вызывает коллбэк по истечении указанного времени.
 class TimerSensor : public Updatable
 {
 public:

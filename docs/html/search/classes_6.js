@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keyboardcontroller',['KeyboardController',['../class_keyboard_controller.html',1,'']]]
+  ['iddispenser',['IdDispenser',['../class_id_dispenser.html',1,'']]]
 ];

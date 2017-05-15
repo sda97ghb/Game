@@ -66,40 +66,52 @@ $(function() {
 <div class="title">Класс Evented</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Добавляет возможность использования механизма событий для объектов какого-либо класса.  
+ <a href="class_evented.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_evented_8h_source.html">Evented.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:Evented:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_evented.png" usemap="#Evented_map" alt=""/>
   <map id="Evented_map" name="Evented_map">
-<area href="class_entity.html" alt="Entity" shape="rect" coords="156,56,250,80"/>
-<area href="class_animalia.html" alt="Animalia" shape="rect" coords="104,112,198,136"/>
-<area href="class_arrow.html" alt="Arrow" shape="rect" coords="208,112,302,136"/>
-<area href="class_archer.html" alt="Archer" shape="rect" coords="0,168,94,192"/>
-<area href="class_player.html" alt="Player" shape="rect" coords="104,168,198,192"/>
+<area href="class_entity.html" title="Базовый класс всех существ. " alt="Entity" shape="rect" coords="156,56,250,80"/>
+<area href="class_animalia.html" title="Базовый класс всех живых существ. " alt="Animalia" shape="rect" coords="104,112,198,136"/>
+<area href="class_arrow.html" title="Класс стрелы. Отвечает только за логику, но не за создание или отображение. " alt="Arrow" shape="rect" coords="208,112,302,136"/>
+<area href="class_archer.html" title="Класс лучника. Отвечает только за логику, но не за создание или отображение. " alt="Archer" shape="rect" coords="0,168,94,192"/>
+<area href="class_player.html" title="Класс игрока. " alt="Player" shape="rect" coords="104,168,198,192"/>
 <area href="class_test_final_entity.html" alt="TestFinalEntity" shape="rect" coords="208,168,302,192"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
-<tr class="memitem:a9252218e68b00a45c820f0014b708e09"><td class="memItemLeft" align="right" valign="top"><a id="a9252218e68b00a45c820f0014b708e09"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEventCallback</b> (const Event &amp;event, EventCallback callback)</td></tr>
-<tr class="separator:a9252218e68b00a45c820f0014b708e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1b4fb56ef936b255f7ac87dfab7219"><td class="memItemLeft" align="right" valign="top"><a id="aac1b4fb56ef936b255f7ac87dfab7219"></a>
-const EventCallback &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>eventCallback</b> (const Event &amp;event) const</td></tr>
-<tr class="separator:aac1b4fb56ef936b255f7ac87dfab7219"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb92a79828a96707f22de32360de7c6"><td class="memItemLeft" align="right" valign="top"><a id="a3bb92a79828a96707f22de32360de7c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>callEventCallback</b> (const Event &amp;event)</td></tr>
-<tr class="separator:a3bb92a79828a96707f22de32360de7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c8ad442f12b216b26251ec5d3d560d"><td class="memItemLeft" align="right" valign="top"><a id="a83c8ad442f12b216b26251ec5d3d560d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a83c8ad442f12b216b26251ec5d3d560d">addEventCallback</a> (const Event &amp;event, EventCallback callback)</td></tr>
+<tr class="memdesc:a83c8ad442f12b216b26251ec5d3d560d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет функцию обработки события. <br /></td></tr>
+<tr class="separator:a83c8ad442f12b216b26251ec5d3d560d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6048ecc6dac0bfbd2315dd8d4d42b5"><td class="memItemLeft" align="right" valign="top"><a id="a8a6048ecc6dac0bfbd2315dd8d4d42b5"></a>
+std::list&lt; EventCallback &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a8a6048ecc6dac0bfbd2315dd8d4d42b5">eventCallbacks</a> (const Event &amp;event)</td></tr>
+<tr class="memdesc:a8a6048ecc6dac0bfbd2315dd8d4d42b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Список всех коллбэков для события. <br /></td></tr>
+<tr class="separator:a8a6048ecc6dac0bfbd2315dd8d4d42b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f683f01307c5474c56b3944cfa13de"><td class="memItemLeft" align="right" valign="top"><a id="a20f683f01307c5474c56b3944cfa13de"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a20f683f01307c5474c56b3944cfa13de">callEventCallbacks</a> (const Event &amp;event)</td></tr>
+<tr class="memdesc:a20f683f01307c5474c56b3944cfa13de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызвать событие. <br /></td></tr>
+<tr class="separator:a20f683f01307c5474c56b3944cfa13de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Закрытые данные</h2></td></tr>
-<tr class="memitem:a796cfe04ea12272dbef00c9ac6b00c79"><td class="memItemLeft" align="right" valign="top"><a id="a796cfe04ea12272dbef00c9ac6b00c79"></a>
-std::map&lt; Event, EventCallback &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_events</b></td></tr>
-<tr class="separator:a796cfe04ea12272dbef00c9ac6b00c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a828e495708f1c54893d5c58b1932053e"><td class="memItemLeft" align="right" valign="top"><a id="a828e495708f1c54893d5c58b1932053e"></a>
+std::map&lt; Event, std::list&lt; EventCallback &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a828e495708f1c54893d5c58b1932053e">_events</a></td></tr>
+<tr class="memdesc:a828e495708f1c54893d5c58b1932053e"><td class="mdescLeft">&#160;</td><td class="mdescRight">соответствие между событиями и их коллбэками <br /></td></tr>
+<tr class="separator:a828e495708f1c54893d5c58b1932053e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Добавляет возможность использования механизма событий для объектов какого-либо класса. </p>
+<p>Для этого класс должен быть унаследован от <a class="el" href="class_evented.html" title="Добавляет возможность использования механизма событий для объектов какого-либо класса. ">Evented</a>. Все существа наследуются от этого класса. </p>
+</div><hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>Arena/Entity/<a class="el" href="_evented_8h_source.html">Evented.h</a></li>
 <li>Arena/Entity/Evented.cpp</li>
 </ul>

@@ -6,6 +6,7 @@
 
 #include "Arena/Furniture/Furniture.h"
 
+/// @brief Класс болтающегося каната.
 class Rope : public Furniture
 {
 public:

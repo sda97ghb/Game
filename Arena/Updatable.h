@@ -1,6 +1,7 @@
 #ifndef UPDATABLE_H
 #define UPDATABLE_H
 
+/// @brief Базовый класс обновляемого объекта.
 class Updatable
 {
 public:

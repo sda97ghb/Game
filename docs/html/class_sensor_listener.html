@@ -59,10 +59,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Открытые члены</a> &#124;
 <a href="#pub-static-methods">Открытые статические члены</a> &#124;
 <a href="#pri-methods">Закрытые члены</a> &#124;
-<a href="#pri-attribs">Закрытые данные</a> &#124;
 <a href="class_sensor_listener-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
 <div class="title">Класс SensorListener</div>  </div>
@@ -82,15 +80,6 @@ $(function() {
 </map>
  </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Открытые члены</h2></td></tr>
-<tr class="memitem:a3613f123863cdd914103ab1c0ab56d20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_listener.html#a3613f123863cdd914103ab1c0ab56d20">registrySensor</a> (<a class="el" href="class_contact_sensor.html">ContactSensor</a> &amp;sensor)</td></tr>
-<tr class="memdesc:a3613f123863cdd914103ab1c0ab56d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый датчик контакта.  <a href="#a3613f123863cdd914103ab1c0ab56d20">Подробнее...</a><br /></td></tr>
-<tr class="separator:a3613f123863cdd914103ab1c0ab56d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14efa64a72266a336425d87185931a50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_listener.html#a14efa64a72266a336425d87185931a50">registrySensor</a> (<a class="el" href="class_hit_sensor.html">HitSensor</a> &amp;sensor)</td></tr>
-<tr class="memdesc:a14efa64a72266a336425d87185931a50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Регистрирует новый датчик столкновения.  <a href="#a14efa64a72266a336425d87185931a50">Подробнее...</a><br /></td></tr>
-<tr class="separator:a14efa64a72266a336425d87185931a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Открытые статические члены</h2></td></tr>
 <tr class="memitem:ae619b26698d8813a9a5f19df948755b6"><td class="memItemLeft" align="right" valign="top"><a id="ae619b26698d8813a9a5f19df948755b6"></a>
@@ -120,17 +109,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:ad80c95d5135c6e3b53442eecb48e6d1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_listener.html#ad80c95d5135c6e3b53442eecb48e6d1d">hitSensor</a> (b2Body *body, int type, float speed)</td></tr>
 <tr class="memdesc:ad80c95d5135c6e3b53442eecb48e6d1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызывает метод удара для указанного сенсора.  <a href="#ad80c95d5135c6e3b53442eecb48e6d1d">Подробнее...</a><br /></td></tr>
 <tr class="separator:ad80c95d5135c6e3b53442eecb48e6d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Закрытые данные</h2></td></tr>
-<tr class="memitem:a6a65d6b8155d929090a68c64ac9e985f"><td class="memItemLeft" align="right" valign="top"><a id="a6a65d6b8155d929090a68c64ac9e985f"></a>
-std::list&lt; <a class="el" href="class_contact_sensor.html">ContactSensor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_listener.html#a6a65d6b8155d929090a68c64ac9e985f">_contactSensors</a></td></tr>
-<tr class="memdesc:a6a65d6b8155d929090a68c64ac9e985f"><td class="mdescLeft">&#160;</td><td class="mdescRight">список всех сенсоров контакта <br /></td></tr>
-<tr class="separator:a6a65d6b8155d929090a68c64ac9e985f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a091d15732e14cd8a10c4bf87583d4ba2"><td class="memItemLeft" align="right" valign="top"><a id="a091d15732e14cd8a10c4bf87583d4ba2"></a>
-std::list&lt; <a class="el" href="class_hit_sensor.html">HitSensor</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sensor_listener.html#a091d15732e14cd8a10c4bf87583d4ba2">_hitSensors</a></td></tr>
-<tr class="memdesc:a091d15732e14cd8a10c4bf87583d4ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">список всех сенсоров столкновения <br /></td></tr>
-<tr class="separator:a091d15732e14cd8a10c4bf87583d4ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Класс, ответственный за срабатывание датчиков при столкновении. </p>
@@ -185,48 +163,6 @@ std::list&lt; <a class="el" href="class_hit_sensor.html">HitSensor</a> * &gt;&#1
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a3613f123863cdd914103ab1c0ab56d20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3613f123863cdd914103ab1c0ab56d20">&#9670;&nbsp;</a></span>registrySensor() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SensorListener::registrySensor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_contact_sensor.html">ContactSensor</a> &amp;&#160;</td>
-          <td class="paramname"><em>sensor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Регистрирует новый датчик контакта. </p>
-<dl class="section note"><dt>Заметки</dt><dd>Не создает копию сенсора. </dd></dl>
-
-</div>
-</div>
-<a id="a14efa64a72266a336425d87185931a50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14efa64a72266a336425d87185931a50">&#9670;&nbsp;</a></span>registrySensor() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void SensorListener::registrySensor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_hit_sensor.html">HitSensor</a> &amp;&#160;</td>
-          <td class="paramname"><em>sensor</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Регистрирует новый датчик столкновения. </p>
-<dl class="section note"><dt>Заметки</dt><dd>Не создает копию сенсора. </dd></dl>
 
 </div>
 </div>

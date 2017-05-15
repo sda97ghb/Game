@@ -3,6 +3,7 @@
 
 #include "Arena/Entity/Arrow.h"
 
+/// @brief Класс-построитель стрелы.
 class ArrowBuilderSpawner
 {
 public:

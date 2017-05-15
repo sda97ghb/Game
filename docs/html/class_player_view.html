@@ -60,19 +60,26 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Открытые члены</a> &#124;
-<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
 <a href="class_player_view-members.html">Полный список членов класса</a>  </div>
   <div class="headertitle">
 <div class="title">Класс PlayerView</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Базовый класс-отображение для игроков.  
+ <a href="class_player_view.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_player_view_8h_source.html">PlayerView.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:PlayerView:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_player_view.png" usemap="#PlayerView_map" alt=""/>
   <map id="PlayerView_map" name="PlayerView_map">
-<area href="class_entity_view.html" alt="EntityView" shape="rect" coords="0,0,77,24"/>
+<area href="class_entity_view.html" title="Интерфейс класса-отображения существа. " alt="EntityView" shape="rect" coords="47,0,131,24"/>
+<area href="class_player1_view.html" title="Класс отображение первого игрока. " alt="Player1View" shape="rect" coords="0,112,84,136"/>
+<area href="class_player2_view.html" title="Класс отображение второго игрока. " alt="Player2View" shape="rect" coords="94,112,178,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -84,9 +91,12 @@ $(function() {
 <tr class="memitem:a1be82a2b97c3020dd9ac6ab0a70c11c0"><td class="memItemLeft" align="right" valign="top"><a id="a1be82a2b97c3020dd9ac6ab0a70c11c0"></a>
 const sf::Sprite &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getSprite</b> ()</td></tr>
 <tr class="separator:a1be82a2b97c3020dd9ac6ab0a70c11c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6820275443a08b247b7a8c13401ee48b"><td class="memItemLeft" align="right" valign="top"><a id="a6820275443a08b247b7a8c13401ee48b"></a>
+const <a class="el" href="class_entity.html">Entity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>entity</b> () const</td></tr>
+<tr class="separator:a6820275443a08b247b7a8c13401ee48b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
-Закрытые данные</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
 <tr class="memitem:aa3501b155464da31ac20f185b38236d5"><td class="memItemLeft" align="right" valign="top"><a id="aa3501b155464da31ac20f185b38236d5"></a>
 const <a class="el" href="class_player.html">Player</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>_player</b></td></tr>
 <tr class="separator:aa3501b155464da31ac20f185b38236d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -94,7 +104,9 @@ const <a class="el" href="class_player.html">Player</a> &amp;&#160;</td><td clas
 <a class="el" href="class_sprite_animator.html">SpriteAnimator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_animator</b></td></tr>
 <tr class="separator:a5b57f34fd1d30217986280303cb04b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Базовый класс-отображение для игроков. </p>
+</div><hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>Arena/Entity/<a class="el" href="_player_view_8h_source.html">PlayerView.h</a></li>
 <li>Arena/Entity/PlayerView.cpp</li>
 </ul>

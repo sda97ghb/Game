@@ -5,6 +5,7 @@
 
 class Entity;
 
+/// @brief Интерфейс класса-отображения существа.
 class EntityView
 {
 public:

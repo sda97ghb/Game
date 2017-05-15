@@ -7,6 +7,7 @@
 #include "SFML/Graphics/Text.hpp"
 #include "SFML/Window/Event.hpp"
 
+/// @brief Класс глобального меню.
 class Menu
 {
 public:

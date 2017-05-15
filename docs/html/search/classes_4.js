@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hitsensor',['HitSensor',['../class_hit_sensor.html',1,'']]]
+  ['fallingground',['FallingGround',['../class_falling_ground.html',1,'']]],
+  ['furniture',['Furniture',['../class_furniture.html',1,'']]]
 ];

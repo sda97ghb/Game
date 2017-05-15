@@ -7,7 +7,8 @@
 #include "Arena/Sensors/HitSensor.h"
 #include "Arena/Sensors/TimerSensor.h"
 
-/// Класс
+/// @brief Класс стрелы. Отвечает только за логику, но не за создание
+/// или отображение.
 class Arrow : public Entity
 {
     friend class ArrowBuilderSpawner;

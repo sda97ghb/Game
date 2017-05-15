@@ -7,6 +7,7 @@ class b2Body;
 
 class Entity;
 
+/// @brief Сенсор столкновения с другим муществом.
 class EnityCollisionSensor
 {
 public:

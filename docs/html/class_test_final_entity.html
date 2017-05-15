@@ -73,9 +73,10 @@ $(function() {
  <div class="center">
   <img src="class_test_final_entity.png" usemap="#TestFinalEntity_map" alt=""/>
   <map id="TestFinalEntity_map" name="TestFinalEntity_map">
-<area href="class_animalia.html" alt="Animalia" shape="rect" coords="0,112,94,136"/>
-<area href="class_entity.html" alt="Entity" shape="rect" coords="0,56,94,80"/>
-<area href="class_evented.html" alt="Evented" shape="rect" coords="0,0,94,24"/>
+<area href="class_animalia.html" title="Базовый класс всех живых существ. " alt="Animalia" shape="rect" coords="52,112,146,136"/>
+<area href="class_entity.html" title="Базовый класс всех существ. " alt="Entity" shape="rect" coords="52,56,146,80"/>
+<area href="class_evented.html" title="Добавляет возможность использования механизма событий для объектов какого-либо класса. " alt="Evented" shape="rect" coords="0,0,94,24"/>
+<area href="class_updatable.html" title="Базовый класс обновляемого объекта. " alt="Updatable" shape="rect" coords="104,0,198,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -96,27 +97,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>onGroundHit</b> (floa
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Закрытые данные</h2></td></tr>
-<tr class="memitem:a18083f57bab5b976479fc07b09195552"><td class="memItemLeft" align="right" valign="top"><a id="a18083f57bab5b976479fc07b09195552"></a>
-<a class="el" href="class_abyss_sensor.html">AbyssSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_abyssSensor</b></td></tr>
-<tr class="separator:a18083f57bab5b976479fc07b09195552"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d416f540874044882da6fb6b193960f"><td class="memItemLeft" align="right" valign="top"><a id="a2d416f540874044882da6fb6b193960f"></a>
-<a class="el" href="class_contact_sensor.html">ContactSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_leftContactSensor</b></td></tr>
-<tr class="separator:a2d416f540874044882da6fb6b193960f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea268df00d2d81080a703ba6673bcbe4"><td class="memItemLeft" align="right" valign="top"><a id="aea268df00d2d81080a703ba6673bcbe4"></a>
-<a class="el" href="class_contact_sensor.html">ContactSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_rightContactSensor</b></td></tr>
-<tr class="separator:aea268df00d2d81080a703ba6673bcbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7359ab696b52cd693b5d21ce0b537427"><td class="memItemLeft" align="right" valign="top"><a id="a7359ab696b52cd693b5d21ce0b537427"></a>
-<a class="el" href="class_contact_sensor.html">ContactSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_groundContactSensor</b></td></tr>
-<tr class="separator:a7359ab696b52cd693b5d21ce0b537427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80e9eef85c2722c00be371bb9e6ea479"><td class="memItemLeft" align="right" valign="top"><a id="a80e9eef85c2722c00be371bb9e6ea479"></a>
-<a class="el" href="class_hit_sensor.html">HitSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_groundHitSensor</b></td></tr>
-<tr class="separator:a80e9eef85c2722c00be371bb9e6ea479"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e55dbf4a7c06ca179fc24b0cab1eadc"><td class="memItemLeft" align="right" valign="top"><a id="a4e55dbf4a7c06ca179fc24b0cab1eadc"></a>
-<a class="el" href="class_player_sensor.html">PlayerSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_playerSensor</b></td></tr>
-<tr class="separator:a4e55dbf4a7c06ca179fc24b0cab1eadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a927ed0567272dccd313167dc3739940a"><td class="memItemLeft" align="right" valign="top"><a id="a927ed0567272dccd313167dc3739940a"></a>
-<a class="el" href="class_player_sensor.html">PlayerSensor</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_nearEnoughToAttackSensor</b></td></tr>
-<tr class="separator:a927ed0567272dccd313167dc3739940a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15fce3360a7fc4e16654fd36ed0abfce"><td class="memItemLeft" align="right" valign="top"><a id="a15fce3360a7fc4e16654fd36ed0abfce"></a>
+<a class="el" href="class_abyss_sensor.html">AbyssSensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_abyssSensor</b></td></tr>
+<tr class="separator:a15fce3360a7fc4e16654fd36ed0abfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac52c5112dcc0b9271cc43cbb53da8f6b"><td class="memItemLeft" align="right" valign="top"><a id="ac52c5112dcc0b9271cc43cbb53da8f6b"></a>
+<a class="el" href="class_contact_sensor.html">ContactSensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_leftContactSensor</b></td></tr>
+<tr class="separator:ac52c5112dcc0b9271cc43cbb53da8f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cb19f7b340209d5e984110732955f0b"><td class="memItemLeft" align="right" valign="top"><a id="a9cb19f7b340209d5e984110732955f0b"></a>
+<a class="el" href="class_contact_sensor.html">ContactSensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_rightContactSensor</b></td></tr>
+<tr class="separator:a9cb19f7b340209d5e984110732955f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc1bd8f7ab401066e6cb765c54eb0bd4"><td class="memItemLeft" align="right" valign="top"><a id="acc1bd8f7ab401066e6cb765c54eb0bd4"></a>
+<a class="el" href="class_contact_sensor.html">ContactSensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_groundContactSensor</b></td></tr>
+<tr class="separator:acc1bd8f7ab401066e6cb765c54eb0bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef8e893604249262e4718f16e8220fed"><td class="memItemLeft" align="right" valign="top"><a id="aef8e893604249262e4718f16e8220fed"></a>
+<a class="el" href="class_hit_sensor.html">HitSensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_groundHitSensor</b></td></tr>
+<tr class="separator:aef8e893604249262e4718f16e8220fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f90a0d8a5bb093869cbb03b49d19698"><td class="memItemLeft" align="right" valign="top"><a id="a1f90a0d8a5bb093869cbb03b49d19698"></a>
+<a class="el" href="class_player_sensor.html">PlayerSensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_playerSensor</b></td></tr>
+<tr class="separator:a1f90a0d8a5bb093869cbb03b49d19698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae37f635beabfc8f5f3d7b680a9ec1729"><td class="memItemLeft" align="right" valign="top"><a id="ae37f635beabfc8f5f3d7b680a9ec1729"></a>
+<a class="el" href="class_player_sensor.html">PlayerSensor</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>_nearEnoughToAttackSensor</b></td></tr>
+<tr class="separator:ae37f635beabfc8f5f3d7b680a9ec1729"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Друзья</h2></td></tr>
@@ -128,42 +129,53 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestFinalEntityBuild
 Дополнительные унаследованные члены</h2></td></tr>
 <tr class="inherit_header pub_methods_class_animalia"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_animalia')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_animalia.html">Animalia</a></td></tr>
 <tr class="memitem:af1626c40314b399b055832186519269a inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="af1626c40314b399b055832186519269a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>kill</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#af1626c40314b399b055832186519269a">kill</a> ()</td></tr>
+<tr class="memdesc:af1626c40314b399b055832186519269a inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Мгновенно убивает существо, устанавливая показатель здоровья в ноль единиц. <br /></td></tr>
 <tr class="separator:af1626c40314b399b055832186519269a inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b38ee722f2aa9e091896486884d55d2 inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="a0b38ee722f2aa9e091896486884d55d2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>makeDamage</b> (float damage)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#a0b38ee722f2aa9e091896486884d55d2">makeDamage</a> (float damage)</td></tr>
+<tr class="memdesc:a0b38ee722f2aa9e091896486884d55d2 inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Наносит урон в указанное количество единиц. <br /></td></tr>
 <tr class="separator:a0b38ee722f2aa9e091896486884d55d2 inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c0f87e8823cae141b9a01905d822158 inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="a5c0f87e8823cae141b9a01905d822158"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>heal</b> (float health)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#a5c0f87e8823cae141b9a01905d822158">heal</a> (float health)</td></tr>
+<tr class="memdesc:a5c0f87e8823cae141b9a01905d822158 inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Восстанавливает указанное количество единиц здоровья, но не больше максимально возможного. <br /></td></tr>
 <tr class="separator:a5c0f87e8823cae141b9a01905d822158 inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40462832d49cb16ed93aa8cfe05a3040 inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="a40462832d49cb16ed93aa8cfe05a3040"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isAlive</b> () const</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#a40462832d49cb16ed93aa8cfe05a3040">isAlive</a> () const</td></tr>
+<tr class="memdesc:a40462832d49cb16ed93aa8cfe05a3040 inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет, живо ли существо сейчас (показатель здоровья больше 0). <br /></td></tr>
 <tr class="separator:a40462832d49cb16ed93aa8cfe05a3040 inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e2b0a249f199be020dd879e0f4bab8e inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="a8e2b0a249f199be020dd879e0f4bab8e"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>maxHealth</b> () const</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#a8e2b0a249f199be020dd879e0f4bab8e">maxHealth</a> () const</td></tr>
+<tr class="memdesc:a8e2b0a249f199be020dd879e0f4bab8e inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Максимально возможное количество единиц здоровья. <br /></td></tr>
 <tr class="separator:a8e2b0a249f199be020dd879e0f4bab8e inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11d2345dc7560513f62469735916a1cb inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="a11d2345dc7560513f62469735916a1cb"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setMaxHealth</b> (float maxHealth)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#a11d2345dc7560513f62469735916a1cb">setMaxHealth</a> (float <a class="el" href="class_animalia.html#a8e2b0a249f199be020dd879e0f4bab8e">maxHealth</a>)</td></tr>
+<tr class="memdesc:a11d2345dc7560513f62469735916a1cb inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает максимально возможное количество единиц здоровья. <br /></td></tr>
 <tr class="separator:a11d2345dc7560513f62469735916a1cb inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8c5e9f1e4bb820394bf79597450c119 inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="aa8c5e9f1e4bb820394bf79597450c119"></a>
-float&#160;</td><td class="memItemRight" valign="bottom"><b>currentHealth</b> () const</td></tr>
+float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#aa8c5e9f1e4bb820394bf79597450c119">currentHealth</a> () const</td></tr>
+<tr class="memdesc:aa8c5e9f1e4bb820394bf79597450c119 inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Текущий уровень здоровья. <br /></td></tr>
 <tr class="separator:aa8c5e9f1e4bb820394bf79597450c119 inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af933450422573bb3097f9c2f935c6e07 inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="af933450422573bb3097f9c2f935c6e07"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setCurrentHealth</b> (float currentHealth)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#af933450422573bb3097f9c2f935c6e07">setCurrentHealth</a> (float <a class="el" href="class_animalia.html#aa8c5e9f1e4bb820394bf79597450c119">currentHealth</a>)</td></tr>
+<tr class="memdesc:af933450422573bb3097f9c2f935c6e07 inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает текущий уровень здоровья. <br /></td></tr>
 <tr class="separator:af933450422573bb3097f9c2f935c6e07 inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03e557a799e878e5532fa117b09ec526 inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="a03e557a799e878e5532fa117b09ec526"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#a03e557a799e878e5532fa117b09ec526">update</a> ()</td></tr>
+<tr class="memdesc:a03e557a799e878e5532fa117b09ec526 inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Если существо живо вызывает событие обновления. <br /></td></tr>
 <tr class="separator:a03e557a799e878e5532fa117b09ec526 inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad99e399e9508ecf0ba2a1cfb7f687b76 inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="ad99e399e9508ecf0ba2a1cfb7f687b76"></a>
-Direction&#160;</td><td class="memItemRight" valign="bottom"><b>lookingDirection</b> () const</td></tr>
+Direction&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#ad99e399e9508ecf0ba2a1cfb7f687b76">lookingDirection</a> () const</td></tr>
+<tr class="memdesc:ad99e399e9508ecf0ba2a1cfb7f687b76 inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Направление взгляда существа. <br /></td></tr>
 <tr class="separator:ad99e399e9508ecf0ba2a1cfb7f687b76 inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa8af1f1179dc87dade2bfb0e7c4abf6 inherit pub_methods_class_animalia"><td class="memItemLeft" align="right" valign="top"><a id="aaa8af1f1179dc87dade2bfb0e7c4abf6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setLookingDirection</b> (const Direction &amp;lookingDirection)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_animalia.html#aaa8af1f1179dc87dade2bfb0e7c4abf6">setLookingDirection</a> (const Direction &amp;<a class="el" href="class_animalia.html#ad99e399e9508ecf0ba2a1cfb7f687b76">lookingDirection</a>)</td></tr>
+<tr class="memdesc:aaa8af1f1179dc87dade2bfb0e7c4abf6 inherit pub_methods_class_animalia"><td class="mdescLeft">&#160;</td><td class="mdescRight">Устанавливает направление взгляда существа. <br /></td></tr>
 <tr class="separator:aaa8af1f1179dc87dade2bfb0e7c4abf6 inherit pub_methods_class_animalia"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_entity')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_entity.html">Entity</a></td></tr>
-<tr class="memitem:acdd50a36abb1d46f13e9d0089f44953e inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="acdd50a36abb1d46f13e9d0089f44953e"></a>
+<tr class="memitem:a0fac6742bccd1b2a7627a1c498f95f5e inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a0fac6742bccd1b2a7627a1c498f95f5e"></a>
 const b2Vec2 &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> () const</td></tr>
-<tr class="separator:acdd50a36abb1d46f13e9d0089f44953e inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a0fac6742bccd1b2a7627a1c498f95f5e inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93306ecdce9446da37560f5f2b5307c0 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a93306ecdce9446da37560f5f2b5307c0"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setPosition</b> (float x, float y)</td></tr>
 <tr class="separator:a93306ecdce9446da37560f5f2b5307c0 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -173,16 +185,25 @@ b2Body *&#160;</td><td class="memItemRight" valign="bottom"><b>body</b> () const
 <tr class="memitem:aeb908b6404d421091e31b99d532b1fdb inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="aeb908b6404d421091e31b99d532b1fdb"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setBody</b> (b2Body *body)</td></tr>
 <tr class="separator:aeb908b6404d421091e31b99d532b1fdb inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5331dfd530acab729da214ff8a124f1 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="af5331dfd530acab729da214ff8a124f1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>markAsDeleted</b> ()</td></tr>
+<tr class="separator:af5331dfd530acab729da214ff8a124f1 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d2516ddf56703c9b5e98baf230d6a15 inherit pub_methods_class_entity"><td class="memItemLeft" align="right" valign="top"><a id="a8d2516ddf56703c9b5e98baf230d6a15"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMarkedAsDeleted</b> () const</td></tr>
+<tr class="separator:a8d2516ddf56703c9b5e98baf230d6a15 inherit pub_methods_class_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_evented"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_evented')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="class_evented.html">Evented</a></td></tr>
-<tr class="memitem:a9252218e68b00a45c820f0014b708e09 inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="a9252218e68b00a45c820f0014b708e09"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setEventCallback</b> (const Event &amp;event, EventCallback callback)</td></tr>
-<tr class="separator:a9252218e68b00a45c820f0014b708e09 inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1b4fb56ef936b255f7ac87dfab7219 inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="aac1b4fb56ef936b255f7ac87dfab7219"></a>
-const EventCallback &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>eventCallback</b> (const Event &amp;event) const</td></tr>
-<tr class="separator:aac1b4fb56ef936b255f7ac87dfab7219 inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb92a79828a96707f22de32360de7c6 inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="a3bb92a79828a96707f22de32360de7c6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>callEventCallback</b> (const Event &amp;event)</td></tr>
-<tr class="separator:a3bb92a79828a96707f22de32360de7c6 inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c8ad442f12b216b26251ec5d3d560d inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="a83c8ad442f12b216b26251ec5d3d560d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a83c8ad442f12b216b26251ec5d3d560d">addEventCallback</a> (const Event &amp;event, EventCallback callback)</td></tr>
+<tr class="memdesc:a83c8ad442f12b216b26251ec5d3d560d inherit pub_methods_class_evented"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавляет функцию обработки события. <br /></td></tr>
+<tr class="separator:a83c8ad442f12b216b26251ec5d3d560d inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6048ecc6dac0bfbd2315dd8d4d42b5 inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="a8a6048ecc6dac0bfbd2315dd8d4d42b5"></a>
+std::list&lt; EventCallback &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a8a6048ecc6dac0bfbd2315dd8d4d42b5">eventCallbacks</a> (const Event &amp;event)</td></tr>
+<tr class="memdesc:a8a6048ecc6dac0bfbd2315dd8d4d42b5 inherit pub_methods_class_evented"><td class="mdescLeft">&#160;</td><td class="mdescRight">Список всех коллбэков для события. <br /></td></tr>
+<tr class="separator:a8a6048ecc6dac0bfbd2315dd8d4d42b5 inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20f683f01307c5474c56b3944cfa13de inherit pub_methods_class_evented"><td class="memItemLeft" align="right" valign="top"><a id="a20f683f01307c5474c56b3944cfa13de"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_evented.html#a20f683f01307c5474c56b3944cfa13de">callEventCallbacks</a> (const Event &amp;event)</td></tr>
+<tr class="memdesc:a20f683f01307c5474c56b3944cfa13de inherit pub_methods_class_evented"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вызвать событие. <br /></td></tr>
+<tr class="separator:a20f683f01307c5474c56b3944cfa13de inherit pub_methods_class_evented"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>Объявления и описания членов классов находятся в файлах:<ul>
 <li>Arena/Entity/<a class="el" href="_test_final_entity_8h_source.html">TestFinalEntity.h</a></li>

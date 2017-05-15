@@ -10,6 +10,7 @@
     if (isMarkedAsDeleted()) \
         return;
 
+/// @brief Базовый класс всех существ.
 class Entity : public Evented, public Updatable
 {
 public:

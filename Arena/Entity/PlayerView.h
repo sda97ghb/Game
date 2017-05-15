@@ -6,6 +6,7 @@
 #include "Arena/Entity/EntityView.h"
 #include "Arena/Entity/Player.h"
 
+/// @brief Базовый класс-отображение для игроков.
 class PlayerView : public EntityView
 {
 public:

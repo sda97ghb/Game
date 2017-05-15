@@ -11,6 +11,7 @@
 #include "Arena/Sensors/HitSensor.h"
 #include "Arena/Sensors/TimerSensor.h"
 
+/// @brief Класс игрока.
 class Player : public Animalia, public ComplexStateMachine
 {
     friend class PlayerBuilderSpawner;

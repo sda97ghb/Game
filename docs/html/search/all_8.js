@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['iddispenser',['IdDispenser',['../class_id_dispenser.html',1,'']]],
-  ['instance',['instance',['../class_log.html#aaa59866ce9e78db15ce7aaeb00fc1063',1,'Log::instance()'],['../class_sensor_listener.html#ae619b26698d8813a9a5f19df948755b6',1,'SensorListener::instance()'],['../class_world.html#a095c8c46fe15e9a027b7731550c68b5c',1,'World::instance()']]],
-  ['isactive',['isActive',['../class_contact_sensor.html#ae385c9120862b278f0a94a7c4a1b5ba8',1,'ContactSensor::isActive()'],['../class_player_sensor.html#ae73b4f1c62fcc2300850e9758f34f826',1,'PlayerSensor::isActive()']]],
-  ['isnearby',['isNearby',['../class_player_sensor.html#af04974898ebf0e5701e4d35d6b02754a',1,'PlayerSensor']]]
+  ['heal',['heal',['../class_animalia.html#a5c0f87e8823cae141b9a01905d822158',1,'Animalia']]],
+  ['height',['height',['../class_archer_builder_spawner.html#a6eee2297ddf4a048b49912c5a07f98ec',1,'ArcherBuilderSpawner::height()'],['../class_ladder.html#a09f280a3690f7ad6322e9c6d968a7b35',1,'Ladder::height()']]],
+  ['hide',['hide',['../class_menu.html#a8061d90f02167fb3610b6b277ef3f88b',1,'Menu']]],
+  ['hit',['hit',['../class_hit_sensor.html#aa925f1b3aa327de9645704470198b8a8',1,'HitSensor']]],
+  ['hitsensor',['HitSensor',['../class_hit_sensor.html',1,'HitSensor'],['../class_sensor_listener.html#ad80c95d5135c6e3b53442eecb48e6d1d',1,'SensorListener::hitSensor()']]],
+  ['hitsensor_2eh',['HitSensor.h',['../_hit_sensor_8h.html',1,'']]],
+  ['hitsensorbuilder',['HitSensorBuilder',['../class_hit_sensor_builder.html',1,'']]]
 ];
