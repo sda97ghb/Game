@@ -10,6 +10,7 @@
 
 #include "Arena/Furniture/Furniture.h"
 
+/// @brief Класс земли, осыпающейся при прохождении по ней.
 class FallingGround : public Furniture
 {
 public:

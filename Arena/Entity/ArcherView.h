@@ -6,7 +6,7 @@
 #include "Arena/Entity/Archer.h"
 #include "Arena/Entity/EntityView.h"
 
-/// Класс-отображение лучника.
+/// @brief Класс-отображение лучника.
 class ArcherView : public EntityView
 {
 public:

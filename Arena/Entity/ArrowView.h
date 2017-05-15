@@ -7,6 +7,7 @@
 #include "Arena/Entity/Arrow.h"
 #include "Arena/Entity/EntityView.h"
 
+/// @brief Класс-отображение стрелы.
 class ArrowView : public EntityView
 {
 public:

@@ -5,6 +5,7 @@
 
 #include "SFML/Audio.hpp"
 
+/// @brief Класс звуков.
 class Audio
 {
 public:

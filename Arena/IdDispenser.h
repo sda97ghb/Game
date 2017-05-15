@@ -3,6 +3,7 @@
 
 #include <cstdint>
 
+/// @brief Выдает новый уникальный id.
 class IdDispenser
 {
 public:

@@ -11,6 +11,7 @@
 #include "Arena/Furniture/Furniture.h"
 #include "Arena/Sensors/ContactSensor.h"
 
+/// @brief Класс шипов.
 class Spikes : public Furniture
 {
 public:

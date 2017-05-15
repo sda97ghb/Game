@@ -3,6 +3,7 @@
 
 #include "Arena/Entity/Player.h"
 
+/// @brief Класс-постоитель для игрока.
 class PlayerBuilderSpawner
 {
 public:
